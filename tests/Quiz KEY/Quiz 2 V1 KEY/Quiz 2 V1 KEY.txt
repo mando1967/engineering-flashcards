@@ -1,0 +1,248 @@
+﻿Problem 17
+-
+
+10052
+
+(a)
+-munwumwwmhinmt
+
+( ooh 1005L 1001
+10052
+
+attempt
+meet )
+
+answer ④
+#
+
+ye em
+
+(lol -11-11-Htt
+1µF Jef
+
+(c) -Hi- It
+3V 3. V 3V
+
+Problem 18 la) i
+-
+
+ii. l÷:÷÷÷÷÷:÷:
+
+
+
+(b)
+Exact solution : is = - ie - iz ⇒ a
+
+(c)
+
+{ Ee
+- Ez - iz Rz t ie Re = o (t )
+
+iz Rz t Ez t ( ie tiz ) Rz = o (2)
+
+Ee - Ez - iz Rz = - ie Re ⇒
+
+Iz Rz t Ez - E ,
+I = C )
+-µ , plug into z
+
+,
+
+iz Rz t Ez tIzRz t %R2+%-E'_ R = o
+,
+
+Ry
+
+iz ( Rz t Rz t R2pRq ) t Ez t %j R = o
+,
+
+iz ( Rz R t R3R t R Rz ) t Ez R Ez 3 - R
+, , z t R
+
+, G
+,
+
+°
+
+Diana
+
+
+
+Plugging values : iz - 0.012 A=
+
+ie = - 0.010 A
+
+iz = 0.022A
+
+Fastway : Rz is essentially a short
+so we can
+
+,
+
+re - draw the circuit as
+-
+
+I i " i. -
+=
+
+= - Ept !÷e= - 0,010A
+e - ,
+
+.
+
+Lim m
+- i. -
+
+-
+
+= Er a
+, i÷= - oon
+
+Ri
+
+and iz - I - iz = 0.022A
+= ,
+
+Other values : iz -
+= 0,6A in = - 4.156A
+
+, ,
+
+"
+3 =
+
+0.6A
+
+Fastway : Rs is so big - it is a break so : i = o
+, ,
+
+1-7 Liz is = - iz = %÷p, '
+T Z Rs KV
+{ R2 I = = 0.6A
+
+for
+-
+
+
+
+Problem 19
+-
+
+c
+internal
+
+r - resistance
+
+o=1k-a1/y2
+r
+
+(b) Before C is charged the current in the circuit
+,
+
+is f- = If = 1A ⇒ r= 352 (bad battery !)
+
+(c) C = Eodtt where A - surface area of
+lids d - separation :
+
+,
+
+8. s5.io'RE . a⇐oz⇒2
+( "
+=
+- 15
+
+= 48.1 F =
+.
+
+0,013 m
+
+= 48.1 PF
+'
+
+(d) CUI "
+= = " a .io'T
+
+
+
+Experiment
+
+(e) Since the battery is disconnected Q - stays
+the same ! It 3V -
+
+-
+
+was 48.1 "
+
+PF = 1.44.10 C so
+,
+
+it stays the same .
+
+eaxp.ie?+atomnsw
+
+(f) C and V.changed ! -
+
+C = SID as d increases by x2 ⇒,
+
+C. new = tz Codd .
+
+'
+
+✓= Ed = Zod ⇒ d increases leg xz ,
+✓
+new = 2 Vold
+
+PE = If ⇒ PEW = CmzIw =
+
+= { Cold
+- 4 Vote
+
+=
+
+2
+
+2 . Cedd= 2 PEold
+
+
+
+" "
+
+So PEnew = 2 . 2.17 . 15 T = 4.34 . 15 T
+.
+
+(g) The work
+goes into doubling the
+
+energy so
+
+PEold t work = PE =
+new 2PEold ⇒
+
+"
+Work = Peed = 2.1715 T
+
+problem
+(a) The graph is difficult to read but
+
+it takes about 0.6 s for the
+
+voltage the
+on capacitor to increase
+
+to n 66% of the final value (w ) ,
+
+so Trc = 0.6 s ( 0.5 - l s is ok)
+
+( b ) Trc = RC = o.GS
+
+0.6 s
+C. = = 3mF
+Toor
+
+
+
+(c) The capacitor is discharging so
+,
+
+i = If ¥e- '
+= Lotz e- 8¥ s = 2.17mA

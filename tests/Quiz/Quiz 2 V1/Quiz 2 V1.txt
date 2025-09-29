@@ -1,0 +1,506 @@
+﻿3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+ This quiz has been regraded; your new score reflects 2 questions that were affected.
+
+Quiz 2
+Due  Mar 5, 2021 at 6:30pm  Points  100  Questions  20
+Available  Mar 5, 2021 at 4:30pm - May 16, 2021 at 11:59pm 2 months
+Time Limit  None
+
+Instructions
+You have exactly two hours to do this quiz. It is an open-book quiz, and you can use EP2 material given
+to you this semester (problem-solving solutions, lecture notes, etc). but you are not allowed to use the
+internet to solve the problems. You can use calculators for math and matrix calculations. If you need
+help with solving integrals in this quiz - you are allowed to use free integral solving sites, such as
+https://www.integral-calculator.com/  (https://www.integral-calculator.com/) . Needless to say, you
+also are not allowed to collaborate with anyone or seek help from anyone in solving these problems.
+
+If you have technical problems: immediately contact the KSU help desk and let me know. You can reach
+me on zoom (https://ksu.zoom.us/j/95088882288  (https://ksu.zoom.us/j/95088882288) ), discord, and
+email: maravin@gmail.com (mailto:maravin@gmail.com)
+
+ 
+
+Good luck!
+
+This quiz was locked May 16, 2021 at 11:59pm.
+
+Attempt History
+Attempt Time Score Regraded
+
+LATEST Attempt 1 111 minutes 36 out of 100 82.5 out of 100
+
+Score for this quiz: 82.5 out of 100
+Submitted Mar 5, 2021 at 6:21pm
+This attempt took 111 minutes.
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 1/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Question 1 3 / 3 pts
+
+When one says that a capacitor C has a charge Q that means that the
+actual charges on its plates are
+
+  Q, Q
+
+  Q/2, -Q/2
+
+Correct!   Q, -Q
+
+  Q/2, -Q/2
+
+  Q, 0
+
+Question 2 Original Score: 3 / 3 pts Regraded Score: 3 / 3 pts
+
+ This question has been regraded.
+
+If you increase the distance between the plates of the parallel plate
+capacitor connected to a battery, you will
+
+  increase the capacitance 
+
+ou Answered   increase the potential difference 
+
+orrect Answer   not affect the potential difference 
+
+  decrease the potential difference 
+
+  make Prof. Maravin cry 
+https://k-state.instructure.com/courses/103181/quizzes/295669 2/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Question 3 Original Score: 0 / 3 pts Regraded Score: 3 / 3 pts
+
+ This question has been regraded.
+
+The voltmeter in the circuit given below reads 100 V. And all the
+capacitors are exactly the same and have 500 𝛍F capacitance. The
+magnitude of the charge on each capacitor is 
+
+  
+
+  0.2 C 
+
+  0.5 C 
+
+  20 C 
+
+  50 C 
+
+Correct!   none of these 
+
+Question 4 3 / 3 pts
+
+You connect two capacitors, C1 and C2, in parallel and apply a 100 V
+potential difference to the combination. If you replace a combination with
+an equivalent capacitor and apply the same 100 V potential difference,
+the charge on the equivalent capacitor will be the same as
+
+  the charge on C1
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 3/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Correct!   the sum of the charges on C1 and C2
+
+  the difference of the charges on C1 and C2
+
+  the product of the charges on C1 and C2
+
+  none of the above
+
+Question 5 3 / 3 pts
+
+When it is time to replace your car battery with the new one, you need to
+ensure that the ratings of the old and new car battery match. Usually the
+units of this rating is . This unit is a unit of
+
+  power 
+
+  energy 
+
+  current 
+
+Correct!   charge 
+
+  force 
+
+Question 6 0 / 3 pts
+
+If you make an integral of a current density    and a vector element of
+area  over some surface area, then this integral 
+represents
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 4/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+  the electric flux through the area 
+
+ou Answered   the average current density at the position of the area 
+
+  the resistance of the area 
+
+  the resistivity of the area 
+
+orrect Answer   the current through the area 
+
+Question 7 3 / 3 pts
+
+A rod made of some conductive material has resistance R. The rod was
+stretched to twice its original length keeping the volume the same. The
+new resistance of a longer rod is
+
+  R/2
+
+  R
+
+  2R
+
+Correct!   4R
+
+  8R
+
+  None of the above 
+
+Question 8 3 / 3 pts
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 5/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Which of the following five graphs relate the current and potential
+difference on some circuit element that obeys Ohm's law? 
+
+  
+
+  I 
+
+Correct!   II 
+
+  III 
+
+  IV 
+
+  V 
+
+Question 9 3 / 3 pts
+
+The loop rule that states that the sum of all the potential differences and
+EMFs around a closed loop equal zero is a consequence of
+
+  Newton's third law. 
+
+  Ohm's law 
+
+  Smirnoff's rule 
+
+  Maravin's law 
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 6/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+  conservation of charge 
+
+Correct!   conservation of energy 
+
+Question 10 0 / 3 pts
+
+Someone showed you a part of an electric circuit shown below with the
+current values and direction in all but one of the branches. What's the
+magnitude and the direction of the missing current i?
+
+    
+
+orrect Answer   8 A, down 
+
+  8 A, up 
+
+ou Answered   6 A, down 
+
+  6 A, up 
+
+  4 A, up 
+
+  impossible to tell 
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 7/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Question 11 3 / 3 pts
+
+Before taking your Ferrari Testarossa for a spin one nice sunny afternoon,
+you opened the hood of the car and noticed that both of the headlights
+are connected in parallel to a 12-V battery. The total power that this
+battery supply to headlights is 48 Watts.  You realized that the resistance
+of each headlight bulb is:
+
+  8 Ohms 
+
+Correct!   6 Ohms 
+
+  4 Ohms 
+
+  2 Ohms 
+
+  1 Ohms 
+
+  None of the above 
+
+Question 12 3 / 3 pts
+
+If you are to substitute a combination of the resistors given below with a
+single resistor you would pick up the following resistance
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 8/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+ 
+
+  2.5 Ohms 
+
+  4 Ohms 
+
+Correct!   5.5 Ohms 
+
+  6 Ohms 
+
+  6.5 Ohms 
+
+  none of the above 
+
+Question 13 0 / 3 pts
+
+In the circuits below all the batteries and the light bulbs are identical. In
+which of those circuits the bulbs will be dimmest?
+
+  
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 9/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+  I 
+
+ou Answered   II 
+
+  III 
+
+orrect Answer   IV 
+
+  V 
+
+Question 14 3 / 3 pts
+
+You have a 120 Ohm resistor connected in series with a capacitor to a
+battery. After 10 ms of charging the capacitor, its charge is about half of its
+final value. From this, you deduce that the capacitance is about
+
+  83.3 𝛍F
+
+Correct!   120 𝛍F 
+
+  1.2 F 
+
+  None of the above 
+
+Question 15 3 / 3 pts
+
+Your evil EP2 Prof. Maravin wrote on a blackboard the following
+expression:  that describes some specific process. What
+is that process?
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 10/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+Correct!   a charging capacitor 
+
+  a discharging capacitor 
+
+  a capacitor that has been disconnected 
+
+  a charging resistor 
+
+  an oscillating circuit 
+
+Question 16 3 / 3 pts
+
+In the circuit depicted below, when the switch is closed, the ammeter
+reads 0.1 A. 
+
+  
+
+What will happen to the ammeter if you open the switch?
+
+  it will increase slightly 
+
+  it will remain the same 
+
+Correct!   it will decrease slightly 
+
+  it will doubles 
+
+Question 17 12 / 12 pts
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 11/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+One morning you find yourself marooned on an uninhabited island with a
+box of 3V batteries, about fifty of the 100 Ω resistors, and a box of twenty
+1 𝛍F capacitors. To construct a signaling device you need to make the
+following items from some of the parts available to you. Draw a clear
+diagram of the following:
+
+(a) (4 points) a 350 Ω resistor
+
+(b) (4 points) a 0.25 𝛍F capacitor
+
+(c) (4 points) a 12 V battery
+
+  exam 2 17,18.pdf (https://k-
+state.instructure.com/files/16951585/download)
+
+Question 18 12 / 14 pts
+
+  
+
+In the circuit above you have two batteries and three resistors labeled as 
+,  and R1, R2, and R3, respectively. To help the graders out, use the
+
+directions of the currents shown in the figure.
+
+(a) (6 points) Deduce three independent equations for three unknown
+currents. Use the symbolic notation for resistances and voltages
+
+(b) (4 points) Take = 10 V,  = 12 V, R1 = R2 = 1000 Ω, and R3 = 0.1
+Ω. Solve for currents. You can do it by solving the system of equations
+from (a), or if you see a simpler path to a very good estimate of the exact
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 12/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+answer, use it, explaining whatever approximation you make in one or two
+sentences (Hint: Wow, R3 is a very small resistance!)
+
+(c) (4 points)  Do the same thing for the case of the same batteries but
+different resistors: R1 = 1 MΩ and R2= R3 = 10 Ω. (Hint: R3 is huge!)
+
+  exam 2 17,18.pdf (https://k-
+state.instructure.com/files/16951593/download)
+
+a) 4 b) 4 c) 4
+
+Question 19 11.5 / 14 pts
+
+Being isolated in the middle of the pandemic with nothing to do, you
+decide to do your own EP2 experiments to impress your lab instructor.
+You start by using a 9V battery, some nice copper wires of negligible
+resistance, and two 12 inch flat copper pan lids you "borrowed" from your
+roommate to serve as plates for your makeshift parallel plate capacitor.
+You also have a nice multimeter that you intend to use as an ammeter for
+your experiments.
+
+Experiment 1: you set the lids to be separated by about 0.5 inch from
+each other and connect to the battery with an ammeter to measure the
+current.  
+
+(a) (2 points) Draw the circuit of the "capacitor", battery, and ammeter.
+
+(b) (2 points) As soon as you complete the circuit, the current is maximal
+and you measured it to be 1 A. What's the internal resistance of the
+battery?
+
+(c) (2 points) What's the capacitance of your capacitor?
+
+(d) (2 points) How much energy is stored in this capacitor?
+
+Experiment 2:
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 13/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+After the capacitor is fully charged, you disconnect the battery. Now you
+increase the separation of the capacitor's plates to about 1 inch. 
+
+(e) (2 points) What's the new charge on the capacitor?
+
+(f) (2 points) How much energy is stored in this capacitor?
+
+(g) (2 points) And how much work did you do to separate the plates?
+
+  exam 2 19.pdf (https://k-
+state.instructure.com/files/16951601/download)
+
+a/ -0.5 missing the internal resistance of the battery e/-1 since the
+battery is disconnected, Q stays the same f/-1 missing Vnew (=2
+Vold)
+
+Question 20 8 / 12 pts
+
+Here is a circuit from your last studio. An electronic switch SW switches
+the connection every 3 seconds.
+
+ 
+
+This results in the following voltage reading across the capacitor (green)
+and capacitor and resistor (blue):
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 14/15
+
+
+
+3/2/22, 1:10 AM Quiz 2: Engineering Phys 2 (S21)
+
+(a) (4 points) use the graph to estimate the 𝛕RC constant for this circuit  
+
+(b) (2 points) if the resistor is 200 Ω, what is the capacitance?
+
+(c) (6 points) What is the current through the resistor at 0.5 seconds after
+the switch is in A position? (0.5 seconds since the capacitor started
+charging)? (Hint: 1/3 or 2/3 rule does not apply here. Remember that i =
+dQ/dt)
+
+  exam 2 20.pdf (https://k-
+state.instructure.com/files/16951605/download)
+
+Quiz Score: 82.5 out of 100
+
+https://k-state.instructure.com/courses/103181/quizzes/295669 15/15

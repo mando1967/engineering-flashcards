@@ -1,0 +1,269 @@
+﻿Physics 214/224, Practice Quiz 2
+
+Primary instructor: Yurii Maravin
+
+WID: Name:
+
+Instructions. Print and sign your name on this quiz and on your scantron card. In doing so, you
+are acknowledging the KSU Honor Code: “On my honor as a student I have neither given nor received
+unauthorized aid on this academic work.”
+
+For two quick points, circle your studio instructor:
+
+Lohman (TU 7:30) Washburn (TU 9:30) Maravin (TU 9:30)
+
+Maravin (TU 11:30) Lohman (TU 1:30) Washburn (TU 3:30)
+
+Lohman (WF 7:30) Rodnova (WF 9:30) Rodnova (WF 11:30)
+
+Work alone and answer all questions. Part I questions must be answered on the Scantron cards. Put
+your name on your card. Color in the correct box completely for every answer with a pencil. If you
+make a mistake, erase thoroughly. Don’t forget to color in the boxes for your WID. If we
+have to correct this by hand we may take off five points from your score! Part II must be
+answered in the space provided on the test. The last page is a detachable equation sheet. You may
+use a calculator. You may ask the proctors questions of clarification. Show your work in a clear and
+organized manner. You may receive partial credit for partial solutions. Solutions lacking supporting
+calculations will receive no points.
+
+1
+
+
+
+Part I: All questions to be answered on your Scantron card (42 points total)
+
+1. (3 points) Equipotential surfaces are the surfaces
+
+(a) with the same potential
+
+(b) the same electric field strength
+
+(c) the same charges
+
+2. (3 points) The potential difference between two points is 100 V. If a particle with a charge 2 C
+is transported from one of these points to the other, the magnitude of the work done is:
+
+(a) 2 J
+
+(b) 50 J
+
+(c) 100 V
+
+(d) 200 J
+
+(e) 100 J
+
+3. (3 points) A parallel-plate capacitor C has a charge Q. The actual charges on its plates are
+
+(a) Q, Q
+
+(b) Q/2, Q/2
+
+(c) Q, −Q
+(d) Q, 0
+
+(e) Q/2, Q/2
+
+4. (3 points) A car battery is rated at 80 A · h. An ampere-hour is a unit of:
+
+(a) power
+
+(b) charge
+
+(c) current
+
+(d) force
+
+(e) energy
+
+5. (3 points) In schematic diagrams, currents are indicated using arrows. What do the arrows
+indicate?
+
+(a) the direction of motion of the electrons
+
+(b) the direction that positive charge carriers would move
+
+(c) the direction of motion of the charge carriers
+
+(d) nothing, they are just a convenient drawing tool
+
+
+
+6. (3 points) A wire with a length of 150 m and a radius of 0.15 mm carries a current with a uniform
+current density of 2.8× 107 A/m2. The current is:
+
+(a) 300 A
+
+(b) 5.9 A
+
+(c) 0.63 A
+
+(d) 26000 A
+
+(e) 2.0 A
+
+7. (3 points) Lightbulb A, a 60W model, and lightbulb B, a 40W model, are connected in parallel
+across a 120V power supply. Which statement below is false
+
+(a) The voltage difference across lightbulb B is 120V
+
+(b) More current flows through the battery than through lightbulb B
+
+(c) Lightbulb B has a higher resistance than lightbulb A
+
+(d) Less current flows through lightbulb A than lightbulb B
+
+8. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are the
+following.
+
+Rank the wires according to their resistances, least to greatest.
+
+(a) 1, 2, 3, 4, 5
+
+(b) 1 and 2 tie, then 5, 3, 4
+
+(c) 5, 4, 3, 2, 1
+
+(d) 1, 3, 4, 2, 5
+
+(e) 1, 2, 3, 4, 5
+
+9. (3 points) The internal resistance in a real battery causes what to happen when the battery is
+connected to a resistive “load”? (Pick the best answer)
+
+(a) The voltage across the battery terminals decreases when the battery is connected to low
+resistance loads.
+
+(b) The battery warms when connected to low resistance loads.
+
+(c) The current supplied by the battery falls to less than the nominal battery voltage divided
+by the load resistance
+
+(d) All of the above
+
+
+
+10. (3 points) A capacitor is being discharged through a resistance 10 Ω. In about 10 seconds,
+the voltage on the capacitor changed from 10 V to about 3.3 V. What is the capacitance of the
+capacitor?
+
+(a) 1 pF
+
+(b) 1 nF
+
+(c) 1 µF
+
+(d) 1 mF
+
+(e) 1 F
+
+The next four questions refer to the following figure below. The solid lines in the figure above
+represent high conductivity copper wire. The left capacitor has CL = 0.1 µF, the right capacitor
+has CR = 0.22 µF, and the battery establishes a voltage difference V = 9 V between its terminals.
+
+11. (3 points) Which statement below is most correct?
+
+(a) The two capacitors store the same charge
+
+(b) The two capacitors have the same ratio of charge to voltage across their leads
+
+(c) The two capacitors have the same voltage between their leads
+
+(d) The two capacitors store the same energy
+
+12. (3 points) What is the total energy stored in the two capacitors?
+
+(a) 9.0 V
+
+(b) 13.0 µJ
+
+(c) 4.05 µJ
+
+(d) 8.91 µJ
+
+13. (3 points) How much charge do the two capacitors together store?
+
+(a) 0.90 µC
+
+(b) 1.98 µC
+
+(c) 2.88 µC
+
+
+
+(d) 1.44 µC
+
+14. (3 points) What is the absolute voltage difference between the two leads of the 0.1 µF capacitor
+CL?
+
+(a) 0.0 V
+
+(b) 2.8 V
+
+(c) 6.2 V
+
+(d) 9.0 V
+
+
+
+Part II: Work out this part in the space provided. Show your work!
+(56 points total)
+
+15. (12 points) You have the following at your disposal: a box of twelve 9V batteries, a box of forty
+1000 Ω resistors, and a box of forty 1 µF capacitors. Draw clear diagrams to indicate how you
+would connect parts together to make the following (you need not use all the available parts):
+
+(a) (4 points) A 3500 Ω resistor
+
+(b) (4 points) A 0.15 µF capacitor
+
+(c) (4 points) A 36 V battery
+
+
+
+16. (16 points) Consider a charged conducting sphere of radius R that has an electric field on the
+surface E0.
+
+(a) (4 points) Determine the electric charge of the sphere.
+
+(b) (4 points) Assuming the electric potential is zero at infinity, what is the electric potential on
+the surface of the sphere?
+
+(c) (4 points) What is the capacitance of this sphere?
+
+(d) (4 points) How much of energy is stored in this sphere? (Hint: A single sphere can be
+approximated as a capacitor, with capacitance derived above.)
+
+
+
+17. (16 points) Call I1, I2, and I3 the current flowing through the resistors labeled R1, R2, and R3,
+respectively. To help the graders out, use the directions of the currents shown in the figure.
+
+(a) (8 points) Deduce three independent equations for three unknown currents. Use the symbolic
+values for resistances and voltages.
+
+(b) (4 points) Take E1 = 10 V, E2 = 20 V, R1 = R2 = 1000 Ω, R3 = 106 Ω. Solve for the
+currents. You can solve your equations from part (a) for this, but if you can see a simpler
+path to a very good estimate of the exact answer, use it, explaining whatever approximation
+you make in one sentence. (Hint: Wow, R3 is a very big resistance!)
+
+(c) (4 points) Do the same thing for the case R1 = R3 = 1000 Ω and R2 = 1 Ω, with the voltages
+on batteries being the same as above. (Hint: R2 is very small! What can you tell about the
+voltage difference across R3?)
+
+
+
+18. (12 points) The figure above shows the circuit of a flashing lamp, like those attached to barrels
+at highway construction sites. The fluorescent lamp L (of negligible capacitance) is connected in
+parallel across the capacitor C of the RC circuit. There is a current through the lamp only when
+the potential difference across it reaches the breakdown voltage VL; then the capacitor discharges
+completely through the lamp and the lamp flashes briefly.
+
+(a) (4 points) For a lamp with breakdown voltage VL = 62 V wired to a 100 V ideal battery, and
+a 0.25 µF capacitor what resistance R is needed for the flashes to happen twice per second?
+(Hint: A capacitor charges to 62% of its final voltage in time τRC)
+
+(b) (4 points) How much of energy will be delivered to the fluorescent lamp in each flash (assume
+all the energy of the capacitor will go to the lamp).
+
+(c) (4 points) Estimate how long does it take for the capacitor to almost fully discharge through
+the lamp, if the lamp resistance is about 100 Ω?

@@ -1,0 +1,376 @@
+﻿/ 
+Fo_r gra,din g p"u3rp oees 
+
+Physics 214/224, Quiz 2 
+Problom2 
+
+Primary instructor: Yurii Maravin 
+Problom4 5 
+
+02/25/2022 
+81udlo (]_ 
+
+11 
+
+Instructions. Print and sign your name on this quiz and on y' our scantron card. In doing so, you 
+are acknowledging the KSU Honor Code: "On my honor as a student I have neither given nor received 
+unauthorized aid on this academic work." 
+
+For two quick points, circle your studio instructor: 
+Lohman (TU 7:30) Lohman (TU 9:30) Maravin (TU 11:30) 
+
+Kumarappan (TU 1:30) Blaga (f'VV 9;W) C P!§avin (F~ _1 ~ 
+Work alone and answer all questions. Part I questi,,;.is mm,t be answered on the Scantron cards. Put 
+your name on your card. Color in the correct box completely for every answer with a pencil. If you 
+make a mistake, erase thoroughly. Don't forget to color in the boxes for your WID. If we 
+have to correct this by hand we may take off five points from your score! Part II must be 
+answered in the space provided on the test. The last page is a detachable equation sheet. You may 
+use a calculator. You may ask the proctors questions of clarification. Show your work in a clear and 
+organized manner. You may receive partial credit for partial solutions. Solutions lacking supporting 
+calculations will receive no points. 
+
+· , l Almost half way 
+into EP2 
+
+Still not sure 
+if V/i is futile 
+
+1 
+
+
+
+Part I: All questions to be answered on your Scantron card (34 points total) 
+
+1. (2 points) Electric field 
+
+(a) is always perpendicular to equipotential surfaces 
+(b) is always parallel to equipotential surfaces 
+(c) does not have a specific orientation with respect to equipotential surfaces 
+(d) is something I learned in January, but not really sure what it is and how it relates to anything 
+
+2. (2 points) An electron volt is 
+
+(a) the force acting on an electron in a field of 1 N / C 
+(b) the force required to move an electron 1 meter 
+(c ) the energy gained by an electron in moving through a potential difference of 1 volt 
+(d) the energy needed to move an electron through 1 meter in any electric field 
+(e) the work done when 1 coulomb of charge is moved ·,;hrough a potential difference of 1 volt 
+
+3. (2 points) The fact that we can define electric po tent;_.~ '. ,,rn,,:1q means that 
+(a) the electric force is nonconservative 
+(b) the electric force is conservative 
+(c) the work done on a charged particle depen.df; -:,n the. path it takes 
+(d) there is a point where the electric potent ial energy is exactly zero 
+(e) Dr. Maravin makes very hard quizzes 
+
+4. (2 points) A tiny sphere carrying a charge of 6.5 µC sits in an electric field, at a point where the 
+electric potential is 240 V. What's the sphere's potential energy? 
+(a) 2.7 X 10-B J p t:--; lt :qv 
+(b) 6.5 X 10-6 J 
+(c) 1.6 X 10-3 J 
+
+l,( =-(!,. >·t(J-~)(df./0 '11-) 
+(d) 240 J 
+(e) 3.7 X 107 J 
+
+5. (2 points) The work, required to carry a particle with a charge of 6.0 µC from a 5.0 V equipotential 
+surface to a 6.0 V equipotential surface and back again to the 5.0 V surface is: 
+
+(a) OJ 
+(b) 1.2 X 10-5 J 
+(c) 3.0 X 10-5 J 
+(d) 6.0 X 10-5 J 
+(e) 6.0 X 10-6 J 
+
+
+
+6. (2 points) Which quantity or quantities take on the same value on all points of a good conductor? 
+
+(a) surface charge density 
+(b) normal component of electric field 
+(c) voltage 
+(d) surface charge density and normal component of electric field 
+(e) normal component of electric field and voltage 
+
+7. (2 points) Each plate of a capacitor stores a charge of magnitude 1 mC when a 100 V potential 
+difference is applied. The capacitance is 
+
+(a) 5 µF 
+(b) 10 µF 
+(c) 50 µF 
+(d) 100 µF 
+(e ) none of these 
+
+8. (2 points) If the charge on a parallel-plate capa,.'.i< ·,· .:b doubled 
+
+(a) the capacitance is halved )., <-/ 
+(b) the capacitance is doubled C _.. , , l :: 
+
+10 to 
+( c) the electric field is halved 
+(d) the electric field is doubled 
+(e) the surface charge density is not changed on either plate 
+
+9. (2 points) Dielectric filling in the capacitor 
+
+(a) reduces the electric field in the capacitor 
+(b) increased the electric field in the capacitor 
+(c) inserted to protect the capacitor from the discharge 
+( d) neither of the above 
+
+10. (2 points) A fuse is a piece of conductor designed to run up and break when the current through 
+it exceeds some rated value. To protect a circuit, it should be wired 
+
+(a) in series with the rest of the circuit 
+(b) in parallel with the rest of the circuit 
+(c) either in series or in parallel, as the fuse will protect the circuit no matter where it is 
+
+connected 
+(d) none of the above 
+
+
+
+11. (2 points) What is the resistance of the 100W light bulb when operating at V = 120 V? 
+(a) 60 n f-; I/~ (J.d; 1 
+(b) 120 n 7f f_:- -
+(c) 144 n /va 
+(d) 240 n 
+
+((lv;: ;;_,,,~ 
+(e ) none of the above 7[ LI~ 
+
+t : p Q 
+12. (2 points) A compact fluorescent bulb produces the same light output as a 60 W conventional 
+
+bulb, but it consumes ten times less power. How many of these bulbs can be put in parallel on a 
+V 120 V circuit protected by a 15A circuit breaker? 
+
+(a) 3 r p- ·t/' 
+(b) 30 - p 
+(c) 300 l/;, f 
+(d) 3000 ,-_ : J:b!.v · a,A-
+(e ) 3000000000 .,_ i.""" ' 
+
+I I'/,0,11--:: 100 
+
+13. (2 points) An ideal battery has an EMF of 12 V. If it is connected to a circuit and creates a 
+current of 4.0 A, what is the power that bat tery produces? 
+(a) 0.3 W 
+(b) 3.0 W 1= I/ :r-
+(c) 36 W /l :(I .I.. i,) UI, 1) ::;:_ l / d"k.-
+(d) 48 W 
+(e) cannot tell without knowing the resistance of the circuit 
+
+14. (2 points) The EMF of a battery is equal to its terminal potential difference 
+(a) under all conditions 
+(b) only when the battery is being charged 
+(c) only when a large current is in the battery 
+(d ) only when there is no current in the battery 
+(e) under no conditions 
+
+15. (2 points) "The sum of the currents into a junction equals the sum of the currents out of the 
+junction" is a consequence of 
+
+(a) Newton's third law 
+(b) Ohm's law 
+(c) Maravin's fifth law 
+(d) conservation of energy 
+(e ) conservation of charge 
+
+
+
+,,~4V 
+-..;-c-r; 
+1., 
+'. • 
+
+16. (2 points) The time constant RC has units of 
+
+(a) second/farad 
+(b) second/ohm 
+(c) I/second 
+(d) second/watt 
+( e) none of these 
+
+17. (2 points) Here is a loop equation: R1lf + !J = £. What does this equation represent? 
+
+(a) a charging capacitor 
+(b) a discharging capacitor 
+(c) a capacitor that has been disconnected 
+(d) a chruging resistw-
+(e ) an oscillating circuit 
+
+
+
+Part II: Work out this part in the space provided. Show your work! 
+(39 points total) 
+
+18. (9 points) A hollow non-conductive thin shell with radius R = 1 m, pictured above, has a positive 
+charge Q = I C distributed evenly on a surface and a tiny positive charge q = I µC in the center 
+of the shell. The charge q is pushed off-center with an initial speed v0 = I m/sec toward a small 
+opening in the shell from which the tiny charge escapes. The m8$S of the charge q ism= 1 g, 
+and you should assume that the charge Q is fixed in space and cannot move. Assume that the 
+opening does not affect the symmetry of the charge distribution on the shell (a ssume shell to have 
+a perfectly uniform charge distribution on its surface in your calculations). 
+
+41 (a) (2 points) Does the charge q accelerate while it is moving inside the shell or not? Explain 
+D/  vM,;,.,J -t. why. /fol 6<.t4r¥-.,,- fl,.. t-- ,.-, / 7~~ ;:_l'f.t.. #4, l J , I ) Q J(J (4 ,y -, , ti 
+
+Of rt...,v ·,""'\ (fL u J.. of1-er, [ lU-<-w,r' r~ pA.t"f,i,l,, 11; f/(W' , 
+
+l' y 'V\, 't 
+(b) (2 points) Does the charge q accelerate as it leaves the shell Q? If yes, is the acceleration 
+
+constant or not? Y/4,>1 /x.ccu.,'!Y<.- utlt.£-- ;r /-e4, v,.,.i fit ,1-t-l I n /7"'~-J-ik - e-~~-, 
+i:,// pt-.Ji.. tt~ "1., ,-, i k 1y rt {Jhf / ;·, P-;Y-e J ifk_ /74.rh?. le ..._;7 t 
+
+a_utt~ Fo~J. 
+(c) (2 points) Assuming the potential is O V at infinity, what is the potential right above the 
+
+surface of the shell Q? Th tr~ +e.;v1-:-q__ / fj fJn1<-J- J- -& k J - r f 'J- _: f-t~f J,u, L(.1..-,:_ 
+-t:O 
+
+(d) (3 points) Find a speed of the charge q when it is sufficiently far away from the shell Q. 
+
+"-\:::: D 
+
+
+
+19. (8 points) Evil Dr. Maravin needs extra energy to make an extra difficult quiz 2 problem, so he 
+decides to make himself a cup of coffee. Unfortunately, he does not have a water heater in his 
+office, so he decides to make an improvised heating element from a spool of copper wire with a 
+diameter of 2 mm and a length of 20 meters that he rolled into a spiral. For a power source, he 
+uses a car battery of his colleague who made a mistake of leaving his car keys on Dr. Maravin's 
+
+} JI-- -:.. lT,!)·1- desk. The battery is in a good condition and provides 12 V of potential difference across the 
+terminals. 
+
+L. 
+R.. -~ t S.q (a) (2 points) Calculate the resis ance of the heating element assuming that the resistivity of 
+
+copper is 1.68 X 10-S S1 · m. 
+1-<,o·r 1. o; t 't Q f :. Jll:_ "'I , / (/ - /'J 
+
+I , , ,
+ . -~ ..J -:. / //J -;,1 I~ 
+
+--"'I fl, 4 - .· 
+-r(,~ . l . / 
+
+/  .fo1 -(r,-Y-=.- i/{.fi1tJ)  £1 
+J \ , 
+
+1 £::. c" 'i'·lb "-iJ,.f'°°''j'r:. l,H -,o-'Zf I , L- ::) 
+t. -~ J rr --- c, .,(j•1J.irr -== , 00,1 If (( :._~ :_ J.___!}l9i.'i 
+
+f- (b) (2 pomts) When Dr. Mara in plugs the heating element to the car battery he is surprise:d .---J 
+that the heating elements does not get really hot! Annoyed, he measures the potential differ-
+ence across the heating element to find out that only 2 V is on the heating element, despite 
+the fact that the battery is rated at 12V. What is the reason for such a small potential 
+difference on the heating element? (Hint: the car battery is not ideal.0 
+
+y D (c) (2 points) Calculate the internal resistance of the .battery. 
+v~ ,I( 
+
+lO v 
+ll_v=. .0O~Jfi R, 
+
+(d) (2 points) What is the power of the thermal energy in the heating element? Compare that 
+'-t'.- '\) to the usual 800W appliance that is commonly used to heat water. 
+
+U 1<-J J c, I ~ -i 7-
+
+I( C J.JI, V, 
+
+
+
+N\lf '. 
+
++ V2 /0 
++ 
+
+A B 
+
+20. (11 points) In the figure above, Ji, /2 , and J3 are the currents flowing through the resistors 
+labeled R1, R2, and R3, respectively. To help the graders out, use the directions of the currents 
+shown in the figure. 
+
+(a) (3 points) Deduce three independent equation:s for the three unknown currents. Use the 
+symbolic notation for resistances and voltages . 
+
++v -I- IJ..R~ - i,R., =o .j I 
+
+- i.i l,i. - - c31('1 - l3 R3 =--a f i 
+
+(b) (6 points) Take Vi = 20V, ½ = lOV; R'/,, ,_, 106 n, and R1 = R3 = R4 = 100 n. Calculate 
+11 , 12 , and 13. You can use equations above, or if you can see a simpler path to a very good 
+
+-I h estimate of the exact answer, use it, explaining whatever approximation you make in one 
+sentence. (Hint: Wow! R2 is a very big resistancel 
+
++' 
+o-10 
+
+/et<J ·1--f<1<1/(CI , = > 01 11 
+t-1 ; I 
+
+i, <J-tj 
+\- I 
+
+r:.J.. -::.::. 0 /I-
+
+ir '1 ( c) (2 points) What is the potential difference between points A and B: VB - VA? 
+
+
+
+,' , 
+
+R1 /(JdlJ 
+
++ ~ RI 'tl'U Jl . 
+r,; . l 
+
+( 
+
+ll 
+
+11 
+&--
+
+21. (11 points) In the circuit of the figure above, e = 12 V, R1 = R2 = R3 = 1000 n. With the 
+. capacitor C completely uncharged, the switch Sis suddenly closed (at t = 0). 
+
+(a) (6 points) At t = 0, what are the currents through the resistor R1, R2, and R3? Indicate the 
+direction of the current in each case on the circuit diagram. 
+
+/J • r JJ~A c,{. fl' ,J- /? J lU"t- ;-,,. Fffe-1 _, C. ._,f- r-z 0 
+,/\1 -=. v-:., 1k 
+
+Pi t R1-- , J 6"-fi ;,,e,,/ly <\, f J,,,,rl-· fl C:,~J- 4,,-Pwl.l.- bi?. y.1'/J-
+1<.. 1 2 /.I, = I lfClur..A.,) 
+
+,;~ .(I/J.,4 
+Ji~ ,,, ,v: -e.-J 
+
+....; 'fl. /,~/Hy 
+(b) (2 points) What are the currents through !he .0,hove-mentioned resistors at a very long time 
+
+t = oo after the switch is closed? 
+', M,,.Jl JJ.i,V flt µvf'-<., 6·wf- €.-- vt-.Jc! a..tf ti. J e'(, 6,-.~ ,l ~.,,,..;,,,y 
+1
+
+b;q;l-'<, tty all u+ flr. c-4,r~ f - t J 
+
+5 .,., / 2 V __, r -j--/ 
+U 41 == £1-<  __,, 2.ooon~  - "' " A1 
+
+M...  
+£, :: . r//llf J:,1,. =, (1 /./A-. 
+
+(c) (3 points) What is the potential difference across the capacitor Cat time t = 0 and t = oo? 
+
+. tx rl v kt~ A., f z.u fk (,,n{I, /7U,t,;Jvr 4.-> ¢ V t,,,.,J A., f f 'C. <1:S10 if h >}J,. I! .£c. 
++- v f- IJ...v 0 r V'-eri' vt-ry vi~ rl f-11 I J.. v, 
+
+f::..G -0 OV 
+I -:::.oc>, \/c :::-kR2 -::. £V

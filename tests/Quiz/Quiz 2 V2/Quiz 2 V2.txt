@@ -1,0 +1,594 @@
+﻿Physics 214/224, Quiz 2
+
+Primary instructor: Yurii Maravin
+
+03/01/2019
+
+WID: Name:
+
+Instructions. Print and sign your name on this quiz and on your scantron card. In doing so, you
+are acknowledging the KSU Honor Code: “On my honor as a student I have neither given nor received
+unauthorized aid on this academic work.”
+
+For two quick points, circle your studio instructor:
+
+Smith (TU 7:30) Lohman (TU 9:30) Maravin (TU 11:30)
+
+Maravin (TU 1:30) Smith (TU 3:30)
+
+Weliweriya (WF 9:30) Weliweriya (WF 11:30) Smith (WF 1:30)
+
+Work alone and answer all questions. Part I questions must be answered on the Scantron cards. Put
+your name on your card. Color in the correct box completely for every answer with a pencil. If you
+make a mistake, erase thoroughly. Don’t forget to color in the boxes for your WID. If we
+have to correct this by hand we may take off five points from your score! Part II must be
+answered in the space provided on the test. The last page is a detachable equation sheet. You may
+use a calculator. You may ask the proctors questions of clarification. Show your work in a clear and
+organized manner. You may receive partial credit for partial solutions. Solutions lacking supporting
+calculations will receive no points.
+
+1
+
+
+
+Part I: All questions to be answered on your Scantron card (48 points total)
+
+1. (3 points) Consisting of one or more pieces of conductor, separated in space, and used for charge
+and energy storage applications, this device is
+
+(a) a resistor
+
+(b) a battery
+
+(c) a switch
+
+(d) a capacitor
+
+2. (3 points) Its essential elements are two different metals, spatially separated and sometimes
+immersed in an acidic solution. This is
+
+(a) a resistor
+
+(b) a battery
+
+(c) a switch
+
+(d) a capacitor
+
+3. (3 points) To protect the circuit, how would you connect the fuse?
+
+(a) in series with the circuit in question
+
+(b) in parallel with the circuit in question
+
+(c) fuse does not have to be connected to the circuit, just placing it in the vicinity is sufficient
+
+4. (3 points) If 1000 J of work is required to carry 25 C charge from one point to another, the
+potential difference between these two points is
+
+(a) 25,000 V
+
+(b) 40 V
+
+(c) 25 mV
+
+(d) depends on the path
+
+(e) none of these
+
+5. (3 points) A 60W light bulb carries a current of 0.5 A. The total charge passing through it in
+one hour is
+
+(a) 3600 C
+
+(b) 2400 C
+
+(c) 1800 C
+
+(d) 900 C
+
+(e) 120 C
+
+
+
+6. (3 points) The figure below shows a junction. What is true of the currents?
+
+(a) i1 = i0 + i2
+(b) i2 = i0 + i1
+(c) i0 = i1 − i2
+(d) i1 = i0 − i2
+(e) i0 = i2 − i1
+
+7. (3 points) For a cylindrical resistor that obeys Ohm’s Law the resistance does NOT depend on:
+
+(a) the current
+
+(b) the length
+
+(c) the cross-sectional area
+
+(d) the resistivity
+
+(e) the electron drift velocity
+
+8. (3 points) Pulling the plates of an isolated charged capacitor apart:
+
+(a) increases the capacitance
+
+(b) increases the potential difference
+
+(c) does not affect the potential difference
+
+(d) decreases the potential difference
+
+(e) does not affect the capacitance
+
+9. (3 points) ”The sum of the emf’s potential differences around a closed loop equals zero,” is a
+consequence of
+
+(a) Newton’s third law
+
+(b) Ohm’s law
+
+(c) Newton’s second law
+
+(d) Maravin’s law
+
+(e) conservation of energy
+
+10. (3 points) An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current
+of 4.0 A, what is the power?
+
+(a) 0.3 W
+
+(b) 3.0 W
+
+(c) 36 W
+
+(d) 48 W
+
+(e) cannot tell without knowing the resistance of the circuit
+
+
+
+The next two questions refer to the following figure below. The solid lines in the figure above
+represent high conductivity copper wire. The three capacitors shown each have C = 0.1 µF, and
+the battery establishes a voltage difference V = 9 V between its terminals.
+
+11. (3 points) Which statement is most correct?
+
+(a) A, B, and C are in series
+
+(b) A, B, and C are in parallel
+
+(c) A is in parallel with the series combination of B and C
+
+(d) A is in series with the parallel combination of B and C
+
+12. (3 points) Which relationship is most correct concerning the charges stored on the capacitors?
+
+(a) QA = QB > QC
+
+(b) QA = QC > QB
+
+(c) QB = QC > QA
+
+(d) QA > QB = QC
+
+13. (3 points) In the context of the loop and junctions rules for electrical circuits, a junction is
+
+(a) where a wire is connected to a resistor
+
+(b) where a wire is connected to a battery
+
+(c) where a wire is bent
+
+(d) where three or more wires are joined
+
+(e) where only two wires are joined
+
+14. (3 points) A certain capacitor, in series with a 720 Ω resistor is being charged. At the end of 10
+ms, its charge is half the final value. The capacitance is about
+
+(a) 9.6 µF
+
+(b) 14 µF
+
+(c) 20 µF
+
+(d) 7.2 F
+
+(e) 10 F
+
+
+
+The figure below shows four different ways that studio groups in previous years have wired up
+a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous
+measurement of the current through and the voltage difference across circuit element X (diamond
+with an X). Assume “ideal” performance for the voltmeter and ammeter.
+
+15. (3 points) Which is the only scheme that correctly measures the voltage across X and the current
+through X?
+
+(a) one
+
+(b) two
+
+(c) three
+
+(d) four
+
+16. (3 points) Which scheme is most likely to blow a fuse in the ammeter?
+
+(a) one
+
+(b) two
+
+(c) three
+
+(d) four
+
+
+
+Part II: Work out this part in the space provided. Show your work!
+(52 points total)
+
+17. (14 points) An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus
+(79 protons and 118 neutrons), as shown in Figure above. The alpha particle momentarily stops
+when its center is at radial distance r = 9.23 · 10−15 m from the nuclear center. Then it moves
+back along its incoming path. Because the gold nucleus is much more massive than the alpha
+particle, we can assume the gold nucleus does not move.
+
+(a) (2 points) What are charges of alpha particle and gold nucleus?
+
+(b) (4 points) Find the electric potential of the nucleus at the distance r, where the alpha particle
+comes to a stop. Assume the nucleus to be charged uniformly. If you take any assumptions,
+describe them below.
+
+(c) (4 points) What is the kinetic energy Ki of the alpha particle when it was initially far away?
+
+(d) (4 points) Use the formula that you derived in (b) written in symbolic form to calculate the
+magnitude of the electric field at distance r ( |Er| = | − ∂V/∂r|). How does it compare with
+electric field of the gold nucleus, treated as a single point-like charge?
+
+
+
+Extra paper for calculations
+
+
+
+18. (14 points) In the figure above, I1, I2, and I3 are the currents flowing through the resistors
+labeled R1, R2, and R3, respectively. To help the graders out, use the directions of the currents
+shown in the figure.
+
+(a) (6 points) Deduce three independent equations for the three unknown currents. Use the
+symbolic notation for resistances and voltages.
+
+(b) (5 points) Take V1 = 10V, V2 = 20V; R2 = 106 Ω, and R1 = R3 = R4 = 10 Ω. Calculate
+I1, I2, and I3. You can use equations above, or if you can see a simpler path to a very good
+estimate of the exact answer, use it, explaining whatever approximation you make in one
+sentence. (Hint: Wow! R2 is a very big resistance!).
+
+(c) (3 points) What is the potential difference between points A and B: VB − VA?
+
+
+
+Extra paper for calculations
+
+
+
+19. (13 points) The left figure above shows a circuit with a switch that can be either in (a) or (b)
+position. The EMF of the battery is 50 V. The right figure indicates the charge measured on the
+capacitor of the circuit.
+
+(a) (1 point) The time-dependence of the charge on the capacitor indicates that the switch is
+flipped to (a) or to (b) position? Explain.
+
+(b) (3 points) What is the RC time constant for this circuit?
+
+(c) (3 points) What is the capacitance of the circuit?
+
+(d) (3 points) What is the resistance of the circuit?
+
+(e) (3 points) How much current is flowing into the capacitor at time t = 2 ms? Hint: dQ
+dt ?
+
+
+
+20. (9 points) A 60 V battery has an internal resistance of 10 Ω. The battery is connected to resistive
+load with resistance of RL = 390 Ω.
+
+(a) (2 points) Show that the battery supplies a current of 0.15 A.
+
+(b) (3 points) What voltage would a very good voltmeter show if you connect the leads to the
+battery terminals?
+
+(c) (3 points) How long would the circuit need to operate for the battery to absorb 1000 J of
+heat energy?
+
+(d) (1 point) How much current would the battery need to supply if the load resistance developed
+a short circuit?
+
+
+
+Equations and Constants for Quiz 2 8. Resistance
+
+(a) Ohm’s law (micro) J~ = σE~
+Note: you may detach this sheet from the quiz. You (b) Ohm’s law (macro) V = IR
+do not need to hand it in.
+
+(c) R = ρL/A = L/σA
+1. Point charge electric field (d) P = dU/dt = V I = I2R = V 2/R
+
+~
+(a) E~Q (~r) = kQ r−~rQ 9. Circuits
+
+|~r−~rQ|2 |~r−~rQ|
+;
+
+(b) k = 1
+4πε = 9× 109 N·m2/C2 (a) Vb − Va =
+
+∑∑ ∑∑ ∑
+;
+
+n En − n inr0 n
+
+(c) proton charge: e = 1.6× 10−19 C. (b) in In =∑ out In (at any junction)
+
+(c) n En − n inrn = 0 (around any closed
+2. Electric force: F~ ~
+
+1→2 = Q2EQ (~r ;
+1 Q )
+
+2 loop)
+
+(a) Coulomb’s Law: F~ kQ1Q2 ~
+1→2 = r2−~r1
+
+∑|~r2−~r1|2 |~r2−~r
+; component series parallel
+
+1| battery E1 + E2 −−−−−−
+(d) −1
+
+3. ∫Superposition: E~ resistor R1 +R2 (1/R1 + 1/R2)
+TOT (~r) = kQn ~r−~rn
+
+n |~r− or
+~rn|2 |~r−~rn| −1
+
+kdq(~r′) capacitor (1/C1 + 1/C2) C1 + C2
+~r−~r′
+
+|~r−~r′|2 |~r−~r′| . (e) RC circuits:
+
+4. Gaus∮s’s Law i. τRC = RC. ( )
+ii. Qcharging = Q 1− e−t/τRC
+
+max .
+(a) E~ · dA~ = 1
+
+ε Qenc;
+0 ∫ iii. Qdis-charging = Qmaxe
+
+−t/τRC .
+
+(b) spheres: 4πr2E = 1 r
+ε ∫4πr′2ρ (r′) dr′;
+0 0 10. velocity:
+
+r
+(c) cylinders: 2πrLE = 1 ′
+
+ε 2πr Lρ (r′) dr′;
+0 0 (a) ~vAVG = (~r2 − ~r1) / (t2 − t1) → ~v = d~r/dt
+
+(d) conductors: as t2 → t1;
+i. E = Q = 0 inside. (b) speed: v = |~v|.
+ii. On surface, E~‖ = 0; E~⊥ = σ/ε.
+
+11. acceleration:
+5. Potential/Voltage∫and Potential Energy
+
+(a) ~aAVG = (~v2 − ~v1) / (t2 − t1) → ~a = d~v/dt
+(a) V2 −
+
+2
+
+∑V1 = − E~ · d~r;
+1 ∫ as t2 → t1;
+
+dq(~r′ (b) constant acceleration:
+(b) V = Qn )
+
+n 4πε0|~r−~rn| or 4πε0|~r−~r′| i. ~v = ~v0 + ~at;
+(c) PE = U = qV ; ii. ~r = ~r0 + ~v0t+ ~at2/2.
+(d) V = constant on conductor.
+
+(c) Free fall:
+
+6. Capacitance i. ~a = 0ı̂− g̂; g = 9.8 m/s2.
+
+(a) Q = CV 12. Newton’s Laws
+
+(b) Cpar.plate = ε0A/d (a) ~v =constant ⇔ F~NET = 0;
+(c) Cdielectric = κCno dielectric (b) m~a = F~NET ;
+(d) U = 1
+
+2CV
+2 = Q2/2C
+
+(c) F~ (1 on 2) = −F~ (2 on 1).
+
+7. Current
+13. Everyday forces
+
+(a) I = dQ/dt
+(a) weight on Earth: W = mg;
+
+(b) J~ = nq~vdrift (b) tension: always pulls, constant throughout
+(c) J = I/A string;
+
+(d) P = V I = V 2/R = I2R (c) normal force: ⊥ to surfaces
+
+1
+
+
+
+(d) friction: ‖ to surfaces, opposes motion (a) For cloning translational formulas:
+
+i. fK = µKN ; i. x→ θ;~v → ω~ = d~θ
+dt ;
+
+ii. 0 ≤ f AX ∑
+S ≤ fMS = µSN ; ii. ~a→ ~α = dω~
+
+dt ;m→ I = mnr
+2
+n;
+
+iii. 0 ≤ µK ≤ µS ;
+iii. F~ → ~τ = ~r × F~ ;
+
+(e) spring: F = −kx; iv. p~→ L~ = ~r × p~ = Iω~ ;
+
+14. Uniform curcular motion (b) KE = 1
+2mv
+
+2 + 1
+2Iω
+
+2;
+
+(c) rolling without slipping:
+(a) ~a 2
+
+C = v /r to center of circle;
+i. v = ωr;
+
+(b) period: T = 2πr/v;
+ii. a = αr.
+
+15. Universal gravitation (d) angular momentum conservation
+
+(a) F~ −GM1M2 ~r2−~r1
+G,1→2 = i. dL~ ~τ = I~α;
+
+|~r 2 dt =
+2−~r1| |~r2−~r
+
+;G = 6.7× 10−11
+1|
+
+N·kg−2·m2; ii. ~τ = 0→ L∑~ = constant;
+
+(b) Kepler’s 3rd law: T 2 = 4π2 iii. ~τ = 0→ Inω~ n = constant.
+GM r3.
+
+16. Work and En∫ergy ∫ 21. Static∑equilibrium
+
+(a) W = F~ · d~r → F cosφdx (1D) → (a) ∑F~n = 0;
+
+Fd cosφ (F constant) ; (b) ~τn = 0.
+
+(b) KE = 1
+2mv
+
+2;
+22. Equilibrium and PE
+
+(c) W = ∆ (KE) = KE2 −KE1 (all forces) ;
+
+(d) PE = −W (conservative forces) ; (a) F (x) = −d(PE)/dx;
+
+(e) PE = mgy (gravity near earth surface) ; (b) d2(PE)/dx2 > 0→stable.
+
+(f) PE = −Gm1m2/r (all gravity) ; 23. Fluids
+(g) PE = 1
+
+2kx
+2 (spring) ;
+
+(a) ρ = M/V ;
+(h) KE+PE =constant (conservative forces) ;
+
+(b) P = F/A;
+
+17. Momentum∑ (c) P = P0 + ρF gd;
+
+(d) F
+(a) P~ = m buoy = ρF gVdisp(Archimedes);
+
+n~vn;
+(e) νA = constant (Venturi);
+
+(b) dP~
+dt = F~EXT ;
+
+(f) 1
+2ρv
+
+2 + P + ρgy = constant (Bernoulli).
+(c) impulse: J~ = ∆P~ = F~EXT∆t;
+
+24. Thermodynamics
+(d) F~EXT = 0→ P~ =constant;
+
+(a) Ideal gas: PV = nRT ;
+18. center of mass
+
+(b) Ideal gas: 〈KE〉 = 3
+(a) ∫ ∑
+
+few objects: R~ √kT/2.
+CM = mn~rn/M ;or (c) Ideal gas: vRMS = 3kT/m.
+
+~rdm/M ;
+(d) ∆L/L = α∆T (thermal expansion);
+
+(b) P~ = M dR~CM
+dt = MV~CM ;
+
+(e) ∆Q = Mc∆T (specific heat);
+(c) F~EXT = 0 and P~ = 0→ R~CM =constant. (f) ∆Q = ML (latent heat, to change phase).
+
+19. Two-body collisions. (g) dQ THI−(TLO)
+dt = κA(
+
+L . (heat)conduction)
+
+(h) dQ 4
+(a) elastic: conserves KE; dt = σεA T 4
+
+HI − TLO .(thermal radia-
+tion)
+
+(b) inelastic: not elastic;
+(i) 0th Law: eventually, T1 ⇀↽ T2;
+
+20. Rotation equations (j) 1st Law: ∆U = ∆Q−∆W.
+
+2
+
+
+
+(k) 2nd Law (mechanic’s version): ε = WOUT
+Q ≤
+
+IN
+
+1− TLO
+T (heat engine).
+HI
+
+(l) 2nd Law (entropy version): ∆S = ∆Q
+T ≥ 0
+
+(isolated system).
+√
+
+(m) Random walk: dRMS ∝ t.
+
+3

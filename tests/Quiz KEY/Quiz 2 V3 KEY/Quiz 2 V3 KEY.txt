@@ -1,0 +1,411 @@
+﻿Physics 214/224, Practice Quiz 2 
+
+Primary instructor: Yurii Maravin 
+
+\\7'11): _______ ~--------------------------- :N"Al\1E:---~------------------------~---------------
+
+Instructions. Print and sign your name on this quiz and on your scantron card. In doing so, you 
+are acknowledging the KSU Honor Code: "On my honor as a student I have neither given nor received 
+unauthorized aid on this academic work." 
+
+For two quick points, circle your studio instructor: 
+
+Lohman (TU 7 :30) Lohman (TU 9:30) Weaver (TU 9:30) 
+
+Magrakvelidze (TU 11:30) Maravin (TU 1:30) Weaver (TU 3:30) 
+
+Magrakvelidze (WF 7:30) Magrakvelidze (WF 9:30) 
+
+Galin (WF 11:30) 
+
+Work alone and answer all questions. Part I questions must be answered on the Scantron cards. Put 
+your name on your card. Color in the correct box completely for every answer with a pencil. If you 
+make a mistake, erase thoroughly. Don't forget to color in the boxes for your WID. If we 
+have to correct this by hand we may take off five points from your score! Part II must be 
+answered in the space provided on the test. The last page is a detachable equation sheet. You may 
+use a calculator. You may ask the proctors questions of clarification. Show your work in a clear and 
+organized manner. You may receive partial credit for partial solutions. Solutions lacking supporting 
+calculations will receive no points. 
+
+1 
+
+
+
+Part I: All questions to be answered on your Scantron card ( 48 points total) 
+
+1. (3 points) An electron has charge-e and mass m e. A proton has chargee and mass 1840me. A 
+"proton volt" equal to 
+
+(@ 1 eV 
+(b) v'1840 eV 
+(c) l/v'1840 eV 
+(d) 1840 eV 
+(e) 1/1840 eV 
+
+2. (3 points) The fact that we can define electric potential energy means that: 
+
+Q the electric force is conservative 
+(b) there is a point where the electric potential energy is exactly zero 
+(c) it takes work for the electric force to move from some point a to some other point b and back 
+
+again 
+(d) the electric force is nonconservative 
+(e) the work done on a charged particle depends on the path it takes 
+
+3. (3 points) During a lightning discharge, a 30 C of charge move through a potential difference of 
+1.0 x 108 V in 2.0 x 10-2 s. The energy released by this lightning bolt is: 
+
+(a) 3.0 x 109 J 
+(b) 3.3 X 106 J 
+(c) 1500 J 
+
+@ 1.5 X 1011 J 
+(e) 6.0 x 107 J 
+
+4. (3 points) A parallel-plate capacitor C has a charge Q. The actual charges on its plates are 
+
+(a) Q, Q 
+(b) Q/2, Q/2 
+
+0 Q, -Q 
+(d) Q, 0 
+(e) Q/2, Q/2 
+
+
+
+5. (3 points) The plate areas and plate separations of five parallel plate capacitors are the following 
+
+capacitor number Area Separation 
+
+1 Ao do c.. 
+2 2Ao 2do c 
+3 2Ao do/2 4C c co A 
+
+== ~ 
+4 Ao/2 2do C./'1 
+5 Ao do/2 2.C 
+
+Rank these according to their capacitances, least to greatest 
+
+(a) 1, 2, 3, 4, 5 
+(b) 5, then 3 and 4 tie, then 1, then 2 
+
+<._@ 4, then 1 and 2 tie, then 5, then 3 
+(d ) 3, then 5, then 1 and 2 tie, then 4 
+(e) 5, 4, 3, 2, 1 
+
+6. (3 points) The capacitance of a single isolated spherical conductor with radius R is proportional 
+to: 
+
+@ R 
+(b) R2 
+
+(c) 1/R 
+(d) 1/R2 
+
+(e ) none of these 
+
+7. (3 points) A car battery is rated at 80 A· h. An ampere-hour is a unit of: 
+
+(a) power 
+~ charge 1C 
+
+A ;:.. --- -;> ,4 . s :::: 
+(c) current  c 
+
+1s 
+(d) force 
+(e) energy 
+
+8. (3 points) In schematic diagrams, currents are indicated using arrows. What do the arrows 
+indicate? 
+
+(a) the direction of motion of the electrons 
+@ the direction that positive charge carriers would move 
+
+( c) the direction of motion of the charge carriers 
+( d) nothing, they are just a convenient drawing tool 
+( e) the direction of the current vector 
+
+
+
+9. (3 points) A wire with a length of 150 m and a radius of 0.15 mm carries a current with a uniform 
+current density of 2.8 x 107 A/m2 . The current is: 
+
+(a) 300 A 
+(b) 5.9 A 
+(c) 0.63 A 
+(d) 26000 A 
+
+@ 2.0A 
+
+10. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are the 
+following. 
+
+Wire number Length Radius 
+
+1 .e r R 
+2 3//2 r/2 ~ ~R::. GR 
+3 //2 r/2 ~ . 't~ :.. :LA. 
+4 .e r/2 'tR R= J.
+
+R .iA= -=Ju-:rl  
+5 5/ r/2 s~'JR ~2o
+
+Rank the wires according to their resistances, least to greatest. 
+
+(a) 1, 2, 3, 4, 5 
+(b) 1 and 2 tie, then 5, 3, 4 
+ft 5, 4, 3, 2, 1 
+~1, 3, 4, 2, 5 
+
+(e) 1, 2, 3, 4, 5 
+
+11. (3 1points) Lightbulb A, a 60W model, and lightbulb B, a 40W model, are co.Rnected in parallel 
+across a 120V power supply. Which statement below is false .·-~ ~ -;;- 6oW = O. s-A 
+
+! B l20'-J 
+../ (a) The voltage difference across lightbulb Bis 120V t-~ _l tOllJ _ J.. A 
+V (b) More current flows through the battery than through lightbulb B l2ov Ia - l'20'\/ - 3 
+
+v (c) Lightbulb B has a higher resistance than lightbulb A R ; (r2ovf ~ 2.\.f~ 
+@ Less current flows through lightbulb A than lightbulb B A li6ovJ 
+
+Rs =::. ~2~v)~ = 3 ~o rz_ 
+12. (3 points) The internal resistance in a real battery causes what to happen when the ba fl~ry is 
+
+connected to a resistive "load"? (Pick the best answer) 
+
+V (a) The voltage across the battery terminals decreases when the battery is connected to low 
+resistance loads. 
+
+'- (b) The battery warms when connected to low resistance loads. 
+\.... ( c) The current supplied by the battery falls to less than the nominal battery voltage divided 
+~by the load resistance 
+~All of the above 
+
+2-f ~ 
+e -i VLo/\D -:.. I. Rt..o AP"' r + R,,,,.~ 
+
+r l._..,..__o ~J "LOA!) ~ if r 4 "f(LOAJ: 
+/V 
+
+
+
+The next four questions refer to the following figure below. The solid lines in the figure above 
+represent high conductivity copper wire. The left capacitor has CL= 0.1 µF, the right capacitor 
+has CR= 0.22 µF, and the battery establishes a voltage difference V = 9 V between its terminals. 
+
+G 
+C-c.. 
+
+13. (3 points) Which statement below is most correct? 
+
+@ The two capacitors store the same charge 
+(b) The two capacitors have the same voltage between their leads 
+(c ) The two capacitors have the same ratio of charge to voltage across their leads 
+(d) The two capacitors store the same energy 
+
+14. (3 points) What is the absolute voltage difference between the left lead of the 0.1 µF capacitor 
+CL and the right lead of the 0.22 µF capacitor CR? 
+
+(a) 0.0 V 
+(b) 2.8 v 
+~6.2V 
+~.ov 
+
+15. (3 points) How much charge do the two capacitors together store? 
+
+@ o.62µC 
+(b) 0.90 µC 
+(c) 1.98 µC 
+(d) 2.88 µC 
+
+16. (3 points) What is the absolute voltage difference between the two leads of the 0.1 µF capacitor 
+CL? 
+
+~o.ov 
+~2.8V 
+
+(c) 6.2 V 
+(d) 9.0 v 
+
+
+
+Part II: Work out this part in the space provided. Show your work! 
+(50 points total) 
+
+17. (9 points) You have the following at your disposal: a box of twelve 9V batteries, a box of forty 
+1000 n resistors, and a box of forty 1 µF capacitors. Draw clear diagrams to indicate how you 
+would connect parts together to make the following (you need not use all the available parts): 
+
+(a) (3 points) A 2500 n resistor 
+
+To 2000 Q_ 1000.SL /AA 
+
+svo__Q_ 
+
+2000~ 
+
+(b) (3 points) A 0.25 µF capacitor 
+
+-
+--U-f\-f 1-H-- "° -l(-
+
+1f·F 1t~ 1rF ~f" o.2.StF 
+
+( c) ( 3 points) A 27 V battery 
+
+-/r-
+'21-\/ ( 3._:; ") 
+
+
+
+z 
+
+R y 
+
+18. (15 points) A charge Q is evenly spread along the circumference of a circle of radius R. 
+
+(b) (5 points) Find the electrical force acting on a small particle at the point P carrying charge 
+q and mass m in the vertical, or z direction. Hint: the relationship between the z-component 
+of E-+  • av 
+
+is Ez = -a;;. 
+
+GY _ . L Id) l2l: "' 
+Q~ - + z_ (Rl.-r z.'J 3Jz. 
+
+k.0.~ -
+(it- t- zjYz_ 
+
+( c) ( 5 points) Determine the radius R that would make the total force acting on this particle 
+vanish. Assume g = 9.8 m/s2
+
+, and the direction of the gravitational field is downward. 
+Assume Qq > 0. Jo-w"' Jc n A ~ lLf 
+
+I k t1(6 J (/_ k_ -0 7 
+~ET = - rno +- (R2.+ 2-,_ !i.. JI • - z_ 
+
+f~ L RiL h'-~ ( kt,; fl3 
+
+mo :0 IC_ a" l £::; 50/ve jllr R. : ,- J 
+{ n:z. ,_ -i 'z )%... > n ::::. {( ' 
+\ K, r c / I'\ J!.tQAJ26- /,2 
+
+
+
+~20'  -+ 
+
+19. (14 points) Call Ii, h, and h the current flowing through the resistors labeled Ri, R2, and R3, 
+respectively. To help the graders out, use the directions of the currents shown in the figure. 
+
+(a) (8 points) Deduce three independent equations for three unknown currents. Use the symbolic 
+values for resistances and voltages. 
+
+f lu(f I, ~~ <2): cf, - T2 R~ - T3 (R3 ~ R,):: o 
+1i &ttcf- so)w.,ho\.-\ : 
+
+=- Ii. +- r~ (f) ~ u..'1-h rh  f'li&VI- ~ & ~; q_J~ -1v (~) 
+E,- I,~i - f3R3 =-D (z) niu.lt• pl.el b'd - "R1 ~ ) 
+
+-I~R2 -fl- ~T3R3 -:= O C~) + f ~~i - I2 R, R2 - T3 ( R2.R3 r R, R2 ) =- D 
+
+LC 2R1~ ~ ~2.R(- T3R;~R1 ~ ~ 
+E, R2. + Cz ~ - J3 (R,R2 + R, R.3> 1-R2 1<:!>) ~ o ~ 
+
+I1 ,,_ £, -~R3 ( f-, fa)) ; I2-"" I.,-T:3 ( &.,. 11))_ 
+
+(b) (3 points) Take £1 = 6 V, £2 = 12 V, Ri = R3 = 1000 n, R2 = 1 n. Solve for the currents. 
+You can solve your equations from part (a) for this, but if you can see a simpler path to a 
+very good estimate of the exact answer, use it, explaining whatever approximation you make 
+in one sentence. Hint: Wow, R2 is small; what is the voltage difference across R3 ? 
+
+~f ~ :o. 1 .Q, rib- YkD s.J- 4 9,,. i..s o... R~ , 4-r../ r ~a... 
+...L.3- -
+
+~.3 
+FoY <ft..t. (wsd- hop. 21 - I, R" - J2 V ;. O .S) 
+
+Tr= - tcoVoo Sl- ~ -c;-~A , ~Pf I'z::. 4-L ::=-b~A,-J2"1A:;.-•Qio\,I.. ~  
+
+C.07.lf/e ..,, ft. eknc.f sofJ;.,...,,: ::;,. fl S& ~A 
+r" == - s-. s& mA 
+L2 :. -11-. 9' >k/l C/ose. ! 
+
+(c) (3 points) Do the same thing for the case R 6 
+2 = 10 n, with the other circuits components 
+
+the same as the previous part. Hint: this is a very big resistance! 
+
+$)/ Ri f s :Sic> ~[J ) w~ CJi..i.c. -frJ?J i /- as e::; l:n"PG- l u..,, 
+
+Cf V'C u.,/1- , c; 0 T, ::: I3 - z:' ::l.. 3 M A i 2. = 0 V""-,4. I 
+
+(<, +f<.2,. ? 
+
+~,P-YL \,A/; 1L fie .e.t~f T, :fa ~ 3~A 
+L:J_ :;c - 9~A . 
+
+v~..,...::i < ,., ~ / 
+
+
+
+1.2----~---.-----,....--~---.--------. 
+
+0.8 
+
+0.6 
+(I) 
+
+*~  
+0.4 
+
+0.2 
+R 
+
+0 
+
+.0.2-8- ------.-2- -0-_...__.2._r_._5s__..4 __6 _ __B  f r c 
+
+-6 .4 
+Time, (seconds) 
+
+1).6 $ 
+
+20. (12 points) The graph produced by an oscilloscope, like the one used in studio, shows the voltage 
+across a 0.1 F capacitor (green line), and the voltage across the series combination of capacitor 
+and resistor. 
+
+(a) (2 points) What is the RC time constant for this circuit? 
+
+~ ~ +. ."""'-- "t'R e_ r/t.e_ C'rC I kV I ~ C ltcvv-f/"' ,r:f k ~ o. {; 3 o/ 7.£.:5 
+,pw.J \lo flage- { rh47). 
+
+'J:Rc. r.:= 0. b 5 
+
+(b) (2 points) What is the resistance of the circuit? 
+
+(c) (2 points) How much charge is stored in the circuit with the capacitor at its maximum volt­
+age? 
+
+Q 
+-c- => Q-= VC = {V ofF = V-1C 
+
+(d) (2 points) What is the minimum time, in seconds, that one should wait after disconnecting 
+the circuit to ensure that the capacitor voltage is less than 0.8 V? 
+
+-1:: -b 
+V-::; Voe~ 0.8V -- 1V  .e- ~ 5> 
+
+-/; = - l ( 0. s)- "4,c_ ::0 - () bs (- () n) ~ 0 }3  s. 
+(e) (2 points) How much current is flowing into the capacitor at t = +1.5 s? Hint: ~ 
+
+d -/;°' /S.s l"f/tc(/ioy i's td.n-..os.f fzdfJ ,IQ 
+c~-1, Siv H =I~o) 
+
+Jo £e_ 4/icf ! I(-1) £µ,F - ft;f 1V - (i.s-~(-1.)) ~ 2. ~8 MA 
+== -p -e -~ iSi_ e o_fi 
+
+l. - H"'-€ ...,;,~"' C'Hf"'";k ... si-l ~;;.....0
