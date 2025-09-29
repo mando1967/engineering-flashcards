@@ -38,12 +38,21 @@
 <body>
   <h1>Engineering Mechanics Flashcards</h1>
 
-  <div id="flashcard-container"></div>
+  <div id="app-layout">
+    <aside id="sidebar">
+      <div class="sidebar-header">Flashcard Sets</div>
+      <ul id="file-list"></ul>
+    </aside>
 
-<div style="text-align:center; margin-top:20px;">
-  <button id="show-btn" onclick="showAnswer()">Show Answer</button>
-  <button id="next-btn" onclick="nextCard()" style="display:none;">Next</button>
-</div>
+    <main id="main-content">
+      <div id="flashcard-container"></div>
+
+      <div style="text-align:center; margin-top:20px;">
+        <button id="show-btn" onclick="showAnswer()">Show Answer</button>
+        <button id="next-btn" onclick="nextCard()" style="display:none;">Next</button>
+      </div>
+    </main>
+  </div>
   
   
 
@@ -216,26 +225,68 @@
     return cards;
   }
 
-  fetch('flashcards.txt')
-    .then(response => {
-      if (!response.ok) throw new Error('Flashcard file not found.');
-      return response.text();
-    })
-    .then(data => {
-      flashcards = parseFlashcards(data);
-      if (!flashcards.length) throw new Error('No flashcards parsed from file.');
-      currentIndex = 0;
-      showingAnswer = false;
-      renderCard();
-    })
-    .catch(error => {
-      const statusEl = document.getElementById('status');
-      if (statusEl) {
-        statusEl.innerText += `\n❌ Flashcards failed to load: ${error.message}`;
-      } else {
-        console.error('Flashcards failed to load:', error);
+  function loadFlashcardsFrom(path) {
+    return fetch(path)
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
+        return response.text();
+      })
+      .then(data => {
+        flashcards = parseFlashcards(data);
+        if (!flashcards.length) throw new Error('No flashcards parsed from file.');
+        currentIndex = 0;
+        showingAnswer = false;
+        renderCard();
+      });
+  }
+
+  function populateSidebar(files) {
+    const list = document.getElementById('file-list');
+    list.innerHTML = '';
+    files.forEach((fname, idx) => {
+      const li = document.createElement('li');
+      li.className = 'file-item';
+      li.textContent = fname;
+      li.title = fname;
+      li.addEventListener('click', () => {
+        // highlight selection
+        [...list.children].forEach(el => el.classList.remove('active'));
+        li.classList.add('active');
+        loadFlashcardsFrom(`tests/${fname}`).catch(err => {
+          console.error(err);
+          alert(`Unable to load ${fname}: ${err.message}`);
+        });
+      });
+      list.appendChild(li);
+      // Auto-load first
+      if (idx === 0) {
+        li.classList.add('active');
+        loadFlashcardsFrom(`tests/${fname}`).catch(err => console.error(err));
       }
     });
+  }
+
+  function initSidebar() {
+    fetch('tests/manifest.json')
+      .then(r => {
+        if (!r.ok) throw new Error('manifest.json not found');
+        return r.json();
+      })
+      .then(files => {
+        // Only show .txt files
+        const txts = files.filter(f => /\.txt$/i.test(f));
+        if (!txts.length) throw new Error('No .txt flashcard files listed in manifest.json');
+        populateSidebar(txts);
+      })
+      .catch(err => {
+        console.error('Failed to load manifest:', err);
+        const list = document.getElementById('file-list');
+        list.innerHTML = '<li class="file-item error">No flashcard sets found</li>';
+      });
+  }
+
+  // Initialize sidebar on load
+  initSidebar();
 
   function showAnswer() {
     showingAnswer = true;

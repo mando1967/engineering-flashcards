@@ -43,6 +43,66 @@ h1 {
   position: relative;
 }
 
+/* App layout with left sidebar */
+#app-layout {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px 24px;
+  box-sizing: border-box;
+}
+
+#sidebar {
+  flex: 0 0 260px;
+  max-height: 75vh;
+  overflow: auto;
+  background: #ffffff;
+  border: 1px solid #e5e9f2;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.sidebar-header {
+  padding: 12px 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #eef2f8;
+  background: #f8fbff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#file-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.file-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.file-item:hover {
+  background: #f3f7ff;
+}
+
+.file-item.active {
+  background: #e8f0ff;
+  border-left: 3px solid #0078D4;
+}
+
+.file-item.error {
+  color: #b00020;
+  cursor: default;
+}
+
+#main-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .flashcard {
   display: flex;
   flex-direction: column;
@@ -125,8 +185,19 @@ button:hover {
     font-size: 1.5rem;
   }
 
+  #app-layout {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 10px 16px;
+  }
+
+  #sidebar {
+    flex: 0 0 auto;
+    max-height: none;
+  }
+
   #flashcard-container {
-    width: 95%; /* keep near full width on phones */
+    width: 100%; /* full width on phones */
     padding: 15px;
   }
 
