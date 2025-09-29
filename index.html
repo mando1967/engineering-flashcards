@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Engineering Flashcards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" onload="cssLoaded()" onerror="cssFailed()" />
+  <style>
+    #status {
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      padding: 10px;
+      margin: 10px auto;
+      width: 80%;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      border-radius: 5px;
+      color: #856404;
+    }
+  </style>
+  <!-- MathJax configuration for rendering LaTeX-style math: inline $...$ or \(...\); display $$...$$ or \[...\] -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      chtml: { matchFontHeight: true, scale: 1 }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <h1>Engineering Mechanics Flashcards</h1>
+
+  <div id="flashcard-container"></div>
+
+<div style="text-align:center; margin-top:20px;">
+  <button id="show-btn" onclick="showAnswer()">Show Answer</button>
+  <button id="next-btn" onclick="nextCard()" style="display:none;">Next</button>
+</div>
+  
+  
+
+
+
+  <!-- ✅ Move your script here -->
+<script>
+  let flashcards = [];
+  let currentIndex = 0;
+  let showingAnswer = false;
+
+
+
+  function fadeOut(element, callback) {
+    element.style.opacity = 0;
+    setTimeout(callback, 500);
+  }
+
+  function fadeIn(element) {
+    element.style.opacity = 1;
+  }
+
+  function renderCard() {
+    const container = document.getElementById('flashcard-container');
+    fadeOut(container, () => {
+      container.innerHTML = '';
+
+      const card = document.createElement('div');
+      card.className = 'flashcard';
+
+      const data = flashcards[currentIndex];
+      const term = data.term;
+      const definition = data.definition;
+      const imagePath = `images/problem${currentIndex + 1}.png`;
+
+      // If we have structured fields, render a nicer layout; otherwise fall back.
+      const hasStructured = data.title || data.choices || data.answer || data.explanation;
+
+      if (hasStructured) {
+        const choicesHtml = (data.choices && data.choices.length)
+          ? `<ul class="choices">${data.choices.map(c => `<li>${c}</li>`).join('')}</ul>`
+          : '';
+        const answerHtml = data.answer
+          ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span><div class="answer-text">${data.answer}</div></div>`
+          : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span><div class="answer-text">${definition || ''}</div></div>`;
+        const explanationHtml = data.explanation
+          ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
+          : '';
+
+        card.innerHTML = `
+          <div class="term"><span class="question-title">${data.title || term}</span></div>
+          ${choicesHtml}
+          ${answerHtml}
+          ${explanationHtml}
+          <img src="${imagePath}" alt="Diagram for Problem ${currentIndex + 1}" onerror="this.style.display='none'" />
+        `;
+      } else {
+        card.innerHTML = `
+          <div class="term"><strong>${term}</strong></div>
+          <div class="definition" style="display: ${showingAnswer ? 'block' : 'none'};">${definition}</div>
+          <img src="${imagePath}" alt="Diagram for Problem ${currentIndex + 1}" onerror="this.style.display='none'" />
+        `;
+      }
+
+      container.appendChild(card);
+      // Typeset math in this card if MathJax is available
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([card]).catch(err => console.error('MathJax typeset error:', err));
+      }
+      fadeIn(container);
+
+      document.getElementById('show-btn').style.display = showingAnswer ? 'none' : 'inline-block';
+      document.getElementById('next-btn').style.display = showingAnswer ? 'inline-block' : 'none';
+    });
+  }
+
+  // Robust parser: groups lines until a tab-delimited line ends the question and begins the answer.
+  // Additionally, extract structured fields (title, choices, answer, explanation) when possible.
+  function parseFlashcards(text) {
+    const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const cards = [];
+    let i = 0;
+    const isQuestionHeader = (s) => /^\d+\.\s/.test(s.trim());
+
+    while (i < lines.length) {
+      // Skip leading blank lines
+      while (i < lines.length && !lines[i].trim()) i++;
+      if (i >= lines.length) break;
+
+      const qLines = [];
+      const aLines = [];
+
+      // Collect question lines up to the first tab-delimited line
+      while (i < lines.length && !lines[i].includes('\t')) {
+        // Stop if we encounter a brand-new question header while no tab seen yet (malformed block)
+        if (qLines.length > 0 && isQuestionHeader(lines[i])) break;
+        qLines.push(lines[i]);
+        i++;
+      }
+
+      // If a tab-delimited line exists, split into question tail + answer head
+      if (i < lines.length && lines[i].includes('\t')) {
+        const [left, right] = lines[i].split('\t');
+        qLines.push(left);
+        aLines.push(right);
+        i++;
+        // Append explanation/answer continuation lines until next question header or next tabbed record
+        while (i < lines.length && !isQuestionHeader(lines[i]) && !lines[i].includes('\t')) {
+          aLines.push(lines[i]);
+          i++;
+        }
+      }
+
+      const term = qLines.join('\n').trim();
+      const definition = aLines.join('\n').trim();
+
+      // Try to structure the content
+      let title = '';
+      let choices = [];
+      let answer = '';
+      let explanation = '';
+
+      // Extract title and choices from the question block
+      const qNonEmpty = qLines.filter(l => l.trim().length > 0);
+      if (qNonEmpty.length) {
+        title = qNonEmpty[0].trim();
+        // Collect options like (a) text
+        for (let qi = 1; qi < qNonEmpty.length; qi++) {
+          const opt = qNonEmpty[qi].trim();
+          if (/^\([a-zA-Z]\)/.test(opt)) {
+            choices.push(opt);
+          }
+        }
+      }
+
+      // From the answer block, separate line starting with "Answer:" and the rest as explanation
+      if (aLines.length) {
+        const firstNonEmptyIdx = aLines.findIndex(l => l.trim().length > 0);
+        if (firstNonEmptyIdx !== -1) {
+          const first = aLines[firstNonEmptyIdx];
+          const m = first.match(/^\s*Answer\s*:\s*(.*)$/i);
+          if (m) {
+            answer = m[1].trim();
+            const rest = aLines.slice(firstNonEmptyIdx + 1);
+            explanation = rest.join('\n').trim();
+          } else {
+            // No explicit Answer: prefix; use full block as explanation and leave answer empty
+            explanation = aLines.join('\n').trim();
+          }
+        }
+      }
+
+      const card = {
+        term: term || '⚠️ Problem missing.',
+        definition: definition || '⚠️ Answer missing.'
+      };
+
+      if (title || choices.length || answer || explanation) {
+        card.title = title || term;
+        if (choices.length) card.choices = choices;
+        if (answer) card.answer = answer;
+        if (explanation) card.explanation = explanation;
+      }
+
+      if (term || definition) {
+        cards.push(card);
+      }
+    }
+
+    return cards;
+  }
+
+  fetch('flashcards.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Flashcard file not found.');
+      return response.text();
+    })
+    .then(data => {
+      flashcards = parseFlashcards(data);
+      if (!flashcards.length) throw new Error('No flashcards parsed from file.');
+      currentIndex = 0;
+      showingAnswer = false;
+      renderCard();
+    })
+    .catch(error => {
+      const statusEl = document.getElementById('status');
+      if (statusEl) {
+        statusEl.innerText += `\n❌ Flashcards failed to load: ${error.message}`;
+      } else {
+        console.error('Flashcards failed to load:', error);
+      }
+    });
+
+  function showAnswer() {
+    showingAnswer = true;
+    renderCard();
+  }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % flashcards.length;
+    showingAnswer = false;
+    renderCard();
+  }
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
