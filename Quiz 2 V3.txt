@@ -1,0 +1,90 @@
+1. (3 points) Equipotential surfaces are the surfaces
+(a) with the same potential
+(b) the same electric field strength
+(c) the same charges	Answer: Equipotential surfaces are defined as surfaces where the electric potential is the same everywhere. Correct choice: (a) with the same potential.
+Explanation: No work is required to move a charge along an equipotential surface.
+Diagram: concentric circles around a point charge represent equipotential surfaces in 2D.
+2. (3 points) The potential difference between two points is 100 V. If a particle with a charge 2 C is transported from one of these points to the other, the magnitude of the work done is:
+(a) 2 J
+(b) 50 J
+(c) 100 V
+(d) 200 J
+(e) 100 J	Answer: $W = q\,\Delta V = (2\,\mathrm{C})(100\,\mathrm{V}) = 200\,\mathrm{J}$. Correct answer: (d) 200 J.
+3. (3 points) A parallel-plate capacitor C has a charge Q. The actual charges on its plates are
+(a) Q, Q
+(b) Q/2, Q/2
+(c) Q, −Q
+(d) Q, 0
+(e) Q/2, Q/2	Answer: The plates carry equal and opposite charges, +Q and −Q. Correct choice: (c).
+4. (3 points) A car battery is rated at 80 A·h. An ampere-hour is a unit of:
+(a) power
+(b) charge
+(c) current
+(d) force
+(e) energy	Answer: An ampere-hour is a unit of electric charge (1 A·h = 3600 C). Correct choice: (b).
+5. (3 points) In schematic diagrams, currents are indicated using arrows. What do the arrows indicate?
+(a) the direction of motion of the electrons
+(b) the direction that positive charge carriers would move
+(c) the direction of motion of the charge carriers
+(d) nothing, they are just a convenient drawing tool	Answer: Conventional current arrows show the direction positive charges would move. Correct choice: (b).
+Note: Electrons actually move opposite this direction.
+6. (3 points) A wire with a length of 150 m and a radius of 0.15 mm carries a current with a uniform current density of 2.8×10^7 A/m². The current is:
+(a) 300 A
+(b) 5.9 A
+(c) 0.63 A
+(d) 26000 A
+(e) 2.0 A	Answer: $I = J\,A$. Area $A = \pi r^2 = \pi(1.5\times 10^{-4}\,\mathrm{m})^2 \approx 7.07\times 10^{-8}\,\mathrm{m}^2$. Thus $I = 2.8\times 10^{7}\,\mathrm{A/m^2}\;\times\;7.07\times 10^{-8}\,\mathrm{m}^2 \approx 1.98\,\mathrm{A} \approx 2.0\,\mathrm{A}$. Correct choice: (e).
+7. (3 points) Lightbulb A, a 60W model, and lightbulb B, a 40W model, are connected in parallel across a 120V power supply. Which statement below is false
+(a) The voltage difference across lightbulb B is 120V
+(b) More current flows through the battery than through lightbulb B
+(c) Lightbulb B has a higher resistance than lightbulb A
+(d) Less current flows through lightbulb A than lightbulb B	Answer: For each bulb I = P/V. I_A = 60/120 = 0.50 A. I_B = 40/120 ≈ 0.33 A. So bulb A draws more current. Statement (d) is false. Correct answer: (d).
+8. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are the following. Rank the wires according to their resistances, least to greatest.
+(a) 1, 2, 3, 4, 5
+(b) 1 and 2 tie, then 5, 3, 4
+(c) 5, 4, 3, 2, 1
+(d) 1, 3, 4, 2, 5
+(e) 1, 2, 3, 4, 5	Answer: Cannot solve fully without the missing length/radius data. Method: For same material, R ∝ L / r². Compute for each wire, rank smallest to largest.
+9. (3 points) The internal resistance in a real battery causes what to happen when the battery is connected to a resistive “load”? (Pick the best answer)
+(a) The voltage across the battery terminals decreases when the battery is connected to low resistance loads.
+(b) The battery warms when connected to low resistance loads.
+(c) The current supplied by the battery falls to less than the nominal battery voltage divided by the load resistance
+(d) All of the above	Answer: All of the above effects occur due to internal resistance. Correct choice: (d).
+10. (3 points) A capacitor is being discharged through a resistance 10 Ω. In about 10 seconds, the voltage on the capacitor changed from 10 V to about 3.3 V. What is the capacitance of the capacitor?
+(a) 1 pF
+(b) 1 nF
+(c) 1 µF
+(d) 1 mF
+(e) 1 F	Answer: Decay law: $V = V_0 e^{-t/RC}$. At $t=10\,\mathrm{s}$, $V/V_0 = 0.33$. So $e^{-10/RC} = 0.33 \Rightarrow RC \approx 9.0\,\mathrm{s}$. With $R = 10\,\Omega$, $C \approx 0.9\,\mathrm{F}$. Closest choice: (e).
+11. (3 points) (Two capacitors CL = 0.1 µF, CR = 0.22 µF in parallel with a 9 V battery) Which statement below is most correct?
+(a) The two capacitors store the same charge
+(b) The two capacitors have the same ratio of charge to voltage across their leads
+(c) The two capacitors have the same voltage between their leads
+(d) The two capacitors store the same energy	Answer: In parallel each capacitor has the same voltage across it (9 V). Correct choice: (c).
+12. (3 points) What is the total energy stored in the two capacitors?
+(a) 9.0 V
+(b) 13.0 µJ
+(c) 4.05 µJ
+(d) 8.91 µJ	Answer: $C_{\text{total}} = 0.1 + 0.22 = 0.32\,\mu\mathrm{F}$. Energy $U = \tfrac{1}{2} C V^2 = 0.5\times 0.32\times 10^{-6}\times 9^2 \approx 12.96\,\mu\mathrm{J} \approx 13.0\,\mu\mathrm{J}$. Correct choice: (b).
+13. (3 points) How much charge do the two capacitors together store?
+(a) 0.90 µC
+(b) 1.98 µC
+(c) 2.88 µC
+(d) 1.44 µC	Answer: $Q = C_{\text{total}}\,V = 0.32\times 10^{-6}\,\mathrm{F}\times 9\,\mathrm{V} = 2.88\,\mu\mathrm{C}$. Correct choice: (c).
+14. (3 points) What is the absolute voltage difference between the two leads of the 0.1 µF capacitor CL?
+(a) 0.0 V
+(b) 2.8 V
+(c) 6.2 V
+(d) 9.0 V	Answer: In parallel, each capacitor has full battery voltage: 9 V. Correct choice: (d).
+15. (12 points) You have the following: a box of twelve 9V batteries, forty 1000 Ω resistors, and forty 1 µF capacitors. Draw diagrams to make:
+(a) A 3500 Ω resistor	Answer: Use three 1000 Ω in series = 3000 Ω. Add two 1000 Ω in parallel = 500 Ω. Series them together = 3500 Ω.
+15. (b) A 0.15 µF capacitor	Answer: Put seven 1 µF capacitors in series = ~0.143 µF (close to 0.15 µF).
+17. (a) Write three independent equations for currents I1, I2, I3 (see circuit figure).	Answer: Method: Apply Kirchhoff’s laws:
+KCL: $I_1 + I_2 + I_3 = 0$
+KVL loop1: $-E_1 + I_1 R_1 + I_3 R_3 = 0$
+KVL loop2: $-E_2 + I_2 R_2 - I_3 R_3 = 0$
+17. (b) With E1=10 V, E2=20 V, R1=R2=1000 Ω, R3=10^6 Ω. Solve.	Answer: $R_3$ is huge so $I_3\approx 0$. Then $I_1\approx 10/1000=10\,\mathrm{mA}$, $I_2\approx 20/1000=20\,\mathrm{mA}$
+17. (c) With R1=R3=1000 Ω and R2=1 Ω.	Answer: $R_2$ is very small → branch draws large current. Exact values require solving full equations; expect $I_2\gg I_1, I_3$
+18. (a) For VL=62 V, battery=100 V, C=0.25 µF, find R for 2 flashes/s.	Answer: Period=0.5 s. At 62% voltage, τ=RC=0.5 s. R=0.5/0.25e-6=2.0 MΩ
+18. (b) How much energy delivered to lamp per flash?	Answer: $U=\frac{1}{2} C V^2=0.5\times 0.25\times 10^{-6}\times 62^2 \approx 4.8\times 10^{-4}\,\mathrm{J}$
+18. (c) Estimate discharge time if lamp R≈100 Ω.	Answer: $\tau=RC=100\times 0.25\times 10^{-6}=25\,\mu\mathrm{s}$. Nearly full discharge in $\sim 5\tau \approx 125\,\mu\mathrm{s}$
