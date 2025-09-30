@@ -109,6 +109,10 @@
   let sidebarCollapsed = false;
   let timerWasRunning = false; // Track if timer was running
   let userSelections = {}; // Track user's answer selections
+  let missedQuestions = []; // Track questions user got wrong
+  let reviewQueue = []; // Queue of questions to review
+  let isReviewMode = false; // Whether we're in review mode
+  let originalQuestionIndex = -1; // Track original index when in review
 
 
 
@@ -152,11 +156,32 @@
             }).join('')}</ul>`
           : '';
         
-        // Show user's selection in the answer
+        // Show user's selection in the answer and check if correct
         let userSelectionText = '';
+        let isCorrect = false;
         if (showingAnswer && userSelections[currentIndex] !== undefined && data.choices) {
           const selectedIdx = userSelections[currentIndex];
-          userSelectionText = `<div class="user-selection">Your answer: ${data.choices[selectedIdx]}</div>`;
+          const selectedChoice = data.choices[selectedIdx];
+          
+          // Check if answer is correct by looking for the choice letter in the answer text
+          const choiceLetter = selectedChoice.match(/^\(([a-zA-Z])\)/);
+          if (choiceLetter && data.answer) {
+            const correctLetter = data.answer.match(/\(([a-zA-Z])\)/);
+            isCorrect = choiceLetter[1] === correctLetter?.[1];
+          }
+          
+          const resultClass = isCorrect ? 'user-selection-correct' : 'user-selection-incorrect';
+          const resultIcon = isCorrect ? '✓' : '✗';
+          userSelectionText = `<div class="user-selection ${resultClass}">${resultIcon} Your answer: ${selectedChoice}</div>`;
+          
+          // Trigger celebration or encouragement
+          if (isCorrect) {
+            setTimeout(() => triggerConfetti(), 100);
+          } else {
+            setTimeout(() => showEncouragement(), 100);
+            // Add to missed questions for review
+            addToReviewQueue(currentIndex);
+          }
         }
         
         const answerHtml = data.answer
@@ -316,6 +341,9 @@
         showingAnswer = false;
         isRandomized = false;
         userSelections = {}; // Clear selections when loading new quiz
+        missedQuestions = []; // Clear missed questions
+        reviewQueue = []; // Clear review queue
+        isReviewMode = false;
         document.getElementById('randomize-checkbox').checked = false;
         resetTimer();
         renderCard();
@@ -366,8 +394,48 @@
     userSelections[currentIndex] = choiceIdx;
   }
 
+  function addToReviewQueue(questionIdx) {
+    // Don't add if already in review queue
+    if (!reviewQueue.includes(questionIdx) && !missedQuestions.includes(questionIdx)) {
+      missedQuestions.push(questionIdx);
+      // Add to review queue - will be interleaved later
+      scheduleReview(questionIdx);
+    }
+  }
+
+  function scheduleReview(questionIdx) {
+    // Add the question to appear again after 2-3 more questions
+    const insertPosition = Math.min(currentIndex + 2 + Math.floor(Math.random() * 2), flashcards.length - 1);
+    if (!reviewQueue.some(item => item.index === questionIdx)) {
+      reviewQueue.push({ index: questionIdx, scheduledAfter: insertPosition });
+    }
+  }
+
+  function getNextQuestionIndex() {
+    // Check if we should show a review question
+    const dueReviews = reviewQueue.filter(item => item.scheduledAfter <= currentIndex);
+    
+    if (dueReviews.length > 0) {
+      // Show a review question
+      const reviewItem = dueReviews[0];
+      reviewQueue = reviewQueue.filter(item => item !== reviewItem);
+      isReviewMode = true;
+      originalQuestionIndex = currentIndex;
+      return reviewItem.index;
+    }
+    
+    isReviewMode = false;
+    return (currentIndex + 1) % flashcards.length;
+  }
+
   function nextCard() {
-    currentIndex = (currentIndex + 1) % flashcards.length;
+    if (isReviewMode) {
+      // Return from review mode
+      currentIndex = originalQuestionIndex + 1;
+      isReviewMode = false;
+    } else {
+      currentIndex = getNextQuestionIndex();
+    }
     showingAnswer = false;
     resetTimerAndAutoStart();
     renderCard();
@@ -514,7 +582,65 @@
 
   function updateProgressDisplay() {
     const display = document.getElementById('progress-display');
-    display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}`;
+    const reviewText = isReviewMode ? ' (Review)' : '';
+    const missedCount = missedQuestions.length > 0 ? ` | Reviewing: ${missedQuestions.length}` : '';
+    display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}${reviewText}${missedCount}`;
+  }
+
+  function triggerConfetti() {
+    // Create confetti container
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    document.body.appendChild(container);
+    
+    // Create multiple confetti pieces
+    const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#a29bfe', '#fd79a8'];
+    const confettiCount = 50;
+    
+    for (let i = 0; i < confettiCount; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDelay = Math.random() * 0.3 + 's';
+      confetti.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
+      container.appendChild(confetti);
+    }
+    
+    // Remove after animation
+    setTimeout(() => {
+      container.remove();
+    }, 3000);
+  }
+
+  function showEncouragement() {
+    const messages = [
+      "Keep going! Learning from mistakes makes you stronger! 💪",
+      "Don't worry! Every expert was once a beginner! 🌟",
+      "Great effort! You'll get it next time! 🎯",
+      "Nice try! Practice makes perfect! 📚",
+      "You're doing great! Keep learning! 🚀",
+      "Almost there! You've got this! ⭐",
+      "Excellent effort! Review and try again! 💡",
+      "Stay positive! Mistakes are part of learning! 🌈"
+    ];
+    
+    const message = messages[Math.floor(Math.random() * messages.length)];
+    
+    // Create encouragement popup
+    const popup = document.createElement('div');
+    popup.className = 'encouragement-popup';
+    popup.textContent = message;
+    document.body.appendChild(popup);
+    
+    // Animate in
+    setTimeout(() => popup.classList.add('show'), 10);
+    
+    // Remove after delay
+    setTimeout(() => {
+      popup.classList.remove('show');
+      setTimeout(() => popup.remove(), 300);
+    }, 3000);
   }
 </script>
 
