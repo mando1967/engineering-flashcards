@@ -18,7 +18,7 @@ Explanation: Both charges create fields pointing toward -Q at the midpoint. The 
 [RESOURCE:Khan Academy - Superposition] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-field/v/electric-field-direction
 [RESOURCE:Video - Electric Field Superposition] https://www.youtube.com/watch?v=FXfWXxnT6Qs
 
-3. (3 points) A proton is placed in a uniform electric field. The proton will:
+3. (3 points) A proton is placed in a uniform electric field. The proton will: [IMAGE:images/Quiz 2 V1-0.png]
 (a) remain at rest
 (b) move in a circular path
 (c) accelerate in the direction of the field
@@ -68,7 +68,7 @@ Explanation: R = ρL/A. If length doubles and volume is constant, area halves. N
 [RESOURCE:Article - Resistance and Geometry] https://www.electronics-tutorials.ws/resistor/res_2.html
 [RESOURCE:Video - Resistance Factors] https://www.youtube.com/watch?v=VnnfDzGLY8g
 
-8. (3 points) In an RC circuit, the time constant τ represents:
+8. (3 points) In an RC circuit, the time constant τ represents: [IMAGE:images/Quiz 2 V1-1.png]
 (a) the time for the capacitor to fully charge
 (b) the time for the capacitor to reach 63% of maximum charge
 (c) the time for the capacitor to reach 50% of maximum charge
@@ -88,7 +88,7 @@ Explanation: Terminal voltage V = ε - Ir, where I is the current. The internal 
 [RESOURCE:Article - Internal Resistance] https://www.electronics-tutorials.ws/battery/battery_4.html
 [RESOURCE:Video - Real Batteries] https://www.youtube.com/watch?v=YZRjVnZJZGw
 
-10. (3 points) Kirchhoff's voltage law states that:
+10. (3 points) Kirchhoff's voltage law states that: [IMAGE:images/Quiz 2 V1-2.png]
 (a) the sum of currents entering a junction equals the sum leaving
 (b) the sum of voltages around a closed loop is zero
 (c) voltage equals current times resistance
@@ -108,7 +108,7 @@ Explanation: For series capacitors: 1/C_eq = 1/C₁ + 1/C₂ = 1/4 + 1/6 = 3/12 
 [RESOURCE:Khan Academy - Series Capacitors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-in-series
 [RESOURCE:Video - Capacitor Combinations] https://www.youtube.com/watch?v=ZrMltpK6iAw
 
-12. (3 points) The power dissipated in a resistor is given by P = I²R. If the current through a 10Ω resistor is 2A, the power dissipated is:
+12. (3 points) The power dissipated in a resistor is given by P = I²R. If the current through a 10Ω resistor is 2A, the power dissipated is: [IMAGE:images/Quiz 2 V1-3.png]
 (a) 5W
 (b) 20W
 (c) 40W
@@ -118,7 +118,7 @@ Explanation: P = I²R = (2A)² × 10Ω = 4 × 10 = 40W. Power can also be calcul
 [RESOURCE:Khan Academy - Electric Power] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-3
 [RESOURCE:Video - Power in Circuits] https://www.youtube.com/watch?v=FhwlfPMJgm4
 
-13. (3 points) An ammeter should be connected:
+13. (3 points) An ammeter should be connected: [IMAGE:images/Quiz 2 V1-4.png]
 (a) in series with the element being measured
 (b) in parallel with the element being measured
 (c) either in series or parallel
@@ -148,7 +148,7 @@ Explanation: Using Ohm's Law: I = V/R = 12V/4Ω = 3A. This is the fundamental ap
 [RESOURCE:Khan Academy - Ohm's Law] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2
 [RESOURCE:Video - Ohm's Law Practice] https://www.youtube.com/watch?v=VnnfDzGLY8g
 
-16. (3 points) The energy stored in a capacitor is given by:
+16. (3 points) The energy stored in a capacitor is given by: [IMAGE:images/Quiz 2 V1-5.jpg]
 (a) CV
 (b) ½CV
 (c) CV²
@@ -168,7 +168,7 @@ Explanation: In series circuits, current is the same everywhere. There's only on
 [RESOURCE:Khan Academy - Series Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
 [RESOURCE:Video - Series vs Parallel] https://www.youtube.com/watch?v=VV3dUKVcNPo
 
-18. (3 points) The direction of conventional current is:
+18. (3 points) The direction of conventional current is: [IMAGE:images/Quiz 2 V1-6.png]
 (a) from negative to positive terminal
 (b) from positive to negative terminal
 (c) perpendicular to the wire
@@ -188,7 +188,7 @@ Explanation: Voltmeters are connected in parallel and should draw minimal curren
 [RESOURCE:Article - Voltmeter Design] https://www.electronics-tutorials.ws/meter/meter_1.html
 [RESOURCE:Video - Meter Characteristics] https://www.youtube.com/watch?v=TdUK6RPdIrA
 
-20. (3 points) The equivalent resistance of resistors R₁ and R₂ in parallel is:
+20. (3 points) The equivalent resistance of resistors R₁ and R₂ in parallel is: [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]
 (a) R₁ + R₂
 (b) R₁R₂
 (c) R₁R₂/(R₁ + R₂)
