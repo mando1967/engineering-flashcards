@@ -299,7 +299,7 @@
 
       // Extract image references if present (support multiple)
       let images = [];
-      const imageMatches = term.matchAll(/\[IMAGE:([^]]+)\]/g);
+      const imageMatches = term.matchAll(/\[IMAGE:([^\]]+)\]/g);
       for (const match of imageMatches) {
         images.push(match[1]);
       }
