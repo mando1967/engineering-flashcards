@@ -181,21 +181,24 @@
           const resultIcon = isCorrect ? '✓' : '✗';
           userSelectionText = `<div class="user-selection ${resultClass}">${resultIcon} Your answer: ${selectedChoice}</div>`;
           
-          // Trigger celebration or encouragement and track performance
-          // Only track if this is the first time answering (not from saved state)
-          const wasAlreadyAnswered = userSelections[currentIndex] !== undefined;
+          // Trigger celebration or encouragement - always show on first reveal
+          if (isCorrect) {
+            setTimeout(() => triggerConfetti(), 100);
+          } else {
+            setTimeout(() => showEncouragement(), 100);
+          }
           
-          if (!wasAlreadyAnswered) {
+          // Track performance stats (only once per question)
+          if (!data.hasBeenAnswered) {
             if (isCorrect) {
-              setTimeout(() => triggerConfetti(), 100);
               performanceStats.correct++;
             } else {
-              setTimeout(() => showEncouragement(), 100);
               performanceStats.incorrect++;
               // Add to missed questions for review
               addToReviewQueue(currentIndex);
             }
             performanceStats.total++;
+            flashcards[currentIndex].hasBeenAnswered = true;
             updateStatsDisplay();
             saveProgressToCookies();
           }
