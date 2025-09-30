@@ -44,6 +44,9 @@
     <aside id="sidebar">
       <div class="sidebar-header">Flashcard Sets</div>
       <ul id="file-list"></ul>
+      <div class="sidebar-footer">
+        <button onclick="clearProgress()" class="clear-progress-btn" title="Clear saved progress for current quiz">Clear Progress</button>
+      </div>
     </aside>
 
     <main id="main-content">
@@ -71,6 +74,9 @@
         </div>
         <div class="control-group">
           <span id="progress-display">Question 1 of 1</span>
+        </div>
+        <div class="control-group">
+          <span id="stats-display" title="Overall performance this session">📊 0/0 (0%)</span>
         </div>
       </div>
 
@@ -113,6 +119,7 @@
   let reviewQueue = []; // Queue of questions to review
   let isReviewMode = false; // Whether we're in review mode
   let originalQuestionIndex = -1; // Track original index when in review
+  let performanceStats = { correct: 0, incorrect: 0, total: 0 }; // Track overall performance
 
 
 
@@ -177,11 +184,16 @@
           // Trigger celebration or encouragement
           if (isCorrect) {
             setTimeout(() => triggerConfetti(), 100);
+            performanceStats.correct++;
           } else {
             setTimeout(() => showEncouragement(), 100);
+            performanceStats.incorrect++;
             // Add to missed questions for review
             addToReviewQueue(currentIndex);
           }
+          performanceStats.total++;
+          updateStatsDisplay();
+          saveProgressToCookies();
         }
         
         const answerHtml = data.answer
@@ -340,13 +352,23 @@
         currentIndex = 0;
         showingAnswer = false;
         isRandomized = false;
-        userSelections = {}; // Clear selections when loading new quiz
-        missedQuestions = []; // Clear missed questions
-        reviewQueue = []; // Clear review queue
-        isReviewMode = false;
         document.getElementById('randomize-checkbox').checked = false;
+        
+        // Load saved progress from cookies
+        loadProgressFromCookies();
+        
+        // If no saved progress, initialize fresh
+        if (Object.keys(userSelections).length === 0) {
+          userSelections = {};
+          missedQuestions = [];
+          reviewQueue = [];
+          performanceStats = { correct: 0, incorrect: 0, total: 0 };
+        }
+        
+        isReviewMode = false;
         resetTimer();
         renderCard();
+        updateStatsDisplay();
       });
   }
 
@@ -392,6 +414,7 @@
 
   function saveUserSelection(choiceIdx) {
     userSelections[currentIndex] = choiceIdx;
+    saveProgressToCookies();
   }
 
   function addToReviewQueue(questionIdx) {
@@ -400,6 +423,7 @@
       missedQuestions.push(questionIdx);
       // Add to review queue - will be interleaved later
       scheduleReview(questionIdx);
+      saveProgressToCookies();
     }
   }
 
@@ -587,6 +611,29 @@
     display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}${reviewText}${missedCount}`;
   }
 
+  function updateStatsDisplay() {
+    const display = document.getElementById('stats-display');
+    const percentage = performanceStats.total > 0 
+      ? Math.round((performanceStats.correct / performanceStats.total) * 100) 
+      : 0;
+    display.textContent = `📊 ${performanceStats.correct}/${performanceStats.total} (${percentage}%)`;
+    
+    // Color code based on performance
+    if (percentage >= 80) {
+      display.style.color = '#28a745';
+      display.style.fontWeight = 'bold';
+    } else if (percentage >= 60) {
+      display.style.color = '#ffc107';
+      display.style.fontWeight = 'bold';
+    } else if (performanceStats.total > 0) {
+      display.style.color = '#dc3545';
+      display.style.fontWeight = 'bold';
+    } else {
+      display.style.color = '#2c3e50';
+      display.style.fontWeight = 'normal';
+    }
+  }
+
   function triggerConfetti() {
     // Create confetti container
     const container = document.createElement('div');
@@ -641,6 +688,83 @@
       popup.classList.remove('show');
       setTimeout(() => popup.remove(), 300);
     }, 3000);
+  }
+
+  // Cookie management functions
+  function setCookie(name, value, days = 30) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + ";" + expires + ";path=/";
+  }
+
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) {
+        try {
+          return JSON.parse(decodeURIComponent(c.substring(nameEQ.length, c.length)));
+        } catch (e) {
+          return null;
+        }
+      }
+    }
+    return null;
+  }
+
+  function saveProgressToCookies() {
+    if (!currentQuizSet) return;
+    
+    const progressData = {
+      userSelections: userSelections,
+      missedQuestions: missedQuestions,
+      performanceStats: performanceStats,
+      timestamp: new Date().toISOString()
+    };
+    
+    setCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'), progressData);
+  }
+
+  function loadProgressFromCookies() {
+    if (!currentQuizSet) return;
+    
+    const progressData = getCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'));
+    
+    if (progressData) {
+      userSelections = progressData.userSelections || {};
+      missedQuestions = progressData.missedQuestions || [];
+      performanceStats = progressData.performanceStats || { correct: 0, incorrect: 0, total: 0 };
+      
+      // Rebuild review queue from missed questions
+      reviewQueue = [];
+      missedQuestions.forEach(idx => {
+        scheduleReview(idx);
+      });
+      
+      updateStatsDisplay();
+      console.log('Progress loaded from cookies:', progressData.timestamp);
+    }
+  }
+
+  function clearProgress() {
+    if (!currentQuizSet) return;
+    
+    if (confirm('Clear all progress for this quiz set? This will reset your answers and statistics.')) {
+      userSelections = {};
+      missedQuestions = [];
+      reviewQueue = [];
+      performanceStats = { correct: 0, incorrect: 0, total: 0 };
+      
+      setCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'), null, -1);
+      
+      updateStatsDisplay();
+      renderCard();
+      
+      alert('Progress cleared!');
+    }
   }
 </script>
 

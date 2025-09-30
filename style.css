@@ -72,6 +72,30 @@ h1 {
   border-top-right-radius: 12px;
 }
 
+.sidebar-footer {
+  padding: 12px 14px;
+  border-top: 1px solid #eef2f8;
+  background: #f8fbff;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.clear-progress-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-progress-btn:hover {
+  background: #c82333;
+}
+
 #file-list {
   list-style: none;
   margin: 0;
@@ -301,6 +325,15 @@ button:hover {
   font-weight: 600;
   color: #2c3e50;
   font-size: 0.95rem;
+}
+
+#stats-display {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 4px 8px;
+  background: white;
+  border-radius: 6px;
+  border: 2px solid #e3ecff;
 }
 
 /* Navigation buttons */
