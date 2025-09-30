@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regex Test</title>
+</head>
+<body>
+  <h1>Testing Image Extraction Regex</h1>
+  <pre id="output"></pre>
+  
+  <script>
+    const testCases = [
+      '3. (3 points) A proton is placed in a uniform electric field. The proton will: [IMAGE:images/Quiz 2 V1-0.png]',
+      '20. (3 points) The equivalent resistance of resistors R₁ and R₂ in parallel is: [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]'
+    ];
+    
+    let output = '';
+    
+    testCases.forEach((text, idx) => {
+      output += `\nTest Case ${idx + 1}:\n`;
+      output += `Input: ${text}\n`;
+      output += `Extracted images:\n`;
+      
+      const imageMatches = text.matchAll(/\[IMAGE:([^\]]+)\]/g);
+      for (const match of imageMatches) {
+        output += `  - ${match[1]}\n`;
+      }
+    });
+    
+    document.getElementById('output').textContent = output;
+  </script>
+</body>
+</html>

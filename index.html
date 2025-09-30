@@ -60,7 +60,7 @@
         </div>
         <div class="control-group">
           <label for="timer-select">Timer:</label>
-          <select id="timer-select" onchange="updateTimer()">
+          <select id="timer-select" onchange="updateTimer()" title="Set a timer for each individual problem (not for the entire quiz)">
             <option value="0">Off</option>
             <option value="1">1 minute</option>
             <option value="5">5 minutes</option>
@@ -463,6 +463,23 @@
         });
       });
       list.appendChild(li);
+      
+      // Add PDF links below the quiz item
+      const pdfLinks = document.createElement('div');
+      pdfLinks.className = 'pdf-links';
+      pdfLinks.innerHTML = `
+        <a href="tests/${setName}/${setName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
+        <a href="tests/${setName}/${setName} KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
+      `;
+      list.appendChild(pdfLinks);
+      
+      // Add separator between quizzes (except after the last one)
+      if (idx < quizSets.length - 1) {
+        const separator = document.createElement('hr');
+        separator.className = 'quiz-separator';
+        list.appendChild(separator);
+      }
+      
       // Auto-load first
       if (idx === 0) {
         li.classList.add('active');
@@ -473,7 +490,7 @@
 
   function initSidebar() {
     // Hardcode available quiz sets for now
-    const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3'];
+    const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4'];
     populateSidebar(quizSets);
   }
 

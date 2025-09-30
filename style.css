@@ -122,6 +122,42 @@ h1 {
   cursor: default;
 }
 
+/* PDF links styling */
+.pdf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 14px 12px;
+}
+
+.pdf-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #f8fbff;
+  border: 1px solid #d0e3ff;
+  border-radius: 6px;
+  color: #0078D4;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.pdf-link:hover {
+  background: #e8f0ff;
+  border-color: #0078D4;
+  transform: translateX(2px);
+}
+
+/* Quiz separator */
+.quiz-separator {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d0e3ff, transparent);
+  margin: 12px 0;
+}
+
 #main-content {
   flex: 1 1 auto;
   min-width: 0;
