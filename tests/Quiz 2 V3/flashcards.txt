@@ -67,7 +67,7 @@ Note: Electrons actually move opposite this direction.
 (d) 1 mF
 (e) 1 F	Answer: Decay law: $V = V_0 e^{-t/RC}$. At $t=10\,\mathrm{s}$, $V/V_0 = 0.33$. So $e^{-10/RC} = 0.33 \Rightarrow RC \approx 9.0\,\mathrm{s}$. With $R = 10\,\Omega$, $C \approx 0.9\,\mathrm{F}$. Closest choice: (e).
 [RESOURCE:Article - RC Circuits] https://www.electronics-tutorials.ws/rc/rc_1.html
-[RESOURCE:Video - Capacitor Discharge] https://www.youtube.com/watch?v=9g9LkgY_5Hs
+[RESOURCE:Video - Capacitor Discharge] https://www.youtube.com/watch?v=f_MZNsEqyQw
 
 11. (3 points) (Two capacitors CL = 0.1 µF, CR = 0.22 µF in parallel with a 9 V battery) Which statement below is most correct? (a) The two capacitors store the same charge
 (b) The two capacitors have the same ratio of charge to voltage across their leads

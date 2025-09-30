@@ -16,7 +16,7 @@ Explanation: Coulomb's law gives E = kQ/r². Electric field strength decreases w
 (e) depends on the magnitude of Q	Answer: (c) points toward -Q
 Explanation: Both charges create fields pointing toward -Q at the midpoint. The +Q charge creates a field pointing away from it (toward -Q), and the -Q charge creates a field pointing toward itself. These add up.
 [RESOURCE:Khan Academy - Superposition] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-field/v/electric-field-direction
-[RESOURCE:Video - Electric Field Superposition] https://www.youtube.com/watch?v=FXfWXxnT6Qs
+[RESOURCE:Video - Electric Field Superposition] https://www.youtube.com/watch?v=x4SLkVJ8e1E
 
 3. (3 points) A proton is placed in a uniform electric field. The proton will: [IMAGE:images/Quiz 2 V1-0.png]
 (a) remain at rest
@@ -76,7 +76,7 @@ Explanation: R = ρL/A. If length doubles and volume is constant, area halves. N
 (e) the time for current to become zero	Answer: (b) the time for the capacitor to reach 63% of maximum charge
 Explanation: τ = RC. After one time constant, the capacitor reaches (1 - e⁻¹) ≈ 63% of maximum charge during charging, or decays to 37% during discharging.
 [RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
-[RESOURCE:Video - Time Constant] https://www.youtube.com/watch?v=9g9LkgY_5Hs
+[RESOURCE:Video - Time Constant] https://www.youtube.com/watch?v=f_MZNsEqyQw
 
 9. (3 points) A battery with emf ε and internal resistance r is connected to an external resistor R. The terminal voltage of the battery is:
 (a) ε
@@ -116,7 +116,7 @@ Explanation: For series capacitors: 1/C_eq = 1/C₁ + 1/C₂ = 1/4 + 1/6 = 3/12 
 (e) 100W	Answer: (c) 40W
 Explanation: P = I²R = (2A)² × 10Ω = 4 × 10 = 40W. Power can also be calculated as P = VI or P = V²/R.
 [RESOURCE:Khan Academy - Electric Power] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-3
-[RESOURCE:Video - Power in Circuits] https://www.youtube.com/watch?v=FhwlfPMJgm4
+[RESOURCE:Video - Power in Circuits] https://www.youtube.com/watch?v=w82aSjLuD_8
 
 13. (3 points) An ammeter should be connected: [IMAGE:images/Quiz 2 V1-4.png]
 (a) in series with the element being measured
@@ -126,7 +126,7 @@ Explanation: P = I²R = (2A)² × 10Ω = 4 × 10 = 40W. Power can also be calcul
 (e) only at the battery terminals	Answer: (a) in series with the element being measured
 Explanation: Ammeters measure current, which must flow through them. They have very low resistance to minimize circuit disturbance. Connecting in parallel would short the circuit.
 [RESOURCE:Article - Measuring Instruments] https://www.electronics-tutorials.ws/meter/meter_1.html
-[RESOURCE:Video - Using Multimeters] https://www.youtube.com/watch?v=TdUK6RPdIrA
+[RESOURCE:Video - Using Multimeters] https://www.youtube.com/watch?v=SLkGpTjalzM
 
 14. (3 points) The electric potential at a distance r from a point charge Q is proportional to:
 (a) Q/r
