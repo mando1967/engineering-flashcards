@@ -3,17 +3,25 @@
 (b) a battery
 (c) a switch
 (d) a capacitor	Answer: (d) a capacitor
+Explanation: Capacitors store electrical energy in an electric field between two conductors (plates). They're used in power supplies, filters, and timing circuits.
+[RESOURCE:Khan Academy - Capacitors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance
+[RESOURCE:Video - How Capacitors Work] https://www.youtube.com/watch?v=X4EUwTwZ110
 
 2. (3 points) Its essential elements are two different metals, spatially separated and sometimes immersed in an acidic solution. This is
 (a) a resistor
 (b) a battery
 (c) a switch
 (d) a capacitor	Answer: (b) a battery
+Explanation: Batteries use chemical reactions between different metals (electrodes) and an electrolyte to produce electrical energy. The voltage depends on the electrode materials used.
+[RESOURCE:Video - How Batteries Work] https://www.youtube.com/watch?v=9OVtk6G2TnQ
+[RESOURCE:Article - Battery Basics] https://www.electronics-tutorials.ws/battery/battery_1.html
 
 3. (3 points) To protect the circuit, how would you connect the fuse?
 (a) in series with the circuit in question
 (b) in parallel with the circuit in question
 (c) fuse does not have to be connected to the circuit, just placing it in the vicinity is sufficient	Answer: (a) in series with the circuit in question
+Explanation: Fuses must be in series so all current flows through them. When current exceeds the rating, the fuse melts and breaks the circuit, preventing damage.
+[RESOURCE:Article - Circuit Protection] https://www.electronics-tutorials.ws/io/io_6.html
 
 4. (3 points) If 1000 J of work is required to carry 25 C charge from one point to another, the potential difference between these two points is
 (a) 25,000 V
@@ -21,6 +29,9 @@
 (c) 25 mV
 (d) depends on the path
 (e) none of these	Answer: (b) 40 V, since V = W/q = 1000 J / 25 C
+Explanation: Voltage (potential difference) is work per unit charge: V = W/q. It's path-independent in electrostatics. 1 Volt = 1 Joule/Coulomb.
+[RESOURCE:Khan Academy - Electric Potential] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-potential-voltage/v/electric-potential-at-a-point-in-space
+[RESOURCE:Video - Voltage Explained] https://www.youtube.com/watch?v=z8qfhFXjsrw
 
 5. (3 points) A 60W light bulb carries a current of 0.5 A. The total charge passing through it in one hour is
 (a) 3600 C
@@ -28,25 +39,37 @@
 (c) 1800 C
 (d) 900 C
 (e) 120 C	Answer: (c) 1800 C, since Q = I t = 0.5 A × 3600 s
+Explanation: Current is charge flow rate: I = Q/t, so Q = I×t. Remember to convert time to seconds (1 hour = 3600 s). 1 Ampere = 1 Coulomb/second.
+[RESOURCE:Khan Academy - Electric Current] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
+[RESOURCE:Video - Current and Charge] https://www.youtube.com/watch?v=8jB6hDUqN0Y
 
 6. (3 points) The figure below shows a junction. What is true of the currents? (a) i1 = i0 + i2 (b) i2 = i0 + i1 [IMAGE:images/Quiz 2 V2-2.png]
 (c) i0 = i1 − i2
-(d) i1 = i0 − i2
 (e) i0 = i2 − i1	Answer: (d) i1 = i0 − i2 (KCL: i0 = i1 + i2 ⇒ i1 = i0 − i2)
+Explanation: Kirchhoff's Current Law (KCL): The sum of currents entering a junction equals the sum leaving. Charge is conserved - what flows in must flow out.
+[RESOURCE:Khan Academy - Kirchhoff's Laws] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-current-law
+[RESOURCE:Video - KCL Explained] https://www.youtube.com/watch?v=9lZNB-8dHRk
 
-7. (3 points) For a cylindrical resistor that obeys Ohm’s Law the resistance does NOT depend on:
+7. (3 points) For a cylindrical resistor that obeys Ohm's Law the resistance does NOT depend on:
 (a) the current
 (b) the length
 (c) the cross-sectional area
 (d) the resistivity
 (e) the electron drift velocity	Answer: (a) the current (R = ρL/A is independent of current for ohmic conductors)
+Explanation: Resistance R = ρL/A depends on material (ρ), geometry (L, A), and temperature - but NOT on current. Ohmic materials maintain constant R regardless of applied voltage/current.
+[RESOURCE:Khan Academy - Ohm's Law] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2
+[RESOURCE:Video - Resistance] https://www.youtube.com/watch?v=VnnfDzGLY8g
 
 8. (3 points) Pulling the plates of an isolated charged capacitor apart:
 (a) increases the capacitance
 (b) increases the potential difference
 (c) does not affect the potential difference
-(d) decreases the potential difference
+(d) decreases the capacitance
+(e) does not affect the capacitance	Answer: (d) decreases the capacitance (Q fixed → V increases; C decreases)
 (e) does not affect the capacitance	Answer: (b) increases the potential difference (Q fixed → V increases; C decreases)
+Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decreases as d increases. Since Q = CV, if C decreases and Q is fixed, V must increase.
+[RESOURCE:Article - Capacitor Physics] https://www.electronics-tutorials.ws/capacitor/cap_1.html
+[RESOURCE:Video - Capacitor Behavior] https://www.youtube.com/watch?v=ZrMltpK6iAw
 
 9. (3 points) "The sum of the emf’s potential differences around a closed loop equals zero," is a consequence of
 (a) Newton’s third law
