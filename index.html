@@ -297,18 +297,18 @@
       let answer = '';
       let explanation = '';
 
-      // Extract image reference if present
-      let image = '';
-      const imageMatch = term.match(/\[IMAGE:([^\]]+)\]/);
-      if (imageMatch) {
-        image = imageMatch[1];
+      // Extract image references if present (support multiple)
+      let images = [];
+      const imageMatches = term.matchAll(/\[IMAGE:([^]]+)\]/g);
+      for (const match of imageMatches) {
+        images.push(match[1]);
       }
 
       // Extract title and choices from the question block
       const qNonEmpty = qLines.filter(l => l.trim().length > 0);
       if (qNonEmpty.length) {
-        // Remove [IMAGE:...] tag from title
-        title = qNonEmpty[0].trim().replace(/\[IMAGE:[^\]]+\]/, '').trim();
+        // Remove [IMAGE:...] tags from title
+        title = qNonEmpty[0].trim().replace(/\[IMAGE:[^\]]+\]/g, '').trim();
         // Collect options like (a) text
         for (let qi = 1; qi < qNonEmpty.length; qi++) {
           const opt = qNonEmpty[qi].trim();
@@ -373,13 +373,17 @@
       };
 
       if (title || choices.length || answer || explanation) {
-        card.title = title || term.replace(/\[IMAGE:[^\]]+\]/, '').trim();
+        card.title = title || term.replace(/\[IMAGE:[^\]]+\]/g, '').trim();
         if (choices.length) card.choices = choices;
         if (answer) card.answer = answer;
         if (explanation) card.explanation = explanation;
       }
       
-      if (image) card.image = image;
+      // Store first image for backward compatibility (or all images)
+      if (images.length > 0) {
+        card.image = images[0]; // Use first image for now
+        card.images = images; // Store all images for future use
+      }
       if (resources.length > 0) card.resources = resources;
 
       if (term || definition) {

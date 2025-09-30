@@ -100,6 +100,29 @@
       margin-top: 5px;
       color: #666;
     }
+    .image-option .checkbox {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #28a745;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .image-option.selected .checkbox {
+      opacity: 1;
+    }
+    .image-option {
+      position: relative;
+    }
     .no-image-option {
       border: 3px dashed #ddd;
       padding: 20px;
@@ -160,7 +183,7 @@
     let currentQuiz = 'Quiz 2 V2';
     let problems = [];
     let images = [];
-    let mappings = {}; // problemIndex -> imageFilename or null
+    let mappings = {}; // problemIndex -> array of imageFilenames
 
     async function loadQuiz() {
       currentQuiz = document.getElementById('quizSelect').value;
@@ -175,15 +198,15 @@
       // Load available images
       images = await getAvailableImages(currentQuiz);
       
-      // Initialize mappings from existing [IMAGE:...] tags
+      // Initialize mappings from existing [IMAGE:...] tags (support multiple)
       problems.forEach((problem, idx) => {
-        const match = problem.text.match(/\[IMAGE:([^\]]+)\]/);
-        if (match) {
+        const imageMatches = problem.text.matchAll(/\[IMAGE:([^\]]+)\]/g);
+        const filenames = [];
+        for (const match of imageMatches) {
           const filename = match[1].split('/').pop();
-          mappings[idx] = filename;
-        } else {
-          mappings[idx] = null;
+          filenames.push(filename);
         }
+        mappings[idx] = filenames;
       });
       
       renderProblems();
@@ -288,16 +311,13 @@
           </div>
           <div class="image-selector">
             <h4>Select Image:</h4>
-            <div class="no-image-option ${mappings[idx] === null ? 'selected' : ''}" 
-                 onclick="selectImage(${idx}, null)">
-              No Image
-            </div>
             <div class="image-grid" id="imageGrid${idx}">
               ${images.map(img => `
-                <div class="image-option ${mappings[idx] === img.filename ? 'selected' : ''}" 
-                     onclick="selectImage(${idx}, '${img.filename}')">
+                <div class="image-option ${mappings[idx].includes(img.filename) ? 'selected' : ''}" 
+                     onclick="toggleImage(${idx}, '${img.filename}')">
                   <img src="${img.path}" alt="${img.filename}">
                   <div class="label">${img.filename.split('-').pop()}</div>
+                  <div class="checkbox">${mappings[idx].includes(img.filename) ? '✓' : ''}</div>
                 </div>
               `).join('')}
             </div>
@@ -308,8 +328,20 @@
       });
     }
 
-    function selectImage(problemIdx, imageFilename) {
-      mappings[problemIdx] = imageFilename;
+    function toggleImage(problemIdx, imageFilename) {
+      if (!mappings[problemIdx]) {
+        mappings[problemIdx] = [];
+      }
+      
+      const index = mappings[problemIdx].indexOf(imageFilename);
+      if (index > -1) {
+        // Remove if already selected
+        mappings[problemIdx].splice(index, 1);
+      } else {
+        // Add if not selected
+        mappings[problemIdx].push(imageFilename);
+      }
+      
       renderProblems();
     }
 
@@ -319,22 +351,24 @@
       problems.forEach((problem, idx) => {
         let problemText = problem.text;
         
-        // Remove existing [IMAGE:...] tag if present
+        // Remove existing [IMAGE:...] tags if present
         problemText = problemText.replace(/\[IMAGE:[^\]]+\]\s*/g, '');
         
-        // Add new image tag if an image is selected
-        if (mappings[idx]) {
-          // Insert [IMAGE:...] at the end of the first line (question line)
+        // Add new image tags if images are selected
+        if (mappings[idx] && mappings[idx].length > 0) {
+          // Insert [IMAGE:...] tags at the end of the first line (question line)
           const lines = problemText.split('\n');
           const firstLine = lines[0];
-          const restLines = lines.slice(1);
+          
+          // Create image tags for all selected images
+          const imageTags = mappings[idx].map(img => `[IMAGE:images/${img}]`).join(' ');
           
           // Find where to insert (before the tab if present, otherwise at end of line)
           if (firstLine.includes('\t')) {
             const parts = firstLine.split('\t');
-            lines[0] = parts[0].trim() + ` [IMAGE:images/${mappings[idx]}]\t` + parts.slice(1).join('\t');
+            lines[0] = parts[0].trim() + ` ${imageTags}\t` + parts.slice(1).join('\t');
           } else {
-            lines[0] = firstLine.trim() + ` [IMAGE:images/${mappings[idx]}]`;
+            lines[0] = firstLine.trim() + ` ${imageTags}`;
           }
           
           problemText = lines.join('\n');
