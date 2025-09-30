@@ -63,6 +63,7 @@
   let flashcards = [];
   let currentIndex = 0;
   let showingAnswer = false;
+  let currentQuizSet = '';
 
 
 
@@ -86,7 +87,7 @@
       const data = flashcards[currentIndex];
       const term = data.term;
       const definition = data.definition;
-      const imagePath = `images/problem${currentIndex + 1}.png`;
+      const imagePath = data.image || '';
 
       // If we have structured fields, render a nicer layout; otherwise fall back.
       const hasStructured = data.title || data.choices || data.answer || data.explanation;
@@ -107,13 +108,13 @@
           ${choicesHtml}
           ${answerHtml}
           ${explanationHtml}
-          <img src="${imagePath}" alt="Diagram for Problem ${currentIndex + 1}" onerror="this.style.display='none'" />
+          ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
         `;
       } else {
         card.innerHTML = `
           <div class="term"><strong>${term}</strong></div>
           <div class="definition" style="display: ${showingAnswer ? 'block' : 'none'};">${definition}</div>
-          <img src="${imagePath}" alt="Diagram for Problem ${currentIndex + 1}" onerror="this.style.display='none'" />
+          ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
         `;
       }
 
@@ -175,10 +176,18 @@
       let answer = '';
       let explanation = '';
 
+      // Extract image reference if present
+      let image = '';
+      const imageMatch = term.match(/\[IMAGE:([^\]]+)\]/);
+      if (imageMatch) {
+        image = imageMatch[1];
+      }
+
       // Extract title and choices from the question block
       const qNonEmpty = qLines.filter(l => l.trim().length > 0);
       if (qNonEmpty.length) {
-        title = qNonEmpty[0].trim();
+        // Remove [IMAGE:...] tag from title
+        title = qNonEmpty[0].trim().replace(/\[IMAGE:[^\]]+\]/, '').trim();
         // Collect options like (a) text
         for (let qi = 1; qi < qNonEmpty.length; qi++) {
           const opt = qNonEmpty[qi].trim();
@@ -211,11 +220,13 @@
       };
 
       if (title || choices.length || answer || explanation) {
-        card.title = title || term;
+        card.title = title || term.replace(/\[IMAGE:[^\]]+\]/, '').trim();
         if (choices.length) card.choices = choices;
         if (answer) card.answer = answer;
         if (explanation) card.explanation = explanation;
       }
+      
+      if (image) card.image = image;
 
       if (term || definition) {
         cards.push(card);
@@ -225,7 +236,8 @@
     return cards;
   }
 
-  function loadFlashcardsFrom(path) {
+  function loadFlashcardsFrom(path, quizSet) {
+    currentQuizSet = quizSet;
     return fetch(path)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to load ${path}`);
@@ -240,49 +252,36 @@
       });
   }
 
-  function populateSidebar(files) {
+  function populateSidebar(quizSets) {
     const list = document.getElementById('file-list');
     list.innerHTML = '';
-    files.forEach((fname, idx) => {
+    quizSets.forEach((setName, idx) => {
       const li = document.createElement('li');
       li.className = 'file-item';
-      li.textContent = fname;
-      li.title = fname;
+      li.textContent = setName;
+      li.title = setName;
       li.addEventListener('click', () => {
         // highlight selection
         [...list.children].forEach(el => el.classList.remove('active'));
         li.classList.add('active');
-        loadFlashcardsFrom(`tests/${fname}`).catch(err => {
+        loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => {
           console.error(err);
-          alert(`Unable to load ${fname}: ${err.message}`);
+          alert(`Unable to load ${setName}: ${err.message}`);
         });
       });
       list.appendChild(li);
       // Auto-load first
       if (idx === 0) {
         li.classList.add('active');
-        loadFlashcardsFrom(`tests/${fname}`).catch(err => console.error(err));
+        loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => console.error(err));
       }
     });
   }
 
   function initSidebar() {
-    fetch('tests/manifest.json')
-      .then(r => {
-        if (!r.ok) throw new Error('manifest.json not found');
-        return r.json();
-      })
-      .then(files => {
-        // Only show .txt files
-        const txts = files.filter(f => /\.txt$/i.test(f));
-        if (!txts.length) throw new Error('No .txt flashcard files listed in manifest.json');
-        populateSidebar(txts);
-      })
-      .catch(err => {
-        console.error('Failed to load manifest:', err);
-        const list = document.getElementById('file-list');
-        list.innerHTML = '<li class="file-item error">No flashcard sets found</li>';
-      });
+    // Hardcode available quiz sets for now
+    const quizSets = ['Quiz 2 V2', 'Quiz 2 V3'];
+    populateSidebar(quizSets);
   }
 
   // Initialize sidebar on load
