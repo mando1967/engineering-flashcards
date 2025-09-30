@@ -4,6 +4,8 @@
 (c) the same charges	Answer: Equipotential surfaces are defined as surfaces where the electric potential is the same everywhere. Correct choice: (a) with the same potential.
 Explanation: No work is required to move a charge along an equipotential surface.
 Diagram: concentric circles around a point charge represent equipotential surfaces in 2D.
+[RESOURCE:Khan Academy - Equipotential Lines] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-potential-voltage/v/equipotential-lines
+[RESOURCE:Video - Electric Potential] https://www.youtube.com/watch?v=ZrMw3H9E6YU
 
 2. (3 points) The potential difference between two points is 100 V. If a particle with a charge 2 C is transported from one of these points to the other, the magnitude of the work done is:
 (a) 2 J
@@ -64,6 +66,8 @@ Note: Electrons actually move opposite this direction.
 (c) 1 µF
 (d) 1 mF
 (e) 1 F	Answer: Decay law: $V = V_0 e^{-t/RC}$. At $t=10\,\mathrm{s}$, $V/V_0 = 0.33$. So $e^{-10/RC} = 0.33 \Rightarrow RC \approx 9.0\,\mathrm{s}$. With $R = 10\,\Omega$, $C \approx 0.9\,\mathrm{F}$. Closest choice: (e).
+[RESOURCE:Article - RC Circuits] https://www.electronics-tutorials.ws/rc/rc_1.html
+[RESOURCE:Video - Capacitor Discharge] https://www.youtube.com/watch?v=9g9LkgY_5Hs
 
 11. (3 points) (Two capacitors CL = 0.1 µF, CR = 0.22 µF in parallel with a 9 V battery) Which statement below is most correct? (a) The two capacitors store the same charge
 (b) The two capacitors have the same ratio of charge to voltage across their leads

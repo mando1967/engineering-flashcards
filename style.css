@@ -223,6 +223,56 @@ h1 {
   color: #721c24;
 }
 
+/* Resource links */
+.resources {
+  width: 100%;
+  text-align: left;
+  margin: 15px 0;
+  background: #e7f3ff;
+  border: 2px solid #0078D4;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.resources-label {
+  display: block;
+  font-weight: 600;
+  color: #0078D4;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-list li {
+  margin: 6px 0;
+}
+
+.resource-list a {
+  color: #0078D4;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background: white;
+  border: 1px solid #b3d9ff;
+}
+
+.resource-list a:hover {
+  background: #0078D4;
+  color: white;
+  border-color: #0078D4;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0,120,212,0.3);
+}
+
 .flashcard img {
   max-width: 100%;
   border-radius: 6px;

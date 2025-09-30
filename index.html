@@ -202,12 +202,23 @@
         const explanationHtml = data.explanation
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
+        
+        // Add resource links if available
+        const resourcesHtml = (data.resources && data.resources.length > 0 && showingAnswer)
+          ? `<div class="resources">
+              <span class="resources-label">📚 Learn More:</span>
+              <ul class="resource-list">
+                ${data.resources.map(res => `<li><a href="${res.url}" target="_blank" rel="noopener noreferrer">${res.icon || '🔗'} ${res.title}</a></li>`).join('')}
+              </ul>
+            </div>`
+          : '';
 
         card.innerHTML = `
           <div class="term"><span class="question-title">${data.title || term}</span></div>
           ${choicesHtml}
           ${answerHtml}
           ${explanationHtml}
+          ${resourcesHtml}
           ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
         `;
       } else {
@@ -300,6 +311,8 @@
       }
 
       // From the answer block, separate line starting with "Answer:" and the rest as explanation
+      // Also extract resource links
+      let resources = [];
       if (aLines.length) {
         const firstNonEmptyIdx = aLines.findIndex(l => l.trim().length > 0);
         if (firstNonEmptyIdx !== -1) {
@@ -308,7 +321,37 @@
           if (m) {
             answer = m[1].trim();
             const rest = aLines.slice(firstNonEmptyIdx + 1);
-            explanation = rest.join('\n').trim();
+            
+            // Extract resources from lines starting with [RESOURCE:...]
+            const nonResourceLines = [];
+            rest.forEach(line => {
+              const resourceMatch = line.match(/^\[RESOURCE:([^\]]+)\]\s*(.+)$/);
+              if (resourceMatch) {
+                const [, type, url] = resourceMatch;
+                let icon = '🔗';
+                let title = url;
+                
+                // Parse type and set appropriate icon
+                if (type.toLowerCase().includes('video')) {
+                  icon = '🎥';
+                  title = 'Video: ' + (url.includes('youtube') ? 'YouTube Tutorial' : 'Video Tutorial');
+                } else if (type.toLowerCase().includes('article') || type.toLowerCase().includes('text')) {
+                  icon = '📝';
+                  title = 'Article: ' + type.replace(/article|text/i, '').trim();
+                } else if (type.toLowerCase().includes('khan')) {
+                  icon = '🏛️';
+                  title = 'Khan Academy: ' + type.replace(/khan/i, '').trim();
+                } else {
+                  title = type;
+                }
+                
+                resources.push({ url: url.trim(), icon, title });
+              } else {
+                nonResourceLines.push(line);
+              }
+            });
+            
+            explanation = nonResourceLines.join('\n').trim();
           } else {
             // No explicit Answer: prefix; use full block as explanation and leave answer empty
             explanation = aLines.join('\n').trim();
@@ -329,6 +372,7 @@
       }
       
       if (image) card.image = image;
+      if (resources.length > 0) card.resources = resources;
 
       if (term || definition) {
         cards.push(card);
