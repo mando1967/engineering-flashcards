@@ -181,19 +181,24 @@
           const resultIcon = isCorrect ? '✓' : '✗';
           userSelectionText = `<div class="user-selection ${resultClass}">${resultIcon} Your answer: ${selectedChoice}</div>`;
           
-          // Trigger celebration or encouragement
-          if (isCorrect) {
-            setTimeout(() => triggerConfetti(), 100);
-            performanceStats.correct++;
-          } else {
-            setTimeout(() => showEncouragement(), 100);
-            performanceStats.incorrect++;
-            // Add to missed questions for review
-            addToReviewQueue(currentIndex);
+          // Trigger celebration or encouragement and track performance
+          // Only track if this is the first time answering (not from saved state)
+          const wasAlreadyAnswered = userSelections[currentIndex] !== undefined;
+          
+          if (!wasAlreadyAnswered) {
+            if (isCorrect) {
+              setTimeout(() => triggerConfetti(), 100);
+              performanceStats.correct++;
+            } else {
+              setTimeout(() => showEncouragement(), 100);
+              performanceStats.incorrect++;
+              // Add to missed questions for review
+              addToReviewQueue(currentIndex);
+            }
+            performanceStats.total++;
+            updateStatsDisplay();
+            saveProgressToCookies();
           }
-          performanceStats.total++;
-          updateStatsDisplay();
-          saveProgressToCookies();
         }
         
         const answerHtml = data.answer
@@ -203,7 +208,7 @@
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
         
-        // Add resource links if available
+        // Add resource links if available - always show when answer is revealed
         const resourcesHtml = (data.resources && data.resources.length > 0 && showingAnswer)
           ? `<div class="resources">
               <span class="resources-label">📚 Learn More:</span>
@@ -398,16 +403,28 @@
         isRandomized = false;
         document.getElementById('randomize-checkbox').checked = false;
         
-        // Load saved progress from cookies
-        loadProgressFromCookies();
+        // Load saved progress from cookies for statistics only
+        const savedProgress = getCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'));
         
-        // If no saved progress, initialize fresh
-        if (Object.keys(userSelections).length === 0) {
-          userSelections = {};
+        if (savedProgress && savedProgress.performanceStats) {
+          // Keep performance stats but clear answers to force re-answering
+          performanceStats = savedProgress.performanceStats;
+          missedQuestions = savedProgress.missedQuestions || [];
+          
+          // Rebuild review queue from missed questions
+          reviewQueue = [];
+          missedQuestions.forEach(idx => {
+            scheduleReview(idx);
+          });
+        } else {
+          // Fresh start
+          performanceStats = { correct: 0, incorrect: 0, total: 0 };
           missedQuestions = [];
           reviewQueue = [];
-          performanceStats = { correct: 0, incorrect: 0, total: 0 };
         }
+        
+        // Always start with clear answer selections to force re-answering
+        userSelections = {};
         
         isReviewMode = false;
         resetTimer();
@@ -773,12 +790,14 @@
   }
 
   function loadProgressFromCookies() {
+    // This function is now only used for reference
+    // Progress loading is handled in loadFlashcardsFrom() to control what gets restored
     if (!currentQuizSet) return;
     
     const progressData = getCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'));
     
     if (progressData) {
-      userSelections = progressData.userSelections || {};
+      // Only restore stats and missed questions, not user selections
       missedQuestions = progressData.missedQuestions || [];
       performanceStats = progressData.performanceStats || { correct: 0, incorrect: 0, total: 0 };
       
@@ -789,7 +808,7 @@
       });
       
       updateStatsDisplay();
-      console.log('Progress loaded from cookies:', progressData.timestamp);
+      console.log('Progress loaded from cookies (stats only):', progressData.timestamp);
     }
   }
 
