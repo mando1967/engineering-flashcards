@@ -107,6 +107,8 @@
   let timerSeconds = 0;
   let timerDuration = 0; // in seconds
   let sidebarCollapsed = false;
+  let timerWasRunning = false; // Track if timer was running
+  let userSelections = {}; // Track user's answer selections
 
 
 
@@ -136,12 +138,30 @@
       const hasStructured = data.title || data.choices || data.answer || data.explanation;
 
       if (hasStructured) {
+        // Render choices with radio buttons
         const choicesHtml = (data.choices && data.choices.length)
-          ? `<ul class="choices">${data.choices.map(c => `<li>${c}</li>`).join('')}</ul>`
+          ? `<ul class="choices">${data.choices.map((c, idx) => {
+              const choiceId = `choice-${currentIndex}-${idx}`;
+              const isChecked = userSelections[currentIndex] === idx ? 'checked' : '';
+              return `<li>
+                <label>
+                  <input type="radio" name="question-${currentIndex}" id="${choiceId}" value="${idx}" ${isChecked} onchange="saveUserSelection(${idx})" ${showingAnswer ? 'disabled' : ''}>
+                  ${c}
+                </label>
+              </li>`;
+            }).join('')}</ul>`
           : '';
+        
+        // Show user's selection in the answer
+        let userSelectionText = '';
+        if (showingAnswer && userSelections[currentIndex] !== undefined && data.choices) {
+          const selectedIdx = userSelections[currentIndex];
+          userSelectionText = `<div class="user-selection">Your answer: ${data.choices[selectedIdx]}</div>`;
+        }
+        
         const answerHtml = data.answer
-          ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span><div class="answer-text">${data.answer}</div></div>`
-          : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span><div class="answer-text">${definition || ''}</div></div>`;
+          ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${data.answer}</div></div>`
+          : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${definition || ''}</div></div>`;
         const explanationHtml = data.explanation
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
@@ -295,6 +315,7 @@
         currentIndex = 0;
         showingAnswer = false;
         isRandomized = false;
+        userSelections = {}; // Clear selections when loading new quiz
         document.getElementById('randomize-checkbox').checked = false;
         resetTimer();
         renderCard();
@@ -341,17 +362,21 @@
     renderCard();
   }
 
+  function saveUserSelection(choiceIdx) {
+    userSelections[currentIndex] = choiceIdx;
+  }
+
   function nextCard() {
     currentIndex = (currentIndex + 1) % flashcards.length;
     showingAnswer = false;
-    resetTimer();
+    resetTimerAndAutoStart();
     renderCard();
   }
 
   function prevCard() {
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
     showingAnswer = false;
-    resetTimer();
+    resetTimerAndAutoStart();
     renderCard();
   }
 
@@ -388,6 +413,7 @@
     
     currentIndex = 0;
     showingAnswer = false;
+    userSelections = {}; // Clear selections when randomizing
     resetTimer();
     renderCard();
   }
@@ -423,6 +449,7 @@
     
     startBtn.style.display = 'none';
     stopBtn.style.display = 'inline-block';
+    timerWasRunning = true;
     
     timerInterval = setInterval(() => {
       timerSeconds--;
@@ -448,15 +475,23 @@
       startBtn.style.display = 'inline-block';
       stopBtn.style.display = 'none';
     }
+    timerWasRunning = false;
   }
 
   function resetTimer() {
     stopTimer();
     timerSeconds = timerDuration;
     updateTimerDisplay();
+  }
+
+  function resetTimerAndAutoStart() {
+    const wasRunning = timerWasRunning;
+    stopTimer();
+    timerSeconds = timerDuration;
+    updateTimerDisplay();
     
-    // Auto-start if timer was running
-    if (timerDuration > 0 && document.getElementById('timer-stop-btn').style.display !== 'none') {
+    // Auto-start if timer was running before
+    if (wasRunning && timerDuration > 0) {
       startTimer();
     }
   }
