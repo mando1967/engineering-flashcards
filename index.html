@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16" onload="cssLoaded()" onerror="cssFailed()" />
+  <link rel="stylesheet" href="style.css?v=27" onload="cssLoaded()" onerror="cssFailed()" />
   <style>
     #status {
       background: #fff3cd;
@@ -40,10 +40,12 @@
 </head>
 <body>
   <div id="app-layout">
-    <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle Sidebar">☰</button>
+    <button id="sidebar-toggle" onclick="toggleSidebar()" title="Hide Sidebar">hide</button>
     
     <aside id="sidebar">
-      <div class="sidebar-header">Flashcard Sets</div>
+      <div class="sidebar-header">
+        <span>Flashcard Sets</span>
+      </div>
       <ul id="file-list"></ul>
       <div class="sidebar-footer">
         <button onclick="clearProgress()" class="clear-progress-btn" title="Clear saved progress for current quiz">Clear Progress</button>
@@ -510,6 +512,17 @@
     // Hardcode available quiz sets for now
     const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4', 'Quiz 2 V5'];
     populateSidebar(quizSets);
+    
+    // Auto-close sidebar on mobile/tablet
+    if (window.innerWidth <= 768) {
+      const sidebar = document.getElementById('sidebar');
+      const toggle = document.getElementById('sidebar-toggle');
+      sidebar.style.display = 'none';
+      toggle.textContent = 'show';
+      toggle.title = 'Show Sidebar';
+      toggle.classList.add('collapsed');
+      sidebarCollapsed = true;
+    }
   }
 
   // Initialize sidebar on load
@@ -587,12 +600,14 @@
     
     if (sidebarCollapsed) {
       sidebar.style.display = 'none';
-      toggle.textContent = '☰';
+      toggle.textContent = 'show';
       toggle.title = 'Show Sidebar';
+      toggle.classList.add('collapsed');
     } else {
       sidebar.style.display = 'block';
-      toggle.textContent = '✕';
+      toggle.textContent = 'hide';
       toggle.title = 'Hide Sidebar';
+      toggle.classList.remove('collapsed');
     }
   }
 
