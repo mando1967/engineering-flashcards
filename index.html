@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2" onload="cssLoaded()" onerror="cssFailed()" />
+  <link rel="stylesheet" href="style.css?v=4" onload="cssLoaded()" onerror="cssFailed()" />
   <style>
     #status {
       background: #fff3cd;
@@ -449,40 +449,53 @@
     const list = document.getElementById('file-list');
     list.innerHTML = '';
     quizSets.forEach((setName, idx) => {
-      const li = document.createElement('li');
-      li.className = 'file-item';
-      li.textContent = setName;
-      li.title = setName;
-      li.addEventListener('click', () => {
-        // highlight selection
-        [...list.children].forEach(el => el.classList.remove('active'));
-        li.classList.add('active');
+      // Create accordion item container
+      const accordionItem = document.createElement('div');
+      accordionItem.className = 'accordion-item';
+      
+      // Create accordion header (quiz name)
+      const header = document.createElement('div');
+      header.className = 'accordion-header';
+      header.innerHTML = `
+        <span class="quiz-name">${setName}</span>
+        <span class="accordion-icon">▼</span>
+      `;
+      
+      // Create accordion content (load button + PDF links)
+      const content = document.createElement('div');
+      content.className = 'accordion-content';
+      content.innerHTML = `
+        <button class="load-quiz-btn" data-quiz="${setName}">📚 Load Flashcards</button>
+        <a href="tests/${setName}/${setName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
+        <a href="tests/${setName}/${setName} KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
+      `;
+      
+      // Toggle accordion on header click (just expand/collapse, don't load)
+      header.addEventListener('click', () => {
+        accordionItem.classList.toggle('expanded');
+      });
+      
+      // Load quiz on button click
+      const loadBtn = content.querySelector('.load-quiz-btn');
+      loadBtn.addEventListener('click', () => {
+        // Highlight active quiz
+        document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+        accordionItem.classList.add('active');
+        
         loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => {
           console.error(err);
           alert(`Unable to load ${setName}: ${err.message}`);
         });
       });
-      list.appendChild(li);
       
-      // Add PDF links below the quiz item
-      const pdfLinks = document.createElement('div');
-      pdfLinks.className = 'pdf-links';
-      pdfLinks.innerHTML = `
-        <a href="tests/${setName}/${setName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
-        <a href="tests/${setName}/${setName} KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
-      `;
-      list.appendChild(pdfLinks);
+      // Assemble accordion item
+      accordionItem.appendChild(header);
+      accordionItem.appendChild(content);
+      list.appendChild(accordionItem);
       
-      // Add separator between quizzes (except after the last one)
-      if (idx < quizSets.length - 1) {
-        const separator = document.createElement('hr');
-        separator.className = 'quiz-separator';
-        list.appendChild(separator);
-      }
-      
-      // Auto-load first
+      // Auto-load and expand first quiz
       if (idx === 0) {
-        li.classList.add('active');
+        accordionItem.classList.add('active', 'expanded');
         loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => console.error(err));
       }
     });

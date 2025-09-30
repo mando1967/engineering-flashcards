@@ -102,32 +102,86 @@ h1 {
   padding: 8px 0;
 }
 
-.file-item {
-  padding: 10px 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+/* Accordion styling */
+.accordion-item {
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.file-item:hover {
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.accordion-header:hover {
   background: #f3f7ff;
 }
 
-.file-item.active {
+.accordion-item.active .accordion-header {
   background: #e8f0ff;
   border-left: 3px solid #0078D4;
+  font-weight: 600;
 }
 
-.file-item.error {
-  color: #b00020;
-  cursor: default;
+.quiz-name {
+  flex: 1;
+  font-size: 0.95rem;
 }
 
-/* PDF links styling */
-.pdf-links {
+.accordion-icon {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: #666;
+}
+
+.accordion-item.expanded .accordion-icon {
+  transform: rotate(-180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 0 14px;
+}
+
+.accordion-item.expanded .accordion-content {
+  max-height: 250px;
   padding: 8px 14px 12px;
+}
+
+.load-quiz-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background: #0078D4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.load-quiz-btn:hover {
+  background: #005a9e;
+  transform: translateY(-1px);
+}
+
+.load-quiz-btn:active {
+  transform: translateY(0);
 }
 
 .pdf-link {
@@ -148,14 +202,6 @@ h1 {
   background: #e8f0ff;
   border-color: #0078D4;
   transform: translateX(2px);
-}
-
-/* Quiz separator */
-.quiz-separator {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #d0e3ff, transparent);
-  margin: 12px 0;
 }
 
 #main-content {
