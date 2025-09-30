@@ -471,6 +471,11 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 
+#sidebar-toggle::before {
+  content: '';
+  display: none;
+}
+
 #sidebar-toggle:hover {
   background: #005A9E;
 }
@@ -494,10 +499,10 @@ button:hover {
 .control-group {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 18px;
+  gap: 6px;
+  padding: 12px 14px;
   flex: 1 1 auto;
-  min-width: 150px;
+  min-width: 130px;
   border-right: 1px solid #e8f0ff;
   white-space: nowrap;
 }
@@ -507,11 +512,11 @@ button:hover {
 }
 
 .control-group label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #2c3e50;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .control-group input[type="checkbox"] {
@@ -521,38 +526,46 @@ button:hover {
 }
 
 #timer-select {
-  padding: 6px 10px;
+  padding: 4px 8px;
   border: 1px solid #d0d7de;
   border-radius: 4px;
   background: white;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   cursor: pointer;
+  max-width: 85px;
 }
 
 #timer-display {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #2c3e50;
-  padding: 4px 12px;
+  padding: 4px 8px;
   background: white;
   border: 2px solid #0078D4;
-  border-radius: 6px;
-  min-width: 60px;
+  border-radius: 4px;
+  min-width: 50px;
   text-align: center;
+}
+
+#timer-start-btn, #timer-stop-btn {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  margin: 0;
+  border-radius: 4px;
 }
 
 #progress-display {
   font-weight: 600;
   color: #2c3e50;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 #stats-display {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   padding: 4px 8px;
   background: white;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 2px solid #e3ecff;
 }
 
@@ -580,6 +593,22 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  /* Add label to toggle button on mobile */
+  #sidebar-toggle {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+  }
+  
+  #sidebar-toggle::before {
+    content: 'Quizzes';
+    display: inline;
+    font-weight: 600;
+  }
+
   #controls-panel {
     flex-direction: column;
     align-items: stretch;
@@ -589,10 +618,17 @@ button:hover {
     justify-content: space-between;
     border-right: none;
     border-bottom: 1px solid #e8f0ff;
+    padding: 16px 18px;
+    min-height: 50px;
   }
   
   .control-group:last-child {
     border-bottom: none;
+  }
+  
+  /* Hide timer buttons on mobile, keep display only */
+  #timer-start-btn, #timer-stop-btn {
+    display: none !important;
   }
 
   .nav-buttons-top {
@@ -601,6 +637,8 @@ button:hover {
 
   .nav-buttons-top button {
     max-width: none;
+    min-height: 44px;
+    padding: 12px 20px;
   }
 }
 
@@ -665,7 +703,7 @@ button:hover {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   #app-layout {
@@ -690,7 +728,40 @@ button:hover {
 
   button {
     font-size: 0.9rem;
-    padding: 8px 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+  }
+  
+  /* Larger tap targets for multiple choice */
+  .choices li input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+  }
+  
+  .choices li label {
+    padding: 12px;
+    min-height: 44px;
+  }
+  
+  /* More vertical spacing in controls */
+  .control-group {
+    padding: 18px 20px;
+  }
+  
+  .control-group label {
+    font-size: 0.9rem;
+  }
+  
+  /* Better spacing for quiz selector */
+  .load-quiz-btn {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  
+  .pdf-link {
+    min-height: 44px;
+    padding: 10px 14px;
   }
   
   .encouragement-popup {
