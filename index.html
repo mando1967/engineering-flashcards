@@ -307,15 +307,20 @@
       // Extract title and choices from the question block
       const qNonEmpty = qLines.filter(l => l.trim().length > 0);
       if (qNonEmpty.length) {
-        // Remove [IMAGE:...] tags from title
-        title = qNonEmpty[0].trim().replace(/\[IMAGE:[^\]]+\]/g, '').trim();
-        // Collect options like (a) text
-        for (let qi = 1; qi < qNonEmpty.length; qi++) {
-          const opt = qNonEmpty[qi].trim();
-          if (/^\([a-zA-Z]\)/.test(opt)) {
-            choices.push(opt);
+        // Separate title lines from choice lines
+        const titleLines = [];
+        for (let qi = 0; qi < qNonEmpty.length; qi++) {
+          const line = qNonEmpty[qi].trim();
+          if (/^\([a-zA-Z]\)/.test(line)) {
+            // This is a choice
+            choices.push(line);
+          } else {
+            // This is part of the title/question
+            titleLines.push(line);
           }
         }
+        // Remove [IMAGE:...] tags from title and join with newlines
+        title = titleLines.join('\n').replace(/\[IMAGE:[^\]]+\]/g, '').trim();
       }
 
       // From the answer block, separate line starting with "Answer:" and the rest as explanation
