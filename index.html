@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4" onload="cssLoaded()" onerror="cssFailed()" />
+  <link rel="stylesheet" href="style.css?v=9" onload="cssLoaded()" onerror="cssFailed()" />
   <style>
     #status {
       background: #fff3cd;
@@ -36,8 +36,6 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-  <h1>Quiz Wizard</h1>
-
   <div id="app-layout">
     <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle Sidebar">☰</button>
     
@@ -50,6 +48,7 @@
     </aside>
 
     <main id="main-content">
+      <h1 id="page-title">Quiz Wizard</h1>
       <!-- Controls Panel -->
       <div id="controls-panel">
         <div class="control-group">
@@ -401,6 +400,9 @@
 
   function loadFlashcardsFrom(path, quizSet) {
     currentQuizSet = quizSet;
+    // Update page title - extract just the quiz name from the path
+    const quizName = quizSet.split('/').pop();
+    document.getElementById('page-title').textContent = `Quiz Wizard - ${quizName}`;
     return fetch(path)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to load ${path}`);
