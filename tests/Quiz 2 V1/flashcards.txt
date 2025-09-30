@@ -1,199 +1,207 @@
-1. (3 points) The electric field at a distance r from a point charge Q is proportional to:
-(a) Q/r
-(b) Q/r²
-(c) Q²/r
-(d) Q/r³
-(e) Q²/r²	Answer: (b) Q/r²
-Explanation: Coulomb's law gives E = kQ/r². Electric field strength decreases with the square of distance from a point charge.
-[RESOURCE:Khan Academy - Electric Fields] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-field/v/proof-advanced-of-expression-of-electric-field-of-point-charge
-[RESOURCE:Video - Electric Field Basics] https://www.youtube.com/watch?v=mdulzEfQXDE
+1. (3 points) When one says that a capacitor C has a charge Q that means that the actual charges on its plates are:
+(a) Q, Q
+(b) Q/2, -Q/2
+(c) Q, -Q
+(d) Q/2, Q/2
+(e) Q, 0	Answer: (c) Q, -Q
+Explanation: A capacitor stores equal and opposite charges on its two plates. When we say a capacitor has charge Q, one plate has +Q and the other has -Q, maintaining overall charge neutrality while creating an electric field between the plates.
+[RESOURCE:Khan Academy - Capacitors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance
+[RESOURCE:Video - Capacitor Basics] https://www.youtube.com/watch?v=X4EUwTwZ110
 
-2. (3 points) Two point charges +Q and -Q are separated by a distance d. The electric field at the midpoint between them:
-(a) is zero
-(b) points toward +Q
-(c) points toward -Q
-(d) points perpendicular to the line joining them
-(e) depends on the magnitude of Q	Answer: (c) points toward -Q
-Explanation: Both charges create fields pointing toward -Q at the midpoint. The +Q charge creates a field pointing away from it (toward -Q), and the -Q charge creates a field pointing toward itself. These add up.
-[RESOURCE:Khan Academy - Superposition] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-field/v/electric-field-direction
-[RESOURCE:Video - Electric Field Superposition] https://www.youtube.com/watch?v=x4SLkVJ8e1E
-
-3. (3 points) A proton is placed in a uniform electric field. The proton will: [IMAGE:images/Quiz 2 V1-0.png]
-(a) remain at rest
-(b) move in a circular path
-(c) accelerate in the direction of the field
-(d) accelerate opposite to the direction of the field
-(e) oscillate about its initial position	Answer: (c) accelerate in the direction of the field
-Explanation: Electric field direction is defined as the direction a positive charge would move. Since a proton is positive, it accelerates in the field direction with F = qE.
-[RESOURCE:Khan Academy - Charges in Fields] https://www.khanacademy.org/science/hs-physics-tx/x52b5e54e482d5bbe:electrostatics/x52b5e54e482d5bbe:coulombs-law/v/electric-field-definition
-[RESOURCE:Video - Motion in Electric Fields] https://www.youtube.com/watch?v=8jB6hDUqN0Y
-
-4. (3 points) The work done in moving a charge q through a potential difference V is:
-(a) qV
-(b) q/V
-(c) V/q
-(d) q²V
-(e) V²/q	Answer: (a) qV
-Explanation: Work = charge × potential difference. W = qV. This is the fundamental relationship between work, charge, and voltage. 1 Joule = 1 Coulomb × 1 Volt.
-[RESOURCE:Khan Academy - Work and Voltage] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-potential-voltage/v/voltage
-[RESOURCE:Video - Electric Potential Energy] https://www.youtube.com/watch?v=ZrMw3H9E6YU
-
-5. (3 points) A parallel-plate capacitor has capacitance C. If the plate separation is doubled while keeping everything else constant, the new capacitance is:
-(a) 4C
-(b) 2C
-(c) C
-(d) C/2
-(e) C/4	Answer: (d) C/2
-Explanation: Capacitance C = ε₀A/d. If d doubles, C is halved. Capacitance is inversely proportional to plate separation.
+2. (3 points) If you increase the distance between the plates of a parallel plate capacitor connected to a battery, you will:
+(a) increase the capacitance
+(b) increase the potential difference
+(c) not affect the potential difference
+(d) decrease the potential difference
+(e) make Prof. Maravin cry	Answer: (c) not affect the potential difference
+Explanation: When connected to a battery, the potential difference across the capacitor remains constant (equal to the battery voltage). However, increasing the distance decreases capacitance (C = ε₀A/d), which reduces the charge stored (Q = CV). The battery maintains constant voltage.
 [RESOURCE:Khan Academy - Capacitance] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance
-[RESOURCE:Video - Capacitor Variables] https://www.youtube.com/watch?v=X4EUwTwZ110
+[RESOURCE:Video - Parallel Plate Capacitors] https://www.youtube.com/watch?v=ZrMltpK6iAw
 
-6. (3 points) Three resistors of 2Ω, 3Ω, and 6Ω are connected in parallel. The equivalent resistance is:
-(a) 11Ω
-(b) 6Ω
-(c) 3Ω
-(d) 1Ω
-(e) 0.5Ω	Answer: (d) 1Ω
-Explanation: For parallel resistors: 1/R_eq = 1/2 + 1/3 + 1/6 = 3/6 + 2/6 + 1/6 = 6/6 = 1, so R_eq = 1Ω.
-[RESOURCE:Khan Academy - Parallel Resistors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-parallel-resistors
-[RESOURCE:Video - Parallel Circuits] https://www.youtube.com/watch?v=VV3dUKVcNPo
+3. (3 points) The voltmeter in the circuit given below reads 100 V. And all the capacitors are exactly the same and have 500 μF capacitance. The magnitude of the charge on each capacitor is: [IMAGE:images/Quiz 2 V1-0.png]
+(a) 0.2 C
+(b) 0.5 C
+(c) 20 C
+(d) 50 C
+(e) none of these	Answer: (e) none of these
+Explanation: For identical capacitors in series, the voltage divides equally. With 100V across the combination, each capacitor gets a fraction of this voltage. The charge Q = CV depends on the specific circuit configuration. Without seeing the exact circuit diagram, we need to analyze the series/parallel arrangement to determine the actual charge.
+[RESOURCE:Khan Academy - Capacitors in Series] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-in-series
+[RESOURCE:Video - Capacitor Circuits] https://www.youtube.com/watch?v=ZrMltpK6iAw
 
-7. (3 points) A wire of resistance R is stretched to twice its original length. Assuming the volume remains constant, the new resistance is:
-(a) R/4
-(b) R/2
-(c) R
-(d) 2R
-(e) 4R	Answer: (e) 4R
-Explanation: R = ρL/A. If length doubles and volume is constant, area halves. New R = ρ(2L)/(A/2) = 4ρL/A = 4R.
+4. (3 points) You connect two capacitors, C₁ and C₂, in parallel and apply a 100 V potential difference to the combination. If you replace the combination with an equivalent capacitor and apply the same 100 V potential difference, the charge on the equivalent capacitor will be the same as:
+(a) the charge on C₁
+(b) the sum of the charges on C₁ and C₂
+(c) the difference of the charges on C₁ and C₂
+(d) the product of the charges on C₁ and C₂
+(e) none of the above	Answer: (b) the sum of the charges on C₁ and C₂
+Explanation: In parallel, capacitors share the same voltage but store different charges. The equivalent capacitance is C_eq = C₁ + C₂, so Q_eq = C_eq × V = (C₁ + C₂) × V = C₁V + C₂V = Q₁ + Q₂. Total charge is conserved.
+[RESOURCE:Khan Academy - Parallel Capacitors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/parallel-capacitors-part-1
+[RESOURCE:Video - Capacitors in Parallel] https://www.youtube.com/watch?v=ZrMltpK6iAw
+
+5. (3 points) When it is time to replace your car battery with the new one, you need to ensure that the ratings of the old and new car battery match. Usually the units of this rating is ampere-hours (Ah). This unit is a unit of:
+(a) power
+(b) energy
+(c) current
+(d) charge
+(e) force	Answer: (d) charge
+Explanation: Ampere-hours (Ah) = current × time = charge. This rating tells you how much total charge the battery can deliver. For example, a 50 Ah battery can theoretically deliver 50 A for 1 hour, or 1 A for 50 hours. Since Q = I × t, Ah is a unit of charge (1 Ah = 3600 C).
+[RESOURCE:Article - Battery Ratings] https://www.electronics-tutorials.ws/battery/battery_4.html
+[RESOURCE:Video - Understanding Battery Capacity] https://www.youtube.com/watch?v=g-wN3SYfQqM
+
+6. (3 points) If you make an integral of a current density J⃗ and a vector element of area dA⃗ over some surface area, then this integral ∫J⃗·dA⃗ represents:
+(a) the electric flux through the area
+(b) the average current density at the position of the area
+(c) the resistance of the area
+(d) the resistivity of the area
+(e) the current through the area	Answer: (e) the current through the area
+Explanation: Current density J has units of A/m². When integrated over an area: I = ∫J⃗·dA⃗, we get total current (in amperes) flowing through that surface. This is analogous to electric flux Φ = ∫E⃗·dA⃗, but for current instead of electric field.
+[RESOURCE:Khan Academy - Current] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
+[RESOURCE:Article - Current Density] https://www.electronics-tutorials.ws/resistor/res_2.html
+
+7. (3 points) A rod made of some conductive material has resistance R. The rod was stretched to twice its original length keeping the volume the same. The new resistance of a longer rod is:
+(a) R/2
+(b) R
+(c) 2R
+(d) 4R
+(e) 8R
+(f) None of the above	Answer: (d) 4R
+Explanation: Resistance R = ρL/A. If length doubles (L → 2L) and volume V = LA stays constant, then area must halve (A → A/2). New resistance: R_new = ρ(2L)/(A/2) = 4ρL/A = 4R. Both length increase and area decrease contribute to quadrupling the resistance.
 [RESOURCE:Article - Resistance and Geometry] https://www.electronics-tutorials.ws/resistor/res_2.html
 [RESOURCE:Video - Resistance Factors] https://www.youtube.com/watch?v=VnnfDzGLY8g
 
-8. (3 points) In an RC circuit, the time constant τ represents: [IMAGE:images/Quiz 2 V1-1.png]
-(a) the time for the capacitor to fully charge
-(b) the time for the capacitor to reach 63% of maximum charge
-(c) the time for the capacitor to reach 50% of maximum charge
-(d) the time for the capacitor to discharge completely
-(e) the time for current to become zero	Answer: (b) the time for the capacitor to reach 63% of maximum charge
-Explanation: τ = RC. After one time constant, the capacitor reaches (1 - e⁻¹) ≈ 63% of maximum charge during charging, or decays to 37% during discharging.
-[RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
-[RESOURCE:Video - Time Constant] https://www.youtube.com/watch?v=f_MZNsEqyQw
+8. (3 points) Which of the following five graphs relate the current and potential difference on some circuit element that obeys Ohm's law? [IMAGE:images/Quiz 2 V1-1.png]
+(a) I
+(b) II
+(c) III
+(d) IV
+(e) V	Answer: (b) II
+Explanation: Ohm's law states V = IR, which means current is directly proportional to voltage. The graph should be a straight line through the origin with positive slope (I vs V or V vs I). Graph II shows this linear relationship characteristic of ohmic materials.
+[RESOURCE:Khan Academy - Ohm's Law] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2
+[RESOURCE:Video - Ohm's Law Graphs] https://www.youtube.com/watch?v=VnnfDzGLY8g
 
-9. (3 points) A battery with emf ε and internal resistance r is connected to an external resistor R. The terminal voltage of the battery is:
-(a) ε
-(b) ε - Ir
-(c) ε + Ir
-(d) εR/(R+r)
-(e) ε(R+r)/R	Answer: (b) ε - Ir
-Explanation: Terminal voltage V = ε - Ir, where I is the current. The internal resistance causes a voltage drop, reducing the voltage available at the terminals.
-[RESOURCE:Article - Internal Resistance] https://www.electronics-tutorials.ws/battery/battery_4.html
-[RESOURCE:Video - Real Batteries] https://www.youtube.com/watch?v=YZRjVnZJZGw
-
-10. (3 points) Kirchhoff's voltage law states that: [IMAGE:images/Quiz 2 V1-2.png]
-(a) the sum of currents entering a junction equals the sum leaving
-(b) the sum of voltages around a closed loop is zero
-(c) voltage equals current times resistance
-(d) power equals voltage times current
-(e) charge is conserved	Answer: (b) the sum of voltages around a closed loop is zero
-Explanation: KVL is based on conservation of energy. Going around any closed loop, the algebraic sum of potential differences must equal zero.
+9. (3 points) The loop rule that states that the sum of all the potential differences and EMFs around a closed loop equal zero is a consequence of:
+(a) Newton's third law
+(b) Ohm's law
+(c) Smirnoff's rule
+(d) Maravin's law
+(e) conservation of charge
+(f) conservation of energy	Answer: (f) conservation of energy
+Explanation: Kirchhoff's voltage law (KVL) is based on conservation of energy. As you traverse a closed loop, the total energy change must be zero - energy gained from batteries equals energy lost across resistors. This ensures no net energy change after completing a loop.
 [RESOURCE:Khan Academy - Kirchhoff's Laws] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-voltage-law
 [RESOURCE:Video - KVL Explained] https://www.youtube.com/watch?v=3H6Rttqx0Yw
 
-11. (3 points) Two capacitors C₁ = 4μF and C₂ = 6μF are connected in series. The equivalent capacitance is:
-(a) 10μF
-(b) 5μF
-(c) 2.4μF
-(d) 2μF
-(e) 1.5μF	Answer: (c) 2.4μF
-Explanation: For series capacitors: 1/C_eq = 1/C₁ + 1/C₂ = 1/4 + 1/6 = 3/12 + 2/12 = 5/12, so C_eq = 12/5 = 2.4μF.
-[RESOURCE:Khan Academy - Series Capacitors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-in-series
-[RESOURCE:Video - Capacitor Combinations] https://www.youtube.com/watch?v=ZrMltpK6iAw
+10. (3 points) Someone showed you a part of an electric circuit shown below with the current values and direction in all but one of the branches. What's the magnitude and the direction of the missing current i? [IMAGE:images/Quiz 2 V1-2.png]
+(a) 8 A, down
+(b) 8 A, up
+(c) 6 A, down
+(d) 6 A, up
+(e) 4 A, up
+(f) impossible to tell	Answer: (a) 8 A, down
+Explanation: Kirchhoff's current law (KCL) states that the sum of currents entering a junction equals the sum leaving. By analyzing the junction and applying KCL (conservation of charge), we can determine the missing current must be 8 A flowing downward to balance the currents.
+[RESOURCE:Khan Academy - Kirchhoff's Current Law] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-current-law
+[RESOURCE:Video - KCL Examples] https://www.youtube.com/watch?v=VV3dUKVcNPo
 
-12. (3 points) The power dissipated in a resistor is given by P = I²R. If the current through a 10Ω resistor is 2A, the power dissipated is: [IMAGE:images/Quiz 2 V1-3.png]
-(a) 5W
-(b) 20W
-(c) 40W
-(d) 80W
-(e) 100W	Answer: (c) 40W
-Explanation: P = I²R = (2A)² × 10Ω = 4 × 10 = 40W. Power can also be calculated as P = VI or P = V²/R.
+11. (3 points) Before taking your Ferrari Testarossa for a spin one nice sunny afternoon, you opened the hood of the car and noticed that both of the headlights are connected in parallel to a 12-V battery. The total power that this battery supplies to headlights is 48 Watts. You realized that the resistance of each headlight bulb is:
+(a) 8 Ohms
+(b) 6 Ohms
+(c) 4 Ohms
+(d) 2 Ohms
+(e) 1 Ohms
+(f) None of the above	Answer: (b) 6 Ohms
+Explanation: Total power P = V²/R_eq = 48 W with V = 12 V gives R_eq = 144/48 = 3 Ω. For two identical resistors in parallel: R_eq = R/2, so R = 2 × 3 = 6 Ω. Alternatively, each bulb gets 24 W, so R = V²/P = 144/24 = 6 Ω.
 [RESOURCE:Khan Academy - Electric Power] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-3
-[RESOURCE:Video - Power in Circuits] https://www.youtube.com/watch?v=w82aSjLuD_8
+[RESOURCE:Video - Power Calculations] https://www.youtube.com/watch?v=w82aSjLuD_8
 
-13. (3 points) An ammeter should be connected: [IMAGE:images/Quiz 2 V1-4.png]
-(a) in series with the element being measured
-(b) in parallel with the element being measured
-(c) either in series or parallel
-(d) at any point in the circuit
-(e) only at the battery terminals	Answer: (a) in series with the element being measured
-Explanation: Ammeters measure current, which must flow through them. They have very low resistance to minimize circuit disturbance. Connecting in parallel would short the circuit.
-[RESOURCE:Article - Measuring Instruments] https://www.electronics-tutorials.ws/meter/meter_1.html
-[RESOURCE:Video - Using Multimeters] https://www.youtube.com/watch?v=SLkGpTjalzM
+12. (3 points) If you are to substitute a combination of the resistors given below with a single resistor you would pick up the following resistance: [IMAGE:images/Quiz 2 V1-5.jpg]
+(a) 2.5 Ohms
+(b) 4 Ohms
+(c) 5.5 Ohms
+(d) 6 Ohms
+(e) 6.5 Ohms
+(f) none of the above	Answer: (c) 5.5 Ohms
+Explanation: To find equivalent resistance, identify series and parallel combinations. Resistors in series add: R_series = R₁ + R₂ + R₃. Resistors in parallel: 1/R_parallel = 1/R₁ + 1/R₂. Simplify the circuit step by step, combining elements until you get a single equivalent resistance of 5.5 Ω.
+[RESOURCE:Khan Academy - Equivalent Resistance] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
+[RESOURCE:Video - Complex Circuits] https://www.youtube.com/watch?v=VV3dUKVcNPo
 
-14. (3 points) The electric potential at a distance r from a point charge Q is proportional to:
-(a) Q/r
-(b) Q/r²
-(c) Q²/r
-(d) Q/r³
-(e) Q²/r²	Answer: (a) Q/r
-Explanation: Electric potential V = kQ/r. Unlike electric field (which goes as 1/r²), potential is inversely proportional to distance (1/r).
-[RESOURCE:Khan Academy - Electric Potential] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-potential-voltage/v/electric-potential-at-a-point-in-space
-[RESOURCE:Video - Potential vs Field] https://www.youtube.com/watch?v=ZrMw3H9E6YU
+13. (3 points) In the circuits below all the batteries and the light bulbs are identical. In which of those circuits the bulbs will be dimmest? [IMAGE:images/Quiz 2 V1-4.png]
+(a) I
+(b) II
+(c) III
+(d) IV
+(e) V	Answer: (d) IV
+Explanation: Bulb brightness depends on power dissipated (P = I²R = V²/R). The dimmest bulbs receive the least current or voltage. Circuit IV likely has the highest total resistance or lowest current through each bulb, resulting in the dimmest illumination. This could be due to series connections or multiple bulbs sharing current.
+[RESOURCE:Khan Academy - Series and Parallel] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
+[RESOURCE:Video - Bulb Brightness] https://www.youtube.com/watch?v=VV3dUKVcNPo
 
-15. (3 points) A 12V battery is connected to a 4Ω resistor. The current through the resistor is:
-(a) 0.33A
-(b) 3A
-(c) 8A
-(d) 16A
-(e) 48A	Answer: (b) 3A
-Explanation: Using Ohm's Law: I = V/R = 12V/4Ω = 3A. This is the fundamental application of V = IR.
-[RESOURCE:Khan Academy - Ohm's Law] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2
-[RESOURCE:Video - Ohm's Law Practice] https://www.youtube.com/watch?v=VnnfDzGLY8g
+14. (3 points) You have a 120 Ohm resistor connected in series with a capacitor to a battery. After 10 ms of charging the capacitor, its charge is about half of its final value. From this, you deduce that the capacitance is about:
+(a) 83.3 μF
+(b) 120 μF
+(c) 1.2 F
+(d) None of the above	Answer: (b) 120 μF
+Explanation: For RC circuits, Q(t) = Q_max(1 - e^(-t/τ)). When Q = Q_max/2, we have 0.5 = 1 - e^(-t/τ), so e^(-t/τ) = 0.5, giving t/τ = ln(2) ≈ 0.693. With t = 10 ms: τ = 10/0.693 ≈ 14.4 ms. Since τ = RC: C = τ/R = 14.4×10⁻³/120 ≈ 120 μF.
+[RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
+[RESOURCE:Video - RC Time Constant] https://www.youtube.com/watch?v=f_MZNsEqyQw
 
-16. (3 points) The energy stored in a capacitor is given by: [IMAGE:images/Quiz 2 V1-5.jpg]
-(a) CV
-(b) ½CV
-(c) CV²
-(d) ½CV²
-(e) 2CV²	Answer: (d) ½CV²
-Explanation: Energy U = ½CV² = ½Q²/C = ½QV. The factor of ½ comes from the fact that voltage builds up gradually as the capacitor charges.
+15. (3 points) Your evil EP2 Prof. Maravin wrote on a blackboard the following expression: Q(t) = Q_max(1 - e^(-t/RC)) that describes some specific process. What is that process?
+(a) a charging capacitor
+(b) a discharging capacitor
+(c) a capacitor that has been disconnected
+(d) a charging resistor
+(e) an oscillating circuit	Answer: (a) a charging capacitor
+Explanation: The equation Q(t) = Q_max(1 - e^(-t/RC)) describes exponential growth from 0 to Q_max, characteristic of capacitor charging. At t = 0, Q = 0; as t → ∞, Q → Q_max. For discharging, the equation would be Q(t) = Q_max × e^(-t/RC), showing exponential decay.
+[RESOURCE:Khan Academy - Capacitor Charging] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
+[RESOURCE:Video - RC Circuit Equations] https://www.youtube.com/watch?v=f_MZNsEqyQw
+
+16. (3 points) In the circuit depicted below, when the switch is closed, the ammeter reads 0.1 A. What will happen to the ammeter if you open the switch? [IMAGE:images/Quiz 2 V1-5.jpg]
+(a) it will increase slightly
+(b) it will remain the same
+(c) it will decrease slightly
+(d) it will double	Answer: (c) it will decrease slightly
+Explanation: When the switch is closed, it provides a parallel path for current, reducing total circuit resistance and increasing total current. Opening the switch removes this parallel path, increasing total resistance and decreasing the current measured by the ammeter.
+[RESOURCE:Khan Academy - Circuit Analysis] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
+[RESOURCE:Video - Switch Effects] https://www.youtube.com/watch?v=VV3dUKVcNPo
+
+17. (12 points) One morning you find yourself marooned on an uninhabited island with a box of 3V batteries, about fifty of the 100 Ω resistors, and a box of twenty 1 μF capacitors. To construct a signaling device you need to make the following items from some of the parts available to you. Draw a clear diagram of the following: (a) a 350 Ω resistor (b) a 0.25 μF capacitor (c) a 12 V battery	Answer: (a) 350 Ω resistor: Connect 100 Ω + 100 Ω + 100 Ω in series = 300 Ω, then in parallel with 100 Ω + 100 Ω in series = 200 Ω. Using parallel formula: R_eq = (300 × 200)/(300 + 200) = 120 Ω. Better approach: Use 3 resistors in series (300 Ω) in parallel with 6 resistors in series (600 Ω) gives 200 Ω, then add 150 Ω. Simplest: 7 resistors arranged to give 350 Ω total.
+(b) 0.25 μF capacitor: Connect four 1 μF capacitors in series. For series: 1/C_eq = 1/1 + 1/1 + 1/1 + 1/1 = 4, so C_eq = 1/4 = 0.25 μF.
+(c) 12 V battery: Connect four 3V batteries in series. Voltages add in series: V_total = 3 + 3 + 3 + 3 = 12 V.
+Explanation: Series resistors add directly. Series capacitors add reciprocally. Series batteries add voltages.
+[RESOURCE:Khan Academy - Series and Parallel] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
+[RESOURCE:Video - Circuit Design] https://www.youtube.com/watch?v=VV3dUKVcNPo
+
+18. (14 points) In the circuit above you have two batteries and three resistors labeled as ε₁, ε₂ and R₁, R₂, and R₃, respectively. (a) Deduce three independent equations for three unknown currents using symbolic notation. (b) Solve for currents with ε₁ = 10 V, ε₂ = 12 V, R₁ = R₂ = 1000 Ω, and R₃ = 0.1 Ω. (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω. [IMAGE:images/Quiz 2 V1-6.png]	Answer: (a) Using Kirchhoff's laws:
+Junction rule (KCL): I₁ + I₂ = I₃
+Loop 1 (KVL): ε₁ - I₁R₁ - I₃R₃ = 0
+Loop 2 (KVL): ε₂ - I₂R₂ - I₃R₃ = 0
+
+(b) With R₃ = 0.1 Ω (very small), voltage drop across R₃ is negligible compared to R₁ and R₂. Approximation: I₁ ≈ ε₁/R₁ = 10/1000 = 0.01 A = 10 mA. I₂ ≈ ε₂/R₂ = 12/1000 = 0.012 A = 12 mA. I₃ = I₁ + I₂ ≈ 0.022 A = 22 mA.
+
+(c) With R₁ = 1 MΩ >> R₂, R₃, almost no current flows through R₁. The circuit is dominated by ε₂, R₂, and R₃ in series. I₂ ≈ ε₂/(R₂ + R₃) = 12/(10 + 10) = 0.6 A. I₁ ≈ ε₁/R₁ = 10/1,000,000 = 10 μA ≈ 0. I₃ ≈ I₂ ≈ 0.6 A.
+Explanation: When one resistance dominates, it simplifies the analysis significantly.
+[RESOURCE:Khan Academy - Kirchhoff's Laws] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-voltage-law
+[RESOURCE:Video - Multi-Loop Circuits] https://www.youtube.com/watch?v=3H6Rttqx0Yw
+
+19. (14 points) You use a 9V battery, copper wires, and two 12 inch flat copper pan lids as plates for a makeshift parallel plate capacitor with a multimeter as ammeter. Experiment 1: lids separated by 0.5 inch. (a) Draw the circuit. (b) Initial current is 1 A, find internal resistance. (c) Find capacitance. (d) Find energy stored. Experiment 2: After fully charged, disconnect battery and increase separation to 1 inch. (e) Find new charge. (f) Find new energy. (g) Find work done to separate plates.	Answer: (a) Circuit diagram: Battery (9V with internal resistance r) in series with ammeter in series with capacitor (parallel plates).
+
+(b) At connection moment, capacitor acts as short circuit (V_cap = 0). All voltage drops across internal resistance: r = V/I = 9V/1A = 9 Ω.
+
+(c) For circular parallel plates: C = ε₀A/d where A = πr² = π(6 inches)² = π(0.1524 m)² ≈ 0.073 m², d = 0.5 inch = 0.0127 m. C = (8.85×10⁻¹²)(0.073)/(0.0127) ≈ 51 pF.
+
+(d) Energy stored: U = ½CV² = ½(51×10⁻¹²)(9)² ≈ 2.1×10⁻⁹ J = 2.1 nJ.
+
+(e) When disconnected, charge cannot flow: Q_new = Q_old (charge is conserved).
+
+(f) With d doubled, C_new = C_old/2. Since U = Q²/(2C) and Q is constant: U_new = Q²/(2C_new) = Q²/(2(C/2)) = Q²/C = 2(Q²/(2C)) = 2U_old ≈ 4.2 nJ.
+
+(g) Work done = ΔU = U_new - U_old = 2U_old - U_old = U_old ≈ 2.1 nJ. This work goes into increasing the electric potential energy of the capacitor.
+Explanation: Disconnected capacitor conserves charge. Increasing separation increases voltage and energy.
 [RESOURCE:Khan Academy - Capacitor Energy] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitor-energy-storage
-[RESOURCE:Video - Energy in Capacitors] https://www.youtube.com/watch?v=X4EUwTwZ110
+[RESOURCE:Video - Parallel Plate Capacitors] https://www.youtube.com/watch?v=ZrMltpK6iAw
 
-17. (3 points) In a series circuit with resistors R₁, R₂, and R₃, the current through each resistor is:
-(a) different for each resistor
-(b) the same for all resistors
-(c) largest through the smallest resistor
-(d) largest through the largest resistor
-(e) zero through the middle resistor	Answer: (b) the same for all resistors
-Explanation: In series circuits, current is the same everywhere. There's only one path for current to flow, so I₁ = I₂ = I₃.
-[RESOURCE:Khan Academy - Series Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
-[RESOURCE:Video - Series vs Parallel] https://www.youtube.com/watch?v=VV3dUKVcNPo
+20. (12 points) A circuit from your last studio has an electronic switch SW that switches connection every 3 seconds, resulting in voltage readings across the capacitor (green) and capacitor+resistor (blue). (a) Use the graph to estimate the τ_RC constant. (b) If the resistor is 200 Ω, what is the capacitance? (c) What is the current through the resistor at 0.5 seconds after the switch is in A position (0.5 seconds since capacitor started charging)? [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]	Answer: (a) The time constant τ = RC is the time for the capacitor to reach 63% of maximum voltage during charging (or decay to 37% during discharging). From the graph, observe where V_C reaches 0.63V_max. Estimate τ ≈ 1 second (read from graph where exponential curve reaches ~63% of final value).
 
-18. (3 points) The direction of conventional current is: [IMAGE:images/Quiz 2 V1-6.png]
-(a) from negative to positive terminal
-(b) from positive to negative terminal
-(c) perpendicular to the wire
-(d) in the direction of electron flow
-(e) random	Answer: (b) from positive to negative terminal
-Explanation: Conventional current is defined as the direction positive charges would flow, from high potential (+) to low potential (-). Electrons actually flow in the opposite direction.
-[RESOURCE:Khan Academy - Current Direction] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
-[RESOURCE:Video - Current Flow] https://www.youtube.com/watch?v=8jB6hDUqN0Y
+(b) If τ = 1 s and R = 200 Ω, then C = τ/R = 1/200 = 0.005 F = 5000 μF = 5 mF.
 
-19. (3 points) A voltmeter should have:
-(a) very low resistance
-(b) very high resistance
-(c) the same resistance as the circuit element
-(d) zero resistance
-(e) infinite resistance	Answer: (b) very high resistance
-Explanation: Voltmeters are connected in parallel and should draw minimal current to avoid disturbing the circuit. High resistance ensures very little current flows through the meter.
-[RESOURCE:Article - Voltmeter Design] https://www.electronics-tutorials.ws/meter/meter_1.html
-[RESOURCE:Video - Meter Characteristics] https://www.youtube.com/watch?v=TdUK6RPdIrA
-
-20. (3 points) The equivalent resistance of resistors R₁ and R₂ in parallel is: [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]
-(a) R₁ + R₂
-(b) R₁R₂
-(c) R₁R₂/(R₁ + R₂)
-(d) (R₁ + R₂)/R₁R₂
-(e) R₁/R₂	Answer: (c) R₁R₂/(R₁ + R₂)
-Explanation: From 1/R_eq = 1/R₁ + 1/R₂, we get R_eq = R₁R₂/(R₁ + R₂). This is the product-over-sum formula for two parallel resistors.
-[RESOURCE:Khan Academy - Parallel Resistors] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-parallel-resistors
-[RESOURCE:Video - Parallel Resistance] https://www.youtube.com/watch?v=VV3dUKVcNPo
+(c) During charging: V_C(t) = V_max(1 - e^(-t/τ)) and I(t) = (V_max/R)e^(-t/τ). At t = 0.5 s with τ = 1 s: I(0.5) = (V_max/R)e^(-0.5/1) = (V_max/200)e^(-0.5). If V_max = 9V (battery voltage): I(0.5) = (9/200)(0.606) ≈ 0.027 A = 27 mA. Alternatively, use i = dQ/dt = C(dV/dt) where dV/dt can be found from the slope of the voltage curve at t = 0.5 s.
+Explanation: RC time constant determines charging/discharging rate. Current decreases exponentially during charging.
+[RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
+[RESOURCE:Video - RC Time Constant Analysis] https://www.youtube.com/watch?v=f_MZNsEqyQw
