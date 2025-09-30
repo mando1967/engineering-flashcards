@@ -39,17 +39,54 @@
   <h1>Engineering Mechanics Flashcards</h1>
 
   <div id="app-layout">
+    <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle Sidebar">☰</button>
+    
     <aside id="sidebar">
       <div class="sidebar-header">Flashcard Sets</div>
       <ul id="file-list"></ul>
     </aside>
 
     <main id="main-content">
+      <!-- Controls Panel -->
+      <div id="controls-panel">
+        <div class="control-group">
+          <label>
+            <input type="checkbox" id="randomize-checkbox" onchange="toggleRandomize()">
+            Randomize Questions
+          </label>
+        </div>
+        <div class="control-group">
+          <label for="timer-select">Timer:</label>
+          <select id="timer-select" onchange="updateTimer()">
+            <option value="0">Off</option>
+            <option value="1">1 minute</option>
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+          </select>
+          <button id="timer-start-btn" onclick="startTimer()" style="display:none;">Start Timer</button>
+          <button id="timer-stop-btn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
+          <span id="timer-display" style="display:none;">00:00</span>
+        </div>
+        <div class="control-group">
+          <span id="progress-display">Question 1 of 1</span>
+        </div>
+      </div>
+
+      <!-- Top Navigation -->
+      <div class="nav-buttons-top">
+        <button id="back-btn-top" onclick="prevCard()">← Back</button>
+        <button id="next-btn-top" onclick="nextCard()">Next →</button>
+      </div>
+
       <div id="flashcard-container"></div>
 
+      <!-- Bottom Navigation -->
       <div style="text-align:center; margin-top:20px;">
+        <button id="back-btn" onclick="prevCard()">← Back</button>
         <button id="show-btn" onclick="showAnswer()">Show Answer</button>
-        <button id="next-btn" onclick="nextCard()" style="display:none;">Next</button>
+        <button id="next-btn" onclick="nextCard()" style="display:none;">Next →</button>
       </div>
     </main>
   </div>
@@ -61,9 +98,15 @@
   <!-- ✅ Move your script here -->
 <script>
   let flashcards = [];
+  let originalFlashcards = []; // Keep original order
   let currentIndex = 0;
   let showingAnswer = false;
   let currentQuizSet = '';
+  let isRandomized = false;
+  let timerInterval = null;
+  let timerSeconds = 0;
+  let timerDuration = 0; // in seconds
+  let sidebarCollapsed = false;
 
 
 
@@ -127,6 +170,8 @@
 
       document.getElementById('show-btn').style.display = showingAnswer ? 'none' : 'inline-block';
       document.getElementById('next-btn').style.display = showingAnswer ? 'inline-block' : 'none';
+      
+      updateProgressDisplay();
     });
   }
 
@@ -245,9 +290,13 @@
       })
       .then(data => {
         flashcards = parseFlashcards(data);
+        originalFlashcards = [...flashcards];
         if (!flashcards.length) throw new Error('No flashcards parsed from file.');
         currentIndex = 0;
         showingAnswer = false;
+        isRandomized = false;
+        document.getElementById('randomize-checkbox').checked = false;
+        resetTimer();
         renderCard();
       });
   }
@@ -295,7 +344,142 @@
   function nextCard() {
     currentIndex = (currentIndex + 1) % flashcards.length;
     showingAnswer = false;
+    resetTimer();
     renderCard();
+  }
+
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
+    showingAnswer = false;
+    resetTimer();
+    renderCard();
+  }
+
+  function toggleSidebar() {
+    sidebarCollapsed = !sidebarCollapsed;
+    const sidebar = document.getElementById('sidebar');
+    const toggle = document.getElementById('sidebar-toggle');
+    
+    if (sidebarCollapsed) {
+      sidebar.style.display = 'none';
+      toggle.textContent = '☰';
+      toggle.title = 'Show Sidebar';
+    } else {
+      sidebar.style.display = 'block';
+      toggle.textContent = '✕';
+      toggle.title = 'Hide Sidebar';
+    }
+  }
+
+  function toggleRandomize() {
+    isRandomized = document.getElementById('randomize-checkbox').checked;
+    
+    if (isRandomized) {
+      // Shuffle the flashcards
+      flashcards = [...originalFlashcards];
+      for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+      }
+    } else {
+      // Restore original order
+      flashcards = [...originalFlashcards];
+    }
+    
+    currentIndex = 0;
+    showingAnswer = false;
+    resetTimer();
+    renderCard();
+  }
+
+  function updateTimer() {
+    const select = document.getElementById('timer-select');
+    const minutes = parseInt(select.value);
+    timerDuration = minutes * 60;
+    
+    const startBtn = document.getElementById('timer-start-btn');
+    const stopBtn = document.getElementById('timer-stop-btn');
+    const display = document.getElementById('timer-display');
+    
+    if (minutes > 0) {
+      startBtn.style.display = 'inline-block';
+      display.style.display = 'inline-block';
+      stopTimer();
+      timerSeconds = timerDuration;
+      updateTimerDisplay();
+    } else {
+      startBtn.style.display = 'none';
+      stopBtn.style.display = 'none';
+      display.style.display = 'none';
+      stopTimer();
+    }
+  }
+
+  function startTimer() {
+    if (timerInterval) return; // Already running
+    
+    const startBtn = document.getElementById('timer-start-btn');
+    const stopBtn = document.getElementById('timer-stop-btn');
+    
+    startBtn.style.display = 'none';
+    stopBtn.style.display = 'inline-block';
+    
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      updateTimerDisplay();
+      
+      if (timerSeconds <= 0) {
+        stopTimer();
+        alert('Time is up!');
+      }
+    }, 1000);
+  }
+
+  function stopTimer() {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+    
+    const startBtn = document.getElementById('timer-start-btn');
+    const stopBtn = document.getElementById('timer-stop-btn');
+    
+    if (timerDuration > 0) {
+      startBtn.style.display = 'inline-block';
+      stopBtn.style.display = 'none';
+    }
+  }
+
+  function resetTimer() {
+    stopTimer();
+    timerSeconds = timerDuration;
+    updateTimerDisplay();
+    
+    // Auto-start if timer was running
+    if (timerDuration > 0 && document.getElementById('timer-stop-btn').style.display !== 'none') {
+      startTimer();
+    }
+  }
+
+  function updateTimerDisplay() {
+    const display = document.getElementById('timer-display');
+    const minutes = Math.floor(timerSeconds / 60);
+    const seconds = timerSeconds % 60;
+    display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+    // Change color when time is running low
+    if (timerSeconds <= 60 && timerSeconds > 0) {
+      display.style.color = '#d32f2f';
+      display.style.fontWeight = 'bold';
+    } else {
+      display.style.color = '#2c3e50';
+      display.style.fontWeight = 'normal';
+    }
+  }
+
+  function updateProgressDisplay() {
+    const display = document.getElementById('progress-display');
+    display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}`;
   }
 </script>
 
