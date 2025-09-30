@@ -25,7 +25,7 @@ Explanation: Both charges create fields pointing toward -Q at the midpoint. The 
 (d) accelerate opposite to the direction of the field
 (e) oscillate about its initial position	Answer: (c) accelerate in the direction of the field
 Explanation: Electric field direction is defined as the direction a positive charge would move. Since a proton is positive, it accelerates in the field direction with F = qE.
-[RESOURCE:Khan Academy - Charges in Fields] https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-field/v/electric-field-intensity
+[RESOURCE:Khan Academy - Charges in Fields] https://www.khanacademy.org/science/hs-physics-tx/x52b5e54e482d5bbe:electrostatics/x52b5e54e482d5bbe:coulombs-law/v/electric-field-definition
 [RESOURCE:Video - Motion in Electric Fields] https://www.youtube.com/watch?v=8jB6hDUqN0Y
 
 4. (3 points) The work done in moving a charge q through a potential difference V is:
