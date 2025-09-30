@@ -166,6 +166,8 @@
       <option value="Quiz 2 V1">Quiz 2 V1</option>
       <option value="Quiz 2 V2">Quiz 2 V2</option>
       <option value="Quiz 2 V3">Quiz 2 V3</option>
+      <option value="Quiz 2 V4">Quiz 2 V4</option>
+      <option value="Quiz 2 V5">Quiz 2 V5</option>
     </select>
     <button onclick="loadQuiz()">Load Quiz</button>
     <button class="export" onclick="exportMappings()">Export Updated Flashcards</button>
@@ -264,6 +266,10 @@
         imageCount = 8; // 0-7
       } else if (quizSet === 'Quiz 2 V3') {
         imageCount = 5; // 0-4
+      } else if (quizSet === 'Quiz 2 V4') {
+        imageCount = 0; // No images
+      } else if (quizSet === 'Quiz 2 V5') {
+        imageCount = 7; // 0-6
       } else {
         imageCount = 10; // Default fallback
       }

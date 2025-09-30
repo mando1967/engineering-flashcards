@@ -1,0 +1,173 @@
+1. (3 points) An electron has charge −e and mass $m_e$. A proton has charge e and mass $1840m_e$. A "proton volt" equals:
+(a) 1 eV
+(b) 1840 eV
+(c) $1/\sqrt{1840}$ eV
+(d) $\sqrt{1840}$ eV
+(e) 1/1840 eV	Answer: (a) 1 eV
+Explanation: An electron volt (eV) is the energy gained by a particle with charge magnitude e moving through 1 V potential difference. A proton also has charge magnitude e, so a "proton volt" equals 1 eV (mass doesn't affect the definition).
+
+2. (3 points) The fact that we can define electric potential energy means that:
+(a) the electric force is conservative
+(b) there is a point where the electric potential energy is exactly zero
+(c) it takes work for the electric force to move from some point a to some other point b and back again
+(d) the electric force is nonconservative
+(e) the work done on a charged particle depends on the path it takes	Answer: (a) the electric force is conservative
+Explanation: Only conservative forces allow us to define potential energy. For conservative forces, work is path-independent and the work around a closed loop is zero.
+
+3. (3 points) During a lightning discharge, 30 C of charge move through a potential difference of $1.0 \times 10^8$ V in $2.0 \times 10^{-2}$ s. The energy released by this lightning bolt is:
+(a) $3.0 \times 10^9$ J
+(b) $3.3 \times 10^6$ J
+(c) 1500 J
+(d) $1.5 \times 10^{11}$ J
+(e) $6.0 \times 10^7$ J	Answer: (a) $3.0 \times 10^9$ J
+Explanation: Energy $U = q \Delta V = (30\,\mathrm{C})(1.0 \times 10^8\,\mathrm{V}) = 3.0 \times 10^9\,\mathrm{J}$. The time is not needed for energy calculation.
+
+4. (3 points) A parallel-plate capacitor C has a charge Q. The actual charges on its plates are
+(a) Q, Q
+(b) Q/2, Q/2
+(c) Q, −Q
+(d) Q, 0
+(e) Q/2, Q/2	Answer: (c) Q, −Q
+Explanation: In a capacitor, one plate carries +Q and the other carries −Q (equal and opposite charges). The capacitance Q refers to the magnitude of charge on each plate.
+
+5. (3 points) The plate areas and plate separations of five parallel plate capacitors are given. [IMAGE:images/Quiz 2 V5-0.png]
+Rank these according to their capacitances, least to greatest
+(a) 1, 2, 3, 4, 5
+(b) 5, then 3 and 4 tie, then 1, then 2
+(c) 4, then 1 and 2 tie, then 5, then 3
+(d) 3, then 5, then 1 and 2 tie, then 4
+(e) 5, 4, 3, 2, 1	Answer: Need image data to determine correct answer
+Explanation: For parallel-plate capacitors, $C = \epsilon_0 \frac{A}{d}$. Capacitance is proportional to area A and inversely proportional to separation d. Calculate $A/d$ for each to rank them.
+
+6. (3 points) The capacitance of a single isolated spherical conductor with radius R is proportional to:
+(a) R
+(b) $R^2$
+(c) 1/R
+(d) $1/R^2$
+(e) none of these	Answer: (a) R
+Explanation: For an isolated sphere, $C = 4\pi\epsilon_0 R$, so capacitance is directly proportional to radius R.
+
+7. (3 points) A car battery is rated at 80 A·h. An ampere-hour is a unit of:
+(a) power
+(b) charge
+(c) current
+(d) force
+(e) energy	Answer: (b) charge
+Explanation: An ampere-hour is a unit of electric charge: $1\,\mathrm{A \cdot h} = 3600\,\mathrm{C}$
+
+8. (3 points) In schematic diagrams, currents are indicated using arrows. What do the arrows indicate?
+(a) the direction of motion of the electrons
+(b) the direction that positive charge carriers would move
+(c) the direction of motion of the charge carriers
+(d) nothing, they are just a convenient drawing tool
+(e) the direction of the current vector	Answer: (b) the direction that positive charge carriers would move
+Explanation: Conventional current arrows show the direction positive charges would move, which is opposite to electron flow.
+
+9. (3 points) A wire with a length of 150 m and a radius of 0.15 mm carries a current with a uniform current density of $2.8 \times 10^7$ A/m². The current is:
+(a) 300 A
+(b) 5.9 A
+(c) 0.63 A
+(d) 26000 A
+(e) 2.0 A	Answer: (e) 2.0 A
+Explanation: $I = J \cdot A$ where $A = \pi r^2 = \pi(1.5 \times 10^{-4})^2 \approx 7.07 \times 10^{-8}\,\mathrm{m}^2$. Thus $I = (2.8 \times 10^7)(7.07 \times 10^{-8}) \approx 1.98 \approx 2.0\,\mathrm{A}$
+
+10. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are given. [IMAGE:images/Quiz 2 V5-1.png]
+Rank the wires according to their resistances, least to greatest.
+(a) 1, 2, 3, 4, 5
+(b) 1 and 2 tie, then 5, 3, 4
+(c) 5, 4, 3, 2, 1
+(d) 1, 3, 4, 2, 5
+(e) 1, 2, 3, 4, 5	Answer: Need image data to determine correct answer
+Explanation: For cylindrical wires, $R = \rho \frac{L}{A} = \rho \frac{L}{\pi r^2}$. Resistance is proportional to length L and inversely proportional to $r^2$. Calculate $L/r^2$ for each wire to rank them.
+
+11. (3 points) Lightbulb A, a 60W model, and lightbulb B, a 40W model, are connected in parallel across a 120V power supply. Which statement below is false
+(a) The voltage difference across lightbulb B is 120V
+(b) More current flows through the battery than through lightbulb B
+(c) Lightbulb B has a higher resistance than lightbulb A
+(d) Less current flows through lightbulb A than lightbulb B	Answer: (d) Less current flows through lightbulb A than lightbulb B
+Explanation: $I = P/V$. $I_A = 60/120 = 0.50\,\mathrm{A}$, $I_B = 40/120 = 0.33\,\mathrm{A}$. More current flows through A than B, so (d) is false.
+
+12. (3 points) The internal resistance in a real battery causes what to happen when the battery is connected to a resistive "load"? (Pick the best answer)
+(a) The voltage across the battery terminals decreases when the battery is connected to low resistance loads.
+(b) The battery warms when connected to low resistance loads.
+(c) The current supplied by the battery falls to less than the nominal battery voltage divided by the load resistance
+(d) All of the above	Answer: (d) All of the above
+Explanation: Internal resistance causes voltage drop ($V = \mathcal{E} - Ir$), power dissipation (heating), and limits current below the ideal value. All effects occur.
+
+13. (3 points) Two capacitors ($C_L = 0.1\,\mu\mathrm{F}$, $C_R = 0.22\,\mu\mathrm{F}$) connected in parallel with a 9 V battery. [IMAGE:images/Quiz 2 V5-2.png]
+Which statement below is most correct?
+(a) The two capacitors store the same charge
+(b) The two capacitors have the same voltage between their leads
+(c) The two capacitors have the same ratio of charge to voltage across their leads
+(d) The two capacitors store the same energy	Answer: (b) The two capacitors have the same voltage between their leads
+Explanation: In parallel, each capacitor has the same voltage across it (9 V). The charge varies: $Q = CV$.
+
+14. (3 points) What is the absolute voltage difference between the left lead of the $0.1\,\mu\mathrm{F}$ capacitor $C_L$ and the right lead of the $0.22\,\mu\mathrm{F}$ capacitor $C_R$? [IMAGE:images/Quiz 2 V5-3.png]
+(a) 0.0 V
+(b) 2.8 V
+(c) 6.2 V
+(d) 9.0 V	Answer: (d) 9.0 V
+Explanation: The voltage across the entire battery circuit from left lead of $C_L$ to right lead of $C_R$ equals the battery voltage: 9.0 V.
+
+15. (3 points) How much charge do the two capacitors together store? [IMAGE:images/Quiz 2 V5-4.png]
+(a) $0.62\,\mu\mathrm{C}$
+(b) $0.90\,\mu\mathrm{C}$
+(c) $1.98\,\mu\mathrm{C}$
+(d) $2.88\,\mu\mathrm{C}$	Answer: (d) $2.88\,\mu\mathrm{C}$
+Explanation: In parallel, $C_{total} = 0.1 + 0.22 = 0.32\,\mu\mathrm{F}$. $Q = CV = (0.32 \times 10^{-6})(9) = 2.88 \times 10^{-6}\,\mathrm{C} = 2.88\,\mu\mathrm{C}$
+
+16. (3 points) What is the absolute voltage difference between the two leads of the $0.1\,\mu\mathrm{F}$ capacitor $C_L$? [IMAGE:images/Quiz 2 V5-5.png]
+(a) 0.0 V
+(b) 2.8 V
+(c) 6.2 V
+(d) 9.0 V	Answer: (d) 9.0 V
+Explanation: In parallel, each capacitor has the full battery voltage across it: 9.0 V.
+
+17. (9 points) You have twelve 9V batteries, forty $1000\,\Omega$ resistors, and forty $1\,\mu\mathrm{F}$ capacitors. [IMAGE:images/Quiz 2 V5-3.png]
+(a) (3 points) Make a $2500\,\Omega$ resistor	Answer: Use two $1000\,\Omega$ in series ($2000\,\Omega$), then add two $1000\,\Omega$ in parallel ($500\,\Omega$), then connect these in series: $2000 + 500 = 2500\,\Omega$
+Explanation: Series resistors add: $R_{series} = R_1 + R_2$. Parallel: $\frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2}$
+
+17. (b) (3 points) Make a $0.25\,\mu\mathrm{F}$ capacitor [IMAGE:images/Quiz 2 V5-4.png]	Answer: Connect four $1\,\mu\mathrm{F}$ capacitors in series
+Explanation: For series capacitors: $\frac{1}{C_{series}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3} + \frac{1}{C_4} = \frac{4}{1} = 4$, so $C_{series} = 0.25\,\mu\mathrm{F}$
+
+17. (c) (3 points) Make a 27 V battery [IMAGE:images/Quiz 2 V5-6.png] [IMAGE:images/Quiz 2 V5-5.png]	Answer: Connect three 9V batteries in series
+Explanation: Series batteries add voltages: $V_{total} = 9 + 9 + 9 = 27\,\mathrm{V}$
+
+18. (15 points) A charge Q is evenly spread along the circumference of a circle of radius R. [IMAGE:images/Quiz 2 V5-6.png]
+(a) (5 points) Show that the voltage at a point P located a height h above the center of the circle is $V = \frac{Q}{4\pi\epsilon_0\sqrt{R^2 + h^2}}$	Answer: By symmetry, all points on the ring are equidistant from P: $r = \sqrt{R^2 + h^2}$. 
+Explanation: The potential from the ring: $V = \frac{kQ}{r} = \frac{Q}{4\pi\epsilon_0\sqrt{R^2 + h^2}}$
+
+18. (b) (5 points) Find the electrical force acting on a small particle at point P carrying charge q and mass m in the vertical (z) direction. Hint: $E_z = -\frac{\partial V}{\partial z}$	Answer: $F_z = qE_z = -q\frac{\partial V}{\partial z} = \frac{Qqh}{4\pi\epsilon_0(R^2 + h^2)^{3/2}}$
+Explanation: Take derivative of V with respect to h (or z): $\frac{\partial V}{\partial h} = -\frac{Qh}{4\pi\epsilon_0(R^2 + h^2)^{3/2}}$, so $E_z = \frac{Qh}{4\pi\epsilon_0(R^2 + h^2)^{3/2}}$ and $F_z = qE_z$
+
+18. (c) (5 points) Determine the radius R that would make the total force acting on this particle vanish. Assume $g = 9.8\,\mathrm{m/s}^2$, and the direction of the gravitational field is downward. Assume $Qq > 0$.	Answer: $R = \sqrt{\frac{Qq}{4\pi\epsilon_0 mg} - h^2}$
+Explanation: For equilibrium: $F_{electric} = F_{gravity}$. $\frac{Qqh}{4\pi\epsilon_0(R^2 + h^2)^{3/2}} = mg$. Solve for R: $R^2 + h^2 = \left(\frac{Qqh}{4\pi\epsilon_0 mg}\right)^{2/3}$
+
+19. (14 points) Call $I_1$, $I_2$, and $I_3$ the current flowing through resistors $R_1$, $R_2$, and $R_3$.
+(a) (8 points) Deduce three independent equations for three unknown currents. Use symbolic values for resistances and voltages.	Answer: 
+KCL: $I_1 + I_2 - I_3 = 0$
+Loop 1: $\mathcal{E}_1 - I_1R_1 - I_3R_3 = 0$
+Loop 2: $-\mathcal{E}_2 + I_2R_2 - I_3R_3 = 0$
+Explanation: Apply Kirchhoff's laws: current conservation at junctions and voltage sum around closed loops equals zero.
+
+19. (b) (3 points) Take $\mathcal{E}_1 = 6\,\mathrm{V}$, $\mathcal{E}_2 = 12\,\mathrm{V}$, $R_1 = R_3 = 1000\,\Omega$, $R_2 = 1\,\Omega$. Solve for the currents. Hint: Wow, $R_2$ is small; what is the voltage difference across $R_3$?	Answer: $I_1 \approx 0$, $I_2 \approx 12\,\mathrm{A}$, $I_3 \approx 12\,\mathrm{A}$
+Explanation: Since $R_2 \ll R_3$, nearly all voltage from $\mathcal{E}_2$ appears across $R_3$. Thus $I_3 \approx 12/1000 = 0.012\,\mathrm{A} = 12\,\mathrm{mA}$. Actually, $I_2$ dominates through small $R_2$.
+
+19. (c) (3 points) Do the same for $R_2 = 10^6\,\Omega$, with other components the same. Hint: this is a very big resistance!	Answer: $I_1 \approx 3\,\mathrm{mA}$, $I_2 \approx 0$, $I_3 \approx 3\,\mathrm{mA}$
+Explanation: Since $R_2 \gg R_1, R_3$, essentially no current flows through $R_2$. The voltage difference across $R_3$: $V_3 = \mathcal{E}_2 - \mathcal{E}_1 = 6\,\mathrm{V}$. $I_3 = I_1 = 6/2000 = 3\,\mathrm{mA}$
+
+20. (12 points) The graph shows voltage across a 0.1 F capacitor and across the series combination of capacitor and resistor.
+(a) (2 points) What is the RC time constant for this circuit?	Answer: Need to read from graph - look for time when voltage reaches $\approx 63\%$ of maximum (charging) or $\approx 37\%$ of initial (discharging)
+Explanation: The time constant $\tau = RC$ is the time for exponential to reach $1-1/e \approx 63\%$ (charging) or $1/e \approx 37\%$ (discharging).
+
+20. (b) (2 points) What is the resistance of the circuit?	Answer: $R = \frac{\tau}{C}$ where $\tau$ is from part (a) and $C = 0.1\,\mathrm{F}$
+Explanation: From the definition $\tau = RC$, solve for $R = \tau/C$.
+
+20. (c) (2 points) How much charge is stored in the circuit with the capacitor at its maximum voltage?	Answer: $Q = CV_{max}$ where $V_{max}$ is read from graph
+Explanation: Use $Q = CV$ with the maximum voltage value from the oscilloscope trace.
+
+20. (d) (2 points) What is the minimum time, in seconds, that one should wait after disconnecting the circuit to ensure that the capacitor voltage is less than 0.8 V?	Answer: Solve $0.8 = V_{max} e^{-t/\tau}$ for t: $t = -\tau \ln(0.8/V_{max})$
+Explanation: Use exponential decay: $V(t) = V_{max} e^{-t/\tau}$. Solve for time t when voltage drops to 0.8 V.
+
+20. (e) (2 points) How much current is flowing into the capacitor at t = +1.5 s? Hint: $\frac{dQ}{dt} = I$	Answer: $I = C\frac{dV}{dt}$ evaluated at $t = 1.5\,\mathrm{s}$
+Explanation: Current is the rate of charge change. For a capacitor, $I = C\frac{dV}{dt}$. Find the slope of the voltage curve at t = 1.5 s from the graph and multiply by C.

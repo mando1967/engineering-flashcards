@@ -1,0 +1,45 @@
+Quiz 2 V5 - Image Alignment Guide
+=================================
+
+Please verify that the following images are correctly aligned with their questions in flashcards.txt:
+
+Question 5: [IMAGE:Quiz 2 V5-0.png]
+- Topic: Ranking parallel plate capacitors by capacitance
+- Expected: Table showing 5 capacitors with plate areas and separations
+
+Question 10: [IMAGE:Quiz 2 V5-1.png]
+- Topic: Ranking cylindrical wires by resistance
+- Expected: Table showing 5 wires with lengths and radii
+
+Question 13: [IMAGE:Quiz 2 V5-2.png]
+- Topic: Two capacitors in parallel (CL = 0.1 µF, CR = 0.22 µF, V = 9V)
+- Expected: Circuit diagram showing parallel capacitors
+
+Question 14: [IMAGE:Quiz 2 V5-3.png]
+- Topic: Voltage difference between left lead of CL and right lead of CR
+- Expected: Circuit diagram (same as Q13)
+
+Question 15: [IMAGE:Quiz 2 V5-4.png]
+- Topic: Total charge stored in two capacitors
+- Expected: Circuit diagram (same as Q13)
+
+Question 16: [IMAGE:Quiz 2 V5-5.png]
+- Topic: Voltage across the 0.1 µF capacitor CL
+- Expected: Circuit diagram (same as Q13)
+
+Question 18: [IMAGE:Quiz 2 V5-6.png]
+- Topic: Charge Q on circle, point P at height h
+- Expected: Diagram showing circular ring with charge Q and point P above it
+
+---
+
+TO REVIEW IMAGES:
+1. Open flashcards.txt
+2. Check each [IMAGE:...] tag matches the question content
+3. If images need to be reordered or changed, edit the [IMAGE:...] tags in flashcards.txt
+4. Images are located in: c:\inetpub\wwwroot\quizwiz\tests\Quiz 2 V5\images\
+
+NOTES:
+- Questions 13-16 likely all reference the same circuit diagram
+- You may want to consolidate to use the same image for Q13-16 if they show the same circuit
+- Check if the images match the question topics described above
