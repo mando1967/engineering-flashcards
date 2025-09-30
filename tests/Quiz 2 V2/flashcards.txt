@@ -14,14 +14,14 @@ Explanation: Capacitors store electrical energy in an electric field between two
 (d) a capacitor	Answer: (b) a battery
 Explanation: Batteries use chemical reactions between different metals (electrodes) and an electrolyte to produce electrical energy. The voltage depends on the electrode materials used.
 [RESOURCE:Video - How Batteries Work] https://www.youtube.com/watch?v=9OVtk6G2TnQ
-[RESOURCE:Article - Battery Basics] https://www.electronics-tutorials.ws/battery/battery_1.html
+[RESOURCE:Article - Battery Basics] https://learn.sparkfun.com/tutorials/what-is-a-battery/all
 
 3. (3 points) To protect the circuit, how would you connect the fuse?
 (a) in series with the circuit in question
 (b) in parallel with the circuit in question
 (c) fuse does not have to be connected to the circuit, just placing it in the vicinity is sufficient	Answer: (a) in series with the circuit in question
 Explanation: Fuses must be in series so all current flows through them. When current exceeds the rating, the fuse melts and breaks the circuit, preventing damage.
-[RESOURCE:Article - Circuit Protection] https://www.electronics-tutorials.ws/io/io_6.html
+[RESOURCE:Article - Circuit Protection] https://www.blikai.com/blog/how-does-a-fuse-work-full-guide
 
 4. (3 points) If 1000 J of work is required to carry 25 C charge from one point to another, the potential difference between these two points is
 (a) 25,000 V
