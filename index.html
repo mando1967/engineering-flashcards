@@ -86,6 +86,9 @@
       <!-- Top Navigation -->
       <div class="nav-buttons-top">
         <button id="back-btn-top" onclick="prevCard()">← Back</button>
+        <select id="problem-selector" onchange="jumpToProblem()" title="Jump to problem">
+          <option value="">Jump to...</option>
+        </select>
         <button id="next-btn-top" onclick="nextCard()">Next →</button>
       </div>
 
@@ -133,6 +136,38 @@
 
   function fadeIn(element) {
     element.style.opacity = 1;
+  }
+
+  function populateProblemSelector() {
+    const selector = document.getElementById('problem-selector');
+    selector.innerHTML = '<option value="">Jump to...</option>';
+    
+    flashcards.forEach((card, idx) => {
+      // Extract problem number from title or term
+      const text = card.title || card.term || '';
+      const match = text.match(/^(\d+)\./);
+      const problemNum = match ? match[1] : (idx + 1);
+      
+      const option = document.createElement('option');
+      option.value = idx;
+      option.textContent = `Problem ${problemNum}`;
+      selector.appendChild(option);
+    });
+  }
+
+  function jumpToProblem() {
+    const selector = document.getElementById('problem-selector');
+    const selectedIndex = parseInt(selector.value);
+    
+    if (!isNaN(selectedIndex) && selectedIndex >= 0 && selectedIndex < flashcards.length) {
+      currentIndex = selectedIndex;
+      showingAnswer = false;
+      resetTimerAndAutoStart();
+      renderCard();
+    }
+    
+    // Reset selector to default
+    selector.value = '';
   }
 
   function renderCard() {
@@ -231,7 +266,7 @@
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
         
-        // Add resource links if available - always show when answer is revealed
+        // Add resource links if available - always show when answer is revealed (even for seeKey problems)
         const resourcesHtml = (data.resources && data.resources.length > 0 && showingAnswer)
           ? `<div class="resources">
               <span class="resources-label">📚 Learn More:</span>
@@ -303,6 +338,7 @@
           : '';
         
         // Combine explanation, resources, and search into one frame
+        // For seeKey problems, still show resources and search
         const learningFrame = (explanationHtml || resourcesHtml || searchHtml) && showingAnswer
           ? `<div class="learning-frame">
               ${explanationHtml}
@@ -426,10 +462,10 @@
           const m = first.match(/^\s*Answer\s*:\s*(.*)$/i);
           if (m) {
             answer = m[1].trim();
-            // Check if answer contains [SEE_KEY]
-            if (answer.includes('[SEE_KEY]')) {
+            // Check if answer contains {SEE_KEY}
+            if (answer.includes('{SEE_KEY}')) {
               seeKey = true;
-              answer = answer.replace(/\[SEE_KEY\]\s*/g, '').trim();
+              answer = answer.replace(/\{SEE_KEY\}\s*/g, '').trim();
             }
             const rest = aLines.slice(firstNonEmptyIdx + 1);
             
@@ -544,6 +580,7 @@
         
         isReviewMode = false;
         resetTimer();
+        populateProblemSelector();
         renderCard();
         updateStatsDisplay();
       });
@@ -569,10 +606,20 @@
       const content = document.createElement('div');
       content.className = 'accordion-content';
       const encodedSetName = encodeURIComponent(setName);
+      
+      // Quiz 2 V3 doesn't have an answer key
+      const hasAnswerKey = setName !== 'Quiz 2 V3';
+      // Construct the key filename properly
+      const keyFileName = `${setName} KEY.pdf`;
+      const encodedKeyFileName = encodeURIComponent(keyFileName);
+      const answerKeyLink = hasAnswerKey 
+        ? `<a href="tests/${encodedSetName}/${encodedKeyFileName}" target="_blank" class="pdf-link">🔑 Answer Key</a>`
+        : `<span class="pdf-link disabled">🔑 Answer Key (Not Available)</span>`;
+      
       content.innerHTML = `
         <button class="load-quiz-btn" data-quiz="${setName}">📚 Load Flashcards</button>
         <a href="tests/${encodedSetName}/${encodedSetName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
-        <a href="tests/${encodedSetName}/${encodedSetName}%20KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
+        ${answerKeyLink}
       `;
       
       // Toggle accordion on header click (just expand/collapse, don't load)

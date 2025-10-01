@@ -194,9 +194,9 @@
       // Parse problems
       problems = parseProblems(flashcardsText);
       
-      // Initialize mappings from existing [SEE_KEY] tags
+      // Initialize mappings from existing {SEE_KEY} tags
       problems.forEach((problem, idx) => {
-        keyMappings[idx] = problem.text.includes('[SEE_KEY]');
+        keyMappings[idx] = problem.text.includes('{SEE_KEY}');
       });
       
       renderProblems();
@@ -255,7 +255,7 @@
         // Extract just the question part (before the tab/Answer)
         const questionPart = problem.text.split('\t')[0]
           .replace(/\[IMAGE:[^\]]+\]/g, '')
-          .replace(/\[SEE_KEY\]/g, '')
+          .replace(/\{SEE_KEY\}/g, '')
           .trim();
         
         const hasAnswer = problem.text.includes('\t') && problem.text.split('\t')[1].trim().length > 0;
@@ -301,22 +301,22 @@
       problems.forEach((problem, idx) => {
         let problemText = problem.text;
         
-        // Remove existing [SEE_KEY] tag if present
-        problemText = problemText.replace(/\[SEE_KEY\]\s*/g, '');
+        // Remove existing {SEE_KEY} tag if present
+        problemText = problemText.replace(/\{SEE_KEY\}\s*/g, '');
         
         if (keyMappings[idx] === true) {
-          // Add [SEE_KEY] tag
-          // Strategy: Replace the answer section after the tab with the [SEE_KEY] instruction
+          // Add {SEE_KEY} tag
+          // Strategy: Replace the answer section after the tab with the {SEE_KEY} instruction
           if (problemText.includes('\t')) {
             // Split at the first tab
             const parts = problemText.split('\t');
             const questionPart = parts[0].trim();
             
             // Replace answer with key reference instruction
-            problemText = questionPart + '\t' + 'Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.';
+            problemText = questionPart + '\t' + 'Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.';
           } else {
             // No tab found, just append the instruction
-            problemText = problemText.trim() + '\tAnswer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.';
+            problemText = problemText.trim() + '\tAnswer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.';
           }
         }
         

@@ -64,9 +64,11 @@ def process_quiz_images(quiz_name):
 if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     
-    # Process both quiz sets
-    process_quiz_images("Quiz 2 V2")
-    process_quiz_images("Quiz 2 V3")
+    # Process all quiz sets
+    quiz_sets = ["Quiz 2 V1", "Quiz 2 V2", "Quiz 2 V3", "Quiz 2 V4", "Quiz 2 V5"]
+    
+    for quiz_name in quiz_sets:
+        process_quiz_images(quiz_name)
     
     print(f"\n{'='*60}")
     print("✓ All images processed!")

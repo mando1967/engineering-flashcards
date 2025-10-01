@@ -133,49 +133,23 @@ Explanation: $[RC] = \Omega \cdot \mathrm{F} = \frac{\mathrm{V}}{\mathrm{A}} \cd
 Explanation: This is the loop equation for an RC charging circuit. As Q increases, the voltage across C increases until it equals $\mathcal{E}$.
 
 18. (9 points) A hollow non-conductive thin shell with radius R = 1 m has a positive charge Q = 1 C distributed evenly on a surface and a tiny positive charge q = 1 µC in the center of the shell. The charge q is pushed off-center with an initial speed v₀ = 1 m/sec toward a small opening in the shell from which the tiny charge escapes. The mass of the charge q is m = 1 g.
-(a) (2 points) Does the charge q accelerate while it is moving inside the shell or not? Explain why.	Answer: No, the charge q does not accelerate inside the shell.
-Explanation: By Gauss's law and symmetry, the electric field inside a uniformly charged spherical shell is zero. No electric field means no electric force, so no acceleration inside the shell.
-
-18. (b) (2 points) Does the charge q accelerate as it leaves the shell Q? If yes, is the acceleration constant or not?	Answer: Yes, the charge accelerates as it leaves the shell. The acceleration is not constant.
-Explanation: Outside the shell, the electric field from Q acts on q, causing acceleration. The acceleration decreases as the charge moves farther away because $F = \frac{kQq}{r^2}$ (inverse square law).
-
-18. (c) (2 points) Assuming the potential is 0 V at infinity, what is the potential right above the surface of the shell Q?	Answer: $V = \frac{kQ}{R} = \frac{(9 \times 10^9)(1)}{1} = 9 \times 10^9\,\mathrm{V} = 9\,\mathrm{GV}$
-Explanation: The shell creates a potential as if all charge were at its center: $V = \frac{kQ}{R}$ at the surface.
-
-18. (d) (3 points) Find a speed of the charge q when it is sufficiently far away from the shell Q.	Answer: $v_f \approx 4243\,\mathrm{m/s}$
-Explanation: Use energy conservation: $\frac{1}{2}mv_0^2 + k\frac{Qq}{R} = \frac{1}{2}mv_f^2$. Solving: $v_f = \sqrt{v_0^2 + \frac{2kQq}{mR}} = \sqrt{1 + \frac{2(9\times 10^9)(1)(10^{-6})}{(0.001)(1)}} \approx 4243\,\mathrm{m/s}$
+• (a) (2 points) Does the charge q accelerate while it is moving inside the shell or not? Explain why.
+• (b) (2 points) Does the charge q accelerate as it leaves the shell Q? If yes, is the acceleration 
+• (c) (2 points) Assuming the potential is O V at infinity, what is the potential right above the 
+• (d) (3 points) Find a speed of the charge q when it is sufficiently far away from the shell Q. 	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 19. (8 points) Evil Dr. Maravin needs extra energy to make an extra difficult quiz 2 problem, so he decides to make himself a cup of coffee using a copper heating element made from wire with diameter 2 mm and length 20 meters rolled into a spiral. He uses a car battery providing 12 V.
-(a) (2 points) Calculate the resistance of the heating element assuming that the resistivity of copper is 1.68 × 10⁻⁸ Ω·m.	Answer: $R \approx 0.107\,\Omega$
-Explanation: $R = \rho\frac{L}{A} = (1.68 \times 10^{-8})\frac{20}{\pi(0.001)^2} = (1.68 \times 10^{-8})\frac{20}{3.14 \times 10^{-6}} \approx 0.107\,\Omega$
-
-19. (b) (2 points) When Dr. Maravin plugs the heating element to the car battery he is surprised that the heating element does not get really hot! He measures the potential difference across the heating element to find out that only 2 V is on the heating element, despite the fact that the battery is rated at 12V. What is the reason for such a small potential difference on the heating element?	Answer: The battery has internal resistance.
-Explanation: Real batteries have internal resistance that causes voltage drop when current flows. The "lost" 10 V is dropped across the internal resistance of the battery.
-
-19. (c) (2 points) Calculate the internal resistance of the battery.	Answer: $r \approx 0.535\,\Omega$
-Explanation: Current through element: $I = \frac{V_{element}}{R} = \frac{2}{0.107} \approx 18.7\,\mathrm{A}$. Using $\mathcal{E} = V + Ir$: $12 = 2 + 18.7r$, so $r = \frac{10}{18.7} \approx 0.535\,\Omega$
-
-19. (d) (2 points) What is the power of the thermal energy in the heating element? Compare that to the usual 800W appliance that is commonly used to heat water.	Answer: $P_{element} \approx 37.4\,\mathrm{W}$
-Explanation: $P = \frac{V^2}{R} = \frac{2^2}{0.107} \approx 37.4\,\mathrm{W}$. This is about 21 times less than an 800W appliance - not very effective for heating water!
+• (a) (2 points) Calculate the resistance of the heating element assuming that the resistivity of copper is 1.68 × 10⁻⁸ Ω·m.
+• (b) (2 pomts) When Dr. Mara in plugs the heating element to the car battery he is surprised :.--- J that the heating elements does not get really hot! Annoyed, he measures the potential differ-ence across the heating element to find out that only 2 V is on the heating element, despite the fact that the battery is rated at 12V. What is the reason for such a small potential difference on the heating element? (Hint: the car battery is not ideal.
+• (c) (2 points) Calculate the internal resistance of the.battery.
+• (d) (2 points) What is the power of the thermal energy in the heating element? Compare that to the usual 800W appliance that is commonly used to heat water.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 20. (11 points) In a circuit with three resistors and two voltage sources, $I_1$, $I_2$, and $I_3$ are the currents flowing through resistors $R_1$, $R_2$, and $R_3$.
-(a) (3 points) Deduce three independent equations for the three unknown currents. Use symbolic notation for resistances and voltages.	Answer: KCL at junction: $I_1 + I_2 - I_3 = 0$
-Loop 1: $V_1 - I_1R_1 - I_3R_3 = 0$
-Loop 2: $-V_2 + I_2R_2 - I_3R_3 = 0$
-Explanation: Apply Kirchhoff's laws: current conservation at junctions and voltage sum around loops equals zero.
-
-20. (b) (6 points) Take $V_1 = 20\,\mathrm{V}$, $V_2 = 10\,\mathrm{V}$; $R_2 = 10^6\,\Omega$, and $R_1 = R_3 = R_4 = 100\,\Omega$. Calculate $I_1$, $I_2$, and $I_3$. Hint: Wow! $R_2$ is a very big resistance!	Answer: $I_1 \approx 0.10\,\mathrm{A}$, $I_2 \approx 0$, $I_3 \approx 0.10\,\mathrm{A}$
-Explanation: Since $R_2 \gg R_1, R_3$, essentially no current flows through $R_2$ (open circuit). Thus $I_1 \approx \frac{V_1}{R_1 + R_3} = \frac{20}{200} = 0.10\,\mathrm{A}$ and $I_3 \approx I_1$.
-
-20. (c) (2 points) What is the potential difference between points A and B: $V_B - V_A$?	Answer: $V_B - V_A = 10\,\mathrm{V}$
-Explanation: Since negligible current flows through $R_2$, point A is essentially at the potential of the positive terminal of $V_1$ (20V), and point B is at the positive terminal of $V_2$ (10V). So $V_B - V_A = 10 - 20 = -10\,\mathrm{V}$ or $|V_B - V_A| = 10\,\mathrm{V}$.
+• (a) (3 points) Deduce three independent equations for the three unknown currents. Use symbolic notation for resistances and voltages.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+• (b) (6 points) Take Vi = 20V, ½ = lOV; R'/,, ,_, 106 n, and R1 = R3 = R4 = 100 n. Calculate 11, 12, and 13. You can use equations above, or if you can see a simpler path to a very good estimate of the exact answer, use it, explaining whatever approximation you make in one sentence. (Hint: Wow! R2 is a very big resistancel
+• (c) (2 points) What is the potential difference between points A and B: VB -VA? 	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 21. (11 points) In a circuit, $\mathcal{E} = 12\,\mathrm{V}$, $R_1 = R_2 = R_3 = 1000\,\Omega$. With the capacitor C completely uncharged, the switch S is suddenly closed (at t = 0).
-(a) (6 points) At t = 0, what are the currents through resistors $R_1$, $R_2$, and $R_3$?	Answer: At $t = 0$: $I_1 = 6\,\mathrm{mA}$, $I_2 = 12\,\mathrm{mA}$, $I_3 = 6\,\mathrm{mA}$
-Explanation: At $t = 0$, the uncharged capacitor acts as a short circuit (wire). $R_2$ and $R_3$ are in parallel = 500Ω, in series with $R_1$ = 1500Ω total. $I_2 = \frac{12}{1500} = 0.008\,\mathrm{A} = 8\,\mathrm{mA}$ (total). This splits equally through $R_2$ and $R_3$: each gets 4mA. Note: Need to recalculate based on actual circuit topology.
-
-21. (b) (2 points) What are the currents through the above-mentioned resistors at a very long time t = ∞ after the switch is closed?	Answer: At $t = \infty$: $I_1 = 6\,\mathrm{mA}$, $I_2 = 6\,\mathrm{mA}$, $I_3 = 0$
-Explanation: At $t = \infty$, the capacitor is fully charged and acts as an open circuit. No current flows through $R_3$. Current through battery: $I = \frac{12}{R_1 + R_2} = \frac{12}{2000} = 6\,\mathrm{mA}$.
-
-21. (c) (3 points) What is the potential difference across the capacitor C at time t = 0 and t = ∞?	Answer: At $t = 0$: $V_C = 0\,\mathrm{V}$; At $t = \infty$: $V_C = 6\,\mathrm{V}$
-Explanation: Initially uncharged, $V_C(0) = 0$. At steady state, $V_C = I \cdot R_2 = (0.006)(1000) = 6\,\mathrm{V}$.
+• (a) (6 points) At t = 0, what are the currents through resistors $R_1$, $R_2$, and $R_3$?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+• (b) (2 points) What are the currents through !he .0,hove-men tioned resistors at a very long time t = oo after the switch is closed? 
+• (c) (3 points) What is the potential difference across the capacitor Cat time t = 0 and t = oo?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.

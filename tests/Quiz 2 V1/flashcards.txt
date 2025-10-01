@@ -164,12 +164,12 @@ Explanation: When the switch is closed, it provides a parallel path for current,
 17. (12 points) One morning you find yourself marooned on an uninhabited island with a box of 3V batteries, about fifty of the 100 Ω resistors, and a box of twenty 1 μF capacitors. To construct a signaling device you need to make the following items from some of the parts available to you. Draw a clear diagram of the following:
 • (a) a 350 Ω resistor
 • (b) a 0.25 μF capacitor
-• (c) a 12 V battery	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
+• (c) a 12 V battery	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 18. (14 points) In the circuit above you have two batteries and three resistors labeled as ε₁, ε₂ and R₁, R₂, and R₃, respectively. [IMAGE:images/Quiz 2 V1-6.png]
 • (a) Deduce three independent equations for three unknown currents using symbolic notation.
 • (b) Solve for currents with ε₁ = 10 V, ε₂ = 12 V, R₁ = R₂ = 1000 Ω, and R₃ = 0.1 Ω.
-• (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
+• (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 19. (14 points) You use a 9V battery, copper wires, and two 12 inch flat copper pan lids as plates for a makeshift parallel plate capacitor with a multimeter as ammeter.
 Experiment 1: lids separated by 0.5 inch.
@@ -180,7 +180,7 @@ Experiment 1: lids separated by 0.5 inch.
 Experiment 2: After fully charged, disconnect battery and increase separation to 1 inch.
 • (e) Find new charge.
 • (f) Find new energy.
-• (g) Find work done to separate plates.	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
+• (g) Find work done to separate plates.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 20. (12 points) A circuit from your last studio has an electronic switch SW that switches connection every 3 seconds, resulting in voltage readings across the capacitor (green) and capacitor+resistor (blue). [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]
 • (a) Use the graph to estimate the τ_RC constant.
