@@ -939,3 +939,74 @@ button:hover {
     padding: 10px 12px;
   }
 }
+
+/* Quiz Key Reference Styling */
+.quiz-key-reference {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%);
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.quiz-key-reference .key-icon {
+  font-size: 48px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.quiz-key-reference .key-message {
+  flex: 1;
+}
+
+.quiz-key-reference .key-message strong {
+  color: #f57c00;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.quiz-key-reference .key-message p {
+  color: #6d4c41;
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+.key-pdf-link {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(255, 152, 0, 0.3);
+}
+
+.key-pdf-link:hover {
+  background: #f57c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .quiz-key-reference {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .quiz-key-reference .key-icon {
+    font-size: 36px;
+  }
+  
+  .key-pdf-link {
+    width: 100%;
+    text-align: center;
+  }
+}

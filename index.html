@@ -207,10 +207,32 @@
           }
         }
         
-        const answerHtml = data.answer
-          ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${data.answer}</div></div>`
-          : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${definition || ''}</div></div>`;
-        const explanationHtml = data.explanation
+        // Check if this problem should refer to the quiz key
+        let answerHtml;
+        if (data.seeKey && showingAnswer) {
+          // Show link to quiz key PDF instead of inline answer
+          const quizName = currentQuizSet.split('/').pop();
+          const encodedQuizName = encodeURIComponent(quizName);
+          const keyPdfUrl = `tests/${encodedQuizName}/${encodedQuizName}%20KEY.pdf`;
+          answerHtml = `<div class="answer" style="display: block;">
+            <span class="answer-label">Answer</span>
+            ${userSelectionText}
+            <div class="quiz-key-reference">
+              <div class="key-icon">🔑</div>
+              <div class="key-message">
+                <strong>Please refer to the Quiz Key for the detailed solution.</strong>
+                <p>${data.answer || 'The complete solution and explanation are provided in the answer key.'}</p>
+                <a href="${keyPdfUrl}" target="_blank" class="key-pdf-link">📄 Open Quiz Key PDF</a>
+              </div>
+            </div>
+          </div>`;
+        } else {
+          answerHtml = data.answer
+            ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${data.answer}</div></div>`
+            : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${definition || ''}</div></div>`;
+        }
+        
+        const explanationHtml = (data.explanation && !data.seeKey)
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
         
@@ -399,8 +421,9 @@
       }
 
       // From the answer block, separate line starting with "Answer:" and the rest as explanation
-      // Also extract resource links
+      // Also extract resource links and check for [SEE_KEY]
       let resources = [];
+      let seeKey = false;
       if (aLines.length) {
         const firstNonEmptyIdx = aLines.findIndex(l => l.trim().length > 0);
         if (firstNonEmptyIdx !== -1) {
@@ -408,6 +431,11 @@
           const m = first.match(/^\s*Answer\s*:\s*(.*)$/i);
           if (m) {
             answer = m[1].trim();
+            // Check if answer contains [SEE_KEY]
+            if (answer.includes('[SEE_KEY]')) {
+              seeKey = true;
+              answer = answer.replace(/\[SEE_KEY\]\s*/g, '').trim();
+            }
             const rest = aLines.slice(firstNonEmptyIdx + 1);
             
             // Extract resources from lines starting with [RESOURCE:...]
@@ -457,6 +485,7 @@
         if (choices.length) card.choices = choices;
         if (answer) card.answer = answer;
         if (explanation) card.explanation = explanation;
+        if (seeKey) card.seeKey = true;
       }
       
       // Store first image for backward compatibility (or all images)
