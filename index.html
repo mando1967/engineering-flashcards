@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=103" onload="cssLoaded()" onerror="cssFailed()" />
+  <link rel="stylesheet" href="style.css?v=103" />
   <style>
     #status {
       background: #fff3cd;
@@ -224,13 +224,85 @@
             </div>`
           : '';
 
+        // Extract key terms from question title
+        let rawText = (data.title || term).replace(/^\d+\.\s*/, '').replace(/\([a-z]\)\s*/i, '').trim();
+        // Remove LaTeX, images, and extra whitespace
+        rawText = rawText.replace(/\$.*?\$/g, '').replace(/\[IMAGE:.*?\]/g, '').replace(/\s+/g, ' ').trim();
+        
+        // Extract key physics/science concepts (common terms) - plurals and singular forms
+        const keyTerms = ['capacitors?', 'resistors?', 'circuits?', 'voltage', 'current', 'charges?', 
+                          'electric fields?', 'magnetic fields?', 'potential', 'energy', 'power', 
+                          'forces?', 'acceleration', 'velocity', 'momentum', 'waves?', 'frequency', 
+                          'resistance', 'inductance', 'batteries?', 'particles?', 'electrons?', 
+                          'protons?', 'fields?', 'flux', 'capacitance', 'dielectric'];
+        
+        let foundTerms = [];
+        const lowerText = rawText.toLowerCase();
+        
+        // Find all matching key terms in the question (limit to first 2-3 most relevant)
+        for (let termPattern of keyTerms) {
+          const regex = new RegExp('\\b(' + termPattern + ')\\b', 'i');
+          const match = lowerText.match(regex);
+          if (match && !foundTerms.includes(match[1])) {
+            foundTerms.push(match[1]);
+            if (foundTerms.length >= 3) break; // Limit to 3 terms max
+          }
+        }
+        
+        // If no key terms found, extract important-looking words (nouns, typically capitalized or technical)
+        if (foundTerms.length === 0) {
+          const words = rawText.split(/\s+/).filter(w => w.length > 4);
+          foundTerms = words.slice(0, 2);
+        }
+        
+        // Format the search query with quoted terms
+        let searchQuery = 'Tell me more about ';
+        if (foundTerms.length === 1) {
+          searchQuery += `"${foundTerms[0]}"`;
+        } else if (foundTerms.length === 2) {
+          searchQuery += `"${foundTerms[0]}" and "${foundTerms[1]}"`;
+        } else if (foundTerms.length >= 3) {
+          searchQuery += foundTerms.slice(0, -1).map(t => `"${t}"`).join(', ') + ` and "${foundTerms[foundTerms.length - 1]}"`;
+        } else {
+          searchQuery = rawText.substring(0, 60); // Fallback
+        }
+        
+        // Add Google AI search box - only show when answer is revealed
+        const searchHtml = showingAnswer
+          ? `<div class="google-search-card">
+              <form onsubmit="openSearchInTab(event, this); return false;" class="google-search-form-card">
+                <input type="text" name="q" value="${searchQuery.replace(/"/g, '&quot;')}" class="google-search-input-card" id="search-input-${currentIndex}" />
+                <button type="submit" class="google-search-btn-card">🔍 Search with AI</button>
+              </form>
+            </div>`
+          : '';
+
+        // Create navigation buttons for in-between placement
+        const inBetweenNavHtml = showingAnswer
+          ? `<div class="nav-buttons-between">
+              <button onclick="prevCard()">← Back</button>
+              <button onclick="nextCard()">Next →</button>
+            </div>`
+          : '';
+        
+        // Combine explanation, resources, and search into one frame
+        const learningFrame = (explanationHtml || resourcesHtml || searchHtml) && showingAnswer
+          ? `<div class="learning-frame">
+              ${explanationHtml}
+              ${resourcesHtml}
+              ${searchHtml}
+            </div>`
+          : '';
+
         card.innerHTML = `
-          <div class="term"><span class="question-title">${data.title || term}</span></div>
-          ${choicesHtml}
+          <div class="question-section">
+            <div class="term"><span class="question-title">${data.title || term}</span></div>
+            ${choicesHtml}
+            ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
+          </div>
           ${answerHtml}
-          ${explanationHtml}
-          ${resourcesHtml}
-          ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
+          ${inBetweenNavHtml}
+          ${learningFrame}
         `;
       } else {
         card.innerHTML = `
@@ -809,6 +881,17 @@
       popup.classList.remove('show');
       setTimeout(() => popup.remove(), 300);
     }, 3000);
+  }
+
+  // Open search in new tab
+  function openSearchInTab(event, form) {
+    event.preventDefault();
+    
+    const searchQuery = form.querySelector('input[name="q"]').value;
+    const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+    
+    // Open in new tab (browser security restrictions prevent reliable tab reuse)
+    window.open(searchUrl, '_blank');
   }
 
   // Cookie management functions
