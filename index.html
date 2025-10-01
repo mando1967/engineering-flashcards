@@ -542,10 +542,11 @@
       // Create accordion content (load button + PDF links)
       const content = document.createElement('div');
       content.className = 'accordion-content';
+      const encodedSetName = encodeURIComponent(setName);
       content.innerHTML = `
         <button class="load-quiz-btn" data-quiz="${setName}">📚 Load Flashcards</button>
-        <a href="tests/${setName}/${setName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
-        <a href="tests/${setName}/${setName} KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
+        <a href="tests/${encodedSetName}/${encodedSetName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
+        <a href="tests/${encodedSetName}/${encodedSetName}%20KEY.pdf" target="_blank" class="pdf-link">🔑 Answer Key</a>
       `;
       
       // Toggle accordion on header click (just expand/collapse, don't load)
