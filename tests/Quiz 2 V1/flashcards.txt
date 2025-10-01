@@ -164,35 +164,12 @@ Explanation: When the switch is closed, it provides a parallel path for current,
 17. (12 points) One morning you find yourself marooned on an uninhabited island with a box of 3V batteries, about fifty of the 100 Ω resistors, and a box of twenty 1 μF capacitors. To construct a signaling device you need to make the following items from some of the parts available to you. Draw a clear diagram of the following:
 • (a) a 350 Ω resistor
 • (b) a 0.25 μF capacitor
-• (c) a 12 V battery	Answer: 
-
-(a) 350 Ω resistor: Connect 100 Ω + 100 Ω + 100 Ω in series = 300 Ω, then in parallel with 100 Ω + 100 Ω in series = 200 Ω. Using parallel formula: R_eq = (300 × 200)/(300 + 200) = 120 Ω. Better approach: Use 3 resistors in series (300 Ω) in parallel with 6 resistors in series (600 Ω) gives 200 Ω, then add 150 Ω. Simplest: 7 resistors arranged to give 350 Ω total.
-
-(b) 0.25 μF capacitor: Connect four 1 μF capacitors in series. For series: 1/C_eq = 1/1 + 1/1 + 1/1 + 1/1 = 4, so C_eq = 1/4 = 0.25 μF.
-
-(c) 12 V battery: Connect four 3V batteries in series. Voltages add in series: V_total = 3 + 3 + 3 + 3 = 12 V.
-
-Explanation: Series resistors add directly. Series capacitors add reciprocally. Series batteries add voltages.
-[RESOURCE:Khan Academy - Series and Parallel] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors
-[RESOURCE:Video - Circuit Design] https://www.youtube.com/watch?v=VV3dUKVcNPo
+• (c) a 12 V battery	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
 
 18. (14 points) In the circuit above you have two batteries and three resistors labeled as ε₁, ε₂ and R₁, R₂, and R₃, respectively. [IMAGE:images/Quiz 2 V1-6.png]
 • (a) Deduce three independent equations for three unknown currents using symbolic notation.
 • (b) Solve for currents with ε₁ = 10 V, ε₂ = 12 V, R₁ = R₂ = 1000 Ω, and R₃ = 0.1 Ω.
-• (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.	Answer: 
-
-(a) Using Kirchhoff's laws:
-  • Junction rule (KCL): I₁ + I₂ = I₃
-  • Loop 1 (KVL): ε₁ - I₁R₁ - I₃R₃ = 0
-  • Loop 2 (KVL): ε₂ - I₂R₂ - I₃R₃ = 0
-
-(b) With R₃ = 0.1 Ω (very small), voltage drop across R₃ is negligible compared to R₁ and R₂. Approximation: I₁ ≈ ε₁/R₁ = 10/1000 = 0.01 A = 10 mA. I₂ ≈ ε₂/R₂ = 12/1000 = 0.012 A = 12 mA. I₃ = I₁ + I₂ ≈ 0.022 A = 22 mA.
-
-(c) With R₁ = 1 MΩ >> R₂, R₃, almost no current flows through R₁. The circuit is dominated by ε₂, R₂, and R₃ in series. I₂ ≈ ε₂/(R₂ + R₃) = 12/(10 + 10) = 0.6 A. I₁ ≈ ε₁/R₁ = 10/1,000,000 = 10 μA ≈ 0. I₃ ≈ I₂ ≈ 0.6 A.
-
-Explanation: When one resistance dominates, it simplifies the analysis significantly.
-[RESOURCE:Khan Academy - Kirchhoff's Laws] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-voltage-law
-[RESOURCE:Video - Multi-Loop Circuits] https://www.youtube.com/watch?v=3H6Rttqx0Yw
+• (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
 
 19. (14 points) You use a 9V battery, copper wires, and two 12 inch flat copper pan lids as plates for a makeshift parallel plate capacitor with a multimeter as ammeter.
 Experiment 1: lids separated by 0.5 inch.
@@ -203,37 +180,10 @@ Experiment 1: lids separated by 0.5 inch.
 Experiment 2: After fully charged, disconnect battery and increase separation to 1 inch.
 • (e) Find new charge.
 • (f) Find new energy.
-• (g) Find work done to separate plates.	Answer: 
-
-(a) Circuit diagram: Battery (9V with internal resistance r) in series with ammeter in series with capacitor (parallel plates).
-
-(b) At connection moment, capacitor acts as short circuit (V_cap = 0). All voltage drops across internal resistance: r = V/I = 9V/1A = 9 Ω.
-
-(c) For circular parallel plates: C = ε₀A/d where A = πr² = π(6 inches)² = π(0.1524 m)² ≈ 0.073 m², d = 0.5 inch = 0.0127 m. C = (8.85×10⁻¹²)(0.073)/(0.0127) ≈ 51 pF.
-
-(d) Energy stored: U = ½CV² = ½(51×10⁻¹²)(9)² ≈ 2.1×10⁻⁹ J = 2.1 nJ.
-
-(e) When disconnected, charge cannot flow: Q_new = Q_old (charge is conserved).
-
-(f) With d doubled, C_new = C_old/2. Since U = Q²/(2C) and Q is constant: U_new = Q²/(2C_new) = Q²/(2(C/2)) = Q²/C = 2(Q²/(2C)) = 2U_old ≈ 4.2 nJ.
-
-(g) Work done = ΔU = U_new - U_old = 2U_old - U_old = U_old ≈ 2.1 nJ. This work goes into increasing the electric potential energy of the capacitor.
-
-Explanation: Disconnected capacitor conserves charge. Increasing separation increases voltage and energy.
-[RESOURCE:Khan Academy - Capacitor Energy] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitor-energy-storage
-[RESOURCE:Video - Parallel Plate Capacitors] https://www.youtube.com/watch?v=ZrMltpK6iAw
+• (g) Find work done to separate plates.	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
 
 20. (12 points) A circuit from your last studio has an electronic switch SW that switches connection every 3 seconds, resulting in voltage readings across the capacitor (green) and capacitor+resistor (blue). [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]
 • (a) Use the graph to estimate the τ_RC constant.
 • (b) If the resistor is 200 Ω, what is the capacitance?
-• (c) What is the current through the resistor at 0.5 seconds after the switch is in A position (0.5 seconds since capacitor started charging)?	Answer: 
+• (c) What is the current through the resistor at 0.5 seconds after the switch is in A position (0.5 seconds since capacitor started charging)?	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
 
-(a) The time constant τ = RC is the time for the capacitor to reach 63% of maximum voltage during charging (or decay to 37% during discharging). From the graph, observe where V_C reaches 0.63V_max. Estimate τ ≈ 1 second (read from graph where exponential curve reaches ~63% of final value).
-
-(b) If τ = 1 s and R = 200 Ω, then C = τ/R = 1/200 = 0.005 F = 5000 μF = 5 mF.
-
-(c) During charging: V_C(t) = V_max(1 - e^(-t/τ)) and I(t) = (V_max/R)e^(-t/τ). At t = 0.5 s with τ = 1 s: I(0.5) = (V_max/R)e^(-0.5/1) = (V_max/200)e^(-0.5). If V_max = 9V (battery voltage): I(0.5) = (9/200)(0.606) ≈ 0.027 A = 27 mA. Alternatively, use i = dQ/dt = C(dV/dt) where dV/dt can be found from the slope of the voltage curve at t = 0.5 s.
-
-Explanation: RC time constant determines charging/discharging rate. Current decreases exponentially during charging.
-[RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors
-[RESOURCE:Video - RC Time Constant Analysis] https://www.youtube.com/watch?v=f_MZNsEqyQw

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=103" />
+  <link rel="stylesheet" href="style.css?v=105" />
   <style>
     #status {
       background: #fff3cd;
@@ -149,7 +149,7 @@
       const imagePath = data.image || '';
 
       // If we have structured fields, render a nicer layout; otherwise fall back.
-      const hasStructured = data.title || data.choices || data.answer || data.explanation;
+      const hasStructured = data.title || data.choices || data.answer || data.explanation || data.seeKey;
 
       if (hasStructured) {
         // Render choices with radio buttons
@@ -210,19 +210,14 @@
         // Check if this problem should refer to the quiz key
         let answerHtml;
         if (data.seeKey && showingAnswer) {
-          // Show link to quiz key PDF instead of inline answer
-          const quizName = currentQuizSet.split('/').pop();
-          const encodedQuizName = encodeURIComponent(quizName);
-          const keyPdfUrl = `tests/${encodedQuizName}/${encodedQuizName}%20KEY.pdf`;
+          // Show simple message directing to answer key in sidebar
           answerHtml = `<div class="answer" style="display: block;">
             <span class="answer-label">Answer</span>
             ${userSelectionText}
             <div class="quiz-key-reference">
               <div class="key-icon">🔑</div>
               <div class="key-message">
-                <strong>Please refer to the Quiz Key for the detailed solution.</strong>
-                <p>${data.answer || 'The complete solution and explanation are provided in the answer key.'}</p>
-                <a href="${keyPdfUrl}" target="_blank" class="key-pdf-link">📄 Open Quiz Key PDF</a>
+                <strong>See Answer Key in sidebar for detailed solution</strong>
               </div>
             </div>
           </div>`;
@@ -485,8 +480,10 @@
         if (choices.length) card.choices = choices;
         if (answer) card.answer = answer;
         if (explanation) card.explanation = explanation;
-        if (seeKey) card.seeKey = true;
       }
+      
+      // Set seeKey flag regardless of structured fields
+      if (seeKey) card.seeKey = true;
       
       // Store first image for backward compatibility (or all images)
       if (images.length > 0) {
