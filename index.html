@@ -347,11 +347,18 @@
             </div>`
           : '';
 
+        // Render all images if multiple exist
+        const imagesHtml = (data.images && data.images.length > 0)
+          ? data.images.map((img, idx) => 
+              `<img src="${currentQuizSet}/${img}" alt="Diagram ${idx + 1}" onerror="this.style.display='none'" />`
+            ).join('')
+          : (imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : '');
+
         card.innerHTML = `
           <div class="question-section">
             <div class="term"><span class="question-title">${data.title || term}</span></div>
             ${choicesHtml}
-            ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
+            ${imagesHtml}
           </div>
           ${answerHtml}
           ${inBetweenNavHtml}
