@@ -165,11 +165,14 @@ Explanation: When the switch is closed, it provides a parallel path for current,
 • (a) a 350 Ω resistor
 • (b) a 0.25 μF capacitor
 • (c) a 12 V battery	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+[RESOURCE:Sparkfun - Series and Parallel Circuits] https://learn.sparkfun.com/tutorials/series-and-parallel-circuits/all
+
 
 18. (14 points) In the circuit above you have two batteries and three resistors labeled as ε₁, ε₂ and R₁, R₂, and R₃, respectively. [IMAGE:images/Quiz 2 V1-6.png]
 • (a) Deduce three independent equations for three unknown currents using symbolic notation.
 • (b) Solve for currents with ε₁ = 10 V, ε₂ = 12 V, R₁ = R₂ = 1000 Ω, and R₃ = 0.1 Ω.
 • (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+[RESOURCE:Sparkfun - Series and Parallel Circuits] https://learn.sparkfun.com/tutorials/series-and-parallel-circuits/all
 
 19. (14 points) You use a 9V battery, copper wires, and two 12 inch flat copper pan lids as plates for a makeshift parallel plate capacitor with a multimeter as ammeter.
 Experiment 1: lids separated by 0.5 inch.
@@ -181,9 +184,13 @@ Experiment 2: After fully charged, disconnect battery and increase separation to
 • (e) Find new charge.
 • (f) Find new energy.
 • (g) Find work done to separate plates.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+[RESOURCE:Instructables - Make a Capacitor] https://www.instructables.com/Make-a-Capacitor-and-how-it-works-with-stuff-you-a/?utm_source=chatgpt.com
+[RESOURCE:Libretexts - Capacitors and Capacitance] https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_%28OpenStax%29/University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_%28OpenStax%29/08%3A_Capacitance/8.02%3A_Capacitors_and_Capacitance?utm_source=chatgpt.com
 
 20. (12 points) A circuit from your last studio has an electronic switch SW that switches connection every 3 seconds, resulting in voltage readings across the capacitor (green) and capacitor+resistor (blue). [IMAGE:images/Quiz 2 V1-7.png] [IMAGE:images/Quiz 2 V1-8.png]
 • (a) Use the graph to estimate the τ_RC constant.
 • (b) If the resistor is 200 Ω, what is the capacitance?
 • (c) What is the current through the resistor at 0.5 seconds after the switch is in A position (0.5 seconds since capacitor started charging)?	Answer: [SEE_KEY] Please refer to the Quiz Key PDF for the detailed solution.
-
+[RESOURCE:Electronics Tutorials - RC Circuits] https://www.electronics-tutorials.ws/rc/rc_1.html?utm_source=chatgpt.com
+[RESOURCE:All About Circuits - Voltage Current Calculations] https://www.allaboutcircuits.com/textbook/direct-current/chpt-16/voltage-current-calculations/?utm_source=chatgpt.com
+[RESOURCE:Khan Academy - RC Circuits] https://www.khanacademy.org/a/ee-rc-natural-response?utm_source=chatgpt.com
