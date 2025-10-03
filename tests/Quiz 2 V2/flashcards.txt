@@ -43,8 +43,7 @@ Explanation: Current is charge flow rate: I = Q/t, so Q = I×t. Remember to conv
 [RESOURCE:Khan Academy - Electric Current] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
 [RESOURCE:Video - Current and Charge] https://www.youtube.com/watch?v=8jB6hDUqN0Y
 
-6. (3 points) The figure below shows a junction. What is true of the currents? [IMAGE:images/Quiz 2 V2-2.png]
-(a) i1 = i0 + i2 
+6. (3 points) The figure below shows a junction. What is true of the currents? (a) i1 = i0 + i2 [IMAGE:images/Quiz 2 V2-2.png]
 (b) i2 = i0 + i1 
 (c) i0 = i1 − i2 (e) i0 = i2 − i1 Answer: (d) i1 = i0 − i2 (KCL: i0 = i1 + i2 ⇒ i1 = i0 − i2)
 Explanation: Kirchhoff's Current Law (KCL): The sum of currents entering a junction equals the sum leaving. Charge is conserved - what flows in must flow out.
@@ -78,20 +77,17 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (d) Maravin’s law
 (e) conservation of energy	Answer: (e) conservation of energy
 
-10. (3 points) An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current of 4.0 A, what is the power? [IMAGE:images/Quiz 2 V2-3.png]
-(a) 0.3 W 
+10. (3 points) An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current of 4.0 A, what is the power? (a) 0.3 W [IMAGE:images/Quiz 2 V2-3.png]
 (b) 3.0 W (c) 36 W
 (d) 48 W
 (e) cannot tell without knowing the resistance of the circuit Answer: (d) 48 W, since P = VI = 12 V × 4 A
 
-11. (3 points) Which statement is most correct? (Refer to the capacitor figure: three capacitors each C = 0.1 µF, battery V = 9 V) [IMAGE:images/Quiz 2 V2-3.png]
-(a) A, B, and C are in series 
+11. (3 points) Which statement is most correct? (Refer to the capacitor figure: three capacitors each C = 0.1 µF, battery V = 9 V) (a) A, B, and C are in series [IMAGE:images/Quiz 2 V2-3.png]
 (b) A, B, and C are in parallel
 (c) A is in parallel with the series combination of B and C
 (d) A is in series with the parallel combination of B and C Answer: (c)
 
-12. (3 points) Which relationship is most correct concerning the charges stored on the capacitors? (Refer to the same figure) [IMAGE:images/Quiz 2 V2-3.png]
-(a) QA = QB > QC
+12. (3 points) Which relationship is most correct concerning the charges stored on the capacitors? (Refer to the same figure) (a) QA = QB > QC [IMAGE:images/Quiz 2 V2-3.png]
 (b) QA = QC > QB
 (c) QB = QC > QA
 (d) QA > QB = QC Answer: (c)
@@ -110,8 +106,7 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (d) 7.2 F
 (e) 10 F	Answer: (c) 20 µF, since 0.5 = 1 − e^{−t/RC} ⇒ RC = t/ln 2 = 0.010/0.693 ≈ 0.0144 s ⇒ C ≈ 0.0144/720 ≈ 2.0×10^{-5} F
 
-15. (3 points) The figure below shows four different ways that studio groups in previous years have wired up a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous measurement of the current through and the voltage difference across circuit element X (diamond with an X).  Assume "ideal" performance for the voltmeter and ammeter.  Which is the only scheme that correctly measures the voltage across X and the current through X? (Refer to the meter wiring figure) [IMAGE:images/Quiz 2 V2-4.png]
-(a) one 
+15. (3 points) The figure below shows four different ways that studio groups in previous years have wired up a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous measurement of the current through and the voltage difference across circuit element X (diamond with an X).  Assume "ideal" performance for the voltmeter and ammeter.  Which is the only scheme that correctly measures the voltage across X and the current through X? (Refer to the meter wiring figure) (a) one [IMAGE:images/Quiz 2 V2-4.png]
 (b) two
 (c) three
 (d) four Answer: (c)
@@ -121,13 +116,11 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (b) two 
 (c) three (d) four	Answer: (d)
 
-17. (14 points) An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus (79 protons and 118 neutrons). The alpha particle momentarily stops when its center is at radial distance r = 9.23·10^{-15} m from the nuclear center, then moves back along its incoming path. Assume the gold nucleus does not move. [IMAGE:images/Quiz 2 V2-6.png] [IMAGE:images/Quiz 2 V2-5.png]
-(a) (2 points) What are charges of alpha particle and gold nucleus? 
+17. (14 points) An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus (79 protons and 118 neutrons). The alpha particle momentarily stops when its center is at radial distance r = 9.23·10^{-15} m from the nuclear center, then moves back along its incoming path. Assume the gold nucleus does not move. (a) (2 points) What are charges of alpha particle and gold nucleus? [IMAGE:images/Quiz 2 V2-5.png]
 (b) (4 points) Find the electric potential of the nucleus at distance r (assume uniform charge). State assumptions. 
 (c) (4 points) What is the kinetic energy Ki of the alpha particle when it was initially far away? (d) (4 points) Using (b), find |E_r| = |−∂V/∂r| at distance r. Compare to field of point-like charge. Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-18. (14 points) In the figure above, I1, I2, and I3 are the currents flowing through the resistors [IMAGE:images/Quiz 2 V2-6.png]
-labeled R1, R2, and R3, respectively. To help the graders out, use the directions of the currents
+18. (14 points) In the figure below, I1, I2, and I3 are the currents flowing through the resistors labeled R1, R2, and R3, respectively. To help the graders out, use the directions of the currents [IMAGE:images/Quiz 2 V2-6.png]
 shown in the figure.
 (a) (6 points) Deduce three independent equations for the three unknown currents. Use the symbolic notation for resistances and voltages.
 (b) (5 points) Take V1 = 10V, V2 = 20V; R2 = 106 Ω, and R1 = R3 = R4 = 10 Ω. Calculate I1, I2, and I3. You can use equations above, or if you can see a simpler path to a very good estimate of the exact answer, use it, explaining whatever approximation you make in one sentence. (Hint: Wow! R2 is a very big resistance!).
