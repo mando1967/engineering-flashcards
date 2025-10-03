@@ -43,11 +43,10 @@ Explanation: Current is charge flow rate: I = Q/t, so Q = I×t. Remember to conv
 [RESOURCE:Khan Academy - Electric Current] https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1
 [RESOURCE:Video - Current and Charge] https://www.youtube.com/watch?v=8jB6hDUqN0Y
 
-6. (3 points) The figure below shows a junction. What is true of the currents? 
+6. (3 points) The figure below shows a junction. What is true of the currents? [IMAGE:images/Quiz 2 V2-2.png]
 (a) i1 = i0 + i2 
 (b) i2 = i0 + i1 
-(c) i0 = i1 − i2 [IMAGE:images/Quiz 2 V2-2.png]
-(e) i0 = i2 − i1	Answer: (d) i1 = i0 − i2 (KCL: i0 = i1 + i2 ⇒ i1 = i0 − i2)
+(c) i0 = i1 − i2 (e) i0 = i2 − i1	Answer: (d) i1 = i0 − i2 (KCL: i0 = i1 + i2 ⇒ i1 = i0 − i2)
 Explanation: Kirchhoff's Current Law (KCL): The sum of currents entering a junction equals the sum leaving. Charge is conserved - what flows in must flow out.
 [RESOURCE:Khan Academy - Kirchhoff's Laws] https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-current-law
 [RESOURCE:Video - KCL Explained] https://www.youtube.com/watch?v=9lZNB-8dHRk
@@ -79,32 +78,30 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (d) Maravin’s law
 (e) conservation of energy	Answer: (e) conservation of energy
 
-10. (3 points) An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current of 4.0 A, what is the power? 
+10. (3 points) An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current of 4.0 A, what is the power? [IMAGE:images/Quiz 2 V2-3.png]
 (a) 0.3 W 
-(b) 3.0 W [IMAGE:images/Quiz 2 V2-3.png]
-(c) 36 W
+(b) 3.0 W (c) 36 W
 (d) 48 W
 (e) cannot tell without knowing the resistance of the circuit	Answer: (d) 48 W, since P = VI = 12 V × 4 A
 
-11. (3 points) Which statement is most correct? (Refer to the capacitor figure: three capacitors each C = 0.1 µF, battery V = 9 V)
+11. (3 points) Which statement is most correct? (Refer to the capacitor figure: three capacitors each C = 0.1 µF, battery V = 9 V) [IMAGE:images/Quiz 2 V2-3.png]
 (a) A, B, and C are in series 
 (b) A, B, and C are in parallel
 (c) A is in parallel with the series combination of B and C
-(d) A is in series with the parallel combination of B and C	Answer: Depends on the figure; not determinable from text alone.	Answer: (c)
+(d) A is in series with the parallel combination of B and C	Answer: (c)
 
-12. (3 points) Which relationship is most correct concerning the charges stored on the capacitors? (Refer to the same figure) 
+12. (3 points) Which relationship is most correct concerning the charges stored on the capacitors? (Refer to the same figure) [IMAGE:images/Quiz 2 V2-3.png]
 (a) QA = QB > QC
 (b) QA = QC > QB
 (c) QB = QC > QA
-(d) QA > QB = QC	Answer: Depends on the figure; not determinable from text alone.	Answer: (c)
+(d) QA > QB = QC	Answer: (c)
 
 13. (3 points) In the context of the loop and junctions rules for electrical circuits, a junction is
 (a) where a wire is connected to a resistor
 (b) where a wire is connected to a battery
 (c) where a wire is bent
 (d) where three or more wires are joined
-(e) where only two wires are joined	Answer: 
-(d) where three or more wires are joined	Answer: (d)
+(e) where only two wires are joined	Answer: (d)
 
 14. (3 points) A certain capacitor, in series with a 720 Ω resistor is being charged. At the end of 10 ms, its charge is half the final value. The capacitance is about 
 (a) 9.6 µF
@@ -113,25 +110,22 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (d) 7.2 F
 (e) 10 F	Answer: (c) 20 µF, since 0.5 = 1 − e^{−t/RC} ⇒ RC = t/ln 2 = 0.010/0.693 ≈ 0.0144 s ⇒ C ≈ 0.0144/720 ≈ 2.0×10^{-5} F
 
-15. (3 points) The figure below shows four different ways that studio groups in previous years have wired up a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous measurement of the current through and the voltage difference across circuit element X (diamond with an X).  Assume "ideal" performance for the voltmeter and ammeter.  Which is the only scheme that correctly measures the voltage across X and the current through X? (Refer to the meter wiring figure) 
-(a) one [IMAGE:images/Quiz 2 V2-4.png]
-(b) two
+15. (3 points) The figure below shows four different ways that studio groups in previous years have wired up a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous measurement of the current through and the voltage difference across circuit element X (diamond with an X).  Assume "ideal" performance for the voltmeter and ammeter.  Which is the only scheme that correctly measures the voltage across X and the current through X? (Refer to the meter wiring figure) [IMAGE:images/Quiz 2 V2-4.png]
+(a) one (b) two
 (c) three
 (d) four	Answer: (c)
 
-16. (3 points) Which scheme is most likely to blow a fuse in the ammeter? (Refer to the same figure) 
+16. (3 points) Which scheme is most likely to blow a fuse in the ammeter? (Refer to the same figure) [IMAGE:images/Quiz 2 V2-5.png]
 (a) one 
 (b) two 
-(c) three [IMAGE:images/Quiz 2 V2-5.png]
-(d) four	Answer: (d))
+(c) three (d) four	Answer: (d)
 
-17. (14 points) An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus (79 protons and 118 neutrons). The alpha particle momentarily stops when its center is at radial distance r = 9.23·10^{-15} m from the nuclear center, then moves back along its incoming path. Assume the gold nucleus does not move. 
+17. (14 points) An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus (79 protons and 118 neutrons). The alpha particle momentarily stops when its center is at radial distance r = 9.23·10^{-15} m from the nuclear center, then moves back along its incoming path. Assume the gold nucleus does not move. [IMAGE:images/Quiz 2 V2-6.png]
 (a) (2 points) What are charges of alpha particle and gold nucleus? 
 (b) (4 points) Find the electric potential of the nucleus at distance r (assume uniform charge). State assumptions. 
-(c) (4 points) What is the kinetic energy Ki of the alpha particle when it was initially far away? [IMAGE:images/Quiz 2 V2-6.png]
-(d) (4 points) Using (b), find |E_r| = |−∂V/∂r| at distance r. Compare to field of point-like charge.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+(c) (4 points) What is the kinetic energy Ki of the alpha particle when it was initially far away? (d) (4 points) Using (b), find |E_r| = |−∂V/∂r| at distance r. Compare to field of point-like charge.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-18. (14 points) In the circuit, currents I1, I2, and I3 flow through resistors R1, R2, and R3, respectively. Use the directions shown in the figure. (a) (6 points) Deduce three independent equations for the three unknown currents using symbolic notation. (b) (5 points) Take V1 = 10 V, V2 = 20 V; R2 = 10^6 Ω, and R1 = R3 = R4 = 10 Ω. Calculate I1, I2, I3; explain approximations. (c) (3 points) What is the potential difference VB − VA? [IMAGE:images/Quiz 2 V2-7.png]	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+18. (14 points) In the circuit, currents I1, I2, and I3 flow through resistors R1, R2, and R3, respectively. Use the directions shown in the figure. (a) (6 points) Deduce three independent equations for the three unknown currents using symbolic notation. (b) (5 points) Take V1 = 10 V, V2 = 20 V; R2 = 10^6 Ω, and R1 = R3 = R4 = 10 Ω. Calculate I1, I2, I3; explain approximations. (c) (3 points) What is the potential difference VB − VA? Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution. [IMAGE:images/Quiz 2 V2-7.png]
 
 19. (13 points) The left figure shows a circuit with switch positions (a) and (b); EMF is 50 V. The right figure indicates charge measured on the capacitor. 
 (a) (1 point) From the time dependence of charge, is the switch in (a) or (b)? Explain.
@@ -145,4 +139,3 @@ Explanation: For isolated capacitor, charge Q is constant. C = ε₀A/d decrease
 (b) (3 points) What voltage would a very good voltmeter show across the battery terminals?
 (c) (3 points) How long for the battery to absorb 1000 J of heat energy?
 (d) (1 point) How much current if the load develops a short circuit?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
-

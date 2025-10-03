@@ -348,11 +348,13 @@
           : '';
 
         // Render all images if multiple exist
+        // In Wizard Mode, paths already include quiz set directory
+        const imagePrefix = currentQuizSet === 'WizardMode' ? 'tests/' : currentQuizSet + '/';
         const imagesHtml = (data.images && data.images.length > 0)
           ? data.images.map((img, idx) => 
-              `<img src="${currentQuizSet}/${img}" alt="Diagram ${idx + 1}" onerror="this.style.display='none'" />`
+              `<img src="${imagePrefix}${img}" alt="Diagram ${idx + 1}" onerror="this.style.display='none'" />`
             ).join('')
-          : (imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : '');
+          : (imagePath ? `<img src="${imagePrefix}${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : '');
 
         card.innerHTML = `
           <div class="question-section">
@@ -365,10 +367,12 @@
           ${learningFrame}
         `;
       } else {
+        // In Wizard Mode, paths already include quiz set directory
+        const imgPrefix = currentQuizSet === 'WizardMode' ? 'tests/' : currentQuizSet + '/';
         card.innerHTML = `
           <div class="term"><strong>${term}</strong></div>
           <div class="definition" style="display: ${showingAnswer ? 'block' : 'none'};">${definition}</div>
-          ${imagePath ? `<img src="${currentQuizSet}/${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
+          ${imagePath ? `<img src="${imgPrefix}${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
         `;
       }
 
@@ -543,6 +547,98 @@
     return cards;
   }
 
+  async function loadWizardMode() {
+    // Highlight Wizard Mode as active
+    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+    document.querySelector('.wizard-mode-item').classList.add('active');
+    
+    currentQuizSet = 'WizardMode';
+    document.getElementById('page-title').textContent = `🧙 Wizard Mode`;
+    
+    try {
+      const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4', 'Quiz 2 V5'];
+      const allFlashcards = [];
+      
+      // Load all flashcard sets
+      for (const setName of quizSets) {
+        const response = await fetch(`tests/${setName}/flashcards.txt`);
+        if (!response.ok) {
+          console.warn(`Failed to load ${setName}`);
+          continue;
+        }
+        const data = await response.text();
+        const cards = parseFlashcards(data);
+        
+        // Add source info to each card and update image paths
+        cards.forEach(card => {
+          card.sourceQuiz = setName;
+          // Update image paths to include the quiz set directory
+          if (card.image) {
+            card.image = `${setName}/${card.image}`;
+          }
+          if (card.images) {
+            card.images = card.images.map(img => `${setName}/${img}`);
+          }
+        });
+        
+        allFlashcards.push(...cards);
+      }
+      
+      if (allFlashcards.length === 0) {
+        throw new Error('No flashcards could be loaded from any quiz set.');
+      }
+      
+      // Store the combined flashcards
+      originalFlashcards = [...allFlashcards];
+      
+      // Auto-randomize in Wizard Mode
+      flashcards = [...originalFlashcards];
+      for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+      }
+      
+      currentIndex = 0;
+      showingAnswer = false;
+      isRandomized = true;
+      document.getElementById('randomize-checkbox').checked = true;
+      
+      // Load saved progress for Wizard Mode
+      const savedProgress = getCookie('quizwiz_WizardMode');
+      
+      if (savedProgress && savedProgress.performanceStats) {
+        performanceStats = savedProgress.performanceStats;
+        missedQuestions = savedProgress.missedQuestions || [];
+        
+        // Rebuild review queue from missed questions
+        reviewQueue = [];
+        missedQuestions.forEach(idx => {
+          scheduleReview(idx);
+        });
+      } else {
+        // Fresh start
+        performanceStats = { correct: 0, incorrect: 0, total: 0 };
+        missedQuestions = [];
+        reviewQueue = [];
+      }
+      
+      // Always start with clear answer selections
+      userSelections = {};
+      
+      isReviewMode = false;
+      resetTimer();
+      populateProblemSelector();
+      renderCard();
+      updateStatsDisplay();
+      
+      console.log(`Wizard Mode loaded: ${allFlashcards.length} cards from ${quizSets.length} quiz sets`);
+      
+    } catch (err) {
+      console.error('Error loading Wizard Mode:', err);
+      alert(`Unable to load Wizard Mode: ${err.message}`);
+    }
+  }
+
   function loadFlashcardsFrom(path, quizSet) {
     currentQuizSet = quizSet;
     // Update page title - extract just the quiz name from the path
@@ -591,6 +687,42 @@
         renderCard();
         updateStatsDisplay();
       });
+  }
+
+  function addWizardMode() {
+    const list = document.getElementById('file-list');
+    
+    // Create Wizard Mode item at the top
+    const wizardItem = document.createElement('div');
+    wizardItem.className = 'accordion-item wizard-mode-item';
+    
+    // Create header with special styling
+    const header = document.createElement('div');
+    header.className = 'accordion-header wizard-header';
+    header.innerHTML = `
+      <span class="quiz-name">🧙 Wizard Mode</span>
+      <span class="wizard-badge">All Sets Combined</span>
+    `;
+    
+    // Create content
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
+    content.innerHTML = `
+      <button class="load-quiz-btn wizard-load-btn" onclick="loadWizardMode()">✨ Start Wizard Mode</button>
+      <p class="wizard-description">Combines all flashcard sets into one randomized master quiz. Track your progress across all questions and master missed cards!</p>
+    `;
+    
+    // Toggle accordion on header click
+    header.addEventListener('click', () => {
+      wizardItem.classList.toggle('expanded');
+    });
+    
+    // Assemble wizard item
+    wizardItem.appendChild(header);
+    wizardItem.appendChild(content);
+    
+    // Add to top of list
+    list.insertBefore(wizardItem, list.firstChild);
   }
 
   function populateSidebar(quizSets) {
@@ -664,6 +796,7 @@
     // Hardcode available quiz sets for now
     const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4', 'Quiz 2 V5'];
     populateSidebar(quizSets);
+    addWizardMode();
     
     // Auto-close sidebar on mobile/tablet
     if (window.innerWidth <= 768) {
@@ -882,7 +1015,20 @@
   function updateProgressDisplay() {
     const display = document.getElementById('progress-display');
     const reviewText = isReviewMode ? ' (Review)' : '';
-    display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
+    
+    // In Wizard Mode, show source quiz and problem number
+    if (currentQuizSet === 'WizardMode' && flashcards[currentIndex]) {
+      const card = flashcards[currentIndex];
+      const sourceQuiz = card.sourceQuiz || 'Unknown';
+      
+      // Extract problem number from title
+      const problemMatch = (card.title || card.term || '').match(/^(\d+)\./);  
+      const problemNum = problemMatch ? problemMatch[1] : '?';
+      
+      display.textContent = `${sourceQuiz} - Problem ${problemNum} | Question ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
+    } else {
+      display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
+    }
   }
 
   function updateStatsDisplay() {

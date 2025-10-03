@@ -145,11 +145,11 @@ Explanation: This is the loop equation for an RC charging circuit. As Q increase
 • (d) (2 points) What is the power of the thermal energy in the heating element? Compare that to the usual 800W appliance that is commonly used to heat water.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 20. (11 points) In a circuit with three resistors and two voltage sources, $I_1$, $I_2$, and $I_3$ are the currents flowing through resistors $R_1$, $R_2$, and $R_3$.
-• (a) (3 points) Deduce three independent equations for the three unknown currents. Use symbolic notation for resistances and voltages.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+• (a) (3 points) Deduce three independent equations for the three unknown currents. Use symbolic notation for resistances and voltages.
 • (b) (6 points) Take Vi = 20V, ½ = lOV; R'/,, ,_, 106 n, and R1 = R3 = R4 = 100 n. Calculate 11, 12, and 13. You can use equations above, or if you can see a simpler path to a very good estimate of the exact answer, use it, explaining whatever approximation you make in one sentence. (Hint: Wow! R2 is a very big resistancel
-• (c) (2 points) What is the potential difference between points A and B: VB -VA? 	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+• (c) (2 points) What is the potential difference between points A and B: VB -VA?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
 21. (11 points) In a circuit, $\mathcal{E} = 12\,\mathrm{V}$, $R_1 = R_2 = R_3 = 1000\,\Omega$. With the capacitor C completely uncharged, the switch S is suddenly closed (at t = 0).
-• (a) (6 points) At t = 0, what are the currents through resistors $R_1$, $R_2$, and $R_3$?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
-• (b) (2 points) What are the currents through !he .0,hove-men tioned resistors at a very long time t = oo after the switch is closed? 
+• (a) (6 points) At t = 0, what are the currents through resistors $R_1$, $R_2$, and $R_3$?
+• (b) (2 points) What are the currents through !he .0,hove-men tioned resistors at a very long time t = oo after the switch is closed?
 • (c) (3 points) What is the potential difference across the capacitor Cat time t = 0 and t = oo?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.

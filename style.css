@@ -212,6 +212,61 @@ h1 {
   transform: translateY(0);
 }
 
+/* Wizard Mode Styling */
+.wizard-mode-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-bottom: 2px solid #5a67d8;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.wizard-header {
+  color: white;
+  padding: 14px 16px;
+}
+
+.wizard-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wizard-mode-item.active .wizard-header {
+  background: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #ffd700;
+}
+
+.wizard-badge {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.wizard-load-btn {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.wizard-load-btn:hover {
+  background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
+}
+
+.wizard-description {
+  color: white;
+  font-size: 0.8rem;
+  margin: 4px 0 8px;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.wizard-mode-item .accordion-icon {
+  color: white;
+}
+
 .pdf-link {
   display: flex;
   align-items: center;
