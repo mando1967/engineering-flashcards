@@ -215,45 +215,61 @@
     }
 
     function parseProblems(text) {
-      const lines = text.split('\n');
+      // Use the same robust parsing logic as index.html
+      const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
       const problems = [];
-      let currentProblem = '';
-      let problemNumber = 0;
-      
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        
-        // Check if this is a new problem (starts with number followed by period)
-        if (/^\d+\./.test(line.trim())) {
-          if (currentProblem) {
-            problems.push({
-              number: problemNumber,
-              text: currentProblem.trim()
-            });
-          }
-          problemNumber++;
-          currentProblem = line;
-        } else if (currentProblem) {
-          currentProblem += '\n' + line;
-          // If we hit a blank line after some content, end the problem
-          if (line.trim() === '' && i < lines.length - 1 && /^\d+\./.test(lines[i + 1].trim())) {
-            problems.push({
-              number: problemNumber,
-              text: currentProblem.trim()
-            });
-            currentProblem = '';
+      let i = 0;
+      const isQuestionHeader = (s) => /^\d+\.\s/.test(s.trim());
+
+      while (i < lines.length) {
+        // Skip leading blank lines
+        while (i < lines.length && !lines[i].trim()) i++;
+        if (i >= lines.length) break;
+
+        const qLines = [];
+        const aLines = [];
+
+        // Collect question lines up to the first tab-delimited line
+        while (i < lines.length && !lines[i].includes('\t')) {
+          // Stop if we encounter a brand-new question header while no tab seen yet (malformed block)
+          if (qLines.length > 0 && isQuestionHeader(lines[i])) break;
+          qLines.push(lines[i]);
+          i++;
+        }
+
+        // If a tab-delimited line exists, split into question tail + answer head
+        if (i < lines.length && lines[i].includes('\t')) {
+          const [left, right] = lines[i].split('\t');
+          qLines.push(left);
+          aLines.push(right);
+          i++;
+          // Append explanation/answer continuation lines until next question header or next tabbed record
+          while (i < lines.length && !isQuestionHeader(lines[i]) && !lines[i].includes('\t')) {
+            aLines.push(lines[i]);
+            i++;
           }
         }
+
+        const questionText = qLines.join('\n').trim();
+        const answerText = aLines.join('\n').trim();
+        
+        // Extract problem number from first line
+        const numberMatch = questionText.match(/^(\d+)\./);
+        const problemNumber = numberMatch ? parseInt(numberMatch[1]) : 0;
+
+        if (questionText || answerText) {
+          // Reconstruct full problem text with TAB delimiter
+          const fullText = answerText 
+            ? questionText + '\t' + answerText
+            : questionText;
+            
+          problems.push({
+            number: problemNumber,
+            text: fullText
+          });
+        }
       }
-      
-      // Add last problem
-      if (currentProblem) {
-        problems.push({
-          number: problemNumber,
-          text: currentProblem.trim()
-        });
-      }
-      
+
       return problems;
     }
 
@@ -362,22 +378,23 @@
         
         // Add new image tags if images are selected
         if (mappings[idx] && mappings[idx].length > 0) {
-          // Insert [IMAGE:...] tags at the end of the first line (question line)
-          const lines = problemText.split('\n');
-          const firstLine = lines[0];
-          
           // Create image tags for all selected images
           const imageTags = mappings[idx].map(img => `[IMAGE:images/${img}]`).join(' ');
           
-          // Find where to insert (before the tab if present, otherwise at end of line)
-          if (firstLine.includes('\t')) {
-            const parts = firstLine.split('\t');
-            lines[0] = parts[0].trim() + ` ${imageTags}\t` + parts.slice(1).join('\t');
-          } else {
-            lines[0] = firstLine.trim() + ` ${imageTags}`;
-          }
+          // Find the TAB character position to insert BEFORE it
+          const tabIndex = problemText.indexOf('\t');
           
-          problemText = lines.join('\n');
+          if (tabIndex > -1) {
+            // Insert image tags before the TAB
+            const beforeTab = problemText.substring(0, tabIndex).trim();
+            const afterTab = problemText.substring(tabIndex);
+            problemText = beforeTab + ' ' + imageTags + afterTab;
+          } else {
+            // No TAB found, append to end of first line
+            const lines = problemText.split('\n');
+            lines[0] = lines[0].trim() + ' ' + imageTags;
+            problemText = lines.join('\n');
+          }
         }
         
         output += problemText + '\n\n';

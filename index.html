@@ -1025,7 +1025,7 @@
       const problemMatch = (card.title || card.term || '').match(/^(\d+)\./);  
       const problemNum = problemMatch ? problemMatch[1] : '?';
       
-      display.textContent = `${sourceQuiz} - Problem ${problemNum} | Question ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
+      display.textContent = `${sourceQuiz} - #${problemNum} | ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
     } else {
       display.textContent = `Question ${currentIndex + 1} of ${flashcards.length}${reviewText}`;
     }
