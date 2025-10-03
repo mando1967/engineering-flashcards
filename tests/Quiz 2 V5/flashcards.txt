@@ -34,7 +34,7 @@ Explanation: In a capacitor, one plate carries +Q and the other carries −Q (eq
 (a) 1, 2, 3, 4, 5
 (b) 5, then 3 and 4 tie, then 1, then 2
 (c) 4, then 1 and 2 tie, then 5, then 3
-(d) 3, then 5, then 1 and 2 tie, then 4	Answer: (c) Q, −Q
+(d) 3, then 5, then 1 and 2 tie, then 4	Answer: Need image data to determine correct ranking
 Explanation: For parallel-plate capacitors, $C = \epsilon_0 \frac{A}{d}$. Capacitance is proportional to area A and inversely proportional to separation d. Calculate $A/d$ for each to rank them.
 
 6. (3 points) The capacitance of a single isolated spherical conductor with radius R is proportional to:

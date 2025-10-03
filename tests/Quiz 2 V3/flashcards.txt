@@ -48,7 +48,8 @@ Note: Electrons actually move opposite this direction.
 (c) Lightbulb B has a higher resistance than lightbulb A
 (d) Less current flows through lightbulb A than lightbulb B	Answer: For each bulb I = P/V. I_A = 60/120 = 0.50 A. I_B = 40/120 ≈ 0.33 A. So bulb A draws more current. Statement (d) is false. Correct answer: (d).
 
-8. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are the following. Rank the wires according to their resistances, least to greatest. (a) 1, 2, 3, 4, 5 [IMAGE:images/Quiz 2 V3-1.png]
+8. (3 points) Five cylindrical wires are made of the same material. Their lengths and radii are the following. Rank the wires according to their resistances, least to greatest. [IMAGE:images/Quiz 2 V3-1.png]
+(a) 1, 2, 3, 4, 5
 (b) 1 and 2 tie, then 5, 3, 4
 (c) 5, 4, 3, 2, 1
 (d) 1, 3, 4, 2, 5
@@ -60,7 +61,7 @@ Note: Electrons actually move opposite this direction.
 (c) The current supplied by the battery falls to less than the nominal battery voltage divided by the load resistance
 (d) All of the above	Answer: All of the above effects occur due to internal resistance. Correct choice: (d).
 
-10. (3 points) A capacitor is being discharged through a resistance 10 Ω. In about 10 seconds, the voltage on the capacitor changed from 10 V to about 3.3 V. What is the capacitance of the capacitor? [IMAGE:images/Quiz 2 V3-2.png]
+10. (3 points) A capacitor is being discharged through a resistance 10 Ω. In about 10 seconds, the voltage on the capacitor changed from 10 V to about 3.3 V. What is the capacitance of the capacitor? 
 (a) 1 pF
 (b) 1 nF
 (c) 1 µF
@@ -69,42 +70,46 @@ Note: Electrons actually move opposite this direction.
 [RESOURCE:Article - RC Circuits] https://www.electronics-tutorials.ws/rc/rc_1.html
 [RESOURCE:Video - Capacitor Discharge] https://www.youtube.com/watch?v=f_MZNsEqyQw
 
-11. (3 points) (Two capacitors CL = 0.1 µF, CR = 0.22 µF in parallel with a 9 V battery) Which statement below is most correct? (a) The two capacitors store the same charge
+11. (3 points) (Two capacitors CL = 0.1 µF, CR = 0.22 µF in parallel with a 9 V battery) Which statement below is most correct? [IMAGE:images/Quiz 2 V3-2.png]
+(a) The two capacitors store the same charge
 (b) The two capacitors have the same ratio of charge to voltage across their leads
 (c) The two capacitors have the same voltage between their leads
 (d) The two capacitors store the same energy	Answer: In parallel each capacitor has the same voltage across it (9 V). Correct choice: (c).
 
-12. (3 points) What is the total energy stored in the two capacitors? (a) 9.0 V
+12. (3 points) What is the total energy stored in the two capacitors? [IMAGE:images/Quiz 2 V3-2.png]
+(a) 9.0 V
 (b) 13.0 µJ
 (c) 4.05 µJ
 (d) 8.91 µJ	Answer: $C_{\text{total}} = 0.1 + 0.22 = 0.32\,\mu\mathrm{F}$. Energy $U = \tfrac{1}{2} C V^2 = 0.5\times 0.32\times 10^{-6}\times 9^2 \approx 12.96\,\mu\mathrm{J} \approx 13.0\,\mu\mathrm{J}$. Correct choice: (b).
 
-13. (3 points) How much charge do the two capacitors together store? (a) 0.90 µC
+13. (3 points) How much charge do the two capacitors together store? [IMAGE:images/Quiz 2 V3-2.png]
+(a) 0.90 µC
 (b) 1.98 µC
 (c) 2.88 µC
 (d) 1.44 µC	Answer: $Q = C_{\text{total}}\,V = 0.32\times 10^{-6}\,\mathrm{F}\times 9\,\mathrm{V} = 2.88\,\mu\mathrm{C}$. Correct choice: (c).
 
-14. (3 points) What is the absolute voltage difference between the two leads of the 0.1 µF capacitor CL? (a) 0.0 V
+14. (3 points) What is the absolute voltage difference between the two leads of the 0.1 µF capacitor CL? [IMAGE:images/Quiz 2 V3-2.png]
+(a) 0.0 V
 (b) 2.8 V
 (c) 6.2 V
 (d) 9.0 V	Answer: In parallel, each capacitor has full battery voltage: 9 V. Correct choice: (d).
 
-15. (12 points) You have the following: a box of twelve 9V batteries, forty 1000 Ω resistors, and forty 1 µF capacitors. Draw diagrams to make:
-(a) A 3500 Ω resistor	Answer: Use three 1000 Ω in series = 3000 Ω. Add two 1000 Ω in parallel = 500 Ω. Series them together = 3500 Ω.
+15. (12 points) You have the following: a box of twelve 9V batteries, forty 1000 Ω resistors, and forty 1 µF capacitors. Draw diagrams to make: 
+• (a) A 3500 Ω resistor
+• (b) A 0.15 µF capacitor
+• (c) A 36 V battery	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-15. (b) A 0.15 µF capacitor [IMAGE:images/Quiz 2 V3-3.png]	Answer: Put seven 1 µF capacitors in series = ~0.143 µF (close to 0.15 µF).
+16. (12 points) In the circuit shown, call I1, I2, and I3 the currents flowing through resistors R1, R2, and R3. [IMAGE:images/Quiz 2 V3-3.png]
+• (a) Write three independent equations for the three unknown currents using symbolic notation for resistances and voltages.
+• (b) Take E1 = 10 V, E2 = 20 V, R1 = R2 = 1000 Ω, R3 = 10^6 Ω. Calculate I1, I2, and I3. If you can see a simpler path to a very good estimate, use it and explain your approximation. (Hint: R3 is very big!)
+• (c) Do the same for R1 = R3 = 1000 Ω and R2 = 1 Ω. (Hint: R2 is very small!)	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-17. (a) Write three independent equations for currents I1, I2, I3 (see circuit figure). Answer: Method: Apply Kirchhoff's laws: [IMAGE:images/Quiz 2 V3-4.png]
-KCL: $I_1 + I_2 + I_3 = 0$
-KVL loop1: $-E_1 + I_1 R_1 + I_3 R_3 = 0$
-KVL loop2: $-E_2 + I_2 R_2 - I_3 R_3 = 0$
+17. (9 points) A neon lamp in an electronic timing circuit flashes each time the voltage across it reaches 62 V. The lamp has negligible resistance when conducting. A battery with EMF = 100 V is connected in series with resistor R and capacitor C = 0.25 µF.
+• (a) For the lamp to flash twice per second, what resistance R is needed?
+• (b) How much energy is delivered to the lamp per flash?
+• (c) If the lamp resistance when conducting is approximately 100 Ω, estimate the discharge time.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-17. (b) With E1=10 V, E2=20 V, R1=R2=1000 Ω, R3=10^6 Ω. Solve. Answer: $R_3$ is huge so $I_3\approx 0$. Then $I_1\approx 10/1000=10\,\mathrm{mA}$, $I_2\approx 20/1000=20\,\mathrm{mA}$
-
-17. (c) With R1=R3=1000 Ω and R2=1 Ω. Answer: $R_2$ is very small → branch draws large current. Exact values require solving full equations; expect $I_2\gg I_1, I_3$
-
-18. (a) For VL=62 V, battery=100 V, C=0.25 µF, find R for 2 flashes/s. Answer: Period=0.5 s. At 62% voltage, τ=RC=0.5 s. R=0.5/0.25e-6=2.0 MΩ
-
-18. (b) How much energy delivered to lamp per flash? Answer: $U=\frac{1}{2} C V^2=0.5\times 0.25\times 10^{-6}\times 62^2 \approx 4.8\times 10^{-4}\,\mathrm{J}$
-
-18. (c) Estimate discharge time if lamp R≈100 Ω. Answer: $\tau=RC=100\times 0.25\times 10^{-6}=25\,\mu\mathrm{s}$. Nearly full discharge in $\sim 5\tau \approx 125\,\mu\mathrm{s}$
+18. (12 points) The figure above shows the circuit of a flashing lamp, like those attached to barrels at highway construction sites. The fluorescent lamp L (of negligible capacitance) is connected in parallel across the capacitor C of the RC circuit. There is a current through the lamp only when the potential difference across it reaches the breakdown voltage VL; then the capacitor discharges completely through the lamp and the lamp flashes briefly. [IMAGE:images/Quiz 2 V3-5.png]
+• (a) (4 points) For a lamp with breakdown voltage VL = 62 V wired to a 100 V ideal battery, and a 0.25 µF capacitor what resistance R is needed for the flashes to happen twice per second? (Hint: A capacitor charges to 62% of its final voltage in time τRC)
+• (b) (4 points) How much of energy will be delivered to the fluorescent lamp in each flash (assume all the energy of the capacitor will go to the lamp).
+• (c) (4 points) Estimate how long does it take for the capacitor to almost fully discharge through the lamp, if the lamp resistance is about 100 Ω?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
