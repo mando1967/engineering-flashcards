@@ -7,7 +7,7 @@
   <title>Quiz Wizard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=105" />
   <style>
     #status {
@@ -39,20 +39,23 @@
 </head>
 <body>
   <div id="app-layout">
-    <button id="sidebar-toggle" onclick="toggleSidebar()" title="Hide Sidebar">hide</button>
+    <button id="sidebar-toggle" onclick="toggleSidebar()">🧙 hide</button>
     
     <aside id="sidebar">
       <div class="sidebar-header">
-        <span>Flashcard Sets</span>
+        <div id="subject-tabs" class="subject-tabs"></div>
       </div>
-      <ul id="file-list"></ul>
-      <div class="sidebar-footer">
-        <button onclick="clearProgress()" class="clear-progress-btn" title="Clear saved progress for current quiz">Clear Progress</button>
+      <div class="sidebar-content">
+        <ul id="file-list"></ul>
       </div>
     </aside>
 
     <main id="main-content">
-      <h1 id="page-title">Quiz Wizard</h1>
+      <div class="title-bar">
+        <h1 id="page-title">Quiz Wizard</h1>
+        <button onclick="clearProgress()" class="clear-progress-btn tooltip-trigger" data-tooltip="Clear your progress, statistics, and answers for the current quiz.
+Your flashcard history will be reset.">🧙 Clear Progress</button>
+      </div>
       <!-- Controls Panel -->
       <div id="controls-panel">
         <div class="control-group">
@@ -63,14 +66,21 @@
         </div>
         <div class="control-group">
           <label for="timer-select">Timer:</label>
-          <select id="timer-select" onchange="updateTimer()" title="Set a timer for each individual problem (not for the entire quiz)">
-            <option value="0">Off</option>
-            <option value="1">1 minute</option>
-            <option value="5">5 minutes</option>
-            <option value="10">10 minutes</option>
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-          </select>
+          <span class="tooltip-trigger" data-tooltip="Timer applies to each problem (not for the entire quiz)">
+            <select id="timer-select" onchange="updateTimer()">
+              <option value="0">Off</option>
+              <option value="1">1 minute</option>
+              <option value="2">2 minutes</option>
+              <option value="3">3 minutes</option>
+              <option value="4">4 minutes</option>
+              <option value="5">5 minutes</option>
+              <option value="6">6 minutes</option>
+              <option value="7">7 minutes</option>
+              <option value="8">8 minutes</option>
+              <option value="9">9 minutes</option>
+              <option value="10">10 minutes</option>
+            </select>
+          </span>
           <button id="timer-start-btn" onclick="startTimer()" style="display:none;">Start Timer</button>
           <button id="timer-stop-btn" onclick="stopTimer()" style="display:none;">Stop Timer</button>
           <span id="timer-display" style="display:none;">00:00</span>
@@ -79,16 +89,18 @@
           <span id="progress-display">Question 1 of 1</span>
         </div>
         <div class="control-group">
-          <span id="stats-display" title="Overall performance this session">📊 0/0 (0%)</span>
+          <span id="stats-display" class="tooltip-trigger" data-tooltip="Overall performance this session">📊 0/0 (0%)</span>
         </div>
       </div>
 
       <!-- Top Navigation -->
       <div class="nav-buttons-top">
         <button id="back-btn-top" onclick="prevCard()">← Back</button>
-        <select id="problem-selector" onchange="jumpToProblem()" title="Jump to problem">
-          <option value="">Jump to...</option>
-        </select>
+        <span class="tooltip-trigger" data-tooltip="Jump to any problem in the quiz">
+          <select id="problem-selector" onchange="jumpToProblem()">
+            <option value="">Jump to...</option>
+          </select>
+        </span>
         <button id="next-btn-top" onclick="nextCard()">Next →</button>
       </div>
 
@@ -150,7 +162,14 @@
       
       const option = document.createElement('option');
       option.value = idx;
-      option.textContent = `Problem ${problemNum}`;
+      
+      // Include source quiz version if available
+      if (card.sourceQuiz) {
+        option.textContent = `Problem ${problemNum} (${card.sourceQuiz})`;
+      } else {
+        option.textContent = `Problem ${problemNum}`;
+      }
+      
       selector.appendChild(option);
     });
   }
@@ -163,6 +182,7 @@
       currentIndex = selectedIndex;
       showingAnswer = false;
       resetTimerAndAutoStart();
+      saveProgressToCookies();
       renderCard();
     }
     
@@ -349,12 +369,12 @@
 
         // Render all images if multiple exist
         // In Wizard Mode, paths already include quiz set directory
-        const imagePrefix = currentQuizSet === 'WizardMode' ? 'tests/' : currentQuizSet + '/';
+        // Image paths are already full paths (updated in loadFlashcardsFrom)
         const imagesHtml = (data.images && data.images.length > 0)
           ? data.images.map((img, idx) => 
-              `<img src="${imagePrefix}${img}" alt="Diagram ${idx + 1}" onerror="this.style.display='none'" />`
+              `<img src="${img}" alt="Diagram ${idx + 1}" onerror="this.style.display='none'" />`
             ).join('')
-          : (imagePath ? `<img src="${imagePrefix}${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : '');
+          : (imagePath ? `<img src="${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : '');
 
         card.innerHTML = `
           <div class="question-section">
@@ -367,12 +387,11 @@
           ${learningFrame}
         `;
       } else {
-        // In Wizard Mode, paths already include quiz set directory
-        const imgPrefix = currentQuizSet === 'WizardMode' ? 'tests/' : currentQuizSet + '/';
+        // Image paths are already full paths (updated in loadFlashcardsFrom)
         card.innerHTML = `
           <div class="term"><strong>${term}</strong></div>
           <div class="definition" style="display: ${showingAnswer ? 'block' : 'none'};">${definition}</div>
-          ${imagePath ? `<img src="${imgPrefix}${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
+          ${imagePath ? `<img src="${imagePath}" alt="Diagram" onerror="this.style.display='none'" />` : ''}
         `;
       }
 
@@ -547,23 +566,19 @@
     return cards;
   }
 
-  async function loadWizardMode() {
-    // Highlight Wizard Mode as active
-    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-    document.querySelector('.wizard-mode-item').classList.add('active');
-    
-    currentQuizSet = 'WizardMode';
-    document.getElementById('page-title').textContent = `🧙 Wizard Mode`;
+  async function loadWizardMode(testSet) {
+    currentQuizSet = `${testSet.id}/wizard`;
+    document.getElementById('page-title').textContent = `🧙 Wizard Mode - ${testSet.name}`;
     
     try {
-      const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4', 'Quiz 2 V5'];
       const allFlashcards = [];
       
-      // Load all flashcard sets
-      for (const setName of quizSets) {
-        const response = await fetch(`tests/${setName}/flashcards.txt?t=${Date.now()}`);
+      // Load all quiz versions for this test set
+      for (const quiz of testSet.quizVersions) {
+        const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+        const response = await fetch(path);
         if (!response.ok) {
-          console.warn(`Failed to load ${setName}`);
+          console.warn(`Failed to load ${quiz.name}`);
           continue;
         }
         const data = await response.text();
@@ -571,13 +586,13 @@
         
         // Add source info to each card and update image paths
         cards.forEach(card => {
-          card.sourceQuiz = setName;
-          // Update image paths to include the quiz set directory
+          card.sourceQuiz = quiz.name;
+          // Update image paths to include the full path
           if (card.image) {
-            card.image = `${setName}/${card.image}`;
+            card.image = `${testSet.path}/${quiz.name}/${card.image}`;
           }
           if (card.images) {
-            card.images = card.images.map(img => `${setName}/${img}`);
+            card.images = card.images.map(img => `${testSet.path}/${quiz.name}/${img}`);
           }
         });
         
@@ -585,7 +600,7 @@
       }
       
       if (allFlashcards.length === 0) {
-        throw new Error('No flashcards could be loaded from any quiz set.');
+        throw new Error('No flashcards could be loaded from any quiz version');
       }
       
       // Store the combined flashcards
@@ -603,35 +618,34 @@
       isRandomized = true;
       document.getElementById('randomize-checkbox').checked = true;
       
-      // Load saved progress for Wizard Mode
-      const savedProgress = getCookie('quizwiz_WizardMode');
+      // Load saved progress
+      const savedProgress = getCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'));
       
       if (savedProgress && savedProgress.performanceStats) {
         performanceStats = savedProgress.performanceStats;
         missedQuestions = savedProgress.missedQuestions || [];
         
-        // Rebuild review queue from missed questions
         reviewQueue = [];
         missedQuestions.forEach(idx => {
           scheduleReview(idx);
         });
       } else {
-        // Fresh start
         performanceStats = { correct: 0, incorrect: 0, total: 0 };
         missedQuestions = [];
         reviewQueue = [];
       }
       
-      // Always start with clear answer selections
       userSelections = {};
-      
       isReviewMode = false;
       resetTimer();
       populateProblemSelector();
       renderCard();
       updateStatsDisplay();
       
-      console.log(`Wizard Mode loaded: ${allFlashcards.length} cards from ${quizSets.length} quiz sets`);
+      // Highlight wizard mode in sidebar
+      document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+      
+      console.log(`Wizard Mode loaded: ${allFlashcards.length} cards from ${testSet.quizVersions.length} quiz versions`);
       
     } catch (err) {
       console.error('Error loading Wizard Mode:', err);
@@ -644,6 +658,10 @@
     // Update page title - extract just the quiz name from the path
     const quizName = quizSet.split('/').pop();
     document.getElementById('page-title').textContent = `Quiz Wizard - ${quizName}`;
+    
+    // Extract the directory path from the full path (e.g., "tests/Physics/PHYS 214 - Test 1/Quiz 2 V3")
+    const dirPath = path.substring(0, path.lastIndexOf('/'));
+    
     return fetch(path)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to load ${path}`);
@@ -651,20 +669,38 @@
       })
       .then(data => {
         flashcards = parseFlashcards(data);
+        
+        // Update image paths to include the full directory path
+        flashcards.forEach((card, idx) => {
+          if (card.image) {
+            card.image = `${dirPath}/${card.image}`;
+          }
+          if (card.images) {
+            card.images = card.images.map(img => `${dirPath}/${img}`);
+          }
+        });
+        
         originalFlashcards = [...flashcards];
         if (!flashcards.length) throw new Error('No flashcards parsed from file.');
-        currentIndex = 0;
+        
         showingAnswer = false;
         isRandomized = false;
         document.getElementById('randomize-checkbox').checked = false;
         
-        // Load saved progress from cookies for statistics only
+        // Load saved progress from cookies including current position
         const savedProgress = getCookie('quizwiz_' + currentQuizSet.replace(/[^a-zA-Z0-9]/g, '_'));
         
-        if (savedProgress && savedProgress.performanceStats) {
-          // Keep performance stats but clear answers to force re-answering
-          performanceStats = savedProgress.performanceStats;
+        if (savedProgress) {
+          // Restore all saved progress including position
+          performanceStats = savedProgress.performanceStats || { correct: 0, incorrect: 0, total: 0 };
           missedQuestions = savedProgress.missedQuestions || [];
+          userSelections = savedProgress.userSelections || {};
+          currentIndex = savedProgress.currentIndex || 0;
+          
+          // Ensure currentIndex is valid for this quiz
+          if (currentIndex >= flashcards.length) {
+            currentIndex = 0;
+          }
           
           // Rebuild review queue from missed questions
           reviewQueue = [];
@@ -676,10 +712,9 @@
           performanceStats = { correct: 0, incorrect: 0, total: 0 };
           missedQuestions = [];
           reviewQueue = [];
+          userSelections = {};
+          currentIndex = 0;
         }
-        
-        // Always start with clear answer selections to force re-answering
-        userSelections = {};
         
         isReviewMode = false;
         resetTimer();
@@ -689,122 +724,204 @@
       });
   }
 
-  function addWizardMode() {
-    const list = document.getElementById('file-list');
-    
-    // Create Wizard Mode item at the top
-    const wizardItem = document.createElement('div');
-    wizardItem.className = 'accordion-item wizard-mode-item';
-    
-    // Create header with special styling
-    const header = document.createElement('div');
-    header.className = 'accordion-header wizard-header';
-    header.innerHTML = `
-      <span class="quiz-name">🧙 Wizard Mode</span>
-      <span class="wizard-badge">All Sets Combined</span>
-    `;
-    
-    // Create content
-    const content = document.createElement('div');
-    content.className = 'accordion-content';
-    content.innerHTML = `
-      <button class="load-quiz-btn wizard-load-btn" onclick="loadWizardMode()">✨ Start Wizard Mode</button>
-      <p class="wizard-description">Combines all flashcard sets into one randomized master quiz. Track your progress across all questions and master missed cards!</p>
-    `;
-    
-    // Toggle accordion on header click
-    header.addEventListener('click', () => {
-      wizardItem.classList.toggle('expanded');
-    });
-    
-    // Assemble wizard item
-    wizardItem.appendChild(header);
-    wizardItem.appendChild(content);
-    
-    // Add to top of list
-    list.insertBefore(wizardItem, list.firstChild);
+  let appConfig = null;
+  let currentSubject = null;
+
+  async function loadConfig() {
+    try {
+      const response = await fetch(`config.json?t=${Date.now()}`);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      appConfig = await response.json();
+      return appConfig;
+    } catch (error) {
+      console.error('Failed to load config:', error);
+      alert('ERROR: Failed to load config.json - ' + error.message);
+      return null;
+    }
   }
 
-  function populateSidebar(quizSets) {
+  function createSubjectTabs(subjects) {
+    const tabsContainer = document.getElementById('subject-tabs');
+    tabsContainer.innerHTML = '';
+    
+    subjects.forEach((subject, idx) => {
+      const tab = document.createElement('button');
+      tab.className = 'subject-tab';
+      tab.textContent = subject.name;
+      tab.dataset.subjectId = subject.id;
+      tab.onclick = (e) => selectSubject(subject.id, e);
+      
+      if (idx === 0) {
+        tab.classList.add('active');
+        currentSubject = subject.id;
+      }
+      
+      tabsContainer.appendChild(tab);
+    });
+  }
+
+  function selectSubject(subjectId, event) {
+    currentSubject = subjectId;
+    
+    // Update active tab
+    document.querySelectorAll('.subject-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    if (event && event.target) {
+      event.target.classList.add('active');
+    } else {
+      const tab = document.querySelector(`.subject-tab[data-subject-id="${subjectId}"]`);
+      if (tab) tab.classList.add('active');
+    }
+    
+    // Find subject config
+    const subject = appConfig.subjects.find(s => s.id === subjectId);
+    if (subject) {
+      populateSidebar(subject.testSets, true);
+    }
+  }
+
+  function populateSidebar(testSets, autoLoad = false) {
     const list = document.getElementById('file-list');
     list.innerHTML = '';
-    quizSets.forEach((setName, idx) => {
-      // Create accordion item container
-      const accordionItem = document.createElement('div');
+    
+    testSets.forEach((testSet, idx) => {
+      const accordionItem = document.createElement('li');
       accordionItem.className = 'accordion-item';
       
-      // Create accordion header (quiz name)
       const header = document.createElement('div');
       header.className = 'accordion-header';
       header.innerHTML = `
-        <span class="quiz-name">${setName}</span>
+        <span class="quiz-name">${testSet.name}</span>
         <span class="accordion-icon">▼</span>
       `;
       
-      // Create accordion content (load button + PDF links)
       const content = document.createElement('div');
       content.className = 'accordion-content';
-      const encodedSetName = encodeURIComponent(setName);
       
-      // Quiz 2 V3 doesn't have an answer key
-      const hasAnswerKey = setName !== 'Quiz 2 V3';
-      // Construct the key filename properly
-      const keyFileName = `${setName} KEY.pdf`;
-      const encodedKeyFileName = encodeURIComponent(keyFileName);
-      const answerKeyLink = hasAnswerKey 
-        ? `<a href="tests/${encodedSetName}/${encodedKeyFileName}" target="_blank" class="pdf-link">🔑 Answer Key</a>`
-        : `<span class="pdf-link disabled">🔑 Answer Key (Not Available)</span>`;
+      // Add quiz versions as nested accordions
+      testSet.quizVersions.forEach((quiz, qIdx) => {
+        // Create nested accordion item for each quiz
+        const quizAccordion = document.createElement('div');
+        quizAccordion.className = 'accordion-item quiz-accordion';
+        
+        // Quiz header (clickable to expand)
+        const quizHeader = document.createElement('div');
+        quizHeader.className = 'accordion-header';
+        quizHeader.innerHTML = `
+          <span class="quiz-name">${quiz.name}</span>
+          <span class="accordion-icon">▼</span>
+        `;
+        
+        // Quiz content (buttons and links)
+        const quizContent = document.createElement('div');
+        quizContent.className = 'accordion-content';
+        
+        const encodedQuizName = encodeURIComponent(quiz.name);
+        
+        // Check if answer key exists (Quiz 2 V3 doesn't have one)
+        const hasAnswerKey = quiz.name !== 'Quiz 2 V3';
+        const keyFileName = `${quiz.name} KEY.pdf`;
+        const encodedKeyFileName = encodeURIComponent(keyFileName);
+        const answerKeyLink = hasAnswerKey 
+          ? `<a href="tests/${testSet.path}/${encodedQuizName}/${encodedKeyFileName}" target="_blank" class="pdf-link">🔑 Answer Key</a>`
+          : `<span class="pdf-link disabled">🔑 Answer Key (Not Available)</span>`;
+        
+        quizContent.innerHTML = `
+          <a href="tests/${testSet.path}/${encodedQuizName}/${encodedQuizName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
+          ${answerKeyLink}
+        `;
+        
+        // Toggle quiz accordion and load flashcards
+        quizHeader.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent parent accordion from toggling
+          
+          const isCurrentlyExpanded = quizAccordion.classList.contains('expanded');
+          
+          // Close all other quiz accordions in this test set
+          content.querySelectorAll('.quiz-accordion').forEach(qa => {
+            qa.classList.remove('expanded');
+            qa.classList.remove('active');
+          });
+          
+          // Remove active from all accordions
+          document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+          accordionItem.classList.add('active');
+          
+          // If this one wasn't expanded, expand it and load flashcards
+          if (!isCurrentlyExpanded) {
+            quizAccordion.classList.add('expanded');
+            quizAccordion.classList.add('active');
+            
+            // Load flashcards
+            const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+            const quizSetId = `${testSet.id}/${quiz.id}`;
+            loadFlashcardsFrom(path, quizSetId).catch(err => {
+              console.error(err);
+              alert(`Unable to load ${quiz.name}: ${err.message}`);
+            });
+          }
+        });
+        
+        quizAccordion.appendChild(quizHeader);
+        quizAccordion.appendChild(quizContent);
+        content.appendChild(quizAccordion);
+        
+        // Auto-load first quiz of first test set (but don't expand)
+        if (autoLoad && idx === 0 && qIdx === 0) {
+          quizAccordion.classList.add('active');
+          const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+          const quizSetId = `${testSet.id}/${quiz.id}`;
+          loadFlashcardsFrom(path, quizSetId).catch(err => console.error(err));
+        }
+      });
       
-      content.innerHTML = `
-        <button class="load-quiz-btn" data-quiz="${setName}">📚 Load Flashcards</button>
-        <a href="tests/${encodedSetName}/${encodedSetName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
-        ${answerKeyLink}
-      `;
+      // Add Wizard Mode button at the end (after all quiz versions)
+      const wizardBtn = document.createElement('button');
+      wizardBtn.className = 'load-quiz-btn wizard-mode-btn';
+      wizardBtn.innerHTML = '🧙 <div style="line-height: 1.3;">Wizard Mode<br><span style="font-size: 0.85em;">(combined quizzes)</span></div>';
+      wizardBtn.onclick = () => loadWizardMode(testSet);
+      content.appendChild(wizardBtn);
       
-      // Toggle accordion on header click (just expand/collapse, don't load)
-      header.addEventListener('click', () => {
+      // Toggle accordion
+      header.addEventListener('click', (e) => {
         accordionItem.classList.toggle('expanded');
       });
       
-      // Load quiz on button click
-      const loadBtn = content.querySelector('.load-quiz-btn');
-      loadBtn.addEventListener('click', () => {
-        // Highlight active quiz
-        document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-        accordionItem.classList.add('active');
-        
-        loadFlashcardsFrom(`tests/${setName}/flashcards.txt?t=${Date.now()}`, `tests/${setName}`).catch(err => {
-          console.error(err);
-          alert(`Unable to load ${setName}: ${err.message}`);
-        });
-      });
-      
-      // Assemble accordion item
       accordionItem.appendChild(header);
       accordionItem.appendChild(content);
       list.appendChild(accordionItem);
       
-      // Auto-load and expand first quiz
+      // Auto-expand first test set
       if (idx === 0) {
         accordionItem.classList.add('active', 'expanded');
-        loadFlashcardsFrom(`tests/${setName}/flashcards.txt?t=${Date.now()}`, `tests/${setName}`).catch(err => console.error(err));
       }
     });
   }
 
-  function initSidebar() {
-    // Hardcode available quiz sets for now
-    const quizSets = ['Quiz 2 V1', 'Quiz 2 V2', 'Quiz 2 V3', 'Quiz 2 V4', 'Quiz 2 V5'];
-    populateSidebar(quizSets);
-    addWizardMode();
+  async function initSidebar() {
+    const config = await loadConfig();
+    if (!config || !config.subjects || config.subjects.length === 0) {
+      console.error('Invalid or empty config');
+      alert('ERROR: Config is invalid or empty');
+      return;
+    }
+    
+    createSubjectTabs(config.subjects);
+    
+    // Load first subject's test sets
+    const firstSubject = config.subjects[0];
+    currentSubject = firstSubject.id;
+    populateSidebar(firstSubject.testSets, true);
     
     // Auto-close sidebar on mobile/tablet
     if (window.innerWidth <= 768) {
       const sidebar = document.getElementById('sidebar');
       const toggle = document.getElementById('sidebar-toggle');
       sidebar.style.display = 'none';
-      toggle.textContent = 'show';
-      toggle.title = 'Show Sidebar';
+      toggle.textContent = '🧙 show';
       toggle.classList.add('collapsed');
       sidebarCollapsed = true;
     }
@@ -864,10 +981,11 @@
       currentIndex = originalQuestionIndex + 1;
       isReviewMode = false;
     } else {
-      currentIndex = getNextQuestionIndex();
+      currentIndex = (currentIndex + 1) % flashcards.length;
     }
     showingAnswer = false;
     resetTimerAndAutoStart();
+    saveProgressToCookies();
     renderCard();
   }
 
@@ -875,6 +993,7 @@
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
     showingAnswer = false;
     resetTimerAndAutoStart();
+    saveProgressToCookies();
     renderCard();
   }
 
@@ -885,13 +1004,11 @@
     
     if (sidebarCollapsed) {
       sidebar.style.display = 'none';
-      toggle.textContent = 'show';
-      toggle.title = 'Show Sidebar';
+      toggle.textContent = '🧙 show';
       toggle.classList.add('collapsed');
     } else {
       sidebar.style.display = 'block';
-      toggle.textContent = 'hide';
-      toggle.title = 'Hide Sidebar';
+      toggle.textContent = '🧙 hide';
       toggle.classList.remove('collapsed');
     }
   }
@@ -1153,6 +1270,7 @@
       userSelections: userSelections,
       missedQuestions: missedQuestions,
       performanceStats: performanceStats,
+      currentIndex: currentIndex,
       timestamp: new Date().toISOString()
     };
     

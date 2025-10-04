@@ -161,13 +161,14 @@
   <h1>🖼️ Image Mapper for QuizWiz</h1>
   
   <div class="controls">
-    <label>Select Quiz Set: </label>
+    <label>Select Subject: </label>
+    <select id="subjectSelect" onchange="updateTestSets()">
+    </select>
+    <label>Select Test Set: </label>
+    <select id="testSetSelect" onchange="updateQuizVersions()">
+    </select>
+    <label>Select Quiz: </label>
     <select id="quizSelect">
-      <option value="Quiz 2 V1">Quiz 2 V1</option>
-      <option value="Quiz 2 V2">Quiz 2 V2</option>
-      <option value="Quiz 2 V3">Quiz 2 V3</option>
-      <option value="Quiz 2 V4">Quiz 2 V4</option>
-      <option value="Quiz 2 V5">Quiz 2 V5</option>
     </select>
     <button onclick="loadQuiz()">Load Quiz</button>
     <button class="export" onclick="exportMappings()">Export Updated Flashcards</button>
@@ -182,16 +183,21 @@
   </div>
 
   <script>
-    let currentQuiz = 'Quiz 2 V2';
+    let appConfig = null;
+    let currentSubject = null;
+    let currentTestSet = null;
+    let currentQuiz = null;
     let problems = [];
     let images = [];
     let mappings = {}; // problemIndex -> array of imageFilenames
 
     async function loadQuiz() {
-      currentQuiz = document.getElementById('quizSelect').value;
+      const quizIdx = parseInt(document.getElementById('quizSelect').value);
+      currentQuiz = currentTestSet.quizVersions[quizIdx];
       
       // Load flashcards
-      const flashcardsResponse = await fetch(`tests/${currentQuiz}/flashcards.txt`);
+      const flashcardsPath = `tests/${currentTestSet.path}/${currentQuiz.name}/flashcards.txt`;
+      const flashcardsResponse = await fetch(flashcardsPath);
       const flashcardsText = await flashcardsResponse.text();
       
       // Parse problems
@@ -230,6 +236,11 @@
       
       renderProblems();
     }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadConfig();
+    });
 
     function parseProblems(text) {
       // Use the same robust parsing logic as index.html
@@ -297,33 +308,77 @@
       return problems;
     }
 
-    async function getAvailableImages(quizSet) {
-      // Determine image count based on quiz set
-      let imageCount;
-      if (quizSet === 'Quiz 2 V1') {
-        imageCount = 9; // 0-8
-      } else if (quizSet === 'Quiz 2 V2') {
-        imageCount = 8; // 0-7
-      } else if (quizSet === 'Quiz 2 V3') {
-        imageCount = 5; // 0-4 (V3-5.png is missing)
-      } else if (quizSet === 'Quiz 2 V4') {
-        imageCount = 0; // No images
-      } else if (quizSet === 'Quiz 2 V5') {
-        imageCount = 7; // 0-6
-      } else {
-        imageCount = 10; // Default fallback
+    async function loadConfig() {
+      try {
+        const response = await fetch('config.json');
+        appConfig = await response.json();
+        populateSubjects();
+      } catch (error) {
+        console.error('Failed to load config:', error);
+        alert('Failed to load configuration file');
       }
+    }
+
+    function populateSubjects() {
+      const subjectSelect = document.getElementById('subjectSelect');
+      subjectSelect.innerHTML = '';
+      
+      appConfig.subjects.forEach((subject, idx) => {
+        const option = document.createElement('option');
+        option.value = subject.id;
+        option.textContent = subject.name;
+        subjectSelect.appendChild(option);
+      });
+      
+      updateTestSets();
+    }
+
+    function updateTestSets() {
+      const subjectId = document.getElementById('subjectSelect').value;
+      const subject = appConfig.subjects.find(s => s.id === subjectId);
+      currentSubject = subject;
+      
+      const testSetSelect = document.getElementById('testSetSelect');
+      testSetSelect.innerHTML = '';
+      
+      subject.testSets.forEach((testSet, idx) => {
+        const option = document.createElement('option');
+        option.value = idx;
+        option.textContent = testSet.name;
+        testSetSelect.appendChild(option);
+      });
+      
+      updateQuizVersions();
+    }
+
+    function updateQuizVersions() {
+      const testSetIdx = parseInt(document.getElementById('testSetSelect').value);
+      currentTestSet = currentSubject.testSets[testSetIdx];
+      
+      const quizSelect = document.getElementById('quizSelect');
+      quizSelect.innerHTML = '';
+      
+      currentTestSet.quizVersions.forEach((quiz, idx) => {
+        const option = document.createElement('option');
+        option.value = idx;
+        option.textContent = quiz.name;
+        quizSelect.appendChild(option);
+      });
+    }
+
+    async function getAvailableImages(quiz) {
+      const imageCount = quiz.imageCount;
       const images = [];
       
       for (let i = 0; i < imageCount; i++) {
         // Check both .png and .jpg
-        const pngPath = `tests/${quizSet}/images/${quizSet}-${i}.png`;
-        const jpgPath = `tests/${quizSet}/images/${quizSet}-${i}.jpg`;
+        const pngPath = `tests/${currentTestSet.path}/${quiz.name}/images/${quiz.name}-${i}.png`;
+        const jpgPath = `tests/${currentTestSet.path}/${quiz.name}/images/${quiz.name}-${i}.jpg`;
         
         try {
           const response = await fetch(pngPath, { method: 'HEAD' });
           if (response.ok) {
-            images.push({ filename: `${quizSet}-${i}.png`, path: pngPath });
+            images.push({ filename: `${quiz.name}-${i}.png`, path: pngPath });
             continue;
           }
         } catch (e) {}
@@ -331,7 +386,7 @@
         try {
           const response = await fetch(jpgPath, { method: 'HEAD' });
           if (response.ok) {
-            images.push({ filename: `${quizSet}-${i}.jpg`, path: jpgPath });
+            images.push({ filename: `${quiz.name}-${i}.jpg`, path: jpgPath });
           }
         } catch (e) {}
       }

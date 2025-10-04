@@ -1,0 +1,42 @@
+{
+  "subjects": [
+    {
+      "id": "physics",
+      "name": "Physics",
+      "testSets": [
+        {
+          "id": "phys214-test2",
+          "name": "PHYS 214 - Test 2",
+          "path": "Physics/PHYS 214 - Test 2",
+          "quizVersions": [
+            {
+              "id": "quiz2v1",
+              "name": "Quiz 2 V1",
+              "imageCount": 9
+            },
+            {
+              "id": "quiz2v2",
+              "name": "Quiz 2 V2",
+              "imageCount": 8
+            },
+            {
+              "id": "quiz2v3",
+              "name": "Quiz 2 V3",
+              "imageCount": 5
+            },
+            {
+              "id": "quiz2v4",
+              "name": "Quiz 2 V4",
+              "imageCount": 0
+            },
+            {
+              "id": "quiz2v5",
+              "name": "Quiz 2 V5",
+              "imageCount": 7
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

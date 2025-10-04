@@ -9,14 +9,34 @@ body {
 }
 
 h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #4a148c;
+  font-family: 'MedievalSharp', cursive;
+  text-shadow: 2px 2px 4px rgba(102, 126, 234, 0.3);
+  letter-spacing: 1px;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 20px auto 30px;
-  font-size: 1.75rem;
-  color: #2c3e50;
-  text-align: center;
-  font-family: 'Merriweather', serif;
-  max-width: 100%;
   padding: 0 20px;
-  text-shadow: 1px 1px 2px #ccc;
+  max-width: 900px;
+  width: 95%;
+  gap: 20px;
+  position: relative;
+}
+
+.title-bar h1 {
+  flex: 1;
+  text-align: center;
+}
+
+.title-bar .clear-progress-btn {
+  position: absolute;
+  right: 20px;
 }
 
 #status {
@@ -56,12 +76,14 @@ h1 {
 
 #sidebar {
   flex: 0 0 260px;
-  max-height: 75vh;
-  overflow: auto;
+  max-height: 94vh;
+  overflow: hidden;
   background: #ffffff;
   border: 1px solid #e5e9f2;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Wider scrollbar for sidebar */
@@ -100,28 +122,63 @@ h1 {
   position: relative;
 }
 
-.sidebar-footer {
-  padding: 12px 14px;
-  border-top: 1px solid #eef2f8;
-  background: #f8fbff;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+/* Subject tabs */
+.subject-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+}
+
+.subject-tab {
+  padding: 8px 12px;
+  background: #6ba3e8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #003366;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 75%;
+  max-width: 180px;
+}
+
+.subject-tab:hover {
+  background: #5a8fd6;
+  color: #002147;
+}
+
+.subject-tab.active {
+  background: #004d8a;
+  color: white;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .clear-progress-btn {
-  width: 100%;
-  padding: 8px 12px;
-  background: #dc3545;
-  color: white;
+  padding: 6px 14px;
+  background: #ffb5bd;
+  color: #333;
   border: none;
   border-radius: 6px;
-  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .clear-progress-btn:hover {
-  background: #c82333;
+  background: #ffa3ad;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 181, 189, 0.4);
 }
 
 #file-list {
@@ -181,8 +238,45 @@ h1 {
 }
 
 .accordion-item.expanded .accordion-content {
-  max-height: 250px;
+  max-height: 1000px;
   padding: 8px 14px 12px;
+  overflow-y: auto;
+}
+
+/* Nested quiz accordions */
+.quiz-accordion {
+  margin: 4px 0;
+  border-radius: 6px;
+  background: #f8fbff;
+}
+
+.quiz-accordion .accordion-header {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  background: #f0f4ff;
+  border-radius: 6px;
+}
+
+.quiz-accordion .accordion-header:hover {
+  background: #e8f0ff;
+}
+
+.quiz-accordion.active .accordion-header {
+  background: #d2e3fc;
+  border-left: 3px solid #0078D4;
+  font-weight: 600;
+}
+
+.quiz-accordion > .accordion-content {
+  padding: 0 12px !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.quiz-accordion.expanded > .accordion-content {
+  max-height: 300px !important;
+  padding: 8px 12px !important;
 }
 
 .load-quiz-btn {
@@ -253,6 +347,32 @@ h1 {
 .wizard-load-btn:hover {
   background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
   box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
+}
+
+.wizard-mode-btn {
+  background: #d0e2f7;
+  color: #004080;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.wizard-mode-btn:hover {
+  background: #bdd5f0;
+  transform: translateY(-1px);
+}
+
+.wizard-mode-btn:active {
+  transform: translateY(0);
 }
 
 .wizard-description {
@@ -668,10 +788,10 @@ button:hover {
   color: white;
   border: none;
   border-radius: 6px;
-  padding: 20px 7px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 20px 6px;
   cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
   transition: all 0.3s ease;
   white-space: nowrap;
   z-index: 1002;
@@ -687,6 +807,116 @@ button:hover {
 }
 
 /* Button when sidebar is collapsed */
+#sidebar.collapsed {
+  display: none;
+}
+
+/* Custom Wizard-themed Tooltips */
+.tooltip-trigger {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-trigger[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: pre-line;
+  line-height: 1.6;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10000;
+  min-width: 220px;
+  max-width: 340px;
+  text-align: left;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.tooltip-trigger[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: #667eea;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10001;
+}
+
+.tooltip-trigger:hover[data-tooltip]::after,
+.tooltip-trigger:hover[data-tooltip]::before {
+  opacity: 1;
+}
+
+.tooltip-trigger:hover[data-tooltip]::after {
+  transform: translateX(-50%) translateY(5px);
+}
+
+/* Clear Progress button tooltip - display below but always on top */
+.clear-progress-btn.tooltip-trigger[data-tooltip]::after {
+  z-index: 999999 !important;
+}
+
+.clear-progress-btn.tooltip-trigger[data-tooltip]::before {
+  z-index: 1000000 !important;
+}
+
+#stats-display {
+  position: relative;
+  z-index: 1;
+}
+
+#controls-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.title-bar {
+  position: relative;
+  z-index: 2;
+}
+
+/* Timer and other select dropdowns need special positioning */
+select.tooltip-trigger {
+  position: relative;
+}
+
+#sidebar-toggle.tooltip-trigger[data-tooltip]::after {
+  left: calc(100% + 12px) !important;
+  right: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+}
+
+#sidebar-toggle.tooltip-trigger:hover[data-tooltip]::after {
+  transform: translateY(-50%) translateX(5px) !important;
+}
+
+#sidebar-toggle.tooltip-trigger[data-tooltip]::before {
+  left: calc(100% + 4px) !important;
+  right: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  border-right-color: #667eea !important;
+  border-left-color: transparent !important;
+}
+
 #sidebar-toggle.collapsed {
   position: fixed;
   top: 20px;
@@ -834,6 +1064,23 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  .title-bar {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .title-bar h1 {
+    text-align: center;
+  }
+  
+  .title-bar .clear-progress-btn {
+    position: static;
+    width: auto;
+    min-width: 150px;
+  }
+  
   #sidebar-toggle.collapsed {
     top: 20px;
     left: 20px;
