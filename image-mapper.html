@@ -213,11 +213,18 @@
         // Debug for problem 18
         if (problem.number === 18) {
           console.log('=== PROBLEM 18 DEBUG ===');
+          console.log('Problem number:', problem.number);
+          console.log('Array index (idx):', idx);
           console.log('Full text length:', problem.text.length);
           console.log('Text preview:', problem.text.substring(0, 500));
           console.log('Image regex matches:', Array.from(problem.text.matchAll(/\[IMAGE:([^\]]+)\]/g)));
           console.log('Extracted filenames:', filenames);
+          console.log('mappings[idx] set to:', mappings[idx]);
           console.log('Available images:', images.map(i => i.filename));
+          console.log('Checking includes for each available image:');
+          images.forEach(img => {
+            console.log(`  - "${img.filename}": ${mappings[idx].includes(img.filename)}`);
+          });
         }
       });
       
@@ -298,7 +305,7 @@
       } else if (quizSet === 'Quiz 2 V2') {
         imageCount = 8; // 0-7
       } else if (quizSet === 'Quiz 2 V3') {
-        imageCount = 6; // 0-5
+        imageCount = 5; // 0-4 (V3-5.png is missing)
       } else if (quizSet === 'Quiz 2 V4') {
         imageCount = 0; // No images
       } else if (quizSet === 'Quiz 2 V5') {
@@ -342,6 +349,20 @@
         
         // Extract just the question part (before the tab/Answer)
         const questionPart = problem.text.split('\t')[0].replace(/\[IMAGE:[^\]]+\]/g, '').trim();
+        
+        // Debug for problem 18 during render
+        if (problem.number === 18) {
+          console.log('=== RENDERING PROBLEM 18 ===');
+          console.log('idx:', idx);
+          console.log('mappings[idx]:', mappings[idx]);
+          console.log('mappings[idx] type:', typeof mappings[idx]);
+          console.log('mappings[idx] is Array:', Array.isArray(mappings[idx]));
+          console.log('Testing includes for each image:');
+          images.forEach(img => {
+            const result = mappings[idx].includes(img.filename);
+            console.log(`  - "${img.filename}": includes()=${result}, class="${result ? 'selected' : ''}"` );
+          });
+        }
         
         div.innerHTML = `
           <div class="problem-text">

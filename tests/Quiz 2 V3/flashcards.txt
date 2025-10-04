@@ -99,17 +99,18 @@ Note: Electrons actually move opposite this direction.
 • (b) A 0.15 µF capacitor
 • (c) A 36 V battery	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-16. (12 points) In the circuit shown, call I1, I2, and I3 the currents flowing through resistors R1, R2, and R3. [IMAGE:images/Quiz 2 V3-3.png]
-• (a) Write three independent equations for the three unknown currents using symbolic notation for resistances and voltages.
-• (b) Take E1 = 10 V, E2 = 20 V, R1 = R2 = 1000 Ω, R3 = 10^6 Ω. Calculate I1, I2, and I3. If you can see a simpler path to a very good estimate, use it and explain your approximation. (Hint: R3 is very big!)
-• (c) Do the same for R1 = R3 = 1000 Ω and R2 = 1 Ω. (Hint: R2 is very small!)	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+16. (16 points) Consider a charged conducting sphere of radius R that has an electric field on the surface E₀.
+• (a) (4 points) Determine the electric charge of the sphere.
+• (b) (4 points) Assuming the electric potential is zero at infinity, what is the electric potential on the surface of the sphere?
+• (c) (4 points) What is the capacitance of this sphere?
+• (d) (4 points) How much of energy is stored in this sphere? (Hint: A single sphere can be approximated as a capacitor, with capacitance derived above.)	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-17. (9 points) A neon lamp in an electronic timing circuit flashes each time the voltage across it reaches 62 V. The lamp has negligible resistance when conducting. A battery with EMF = 100 V is connected in series with resistor R and capacitor C = 0.25 µF.
-• (a) For the lamp to flash twice per second, what resistance R is needed?
-• (b) How much energy is delivered to the lamp per flash?
-• (c) If the lamp resistance when conducting is approximately 100 Ω, estimate the discharge time.	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
+17. (16 points) Call I1, I2, and I3 the currents flowing through resistors R1, R2, and R3. [IMAGE:images/Quiz 2 V3-3.png]
+• (a) (8 points) Deduce three independent equations for three unknown currents. Use the symbolic values for resistances and voltages.
+• (b) (4 points) Take E1 = 10 V, E2 = 20 V, R1 = R2 = 1000 Ω, R3 = 10^6 Ω. Solve for the currents. You can solve your equations from part (a) for this, but if you can see a simpler path to a very good estimate of the exact answer, use it, explaining whatever approximation you make in one sentence. (Hint: Wow, R3 is a very big resistance!)
+• (c) (4 points) Do the same thing for the case R1 = R3 = 1000 Ω and R2 = 1 Ω, with the voltages on batteries being the same as above. (Hint: R2 is very small! What can you tell about the voltage difference across R3?)	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.
 
-18. (12 points) The figure above shows the circuit of a flashing lamp, like those attached to barrels at highway construction sites. The fluorescent lamp L (of negligible capacitance) is connected in parallel across the capacitor C of the RC circuit. There is a current through the lamp only when the potential difference across it reaches the breakdown voltage VL; then the capacitor discharges completely through the lamp and the lamp flashes briefly. [IMAGE:images/Quiz 2 V3-5.png]
+18. (12 points) The figure above shows the circuit of a flashing lamp, like those attached to barrels at highway construction sites. The fluorescent lamp L (of negligible capacitance) is connected in parallel across the capacitor C of the RC circuit. There is a current through the lamp only when the potential difference across it reaches the breakdown voltage VL; then the capacitor discharges completely through the lamp and the lamp flashes briefly. [IMAGE:images/Quiz 2 V3-4.png]
 • (a) (4 points) For a lamp with breakdown voltage VL = 62 V wired to a 100 V ideal battery, and a 0.25 µF capacitor what resistance R is needed for the flashes to happen twice per second? (Hint: A capacitor charges to 62% of its final voltage in time τRC)
 • (b) (4 points) How much of energy will be delivered to the fluorescent lamp in each flash (assume all the energy of the capacitor will go to the lamp).
 • (c) (4 points) Estimate how long does it take for the capacitor to almost fully discharge through the lamp, if the lamp resistance is about 100 Ω?	Answer: {SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.

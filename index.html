@@ -561,7 +561,7 @@
       
       // Load all flashcard sets
       for (const setName of quizSets) {
-        const response = await fetch(`tests/${setName}/flashcards.txt`);
+        const response = await fetch(`tests/${setName}/flashcards.txt?t=${Date.now()}`);
         if (!response.ok) {
           console.warn(`Failed to load ${setName}`);
           continue;
@@ -773,7 +773,7 @@
         document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
         accordionItem.classList.add('active');
         
-        loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => {
+        loadFlashcardsFrom(`tests/${setName}/flashcards.txt?t=${Date.now()}`, `tests/${setName}`).catch(err => {
           console.error(err);
           alert(`Unable to load ${setName}: ${err.message}`);
         });
@@ -787,7 +787,7 @@
       // Auto-load and expand first quiz
       if (idx === 0) {
         accordionItem.classList.add('active', 'expanded');
-        loadFlashcardsFrom(`tests/${setName}/flashcards.txt`, `tests/${setName}`).catch(err => console.error(err));
+        loadFlashcardsFrom(`tests/${setName}/flashcards.txt?t=${Date.now()}`, `tests/${setName}`).catch(err => console.error(err));
       }
     });
   }

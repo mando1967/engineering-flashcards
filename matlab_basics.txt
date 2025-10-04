@@ -1,0 +1,168 @@
+Concept 0: MATLAB Basics Overview  
+Explanation: This course introduces essential MATLAB commands and concepts used in everyday numerical computing, visualization, and programming.  
+Example:  
+Concepts Covered:
+1. Clearing the Workspace
+2. Viewing Workspace Variables
+3. Closing Figure Windows
+4. Creating Vectors
+5. Element-Wise Operations
+6. Getting the Size of a Matrix
+7. Displaying Output
+8. Writing Comments
+9. Finding Maximum Values
+10. Plotting Data and Functions
+11. Saving and Loading Data
+12. Creating Matrices of Zeros or Ones
+13. Generating Random Numbers
+14. For-Loops
+15. Listing Variables in the Workspace
+16. Calculating the Mean (Average)
+17. Defining Anonymous Functions
+18. Clearing the Command Window
+19. Getting Help in MATLAB
+20. MATLAB Matrices and Arrays Overview
+
+Concept 1: Clearing the Workspace  
+Explanation: The workspace stores variables created during your MATLAB session. Use the clear command to remove them and start fresh.  
+Example:  
+clear                 % clears all variables  
+clear x y z           % clears specific variables
+
+Concept 2: Viewing Workspace Variables  
+Explanation: The workspace holds all active variables. You can display their names and details using who or whos.  
+Example:  
+a = 10; b = [1 2 3];  
+who                   % lists variable names  
+whos                  % lists names, sizes, and data types
+
+Concept 3: Closing Figure Windows  
+Explanation: MATLAB uses figure windows to show plots. Use close commands to close one or all figures.  
+Example:  
+close                 % closes the current figure  
+close all             % closes all open figures
+
+Concept 4: Creating Vectors  
+Explanation: A vector is a one-dimensional array of numbers. You can create row or column vectors using brackets or ranges.  
+Example:  
+v = [1 2 3 4 5];      % row vector  
+v = 1:5;              % shorthand for 1 through 5  
+v = 0:2:10;           % step size of 2 → 0, 2, 4, 6, 8, 10
+
+Concept 5: Element-Wise Operations  
+Explanation: Element-wise operations perform arithmetic on corresponding elements in two arrays of equal size.  
+Example:  
+A = [1 2 3];  
+B = [4 5 6];  
+C = A .* B;           % element-wise multiplication → [4 10 18]  
+D = A .^ 2;           % element-wise squaring → [1 4 9]
+
+Concept 6: Getting the Size of a Matrix  
+Explanation: The size function returns the number of rows and columns in an array or matrix.  
+Example:  
+A = [1 2 3; 4 5 6];  
+size(A)               % returns [2 3]
+
+Concept 7: Displaying Output  
+Explanation: Use disp to show text or variable values in the Command Window.  
+Example:  
+x = 5;  
+disp('Hello MATLAB!');  
+disp(x);
+
+Concept 8: Writing Comments  
+Explanation: Comments are notes in code that MATLAB ignores. They help explain what your code does.  
+Example:  
+% This line calculates the square of x  
+x = 4;  
+y = x^2;              % y equals 16
+
+Concept 9: Finding Maximum Values  
+Explanation: Use max to get the largest element in a vector or each column in a matrix.  
+Example:  
+v = [3 9 1 5];  
+max(v)                % returns 9  
+
+A = [1 5; 3 2];  
+max(A)                % returns [3 5] (column-wise maximums)
+
+Concept 10: Plotting Data and Functions  
+Explanation: The plot function visualizes data or mathematical functions.  
+Example:  
+x = -5:5;  
+y = x.^2;  
+plot(x, y);  
+title('y = x^2'); xlabel('x'); ylabel('y');  
+
+t = 0:0.1:2*pi;  
+plot(t, sin(t));       % plots sine wave
+
+Concept 11: Saving and Loading Data  
+Explanation: You can save variables to a MAT-file for later and reload them into your workspace.  
+Example:  
+a = [1 2 3];  
+save('data.mat');      % saves all variables  
+clear  
+load('data.mat');      % reloads variables
+
+Concept 12: Creating Matrices of Zeros or Ones  
+Explanation: MATLAB can quickly create arrays filled with zeros or ones, useful for initializing matrices.  
+Example:  
+zeros(3,3)             % 3×3 matrix of zeros  
+ones(2,4)              % 2×4 matrix of ones
+
+Concept 13: Generating Random Numbers  
+Explanation: Use rand for random values between 0 and 1, or randi for random integers.  
+Example:  
+rand(3,3)              % 3×3 matrix, values 0–1  
+randi(10,2,3)          % random integers 1–10, size 2×3
+
+Concept 14: For-Loops  
+Explanation: For-loops repeat a set of commands a specific number of times.  
+Example:  
+sumVal = 0;  
+for i = 1:10  
+    sumVal = sumVal + i;  
+end  
+disp(sumVal);          % displays 55
+
+Concept 15: Listing Variables in the Workspace  
+Explanation: Use who or whos to list active variables in your workspace.  
+Example:  
+who                    % lists names  
+whos                   % shows names, sizes, and data types
+
+Concept 16: Calculating the Mean (Average)  
+Explanation: The mean function returns the arithmetic average of numeric data.  
+Example:  
+v = [2 4 6 8];  
+mean(v)                % returns 5  
+
+A = [1 2; 3 4];  
+mean(A)                % returns [2 3] (column averages)
+
+Concept 17: Defining Anonymous Functions  
+Explanation: Anonymous functions are quick one-line functions defined without a file.  
+Example:  
+f = @(x) x.^2 + 3*x + 2;  
+f(4)                   % returns 30  
+
+fplot(@(x) x.^2 - 2*x, [-2 4]);
+
+Concept 18: Clearing the Command Window  
+Explanation: The clc command clears all text from the Command Window without affecting variables.  
+Example:  
+clc
+
+Concept 19: Getting Help in MATLAB  
+Explanation: MATLAB includes built-in documentation and examples for every function.  
+Example:  
+help plot              % brief description  
+doc plot               % opens full documentation
+
+Concept 20: MATLAB Matrices and Arrays Overview  
+Explanation: MATLAB stores almost all data as matrices or arrays. You can access and manipulate their elements easily.  
+Example:  
+A = [1 2 3; 4 5 6];  
+A(2,3)                 % element in row 2, column 3 → 6  
+A(:,2)                 % all rows in column 2 → [2;5]
