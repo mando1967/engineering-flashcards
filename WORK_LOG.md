@@ -80,9 +80,38 @@ tests/
 ✨ **User Experience**: Intuitive navigation with visual feedback
 ✨ **Wizard Mode**: Scoped to test sets, more meaningful practice sessions
 
+### Additional Enhancements (Session 2 Continuation)
+
+**UI Polish:**
+- Added wizard-themed tooltips with purple gradient across all interactive elements
+- Implemented MedievalSharp font for magical "Quiz Wizard" title
+- Updated timer options to 1-10 minutes (granular control)
+- Redesigned Wizard Mode button: moved to bottom, lighter accordion-matching color, two-line label
+- Increased sidebar height from 75vh to 94vh (25% taller)
+- Removed Load Flashcards button - quiz loads automatically on accordion click
+
+**State Persistence:**
+- Save `currentIndex` (problem number) to cookies
+- Restore position, answers, stats when switching between quizzes
+- Auto-save progress on Next, Back, and Jump navigation
+- Each quiz maintains completely independent state
+
+**Bug Fixes:**
+- Tooltip positioning: wrapper spans for select elements, explicit z-index hierarchy
+- Clear Progress tooltip: displays below button with high z-index
+- Hide button tooltip: removed (positioning issues with vertical button)
+- Accordion behavior: only one quiz open at a time, clear active state
+- Image paths: correctly resolved in hierarchical directory structure
+
+**Configuration:**
+- Renamed PHYS 214 - Test 1 → PHYS 214 - Test 2
+- Updated config.json, directory structure, and WORK_LOG.md
+
 ### Testing Status
-- Browsers opened for index.html and image-mapper.html
-- Need to verify: Subject switching, quiz loading, wizard mode, image paths
+- All features tested and working
+- Tooltips displaying correctly (except hide button - removed)
+- State persistence verified across quiz switches
+- Accordion navigation smooth and intuitive
 
 ### Lessons Learned 📚
 
