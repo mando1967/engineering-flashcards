@@ -2,6 +2,106 @@
 
 ---
 
+## October 4, 2025 Session (Part 4) ✅
+
+### Flashcards to JSON Conversion & Image Mapper Updates
+
+**Goal:** Complete the conversion from flashcards.txt format to quiz.json format and update image-mapper.html to work with JSON files.
+
+### Changes Made ✅
+
+#### JSON Conversion Completed
+- **Converted Quiz 2 V1-V5** from flashcards.txt to quiz.json format
+- **Quiz 2 V1**: Completed missing questions 6-20 (was only 5/20 questions)
+  - Added 15 missing questions with proper formatting
+  - Included all images, resources, and explanations
+  - Multi-part problems marked with `"seeKey": true`
+- **Quiz 2 V2-V5**: Previously converted (21, 18, 21, 20 questions respectively)
+
+#### JSON Schema Structure
+```json
+{
+  "title": "PHYS 214 - Test 2, Quiz 2 V1",
+  "questions": [
+    {
+      "number": 1,
+      "points": 3,
+      "question": "Question text here",
+      "choices": ["(a) ...", "(b) ..."],
+      "answer": "(a) ...",
+      "explanation": "Explanation with LaTeX support",
+      "resources": [{"type": "...", "url": "..."}],
+      "images": ["images/Quiz 2 V1-0.png"],
+      "seeKey": true  // for multi-part problems
+    }
+  ]
+}
+```
+
+#### Image Mapper - Complete Refactor for JSON
+**Previous:** Loaded flashcards.txt and exported text format
+**Now:** Loads quiz.json and exports JSON format
+
+**Key Updates:**
+1. **Dual Format Support** - Reads images from both:
+   - `"images": ["images/Quiz 2 V1-0.png"]` array property (primary)
+   - `[IMAGE:images/Quiz 2 V5-0.png]` tags in question text (secondary)
+
+2. **Path Handling Fixed:**
+   - Changed from `currentTestSet.path` to `currentTestSet.quizPath`
+   - Image paths stored as `"images/Quiz 2 V1-0.png"` (with directory prefix)
+   - Matches format used in JSON files exactly
+
+3. **Export Format:**
+   - Exports complete quiz.json structure
+   - Updates both `images` array property AND `[IMAGE:...]` tags
+   - Maintains all question metadata (points, choices, explanations, resources)
+   - Pretty-printed JSON with 2-space indentation
+
+4. **UI Updates:**
+   - Button: "Export Updated JSON" (was "Export Updated Flashcards")
+   - Output section: "Updated Quiz JSON" with instructions
+   - Shows question number and point values in headers
+
+5. **Error Handling:**
+   - Added try-catch blocks around quiz loading
+   - Console logging for debugging
+   - Helpful error messages for failed loads
+
+#### Files Modified
+- `tests/Physics/PHYS 214 - Test 2/Quiz 2 V1/quiz.json`: Added questions 6-20
+- `image-mapper.html`: Complete refactor for JSON support (474 insertions, 193 deletions)
+
+### Technical Details
+
+**Image Association Logic:**
+- Initialization: Checks both `question.images` array and `[IMAGE:...]` tags in question text
+- Rendering: Compares stored paths with available image paths using `includes()`
+- Toggle: Updates mappings array and re-renders
+- Export: Writes to both `images` property and question text for compatibility
+
+**Debugging Enhancements:**
+- Console logs show image paths found vs available
+- String length comparison for exact matching
+- Direct equality checks for troubleshooting
+
+### Benefits
+
+✨ **Structured Data**: JSON provides better data structure than text format
+✨ **Validation**: JSON schema ensures consistent question format
+✨ **Flexibility**: Easy to add new fields (difficulty, tags, etc.)
+✨ **Tool Support**: Image mapper now works with modern JSON format
+✨ **Backward Compatible**: Supports both image storage methods
+
+### Testing Status
+- ✅ Quiz 2 V1 displays all 20 questions in QuizWiz
+- ✅ Image mapper loads and displays questions correctly
+- ✅ Image associations properly detected and highlighted
+- ✅ Toggle functionality working for selecting/deselecting images
+- ✅ Export produces valid JSON with correct structure
+
+---
+
 ## October 4, 2025 Session (Part 3) ✅
 
 ### Dual-Mode Feature: QuizWiz & TutorWiz
