@@ -121,6 +121,348 @@
           "url": "https://www.youtube.com/watch?v=g-wN3SYfQqM"
         }
       ]
+    },
+    {
+      "number": 6,
+      "points": 3,
+      "question": "If you make an integral of a current density J⃗ and a vector element of area dA⃗ over some surface area, then this integral ∫J⃗·dA⃗ represents:",
+      "choices": [
+        "(a) the electric flux through the area",
+        "(b) the average current density at the position of the area",
+        "(c) the resistance of the area",
+        "(d) the resistivity of the area",
+        "(e) the current through the area"
+      ],
+      "answer": "(e) the current through the area",
+      "explanation": "Current density J has units of A/m². When integrated over an area: I = ∫J⃗·dA⃗, we get total current (in amperes) flowing through that surface. This is analogous to electric flux Φ = ∫E⃗·dA⃗, but for current instead of electric field.",
+      "resources": [
+        {
+          "type": "Khan Academy - Current",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1"
+        },
+        {
+          "type": "Article - Current Density",
+          "url": "https://www.electronics-tutorials.ws/resistor/res_2.html"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "points": 3,
+      "question": "A rod made of some conductive material has resistance R. The rod was stretched to twice its original length keeping the volume the same. The new resistance of a longer rod is:",
+      "choices": [
+        "(a) R/2",
+        "(b) R",
+        "(c) 2R",
+        "(d) 4R",
+        "(e) 8R",
+        "(f) None of the above"
+      ],
+      "answer": "(d) 4R",
+      "explanation": "Resistance R = ρL/A. If length doubles (L → 2L) and volume V = LA stays constant, then area must halve (A → A/2). New resistance: R_new = ρ(2L)/(A/2) = 4ρL/A = 4R. Both length increase and area decrease contribute to quadrupling the resistance.",
+      "resources": [
+        {
+          "type": "Article - Resistance and Geometry",
+          "url": "https://www.electronics-tutorials.ws/resistor/res_2.html"
+        },
+        {
+          "type": "Video - Resistance Factors",
+          "url": "https://www.youtube.com/watch?v=VnnfDzGLY8g"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "points": 3,
+      "question": "Which of the following five graphs relate the current and potential difference on some circuit element that obeys Ohm's law?",
+      "choices": [
+        "(a) I",
+        "(b) II",
+        "(c) III",
+        "(d) IV",
+        "(e) V"
+      ],
+      "answer": "(b) II",
+      "explanation": "Ohm's law states V = IR, which means current is directly proportional to voltage. The graph should be a straight line through the origin with positive slope (I vs V or V vs I). Graph II shows this linear relationship characteristic of ohmic materials.",
+      "resources": [
+        {
+          "type": "Khan Academy - Ohm's Law",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2"
+        },
+        {
+          "type": "Video - Ohm's Law Graphs",
+          "url": "https://www.youtube.com/watch?v=VnnfDzGLY8g"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-1.png"]
+    },
+    {
+      "number": 9,
+      "points": 3,
+      "question": "The loop rule that states that the sum of all the potential differences and EMFs around a closed loop equal zero is a consequence of:",
+      "choices": [
+        "(a) Newton's third law",
+        "(b) Ohm's law",
+        "(c) Smirnoff's rule",
+        "(d) Maravin's law",
+        "(e) conservation of charge",
+        "(f) conservation of energy"
+      ],
+      "answer": "(f) conservation of energy",
+      "explanation": "Kirchhoff's voltage law (KVL) is based on conservation of energy. As you traverse a closed loop, the total energy change must be zero - energy gained from batteries equals energy lost across resistors. This ensures no net energy change after completing a loop.",
+      "resources": [
+        {
+          "type": "Khan Academy - Kirchhoff's Laws",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-voltage-law"
+        },
+        {
+          "type": "Video - KVL Explained",
+          "url": "https://www.youtube.com/watch?v=3H6Rttqx0Yw"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "points": 3,
+      "question": "Someone showed you a part of an electric circuit shown below with the current values and direction in all but one of the branches. What's the magnitude and the direction of the missing current i?",
+      "choices": [
+        "(a) 8 A, down",
+        "(b) 8 A, up",
+        "(c) 6 A, down",
+        "(d) 6 A, up",
+        "(e) 4 A, up",
+        "(f) impossible to tell"
+      ],
+      "answer": "(a) 8 A, down",
+      "explanation": "Kirchhoff's current law (KCL) states that the sum of currents entering a junction equals the sum leaving. By analyzing the junction and applying KCL (conservation of charge), we can determine the missing current must be 8 A flowing downward to balance the currents.",
+      "resources": [
+        {
+          "type": "Khan Academy - Kirchhoff's Current Law",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-current-law"
+        },
+        {
+          "type": "Video - KCL Examples",
+          "url": "https://www.youtube.com/watch?v=VV3dUKVcNPo"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-2.png"]
+    },
+    {
+      "number": 11,
+      "points": 3,
+      "question": "Before taking your Ferrari Testarossa for a spin one nice sunny afternoon, you opened the hood of the car and noticed that both of the headlights are connected in parallel to a 12-V battery. The total power that this battery supplies to headlights is 48 Watts. You realized that the resistance of each headlight bulb is:",
+      "choices": [
+        "(a) 8 Ohms",
+        "(b) 6 Ohms",
+        "(c) 4 Ohms",
+        "(d) 2 Ohms",
+        "(e) 1 Ohms",
+        "(f) None of the above"
+      ],
+      "answer": "(b) 6 Ohms",
+      "explanation": "Total power P = V²/R_eq = 48 W with V = 12 V gives R_eq = 144/48 = 3 Ω. For two identical resistors in parallel: R_eq = R/2, so R = 2 × 3 = 6 Ω. Alternatively, each bulb gets 24 W, so R = V²/P = 144/24 = 6 Ω.",
+      "resources": [
+        {
+          "type": "Khan Academy - Electric Power",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-3"
+        },
+        {
+          "type": "Video - Power Calculations",
+          "url": "https://www.youtube.com/watch?v=w82aSjLuD_8"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "points": 3,
+      "question": "If you are to substitute a combination of the resistors given below with a single resistor you would pick up the following resistance:",
+      "choices": [
+        "(a) 2.5 Ohms",
+        "(b) 4 Ohms",
+        "(c) 5.5 Ohms",
+        "(d) 6 Ohms",
+        "(e) 6.5 Ohms",
+        "(f) none of the above"
+      ],
+      "answer": "(c) 5.5 Ohms",
+      "explanation": "To find equivalent resistance, identify series and parallel combinations. Resistors in series add: R_series = R₁ + R₂ + R₃. Resistors in parallel: 1/R_parallel = 1/R₁ + 1/R₂. Simplify the circuit step by step, combining elements until you get a single equivalent resistance of 5.5 Ω.",
+      "resources": [
+        {
+          "type": "Khan Academy - Equivalent Resistance",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors"
+        },
+        {
+          "type": "Video - Complex Circuits",
+          "url": "https://www.youtube.com/watch?v=VV3dUKVcNPo"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-3.jpg"]
+    },
+    {
+      "number": 13,
+      "points": 3,
+      "question": "In the circuits below all the batteries and the light bulbs are identical. In which of those circuits the bulbs will be dimmest?",
+      "choices": [
+        "(a) I",
+        "(b) II",
+        "(c) III",
+        "(d) IV",
+        "(e) V"
+      ],
+      "answer": "(d) IV",
+      "explanation": "Bulb brightness depends on power dissipated (P = I²R = V²/R). The dimmest bulbs receive the least current or voltage. Circuit IV likely has the highest total resistance or lowest current through each bulb, resulting in the dimmest illumination. This could be due to series connections or multiple bulbs sharing current.",
+      "resources": [
+        {
+          "type": "Khan Academy - Series and Parallel",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors"
+        },
+        {
+          "type": "Video - Bulb Brightness",
+          "url": "https://www.youtube.com/watch?v=VV3dUKVcNPo"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-4.png"]
+    },
+    {
+      "number": 14,
+      "points": 3,
+      "question": "You have a 120 Ohm resistor connected in series with a capacitor to a battery. After 10 ms of charging the capacitor, its charge is about half of its final value. From this, you deduce that the capacitance is about:",
+      "choices": [
+        "(a) 83.3 μF",
+        "(b) 120 μF",
+        "(c) 1.2 F",
+        "(d) None of the above"
+      ],
+      "answer": "(b) 120 μF",
+      "explanation": "For RC circuits, Q(t) = Q_max(1 - e^(-t/τ)). When Q = Q_max/2, we have 0.5 = 1 - e^(-t/τ), so e^(-t/τ) = 0.5, giving t/τ = ln(2) ≈ 0.693. With t = 10 ms: τ = 10/0.693 ≈ 14.4 ms. Since τ = RC: C = τ/R = 14.4×10⁻³/120 ≈ 120 μF.",
+      "resources": [
+        {
+          "type": "Khan Academy - RC Circuits",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors"
+        },
+        {
+          "type": "Video - RC Time Constant",
+          "url": "https://www.youtube.com/watch?v=f_MZNsEqyQw"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "points": 3,
+      "question": "Your evil EP2 Prof. Maravin wrote on a blackboard the following expression: Q(t) = Q_max(1 - e^(-t/RC)) that describes some specific process. What is that process?",
+      "choices": [
+        "(a) a charging capacitor",
+        "(b) a discharging capacitor",
+        "(c) a capacitor that has been disconnected",
+        "(d) a charging resistor",
+        "(e) an oscillating circuit"
+      ],
+      "answer": "(a) a charging capacitor",
+      "explanation": "The equation Q(t) = Q_max(1 - e^(-t/RC)) describes exponential growth from 0 to Q_max, characteristic of capacitor charging. At t = 0, Q = 0; as t → ∞, Q → Q_max. For discharging, the equation would be Q(t) = Q_max × e^(-t/RC), showing exponential decay.",
+      "resources": [
+        {
+          "type": "Khan Academy - Capacitor Charging",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/ee-circuits-with-capacitors"
+        },
+        {
+          "type": "Video - RC Circuit Equations",
+          "url": "https://www.youtube.com/watch?v=f_MZNsEqyQw"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "points": 3,
+      "question": "In the circuit depicted below, when the switch is closed, the ammeter reads 0.1 A. What will happen to the ammeter if you open the switch?",
+      "choices": [
+        "(a) it will increase slightly",
+        "(b) it will remain the same",
+        "(c) it will decrease slightly",
+        "(d) it will double"
+      ],
+      "answer": "(c) it will decrease slightly",
+      "explanation": "When the switch is closed, it provides a parallel path for current, reducing total circuit resistance and increasing total current. Opening the switch removes this parallel path, increasing total resistance and decreasing the current measured by the ammeter.",
+      "resources": [
+        {
+          "type": "Khan Academy - Circuit Analysis",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-series-resistors"
+        },
+        {
+          "type": "Video - Switch Effects",
+          "url": "https://www.youtube.com/watch?v=VV3dUKVcNPo"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-5.jpg"]
+    },
+    {
+      "number": 17,
+      "points": 12,
+      "question": "One morning you find yourself marooned on an uninhabited island with a box of 3V batteries, about fifty of the 100 Ω resistors, and a box of twenty 1 μF capacitors. To construct a signaling device you need to make the following items from some of the parts available to you. Draw a clear diagram of the following:\n• (a) a 350 Ω resistor\n• (b) a 0.25 μF capacitor\n• (c) a 12 V battery",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "resources": [
+        {
+          "type": "Sparkfun - Series and Parallel Circuits",
+          "url": "https://learn.sparkfun.com/tutorials/series-and-parallel-circuits/all"
+        }
+      ],
+      "seeKey": true
+    },
+    {
+      "number": 18,
+      "points": 14,
+      "question": "In the circuit above you have two batteries and three resistors labeled as ε₁, ε₂ and R₁, R₂, and R₃, respectively.\n• (a) Deduce three independent equations for three unknown currents using symbolic notation.\n• (b) Solve for currents with ε₁ = 10 V, ε₂ = 12 V, R₁ = R₂ = 1000 Ω, and R₃ = 0.1 Ω.\n• (c) Solve for ε₁ = 10 V, ε₂ = 12 V, R₁ = 1 MΩ and R₂ = R₃ = 10 Ω.",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "resources": [
+        {
+          "type": "Sparkfun - Series and Parallel Circuits",
+          "url": "https://learn.sparkfun.com/tutorials/series-and-parallel-circuits/all"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-6.png"],
+      "seeKey": true
+    },
+    {
+      "number": 19,
+      "points": 14,
+      "question": "You use a 9V battery, copper wires, and two 12 inch flat copper pan lids as plates for a makeshift parallel plate capacitor with a multimeter as ammeter.\nExperiment 1: lids separated by 0.5 inch.\n• (a) Draw the circuit.\n• (b) Initial current is 1 A, find internal resistance.\n• (c) Find capacitance.\n• (d) Find energy stored.\nExperiment 2: After fully charged, disconnect battery and increase separation to 1 inch.\n• (e) Find new charge.\n• (f) Find new energy.\n• (g) Find work done to separate plates.",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "resources": [
+        {
+          "type": "Instructables - Make a Capacitor",
+          "url": "https://www.instructables.com/Make-a-Capacitor-and-how-it-works-with-stuff-you-a/?utm_source=chatgpt.com"
+        },
+        {
+          "type": "Libretexts - Capacitors and Capacitance",
+          "url": "https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_%28OpenStax%29/University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_%28OpenStax%29/08%3A_Capacitance/8.02%3A_Capacitors_and_Capacitance?utm_source=chatgpt.com"
+        }
+      ],
+      "seeKey": true
+    },
+    {
+      "number": 20,
+      "points": 12,
+      "question": "A circuit from your last studio has an electronic switch SW that switches connection every 3 seconds, resulting in voltage readings across the capacitor (green) and capacitor+resistor (blue).\n• (a) Use the graph to estimate the τ_RC constant.\n• (b) If the resistor is 200 Ω, what is the capacitance?\n• (c) What is the current through the resistor at 0.5 seconds after the switch is in A position (0.5 seconds since capacitor started charging)?",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "resources": [
+        {
+          "type": "Electronics Tutorials - RC Circuits",
+          "url": "https://www.electronics-tutorials.ws/rc/rc_1.html?utm_source=chatgpt.com"
+        },
+        {
+          "type": "All About Circuits - Voltage Current Calculations",
+          "url": "https://www.allaboutcircuits.com/textbook/direct-current/chpt-16/voltage-current-calculations/?utm_source=chatgpt.com"
+        },
+        {
+          "type": "Khan Academy - RC Circuits",
+          "url": "https://www.khanacademy.org/a/ee-rc-natural-response?utm_source=chatgpt.com"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-7.png", "images/Quiz 2 V1-8.png"],
+      "seeKey": true
     }
   ]
 }

@@ -171,14 +171,14 @@
     <select id="quizSelect">
     </select>
     <button onclick="loadQuiz()">Load Quiz</button>
-    <button class="export" onclick="exportMappings()">Export Updated Flashcards</button>
+    <button class="export" onclick="exportMappings()">Export Updated JSON</button>
   </div>
 
   <div id="problems"></div>
   
   <div id="output">
-    <h2>Updated Flashcards</h2>
-    <p>Copy this content and paste it into your flashcards.txt file:</p>
+    <h2>Updated Quiz JSON</h2>
+    <p>Copy this content and paste it into your quiz.json file:</p>
     <pre id="outputText"></pre>
   </div>
 
@@ -187,54 +187,64 @@
     let currentSubject = null;
     let currentTestSet = null;
     let currentQuiz = null;
-    let problems = [];
+    let questions = [];
     let images = [];
-    let mappings = {}; // problemIndex -> array of imageFilenames
+    let mappings = {}; // questionIndex -> array of imageFilenames
 
     async function loadQuiz() {
-      const quizIdx = parseInt(document.getElementById('quizSelect').value);
-      currentQuiz = currentTestSet.quizVersions[quizIdx];
-      
-      // Load flashcards
-      const flashcardsPath = `tests/${currentTestSet.path}/${currentQuiz.name}/flashcards.txt`;
-      const flashcardsResponse = await fetch(flashcardsPath);
-      const flashcardsText = await flashcardsResponse.text();
-      
-      // Parse problems
-      problems = parseProblems(flashcardsText);
-      
-      // Load available images
-      images = await getAvailableImages(currentQuiz);
-      
-      // Initialize mappings from existing [IMAGE:...] tags (support multiple)
-      problems.forEach((problem, idx) => {
-        const imageMatches = problem.text.matchAll(/\[IMAGE:([^\]]+)\]/g);
-        const filenames = [];
-        for (const match of imageMatches) {
-          const filename = match[1].split('/').pop();
-          filenames.push(filename);
-        }
-        mappings[idx] = filenames;
+      try {
+        const quizIdx = parseInt(document.getElementById('quizSelect').value);
+        currentQuiz = currentTestSet.quizVersions[quizIdx];
         
-        // Debug for problem 18
-        if (problem.number === 18) {
-          console.log('=== PROBLEM 18 DEBUG ===');
-          console.log('Problem number:', problem.number);
-          console.log('Array index (idx):', idx);
-          console.log('Full text length:', problem.text.length);
-          console.log('Text preview:', problem.text.substring(0, 500));
-          console.log('Image regex matches:', Array.from(problem.text.matchAll(/\[IMAGE:([^\]]+)\]/g)));
-          console.log('Extracted filenames:', filenames);
-          console.log('mappings[idx] set to:', mappings[idx]);
-          console.log('Available images:', images.map(i => i.filename));
-          console.log('Checking includes for each available image:');
-          images.forEach(img => {
-            console.log(`  - "${img.filename}": ${mappings[idx].includes(img.filename)}`);
-          });
+        // Load quiz.json
+        const quizPath = `tests/${currentTestSet.quizPath}/${currentQuiz.name}/quiz.json`;
+        console.log('Loading quiz from:', quizPath);
+        
+        const quizResponse = await fetch(quizPath);
+        if (!quizResponse.ok) {
+          throw new Error(`Failed to load quiz: ${quizResponse.status} ${quizResponse.statusText}`);
         }
-      });
-      
-      renderProblems();
+        
+        const quizData = await quizResponse.json();
+        console.log('Quiz data loaded:', quizData);
+        
+        // Get questions array
+        questions = quizData.questions || [];
+        console.log(`Loaded ${questions.length} questions`);
+        
+        // Load available images
+        images = await getAvailableImages(currentQuiz);
+        console.log(`Found ${images.length} images`);
+        
+        // Initialize mappings from existing images (support both formats)
+        questions.forEach((question, idx) => {
+          const imagePaths = [];
+          
+          // Format 1: Check for "images" array property (Quiz 2 V1 format)
+          if (question.images && Array.isArray(question.images)) {
+            imagePaths.push(...question.images);
+          }
+          
+          // Format 2: Check for [IMAGE:...] tags in question text (Quiz 2 V5 format)
+          const imageMatches = question.question.matchAll(/\[IMAGE:([^\]]+)\]/g);
+          for (const match of imageMatches) {
+            // Store the full path from the IMAGE tag (e.g., "images/Quiz 2 V5-0.png")
+            imagePaths.push(match[1]);
+          }
+          
+          mappings[idx] = imagePaths;
+          
+          // Debug logging
+          if (imagePaths.length > 0) {
+            console.log(`Question ${question.number} (idx ${idx}): found image paths:`, imagePaths);
+          }
+        });
+        
+        renderQuestions();
+      } catch (error) {
+        console.error('Error loading quiz:', error);
+        alert('Error loading quiz: ' + error.message);
+      }
     }
 
     // Initialize on page load
@@ -242,71 +252,6 @@
       loadConfig();
     });
 
-    function parseProblems(text) {
-      // Use the same robust parsing logic as index.html
-      const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
-      const problems = [];
-      let i = 0;
-      const isQuestionHeader = (s) => /^\d+\.\s/.test(s.trim());
-
-      while (i < lines.length) {
-        // Skip leading blank lines
-        while (i < lines.length && !lines[i].trim()) i++;
-        if (i >= lines.length) break;
-
-        const qLines = [];
-        const aLines = [];
-
-        // Collect question lines up to the first tab-delimited line
-        while (i < lines.length && !lines[i].includes('\t')) {
-          // Stop if we encounter a brand-new question header while no tab seen yet (malformed block)
-          if (qLines.length > 0 && isQuestionHeader(lines[i])) break;
-          qLines.push(lines[i]);
-          i++;
-        }
-
-        // If a tab-delimited line exists, split into question tail + answer head
-        if (i < lines.length && lines[i].includes('\t')) {
-          const tabLine = lines[i];
-          // Split on the FIRST tab only to handle multiple tabs
-          const tabIndex = tabLine.indexOf('\t');
-          const left = tabLine.substring(0, tabIndex);
-          const right = tabLine.substring(tabIndex + 1);
-          
-          qLines.push(left);
-          aLines.push(right);
-          i++;
-          // Append explanation/answer continuation lines until next question header or next tabbed record
-          while (i < lines.length && !isQuestionHeader(lines[i]) && !lines[i].includes('\t')) {
-            aLines.push(lines[i]);
-            i++;
-          }
-        }
-
-        const questionText = qLines.join('\n').trim();
-        const answerText = aLines.join('\n').trim();
-        
-        // Extract problem number from first line (must start with number)
-        const firstLine = qLines[0] || '';
-        const numberMatch = firstLine.match(/^(\d+)\./);
-        const problemNumber = numberMatch ? parseInt(numberMatch[1]) : 0;
-
-        // Only add if we have a valid problem number (skip fragments)
-        if (problemNumber > 0 && (questionText || answerText)) {
-          // Reconstruct full problem text with TAB delimiter
-          const fullText = answerText 
-            ? questionText + '\t' + answerText
-            : questionText;
-            
-          problems.push({
-            number: problemNumber,
-            text: fullText
-          });
-        }
-      }
-
-      return problems;
-    }
 
     async function loadConfig() {
       try {
@@ -372,13 +317,16 @@
       
       for (let i = 0; i < imageCount; i++) {
         // Check both .png and .jpg
-        const pngPath = `tests/${currentTestSet.path}/${quiz.name}/images/${quiz.name}-${i}.png`;
-        const jpgPath = `tests/${currentTestSet.path}/${quiz.name}/images/${quiz.name}-${i}.jpg`;
+        const pngPath = `tests/${currentTestSet.quizPath}/${quiz.name}/images/${quiz.name}-${i}.png`;
+        const jpgPath = `tests/${currentTestSet.quizPath}/${quiz.name}/images/${quiz.name}-${i}.jpg`;
         
         try {
           const response = await fetch(pngPath, { method: 'HEAD' });
           if (response.ok) {
-            images.push({ filename: `${quiz.name}-${i}.png`, path: pngPath });
+            // Store as "images/Quiz 2 V5-0.png" to match JSON format
+            const imagePath = `images/${quiz.name}-${i}.png`;
+            images.push({ imagePath: imagePath, fullPath: pngPath });
+            console.log(`Found image: ${imagePath}`);
             continue;
           }
         } catch (e) {}
@@ -386,55 +334,64 @@
         try {
           const response = await fetch(jpgPath, { method: 'HEAD' });
           if (response.ok) {
-            images.push({ filename: `${quiz.name}-${i}.jpg`, path: jpgPath });
+            // Store as "images/Quiz 2 V5-0.jpg" to match JSON format
+            const imagePath = `images/${quiz.name}-${i}.jpg`;
+            images.push({ imagePath: imagePath, fullPath: jpgPath });
+            console.log(`Found image: ${imagePath}`);
           }
         } catch (e) {}
       }
       
+      console.log('All available images:', images.map(i => i.imagePath));
       return images;
     }
 
-    function renderProblems() {
+    function renderQuestions() {
       const container = document.getElementById('problems');
       container.innerHTML = '';
       
-      problems.forEach((problem, idx) => {
+      questions.forEach((question, idx) => {
         const div = document.createElement('div');
         div.className = 'problem-container';
         
-        // Extract just the question part (before the tab/Answer)
-        const questionPart = problem.text.split('\t')[0].replace(/\[IMAGE:[^\]]+\]/g, '').trim();
+        // Remove [IMAGE:...] tags from display
+        const questionText = question.question.replace(/\[IMAGE:[^\]]+\]/g, '').trim();
         
-        // Debug for problem 18 during render
-        if (problem.number === 18) {
-          console.log('=== RENDERING PROBLEM 18 ===');
-          console.log('idx:', idx);
-          console.log('mappings[idx]:', mappings[idx]);
-          console.log('mappings[idx] type:', typeof mappings[idx]);
-          console.log('mappings[idx] is Array:', Array.isArray(mappings[idx]));
-          console.log('Testing includes for each image:');
-          images.forEach(img => {
-            const result = mappings[idx].includes(img.filename);
-            console.log(`  - "${img.filename}": includes()=${result}, class="${result ? 'selected' : ''}"` );
-          });
+        // Debug: log the comparison for each image
+        console.log(`\n=== Rendering Question ${question.number} (idx ${idx}) ===`);
+        console.log('Mappings for this question:', mappings[idx]);
+        console.log('Mappings type:', typeof mappings[idx], 'Is array:', Array.isArray(mappings[idx]));
+        if (mappings[idx]) {
+          mappings[idx].forEach((m, i) => console.log(`  Mapping[${i}]: "${m}" (length: ${m.length})`));
         }
+        console.log('Available images:', images.map(i => i.imagePath));
+        images.forEach((img, i) => console.log(`  Image[${i}]: "${img.imagePath}" (length: ${img.imagePath.length})`));
         
         div.innerHTML = `
           <div class="problem-text">
-            <h3>Problem ${problem.number}</h3>
-            <pre>${questionPart}</pre>
+            <h3>Question ${question.number} (${question.points} points)</h3>
+            <pre>${questionText}</pre>
           </div>
           <div class="image-selector">
-            <h4>Select Image:</h4>
+            <h4>Select Images:</h4>
             <div class="image-grid" id="imageGrid${idx}">
-              ${images.map(img => `
-                <div class="image-option ${mappings[idx].includes(img.filename) ? 'selected' : ''}" 
-                     onclick="toggleImage(${idx}, '${img.filename}')">
-                  <img src="${img.path}" alt="${img.filename}">
-                  <div class="label">${img.filename.split('-').pop()}</div>
-                  <div class="checkbox">${mappings[idx].includes(img.filename) ? '✓' : ''}</div>
-                </div>
-              `).join('')}
+              ${images.map(img => {
+                const isSelected = mappings[idx] && mappings[idx].includes(img.imagePath);
+                console.log(`  Checking image "${img.imagePath}": selected=${isSelected}`);
+                if (mappings[idx]) {
+                  mappings[idx].forEach(m => {
+                    console.log(`    Compare "${m}" === "${img.imagePath}": ${m === img.imagePath}`);
+                  });
+                }
+                return `
+                  <div class="image-option ${isSelected ? 'selected' : ''}" 
+                       onclick="toggleImage(${idx}, '${img.imagePath}')">
+                    <img src="${img.fullPath}" alt="${img.imagePath}">
+                    <div class="label">${img.imagePath.split('/').pop().split('-').pop()}</div>
+                    <div class="checkbox">${isSelected ? '✓' : ''}</div>
+                  </div>
+                `;
+              }).join('')}
             </div>
           </div>
         `;
@@ -443,79 +400,61 @@
       });
     }
 
-    function toggleImage(problemIdx, imageFilename) {
-      if (!mappings[problemIdx]) {
-        mappings[problemIdx] = [];
+    function toggleImage(questionIdx, imagePath) {
+      if (!mappings[questionIdx]) {
+        mappings[questionIdx] = [];
       }
       
-      const index = mappings[problemIdx].indexOf(imageFilename);
+      const index = mappings[questionIdx].indexOf(imagePath);
       if (index > -1) {
         // Remove if already selected
-        mappings[problemIdx].splice(index, 1);
+        mappings[questionIdx].splice(index, 1);
       } else {
         // Add if not selected
-        mappings[problemIdx].push(imageFilename);
+        mappings[questionIdx].push(imagePath);
       }
       
-      renderProblems();
+      renderQuestions();
     }
 
     function exportMappings() {
-      let output = '';
+      // Create a deep copy of the questions array
+      const updatedQuestions = JSON.parse(JSON.stringify(questions));
       
-      problems.forEach((problem, idx) => {
-        let problemText = problem.text;
-        
-        // Remove ALL existing [IMAGE:...] tags more aggressively
-        // Match [IMAGE: followed by anything until ]
-        problemText = problemText.replace(/\[IMAGE:[^\]]*\]/gi, '');
-        // Clean up extra spaces on the same line (but preserve line breaks!)
-        problemText = problemText.replace(/ {2,}/g, ' ');
-        
-        // Add new image tags if images are selected
+      // Update each question with new image mappings
+      updatedQuestions.forEach((question, idx) => {
+        // Update the images array property (primary format)
         if (mappings[idx] && mappings[idx].length > 0) {
-          // Create image tags for all selected images
-          const imageTags = mappings[idx].map(img => `[IMAGE:images/${img}]`).join(' ');
-          
-          // Find the TAB character position
-          const tabIndex = problemText.indexOf('\t');
-          
-          if (tabIndex > -1) {
-            // Split into question part and answer part
-            const questionPart = problemText.substring(0, tabIndex);
-            const answerPart = problemText.substring(tabIndex);
-            
-            // Split question part into lines
-            const questionLines = questionPart.split('\n');
-            
-            // Insert image tag at the end of the FIRST line (question header) only
-            if (questionLines.length > 0) {
-              // Trim the first line and add image tags
-              questionLines[0] = questionLines[0].trim() + ' ' + imageTags;
-            }
-            
-            // Reconstruct with proper line breaks preserved
-            problemText = questionLines.join('\n') + answerPart;
-          } else {
-            // No TAB found, append to end of first line
-            const lines = problemText.split('\n');
-            if (lines.length > 0) {
-              lines[0] = lines[0].trim() + ' ' + imageTags;
-            }
-            problemText = lines.join('\n');
-          }
+          question.images = mappings[idx];
+        } else {
+          // Remove images property if no images selected
+          delete question.images;
         }
         
-        output += problemText + '\n\n';
+        // Also update [IMAGE:...] tags in question text for backward compatibility
+        let questionText = question.question.replace(/\[IMAGE:[^\]]*\]/gi, '').trim();
+        if (mappings[idx] && mappings[idx].length > 0) {
+          const imageTags = mappings[idx].map(imgPath => `[IMAGE:${imgPath}]`).join(' ');
+          questionText = questionText + ' ' + imageTags;
+        }
+        question.question = questionText;
       });
+      
+      // Create the full quiz JSON structure
+      const quizData = {
+        title: `PHYS 214 - Test 2, ${currentQuiz.name}`,
+        questions: updatedQuestions
+      };
+      
+      // Format as pretty JSON
+      const output = JSON.stringify(quizData, null, 2);
       
       document.getElementById('outputText').textContent = output;
       document.getElementById('output').style.display = 'block';
       document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Load first quiz on page load
-    window.onload = () => loadQuiz();
+    // Removed automatic load - user must click "Load Quiz" button
   </script>
 </body>
 </html>
