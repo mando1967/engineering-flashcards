@@ -1,0 +1,119 @@
+{
+  "title": "CE 333 - Test 1",
+  "questions": [
+    {
+      "number": 1,
+      "points": 10,
+      "question": "",
+      "choices": [],
+      "answer": "M_P ≈ 636.4 ft·lb (CCW), M_F = 768 ft·lb (CW). Pole rotates clockwise about point A.",
+      "explanation": "## Step 1: Geometry and Distances\n\n- Point of application of **P** is at the top of the pole → perpendicular distance = 18 ft.\n- Point of application of **F** is 6 ft below the top → height = 12 ft above A.\n\n## Step 2: Moment of Force P About A\n\nMoment magnitude is:\n\n$M_P$ = (vertical distance from A) × (horizontal component of P)\n\nThe horizontal component of **P** is:\n\n$P_x = P\\cdot\\cos(45°) = 50\\cdot\\cos(45°) = 50\\cdot(\\sqrt{2} / 2)$\n\nSince this horizontal component pulls the pole top **to the left**, it tends to rotate the pole **counterclockwise** about A.\n\nTherefore,\n\n$M_P = 18\\cdot P\\cdot\\cos(45°)$\n$M_P = 18\\cdot(50)\\cdot(\\sqrt{2} / 2)$\n$M_P = 450\\sqrt{2} \\approx$ **636.4 ft·lb (counterclockwise)**\n\n## Step 3: Moment of Force F About A\n\nThe horizontal component of **F** is:\n\n$F_x = F\\cdot(4/5) = 80\\cdot(4/5) = 64$ lb\n\nThe perpendicular (vertical) distance from A to the line of action is 12 ft.\n\nMoment magnitude:\n\n$M_F = 12\\cdot F_x = 12\\cdot(80\\cdot 4/5) = 12\\cdot 64 =$ **768 ft·lb**\n\nThis force pulls the pole **to the right**, producing a **clockwise** moment.\n\n## Step 4: Determine Direction of Rotation\n\n- $M_P = 636.4$ ft·lb (counterclockwise)\n- $M_F = 768$ ft·lb (clockwise)\n\nSince $M_F > M_P$, the **net rotation** of the pole about A will be **clockwise**.\n\n## Final Summary\n\n| Force | Moment Expression | Moment (ft·lb) | Direction |\n|--------|--------------------|----------------|------------|\n| P = 50 lb | $18\\cdot P\\cdot\\cos(45°)$ | 636.4 | CCW |\n| F = 80 lb | $12\\cdot F\\cdot(4/5)$ | 768 | CW |\n\n**Result:** Pole rotates **clockwise** about point A.",
+      "resources": [
+        {
+          "type": "Khan Academy - Moments and Torque",
+          "url": "https://www.khanacademy.org/science/physics/torque-angular-momentum/torque-tutorial/v/introduction-to-torque"
+        },
+        {
+          "type": "Video - Moment Calculations",
+          "url": "https://www.youtube.com/watch?v=fVWlgWZZKZU"
+        }
+      ],
+      "images": ["images/Problem-1.png"]
+    },
+    {
+      "number": 2,
+      "points": 10,
+      "question": "",
+      "choices": [],
+      "answer": "W_max = (17/13)(15) ≈ 19.6 lb",
+      "explanation": "## 1) Resolve forces with trigonometry\n\nUnit directions:\n\n$$\\hat u_{AB}=\\langle -\\cos 45^\\circ,\\ +\\sin 45^\\circ\\rangle,\\qquad \\hat u_{CB}=\\langle \\tfrac{5}{13},\\ \\tfrac{12}{13}\\rangle.$$\n\nEquilibrium at the pin $B$:\n\n$$T_A\\hat u_{AB}+T_C\\hat u_{CB}-W\\,\\mathbf j=\\mathbf 0$$\n\nComponent equations:\n\n$$-\\,T_A\\cos 45^\\circ+T_C\\tfrac{5}{13}=0 \\quad\\Rightarrow\\quad T_A=\\frac{\\tfrac{5}{13}}{\\cos 45^\\circ}\\,T_C =\\frac{10}{13\\sqrt{2}}\\,T_C,$$\n\n$$T_A\\sin 45^\\circ+T_C\\tfrac{12}{13}-W=0.$$\n\nSubstitute $T_A$ from the first equation into the second:\n\n$$W=T_A\\sin 45^\\circ+T_C\\frac{12}{13} =\\left(\\frac{10}{13\\sqrt{2}}\\,T_C\\right)\\sin 45^\\circ+T_C\\frac{12}{13} =T_C\\left(\\frac{5}{13}+\\frac{12}{13}\\right) =\\boxed{\\frac{17}{13}T_C}.$$\n\nAlso, from the relation above:\n\n$$T_C=\\frac{13\\sqrt{2}}{10}\\,T_A\\approx 1.84\\,T_A,$$\n\nso the **right** cord always carries more tension; it will reach its limit first.\n\n## 2) Apply the allowable tension\n\nWith $T_C\\le 15\\,\\text{lb}$ governing:\n\n$$W_{\\max}=\\frac{17}{13}(15)=\\boxed{\\frac{255}{13}\\ \\text{lb}\\approx 19.62\\ \\text{lb}}.$$\n\n(The corresponding $T_A=(10/(13\\sqrt{2}))\\,15\\approx 8.16\\,\\text{lb}\\le 15\\,\\text{lb}$.)\n\n## Final Answer\n\nThe **greatest weight** the cords can support without exceeding 15 lb in either cord is **$\\approx 19.6\\,\\text{lb}$**.",
+      "resources": [
+        {
+          "type": "Khan Academy - Tension and Equilibrium",
+          "url": "https://www.khanacademy.org/science/physics/forces-newtons-laws/tension-tutorial/v/tension-in-a-string"
+        },
+        {
+          "type": "Video - Statics Problems",
+          "url": "https://www.youtube.com/watch?v=Oh-VldAP7Oc"
+        }
+      ],
+      "images": ["images/Problem-2.png"]
+    },
+    {
+      "number": 3,
+      "points": 10,
+      "question": "",
+      "choices": [],
+      "answer": "|F₂| ≈ 66.39 lb; α_x ≈ 106.89°, α_y ≈ 120.21°, α_z ≈ 144.48°",
+      "explanation": "## Step 1: Resolve $\\mathbf{F}_1$ into components using trig\n\nLet the angle below horizontal be $\\alpha=50^\\circ$ and the azimuth in the horizontal plane from +y toward +x be $\\phi=30^\\circ$.\n\n- Horizontal magnitude of $\\mathbf{F}_1$: $$F_{1h} = F_1\\cos\\alpha = 60\\cos 50^\\circ.$$\n\n- Components of $\\mathbf{F}_1$:\n$$F_{1x} = F_{1h}\\sin\\phi = 60\\cos 50^\\circ\\sin 30^\\circ,\\\\ F_{1y} = F_{1h}\\cos\\phi = 60\\cos 50^\\circ\\cos 30^\\circ,\\\\ F_{1z} = -F_1\\sin\\alpha = -60\\sin 50^\\circ.$$\n\nCompute numerically:\n- $F_{1h}=60\\cos 50^\\circ\\approx 38.5673\\ \\text{lb}$.\n- $F_{1x}\\approx 38.5673\\sin 30^\\circ\\approx 19.2836\\ \\text{lb}$.\n- $F_{1y}\\approx 38.5673\\cos 30^\\circ\\approx 33.4002\\ \\text{lb}$.\n- $F_{1z}\\approx -60\\sin 50^\\circ\\approx -45.9627\\ \\text{lb}$.\n\nSo $$\\mathbf{F}_1\\approx \\langle 19.2836,\\; 33.4002,\\; -45.9627\\rangle\\ \\text{lb}.$$\n\n## Step 2: Use resultant to find $\\mathbf{F}_2$\n\nBy equilibrium of vectors:\n$$\\mathbf{F}_1 + \\mathbf{F}_2 = \\mathbf{F}_R \\,\\Rightarrow\\, \\mathbf{F}_2 = \\mathbf{F}_R - \\mathbf{F}_1.$$\n\nGiven $\\mathbf{F}_R=\\langle 0,0,-100\\rangle$ lb, we get component-wise:\n$$F_{2x} = 0 - F_{1x} = -19.2836\\ \\text{lb},\\\\ F_{2y} = 0 - F_{1y} = -33.4002\\ \\text{lb},\\\\ F_{2z} = -100 - F_{1z} = -100 - (-45.9627) = -54.0373\\ \\text{lb}.$$\n\nThus $$\\mathbf{F}_2\\approx \\langle -19.2836,\\; -33.4002,\\; -54.0373\\rangle\\ \\text{lb}.$$\n\n## Step 3: Magnitude of $\\mathbf{F}_2$\n\n$$|\\mathbf{F}_2| = \\sqrt{F_{2x}^2 + F_{2y}^2 + F_{2z}^2} \\approx \\sqrt{(-19.2836)^2 + (-33.4002)^2 + (-54.0373)^2} \\approx 66.39\\ \\text{lb}.$$\n\n## Step 4: Coordinate direction angles of $\\mathbf{F}_2$\n\nCoordinate direction angles are the angles between $\\mathbf{F}_2$ and the +x, +y, +z axes:\n$$\\cos\\alpha_x = \\frac{F_{2x}}{|\\mathbf{F}_2|},\\quad \\cos\\alpha_y = \\frac{F_{2y}}{|\\mathbf{F}_2|},\\quad \\cos\\alpha_z = \\frac{F_{2z}}{|\\mathbf{F}_2|}.$$\n\nCompute the angles (in degrees):\n- $\\alpha_x = \\cos^{-1}\\left(\\dfrac{-19.2836}{66.389}\\right) \\approx 106.89^\\circ.$\n- $\\alpha_y = \\cos^{-1}\\left(\\dfrac{-33.4002}{66.389}\\right) \\approx 120.21^\\circ.$\n- $\\alpha_z = \\cos^{-1}\\left(\\dfrac{-54.0373}{66.389}\\right) \\approx 144.48^\\circ.$\n\n## Final Answers\n\n- $\\mathbf{F}_2\\approx \\langle -19.28,\\; -33.40,\\; -54.04\\rangle\\ \\text{lb}.$\n- Magnitude: $|\\mathbf{F}_2|\\approx 66.39\\ \\text{lb}.$\n- Coordinate direction angles: $\\alpha_x\\approx 106.89^\\circ$, $\\alpha_y\\approx 120.21^\\circ$, $\\alpha_z\\approx 144.48^\\circ$",
+      "resources": [
+        {
+          "type": "Khan Academy - 3D Vectors",
+          "url": "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:vectors/x9e81a4f98389efdf:vectors-intro/v/introduction-to-vectors-and-scalars"
+        },
+        {
+          "type": "Video - Vector Components in 3D",
+          "url": "https://www.youtube.com/watch?v=8QihetGj3pg"
+        }
+      ],
+      "images": ["images/Problem-3.png"]
+    },
+    {
+      "number": 4,
+      "points": 10,
+      "question": "",
+      "choices": [],
+      "answer": "R ≈ 72 lb, φ ≈ 7.2° (from the -x axis); Line of action intersects AB ≈ 5.2 in above B",
+      "explanation": "## Interpreting the diagram\n\n- The $50\\,\\text{lb}$ force at $B$ follows a 5–12–13 slope **down-left**: $F_{50}=\\langle -50\\tfrac{12}{13},\\ -50\\tfrac{5}{13}\\rangle$.\n- The $25\\,\\text{lb}$ force acts **left** at $y=+10\\,\\text{in}$: $F_{25}=\\langle -25,0\\rangle$.\n- The $10\\,\\text{lb}$ force at $C$ acts **upward** at $x=+15\\,\\text{in}$: $F_{10}=\\langle 0,+10\\rangle$.\n- The shown couple $M=30\\,\\text{lb·in}$ is **clockwise** $\\Rightarrow M=-30\\,\\text{lb·in}$.\n\n## A) Resultant of the forces (magnitude & direction)\n\nSum of components:\n$$\\sum F_x = -71.154,\\qquad \\sum F_y = -9.231.$$\n\nMagnitude:\n$$R=\\sqrt{(\\sum F_x)^2+(\\sum F_y)^2}=\\boxed{71.75\\,\\text{lb}}\\ \\approx\\ 72\\,\\text{lb}.$$\n\nSmall angle the resultant makes **with the negative $x$-axis**:\n$$\\varphi=\\tan^{-1}\\!\\left(\\frac{|\\sum F_y|}{|\\sum F_x|}\\right)=\\boxed{7.39\\,^\\circ}\\ \\approx\\ 7.2^\\circ.$$\n\n(So the resultant points mostly left, about $7.2^\\circ$ **below** the negative $x$-axis because $\\sum F_y<0$.)\n\n## B) Intersection of the resultant's line of action with $AB$\n\nMoments about $B$:\n- $F_{25}$ at $y=10$: $+25\\cdot 10=+250\\,\\text{lb·in}$ (CCW).\n- $F_{10}$ at $x=15$: $+10\\cdot 15=+150\\,\\text{lb·in}$ (CCW).\n- Couple $M=-30\\,\\text{lb·in}$ (CW).\n\nTotal: $M_B=250+150-30=\\boxed{370\\,\\text{lb·in}}$.\n\nLet the resultant cross $AB$ at $(0,y_0)$. The moment of $\\mathbf R$ about $B$ is:\n$$M_B=(0,y_0)\\times(\\sum F_x,\\sum F_y)=-y_0\\,\\sum F_x.$$\n\nSince $\\sum F_x<0$, $y_0=\\dfrac{M_B}{|\\sum F_x|}=\\boxed{5.20\\,\\text{in}}\\,\\text{above B}\\ \\approx\\ 5.2\\,\\text{in}$.\n\n## Final Answers\n\n(A) $R\\approx 72\\,\\text{lb}$, $\\varphi\\approx 7.2^\\circ$ (from the $-x$ axis)\n(B) Line of action intersects $AB$ **$\\approx 5.2\\,\\text{in}$** above $B$",
+      "resources": [
+        {
+          "type": "Khan Academy - Resultant Forces",
+          "url": "https://www.khanacademy.org/science/physics/forces-newtons-laws/balanced-unbalanced-forces/v/resultant-of-forces"
+        },
+        {
+          "type": "Video - Moment and Couple Systems",
+          "url": "https://www.youtube.com/watch?v=fVWlgWZZKZU"
+        }
+      ],
+      "images": ["images/Problem-4.png"]
+    },
+    {
+      "number": 5,
+      "points": 10,
+      "question": "",
+      "choices": [],
+      "answer": "M_C = ⟨-36, 96, -56⟩ N·m; M_x = -12 N·m; M_OA = -43.2 N·m",
+      "explanation": "## Given\n\nForce at **B**: $$\\mathbf F=\\langle 80,-40,-120\\rangle\\ \\text{N} = 80\\,\\mathbf i-40\\,\\mathbf j-120\\,\\mathbf k.$$\n\nGeometry: $$O=(0,0,0),\\quad C=(0,0,0.6),\\quad A=(0.8,0,0.6),\\quad B=(0.8,0.3,0.6).$$\n\n## 1) Moment of $\\mathbf F$ about point C (Cartesian vector)\n\nUse $\\mathbf M_C=\\mathbf r_{CB}\\times \\mathbf F$, where $\\mathbf r_{CB}=\\overrightarrow{CB}=B-C$.\n\n$$\\mathbf r_{CB}=\\langle 0.8,\\,0.3,\\,0\\rangle.$$\n\nCross product:\n$$\\mathbf M_C =\\begin{vmatrix} \\mathbf i & \\mathbf j & \\mathbf k\\\\ 0.8&0.3&0\\\\ 80&-40&-120 \\end{vmatrix} =(-36)\\,\\mathbf i + (96)\\,\\mathbf j + (-56)\\,\\mathbf k.$$\n\n$$\\boxed{\\;\\mathbf M_C=\\langle -36,\\ 96,\\ -56\\rangle\\ \\text{N·m}\\;}$$\n\n## 2) Moment of $\\mathbf F$ about the x-axis\n\nTake point $O$ (on the $x$-axis). First get $\\mathbf M_O=\\mathbf r_{OB}\\times \\mathbf F$ with $\\mathbf r_{OB}=B-O=\\langle 0.8,0.3,0.6\\rangle$.\n\n$$\\mathbf M_O =\\begin{vmatrix} \\mathbf i & \\mathbf j & \\mathbf k\\\\ 0.8&0.3&0.6\\\\ 80&-40&-120 \\end{vmatrix} =(-12)\\,\\mathbf i + (144)\\,\\mathbf j + (-56)\\,\\mathbf k.$$\n\nUnit vector of the $x$-axis is $\\mathbf e_x=\\mathbf i$. Hence:\n$$\\boxed{\\;M_{x}=\\mathbf M_O\\cdot \\mathbf e_x = -12\\ \\text{N·m}\\;}$$\n\n## 3) Moment of $\\mathbf F$ about the axis from O to A\n\nAxis direction $\\overrightarrow{OA}=A-O=\\langle 0.8,0,0.6\\rangle$.\n\n$$\\|\\overrightarrow{OA}\\|=\\sqrt{0.8^2+0^2+0.6^2}=1 \\ \\Rightarrow\\ \\mathbf e_{OA}=\\langle 0.8,0,0.6\\rangle.$$\n\nMoment about the $OA$ axis:\n$$M_{OA} = \\mathbf M_O\\cdot \\mathbf e_{OA} = \\langle -12,144,-56\\rangle\\cdot \\langle 0.8,0,0.6\\rangle = (-12)(0.8) + (144)(0) + (-56)(0.6) = \\boxed{-43.2\\ \\text{N·m}}.$$\n\n## Final results\n- $\\mathbf M_C=\\boxed{\\langle -36,\\ 96,\\ -56\\rangle\\ \\text{N·m}}$ (Cartesian vector)\n- $M_x=\\boxed{-12\\ \\text{N·m}}$\n- $M_{OA}=\\boxed{-43.2\\ \\text{N·m}}$ about the axis $O\\to A$",
+      "resources": [
+        {
+          "type": "Khan Academy - Cross Product",
+          "url": "https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/x786f2022:vectors-and-matrices/v/cross-product-introduction"
+        },
+        {
+          "type": "Video - 3D Moments",
+          "url": "https://www.youtube.com/watch?v=8QihetGj3pg"
+        }
+      ],
+      "images": ["images/Problem-5.png"]
+    },
+    {
+      "number": 6,
+      "points": 20,
+      "question": "",
+      "choices": [],
+      "answer": "P₁ ≈ 1475 lb, P₂ ≈ 417 lb",
+      "explanation": "## Task\n\nFind two values of $P$ such that the magnitude of the resultant is $800$.\n\n## Resolve the known cable forces\n\n- $1000$ acting along a $3:4:5$ direction (up-left).\n  Components: $F_{1000,x}=-1000\\,(3/5)=-600$, $\\;F_{1000,y}=+1000\\,(4/5)=+800$.\n\n- $400$ at $30^\\circ$ below the $-x$ axis (i.e., at $210^\\circ$ from $+x$).\n  Components: $F_{400,x}=-400\\cos 30^\\circ=-346.410$, $\\;F_{400,y}=-400\\sin 30^\\circ=-200$.\n\n- $P$ acts along $+x$: $F_{P,x}=P$, $F_{P,y}=0$.\n\nVertical sum (independent of $P$):\n\n$$\\sum F_y = 800 - 200 = 600.$$\n\n## Enforce the resultant magnitude\n\nThe resultant must satisfy\n\n$$(\\sum F_x)^2 + (\\sum F_y)^2 = 800^2.$$\n\nSince $\\sum F_y=600$, the required horizontal component magnitude is\n\n$$\\big\\lvert \\sum F_x \\big\\rvert = \\sqrt{800^2-600^2} = 529.150.$$\n\nBut\n\n$$\\sum F_x = P + (-600) + (-346.410) = P - 946.410.$$\n\nTherefore\n\n$$P - 946.410 = \\pm 529.150.$$\n\n## Solutions for $P$\n\n$$\\boxed{P_1 = 946.410 + 529.150 = 1475.560 \\approx 1475}$$\n$$\\qquad$$\n$$\\boxed{P_2 = 946.410 - 529.150 = 417.260 \\approx 417}$$\n\n**Check:** For either $P$, $\\sqrt{(\\sum F_x)^2 + 600^2}=800$.",
+      "resources": [
+        {
+          "type": "Khan Academy - Vector Addition",
+          "url": "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:vectors/x9e81a4f98389efdf:vector-add-sub/v/adding-vectors-algebraically-and-graphically"
+        },
+        {
+          "type": "Video - Equilibrium of Forces",
+          "url": "https://www.youtube.com/watch?v=Oh-VldAP7Oc"
+        }
+      ],
+      "images": ["images/Problem-6.png"]
+    }
+  ]
+}

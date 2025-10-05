@@ -121,44 +121,50 @@ h1 {
   border-top-right-radius: 12px;
   position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   overflow: visible;
   z-index: 1000;
 }
 
-/* Subject tabs */
-.subject-tabs {
+/* Subject selector dropdown */
+.subject-selector {
   display: flex;
-  gap: 4px;
-  padding: 0;
-  margin: 0;
-  flex: 1;
-}
-
-.subject-tab {
-  padding: 8px 12px;
-  background: #6ba3e8;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #003366;
-  transition: all 0.2s ease;
-  text-align: center;
-  flex: 1;
+  align-items: center;
+  gap: 8px;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
-.subject-tab:hover {
-  background: #5a8fd6;
-  color: #002147;
+.subject-selector label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
 }
 
-.subject-tab.active {
-  background: #004d8a;
-  color: white;
+#subject-select {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+#subject-select:hover {
+  border-color: #4a90e2;
+}
+
+#subject-select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
 /* Mode toggle button */

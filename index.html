@@ -43,7 +43,10 @@
     
     <aside id="sidebar">
       <div class="sidebar-header">
-        <div id="subject-tabs" class="subject-tabs"></div>
+        <div class="subject-selector">
+          <label for="subject-select">Subject:</label>
+          <select id="subject-select" onchange="selectSubject(this.value)"></select>
+        </div>
         <button id="mode-toggle" class="mode-toggle-btn tooltip-trigger" data-tooltip="Switch between Quiz mode (testing) and Tutor mode (learning)" onclick="toggleMode()">
           <span id="mode-icon">📝</span>
         </button>
@@ -799,10 +802,16 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       path = path.replace('flashcards.txt', 'quiz.json');
     }
     
-    // Extract the directory path from the full path (e.g., "tests/Physics/PHYS 214 - Test 1/Quiz 2 V3")
-    const dirPath = path.substring(0, path.lastIndexOf('/'));
+    // URL encode the path to handle spaces and special characters
+    // Split by '?' to preserve query string, then encode only the path part
+    const [pathPart, queryPart] = path.split('?');
+    const encodedPath = pathPart.split('/').map(segment => encodeURIComponent(segment)).join('/') + 
+                        (queryPart ? '?' + queryPart : '');
     
-    return fetch(path)
+    // Extract the directory path from the full path (e.g., "tests/Physics/PHYS 214 - Test 1/Quiz 2 V3")
+    const dirPath = pathPart.substring(0, pathPart.lastIndexOf('/'));
+    
+    return fetch(encodedPath)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to load ${path}`);
         return response.text();
@@ -904,8 +913,8 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
   }
 
   function createSubjectTabs(subjects) {
-    const tabsContainer = document.getElementById('subject-tabs');
-    tabsContainer.innerHTML = '';
+    const selectElement = document.getElementById('subject-select');
+    selectElement.innerHTML = '';
     
     console.log('createSubjectTabs called with mode:', currentMode);
     
@@ -918,36 +927,29 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       }
     });
     
-    console.log('Creating tabs for subjects:', filteredSubjects.map(s => s.name));
+    console.log('Creating dropdown for subjects:', filteredSubjects.map(s => s.name));
     
     filteredSubjects.forEach((subject, idx) => {
-      const tab = document.createElement('button');
-      tab.className = 'subject-tab';
-      tab.textContent = subject.name;
-      tab.dataset.subjectId = subject.id;
-      tab.onclick = (e) => selectSubject(subject.id, e);
+      const option = document.createElement('option');
+      option.value = subject.id;
+      option.textContent = subject.name;
       
       if (idx === 0) {
-        tab.classList.add('active');
+        option.selected = true;
         currentSubject = subject.id;
       }
       
-      tabsContainer.appendChild(tab);
+      selectElement.appendChild(option);
     });
   }
 
-  function selectSubject(subjectId, event) {
+  function selectSubject(subjectId) {
     currentSubject = subjectId;
     
-    // Update active tab
-    document.querySelectorAll('.subject-tab').forEach(tab => {
-      tab.classList.remove('active');
-    });
-    if (event && event.target) {
-      event.target.classList.add('active');
-    } else {
-      const tab = document.querySelector(`.subject-tab[data-subject-id="${subjectId}"]`);
-      if (tab) tab.classList.add('active');
+    // Update dropdown selection
+    const selectElement = document.getElementById('subject-select');
+    if (selectElement) {
+      selectElement.value = subjectId;
     }
     
     // Find subject config
@@ -1128,12 +1130,14 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         }
       });
       
-      // Add Wizard Mode button at the end (after all quiz versions)
-      const wizardBtn = document.createElement('button');
-      wizardBtn.className = 'load-quiz-btn wizard-mode-btn';
-      wizardBtn.innerHTML = '🧙 <div style="line-height: 1.3;">Wizard Mode<br><span style="font-size: 0.85em;">(combined quizzes)</span></div>';
-      wizardBtn.onclick = () => loadWizardMode(testSet);
-      content.appendChild(wizardBtn);
+      // Add Wizard Mode button at the end (after all quiz versions) - only if tutorPath exists
+      if (testSet.tutorPath) {
+        const wizardBtn = document.createElement('button');
+        wizardBtn.className = 'load-quiz-btn wizard-mode-btn';
+        wizardBtn.innerHTML = '🧙 <div style="line-height: 1.3;">Wizard Mode<br><span style="font-size: 0.85em;">(combined quizzes)</span></div>';
+        wizardBtn.onclick = () => loadWizardMode(testSet);
+        content.appendChild(wizardBtn);
+      }
       
       // Toggle accordion
       header.addEventListener('click', (e) => {
