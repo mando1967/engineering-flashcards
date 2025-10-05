@@ -1,0 +1,131 @@
+{
+  "title": "MATLAB Basics",
+  "introduction": {
+    "title": "Introduction: MATLAB Basics Overview",
+    "description": "This course introduces essential MATLAB commands and concepts used in everyday numerical computing, visualization, and programming.",
+    "concepts": [
+      "Clearing the Workspace",
+      "Viewing Workspace Variables",
+      "Closing Figure Windows",
+      "Creating Vectors",
+      "Element-Wise Operations",
+      "Getting the Size of a Matrix",
+      "Displaying Output",
+      "Writing Comments",
+      "Finding Maximum Values",
+      "Plotting Data and Functions",
+      "Saving and Loading Data",
+      "Creating Matrices of Zeros or Ones",
+      "Generating Random Numbers",
+      "For-Loops",
+      "Listing Variables in the Workspace",
+      "Calculating the Mean (Average)",
+      "Defining Anonymous Functions",
+      "Clearing the Command Window",
+      "Getting Help in MATLAB",
+      "MATLAB Matrices and Arrays Overview"
+    ]
+  },
+  "concepts": [
+    {
+      "title": "Clearing the Workspace",
+      "explanation": "The workspace stores variables created during your MATLAB session. Use the clear command to remove them and start fresh.",
+      "examples": "clear                 % clears all variables\nclear x y z           % clears specific variables"
+    },
+    {
+      "title": "Viewing Workspace Variables",
+      "explanation": "The workspace holds all active variables. You can display their names and details using who or whos.",
+      "examples": "a = 10; b = [1 2 3];\nwho                   % lists variable names\nwhos                  % lists names, sizes, and data types"
+    },
+    {
+      "title": "Closing Figure Windows",
+      "explanation": "MATLAB uses figure windows to show plots. Use close commands to close one or all figures.",
+      "examples": "close                 % closes the current figure\nclose all             % closes all open figures"
+    },
+    {
+      "title": "Creating Vectors",
+      "explanation": "A vector is a one-dimensional array of numbers. You can create row or column vectors using brackets or ranges.",
+      "examples": "v = [1 2 3 4 5];      % row vector\nv = 1:5;              % shorthand for 1 through 5\nv = 0:2:10;           % step size of 2 → 0, 2, 4, 6, 8, 10"
+    },
+    {
+      "title": "Element-Wise Operations",
+      "explanation": "Element-wise operations perform arithmetic on corresponding elements in two arrays of equal size.",
+      "examples": "A = [1 2 3];\nB = [4 5 6];\nC = A .* B;           % element-wise multiplication → [4 10 18]\nD = A .^ 2;           % element-wise squaring → [1 4 9]"
+    },
+    {
+      "title": "Getting the Size of a Matrix",
+      "explanation": "The size function returns the number of rows and columns in an array or matrix.",
+      "examples": "A = [1 2 3; 4 5 6];\nsize(A)               % returns [2 3]"
+    },
+    {
+      "title": "Displaying Output",
+      "explanation": "Use disp to show text or variable values in the Command Window.",
+      "examples": "x = 5;\ndisp('Hello MATLAB!');\ndisp(x);"
+    },
+    {
+      "title": "Writing Comments",
+      "explanation": "Comments are notes in code that MATLAB ignores. They help explain what your code does.",
+      "examples": "% This line calculates the square of x\nx = 4;\ny = x^2;              % y equals 16"
+    },
+    {
+      "title": "Finding Maximum Values",
+      "explanation": "Use max to get the largest element in a vector or each column in a matrix.",
+      "examples": "v = [3 9 1 5];\nmax(v)                % returns 9\n\nA = [1 5; 3 2];\nmax(A)                % returns [3 5] (column-wise maximums)"
+    },
+    {
+      "title": "Plotting Data and Functions",
+      "explanation": "The plot function visualizes data or mathematical functions.",
+      "examples": "x = -5:5;\ny = x.^2;\nplot(x, y);\ntitle('y = x^2'); xlabel('x'); ylabel('y');\n\nt = 0:0.1:2*pi;\nplot(t, sin(t));       % plots sine wave"
+    },
+    {
+      "title": "Saving and Loading Data",
+      "explanation": "You can save variables to a MAT-file for later and reload them into your workspace.",
+      "examples": "a = [1 2 3];\nsave('data.mat');      % saves all variables\nclear\nload('data.mat');      % reloads variables"
+    },
+    {
+      "title": "Creating Matrices of Zeros or Ones",
+      "explanation": "MATLAB can quickly create arrays filled with zeros or ones, useful for initializing matrices.",
+      "examples": "zeros(3,3)             % 3×3 matrix of zeros\nones(2,4)              % 2×4 matrix of ones"
+    },
+    {
+      "title": "Generating Random Numbers",
+      "explanation": "Use rand for random values between 0 and 1, or randi for random integers.",
+      "examples": "rand(3,3)              % 3×3 matrix, values 0–1\nrandi(10,2,3)          % random integers 1–10, size 2×3"
+    },
+    {
+      "title": "For-Loops",
+      "explanation": "For-loops repeat a set of commands a specific number of times.",
+      "examples": "sumVal = 0;\nfor i = 1:10\n    sumVal = sumVal + i;\nend\ndisp(sumVal);          % displays 55"
+    },
+    {
+      "title": "Listing Variables in the Workspace",
+      "explanation": "Use who or whos to list active variables in your workspace.",
+      "examples": "who                    % lists names\nwhos                   % shows names, sizes, and data types"
+    },
+    {
+      "title": "Calculating the Mean (Average)",
+      "explanation": "The mean function returns the arithmetic average of numeric data.",
+      "examples": "v = [2 4 6 8];\nmean(v)                % returns 5\n\nA = [1 2; 3 4];\nmean(A)                % returns [2 3] (column averages)"
+    },
+    {
+      "title": "Defining Anonymous Functions",
+      "explanation": "Anonymous functions are quick one-line functions defined without a file.",
+      "examples": "f = @(x) x.^2 + 3*x + 2;\nf(4)                   % returns 30\n\nfplot(@(x) x.^2 - 2*x, [-2 4]);"
+    },
+    {
+      "title": "Clearing the Command Window",
+      "explanation": "The clc command clears all text from the Command Window without affecting variables.",
+      "examples": "clc"
+    },
+    {
+      "title": "Getting Help in MATLAB",
+      "explanation": "MATLAB includes built-in documentation and examples for every function.",
+      "examples": "help plot              % brief description\ndoc plot               % opens full documentation"
+    },
+    {
+      "title": "MATLAB Matrices and Arrays Overview",
+      "explanation": "MATLAB stores almost all data as matrices or arrays. You can access and manipulate their elements easily.",
+      "examples": "A = [1 2 3; 4 5 6];\nA(2,3)                 % element in row 2, column 3 → 6\nA(:,2)                 % all rows in column 2 → [2;5]"
+    }
+  ]
+}

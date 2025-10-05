@@ -3,16 +3,19 @@
     {
       "id": "physics",
       "name": "Physics",
+      "quizOnly": true,
       "testSets": [
         {
           "id": "phys214-test2",
           "name": "PHYS 214 - Test 2",
-          "path": "Physics/PHYS 214 - Test 2",
+          "quizPath": "Physics/PHYS 214 - Test 2",
+          "tutorPath": "Physics/PHYS 214 - Test 2",
           "quizVersions": [
             {
               "id": "quiz2v1",
               "name": "Quiz 2 V1",
-              "imageCount": 9
+              "imageCount": 9,
+              "isQuizJson": true
             },
             {
               "id": "quiz2v2",
@@ -33,6 +36,26 @@
               "id": "quiz2v5",
               "name": "Quiz 2 V5",
               "imageCount": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matlab",
+      "name": "Matlab",
+      "tutorOnly": true,
+      "testSets": [
+        {
+          "id": "matlab-basics",
+          "name": "Matlab Basics",
+          "tutorPath": "Matlab",
+          "isTutorialJson": true,
+          "quizVersions": [
+            {
+              "id": "beginner",
+              "name": "Beginner",
+              "imageCount": 0
             }
           ]
         }

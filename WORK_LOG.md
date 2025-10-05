@@ -2,6 +2,66 @@
 
 ---
 
+## October 4, 2025 Session (Part 3) ✅
+
+### Dual-Mode Feature: QuizWiz & TutorWiz
+
+**Goal:** Add ability to switch between Quiz mode (testing) and Tutor mode (learning) with separate content directories.
+
+### Changes Made ✅
+
+#### New Directory Structure
+- **Created** `tutor/` directory at root level (parallel to `tests/`)
+- Directory mirrors `tests/` structure for future tutorial content
+- Mode-specific content paths managed via config
+
+#### UI Enhancements
+- **Added mode toggle button** in sidebar header (square button with animated icons)
+  - Quiz mode: 📝 icon
+  - Tutor mode: 👨‍🏫 icon
+  - Smooth hover animations and visual feedback
+- **Dynamic page title** updates based on mode ("Quiz Wizard" vs "Tutor Wizard")
+- **PDF links hidden** in tutor mode (only relevant for quiz mode)
+
+#### Configuration Updates
+- **Modified `config.json`**: Added `quizPath` and `tutorPath` properties to test sets
+- Backward compatible with existing `path` property
+- Supports independent paths for quiz and tutor content
+
+#### JavaScript Implementation
+- **New global variable**: `currentMode` ('quiz' or 'tutor')
+- **New function**: `toggleMode()` - Switches between modes and updates UI
+- **New function**: `getModePath(testSet)` - Returns appropriate path based on current mode
+- **Updated all path references** to use `getModePath()` for dynamic routing
+- **Mode persistence**: Saves preference to cookies, restores on page load
+- **Timer tooltip updates**: Different messaging for study time vs test time
+
+#### State Management
+- Mode preference saved to `quizwiz_mode` cookie (365-day expiration)
+- Separate progress tracking per mode
+- Smooth mode switching preserves subject selection
+
+#### Files Modified
+- `index.html`: Added toggle button, mode switching logic, path management
+- `style.css`: Added `.mode-toggle-btn` styling with gradient and animations
+- `config.json`: Updated structure to support dual paths
+- `style.css?v=106`: Cache-busting version bump
+
+### Technical Notes
+- Mode switching reloads sidebar but preserves subject selection
+- Image paths correctly resolve for both modes
+- Wizard Mode respects current mode when loading flashcards
+- Clean separation between quiz (testing) and tutor (learning) content
+
+### First Tutorial Added ✅
+- **Created** Matlab subject (tutor-only)
+- **Added** Matlab Basics tutorial with Beginner level
+- **Converted** matlab_basics.txt to flashcard format (21 concepts)
+- **Configured** subject filtering to show Matlab only in tutor mode
+- Content includes: workspace management, vectors, plotting, loops, functions, and more
+
+---
+
 ## October 4, 2025 Session (Part 2) ✅
 
 ### Major Refactoring: Multi-Subject & Hierarchical Navigation

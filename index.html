@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=105" />
+  <link rel="stylesheet" href="style.css?v=107" />
   <style>
     #status {
       background: #fff3cd;
@@ -44,6 +44,9 @@
     <aside id="sidebar">
       <div class="sidebar-header">
         <div id="subject-tabs" class="subject-tabs"></div>
+        <button id="mode-toggle" class="mode-toggle-btn tooltip-trigger" data-tooltip="Switch between Quiz mode (testing) and Tutor mode (learning)" onclick="toggleMode()">
+          <span id="mode-icon">📝</span>
+        </button>
       </div>
       <div class="sidebar-content">
         <ul id="file-list"></ul>
@@ -199,6 +202,15 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       card.className = 'flashcard';
 
       const data = flashcards[currentIndex];
+      
+      console.log('💡 Data at render time - currentIndex:', currentIndex, {
+        hasExplanation: !!data.explanation,
+        hasAnswer: !!data.answer,
+        hasTitle: !!data.title,
+        explanationLength: data.explanation ? data.explanation.length : 0,
+        termPreview: data.term?.substring(0, 40)
+      });
+      
       const term = data.term;
       const definition = data.definition;
       const imagePath = data.image || '';
@@ -206,7 +218,28 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       // If we have structured fields, render a nicer layout; otherwise fall back.
       const hasStructured = data.title || data.choices || data.answer || data.explanation || data.seeKey;
 
-      if (hasStructured) {
+      // Check if this is a tutorial (has explanation but no answer/choices)
+      const isTutorial = data.explanation && !data.answer && !data.choices;
+      
+      console.log('🎯 RENDERING - isTutorial:', isTutorial, 'hasExplanation:', !!data.explanation, 'hasAnswer:', !!data.answer);
+
+      if (isTutorial) {
+        console.log('✅ Using TUTORIAL rendering');
+        console.log('Explanation content:', data.explanation?.substring(0, 200));
+
+        // Tutorial mode: Show concept and examples together (no "Show Answer" needed)
+        card.innerHTML = `
+          <div class="question-section">
+            <div class="term"><span class="question-title">${data.title || term}</span></div>
+          </div>
+          <div class="answer" style="display: block;">
+            <span class="answer-label">Explanation & Examples</span>
+            <div class="answer-text">${data.explanation}</div>
+          </div>
+        `;
+        
+        console.log('Tutorial card HTML created');
+      } else if (hasStructured) {
         // Render choices with radio buttons
         const choicesHtml = (data.choices && data.choices.length)
           ? `<ul class="choices">${data.choices.map((c, idx) => {
@@ -277,12 +310,14 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
             </div>
           </div>`;
         } else {
-          answerHtml = data.answer
-            ? `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${data.answer}</div></div>`
-            : `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">Answer</span>${userSelectionText}<div class="answer-text">${definition || ''}</div></div>`;
+          // For tutorial cards (no answer, only explanation with examples), show the full content
+          const contentToShow = data.answer ? data.answer : (data.explanation ? data.explanation : definition);
+          answerHtml = `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">${data.answer ? 'Answer' : 'Explanation & Examples'}</span>${userSelectionText}<div class="answer-text">${contentToShow}</div></div>`;
         }
         
-        const explanationHtml = (data.explanation && !data.seeKey)
+        // Only show explanation separately if there's also an answer (quiz mode)
+        // For tutorials (no answer), explanation is already shown in the answer section
+        const explanationHtml = (data.explanation && data.answer && !data.seeKey)
           ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
           : '';
         
@@ -402,8 +437,14 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       }
       fadeIn(container);
 
-      document.getElementById('show-btn').style.display = showingAnswer ? 'none' : 'inline-block';
-      document.getElementById('next-btn').style.display = showingAnswer ? 'inline-block' : 'none';
+      // For tutorials, hide "Show Answer" button since content is always visible
+      if (isTutorial) {
+        document.getElementById('show-btn').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'inline-block';
+      } else {
+        document.getElementById('show-btn').style.display = showingAnswer ? 'none' : 'inline-block';
+        document.getElementById('next-btn').style.display = showingAnswer ? 'inline-block' : 'none';
+      }
       
       updateProgressDisplay();
     });
@@ -415,7 +456,8 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
     const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
     const cards = [];
     let i = 0;
-    const isQuestionHeader = (s) => /^\d+\.\s/.test(s.trim());
+    // Match both "1. " format and "Concept 1:" format
+    const isQuestionHeader = (s) => /^(\d+\.|Concept\s+\d+:)/.test(s.trim());
 
     while (i < lines.length) {
       // Skip leading blank lines
@@ -448,6 +490,12 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
 
       const term = qLines.join('\n').trim();
       const definition = aLines.join('\n').trim();
+      
+      console.log('=== Parsed Card ===');
+      console.log('Term:', term.substring(0, 80));
+      console.log('Definition:', definition.substring(0, 150));
+      console.log('qLines:', qLines.length, 'aLines:', aLines.length);
+      console.log('Full definition length:', definition.length);
 
       // Try to structure the content
       let title = '';
@@ -548,6 +596,13 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         if (explanation) card.explanation = explanation;
       }
       
+      console.log('Card created:', {
+        hasTitleField: !!card.title,
+        hasAnswerField: !!card.answer,
+        hasExplanationField: !!card.explanation,
+        explanationVar: explanation ? explanation.substring(0, 50) : 'empty'
+      });
+      
       // Set seeKey flag regardless of structured fields
       if (seeKey) card.seeKey = true;
       
@@ -568,14 +623,16 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
 
   async function loadWizardMode(testSet) {
     currentQuizSet = `${testSet.id}/wizard`;
-    document.getElementById('page-title').textContent = `🧙 Wizard Mode - ${testSet.name}`;
+    const modePrefix = currentMode === 'quiz' ? '🧙 Wizard Mode' : '🧙 Tutor Wizard Mode';
+    document.getElementById('page-title').textContent = `${modePrefix} - ${testSet.name}`;
     
     try {
       const allFlashcards = [];
+      const basePath = getModePath(testSet);
       
       // Load all quiz versions for this test set
       for (const quiz of testSet.quizVersions) {
-        const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+        const path = `${basePath}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
         const response = await fetch(path);
         if (!response.ok) {
           console.warn(`Failed to load ${quiz.name}`);
@@ -587,12 +644,13 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         // Add source info to each card and update image paths
         cards.forEach(card => {
           card.sourceQuiz = quiz.name;
-          // Update image paths to include the full path
+          // Update image paths to include the full path (relative to mode directory)
+          const imagePath = `${testSet.tutorPath || testSet.quizPath || testSet.path}/${quiz.name}`;
           if (card.image) {
-            card.image = `${testSet.path}/${quiz.name}/${card.image}`;
+            card.image = `${imagePath}/${card.image}`;
           }
           if (card.images) {
-            card.images = card.images.map(img => `${testSet.path}/${quiz.name}/${img}`);
+            card.images = card.images.map(img => `${imagePath}/${img}`);
           }
         });
         
@@ -653,11 +711,93 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
     }
   }
 
-  function loadFlashcardsFrom(path, quizSet) {
+  function parseTutorialJson(jsonData) {
+    const tutorial = JSON.parse(jsonData);
+    const cards = [];
+    
+    // Add introduction card
+    if (tutorial.introduction) {
+      const conceptsList = tutorial.introduction.concepts.map((c, i) => `${i + 1}. ${c}`).join('\n');
+      cards.push({
+        term: tutorial.introduction.title,
+        definition: tutorial.introduction.description,
+        title: tutorial.introduction.title,
+        explanation: `${tutorial.introduction.description}\n\nConcepts Covered:\n${conceptsList}`
+      });
+    }
+    
+    // Add concept cards
+    tutorial.concepts.forEach((concept, idx) => {
+      cards.push({
+        term: `${idx + 1}. ${concept.title}`,
+        definition: concept.explanation,
+        title: `${idx + 1}. ${concept.title}`,
+        explanation: `${concept.explanation}\n\nExample:\n${concept.examples}`
+      });
+    });
+    
+    return cards;
+  }
+
+  function parseQuizJson(jsonData) {
+    const quiz = JSON.parse(jsonData);
+    const cards = [];
+    
+    quiz.questions.forEach(q => {
+      // Build the question text with choices
+      const questionLines = [`${q.number}. ${q.points ? `(${q.points} points) ` : ''}${q.question}`];
+      q.choices.forEach(choice => questionLines.push(choice));
+      
+      const card = {
+        term: questionLines.join('\n'),
+        definition: q.explanation || '',
+        title: questionLines[0],
+        choices: q.choices,
+        answer: q.answer,
+        explanation: q.explanation
+      };
+      
+      // Add images if present
+      if (q.images && q.images.length > 0) {
+        card.images = q.images;
+        card.image = q.images[0]; // First image for backward compatibility
+      }
+      
+      // Add resources if present
+      if (q.resources && q.resources.length > 0) {
+        card.resources = q.resources.map(r => ({
+          url: r.url,
+          title: r.type,
+          icon: r.type.toLowerCase().includes('video') ? '🎥' : 
+                r.type.toLowerCase().includes('khan') ? '🏛️' : 
+                r.type.toLowerCase().includes('article') ? '📝' : '🔗'
+        }));
+      }
+      
+      // Add seeKey flag if present
+      if (q.seeKey) {
+        card.seeKey = true;
+      }
+      
+      cards.push(card);
+    });
+    
+    return cards;
+  }
+
+  function loadFlashcardsFrom(path, quizSet, isJsonTutorial = false, isJsonQuiz = false) {
     currentQuizSet = quizSet;
     // Update page title - extract just the quiz name from the path
     const quizName = quizSet.split('/').pop();
-    document.getElementById('page-title').textContent = `Quiz Wizard - ${quizName}`;
+    const modeTitle = currentMode === 'quiz' ? 'Quiz Wizard' : 'Tutor Wizard';
+    document.getElementById('page-title').textContent = `${modeTitle} - ${quizName}`;
+    
+    // For JSON files, replace flashcards.txt with appropriate JSON filename
+    if (isJsonTutorial) {
+      path = path.replace('flashcards.txt', 'tutorial.json');
+    } else if (isJsonQuiz) {
+      path = path.replace('flashcards.txt', 'quiz.json');
+    }
     
     // Extract the directory path from the full path (e.g., "tests/Physics/PHYS 214 - Test 1/Quiz 2 V3")
     const dirPath = path.substring(0, path.lastIndexOf('/'));
@@ -668,7 +808,20 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         return response.text();
       })
       .then(data => {
-        flashcards = parseFlashcards(data);
+        flashcards = isJsonTutorial ? parseTutorialJson(data) : 
+                     isJsonQuiz ? parseQuizJson(data) : 
+                     parseFlashcards(data);
+        
+        console.log('📚 Flashcards after parsing - Total:', flashcards.length);
+        flashcards.forEach((card, idx) => {
+          console.log(`  Card ${idx}: hasExplanation=${!!card.explanation}, title="${card.title?.substring(0, 30)}"`);
+        });
+        
+        // Force fresh start for tutorials - clear any saved progress
+        if (currentMode === 'tutor') {
+          console.log('🧹 Clearing saved progress for tutorial');
+          currentIndex = 0;
+        }
         
         // Update image paths to include the full directory path
         flashcards.forEach((card, idx) => {
@@ -719,6 +872,13 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         isReviewMode = false;
         resetTimer();
         populateProblemSelector();
+        
+        console.log('🔍 Right before renderCard - flashcards[0]:', {
+          hasExplanation: !!flashcards[0]?.explanation,
+          hasAnswer: !!flashcards[0]?.answer,
+          hasTitle: !!flashcards[0]?.title
+        });
+        
         renderCard();
         updateStatsDisplay();
       });
@@ -726,6 +886,7 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
 
   let appConfig = null;
   let currentSubject = null;
+  let currentMode = 'quiz'; // 'quiz' or 'tutor'
 
   async function loadConfig() {
     try {
@@ -746,7 +907,20 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
     const tabsContainer = document.getElementById('subject-tabs');
     tabsContainer.innerHTML = '';
     
-    subjects.forEach((subject, idx) => {
+    console.log('createSubjectTabs called with mode:', currentMode);
+    
+    // Filter subjects based on current mode
+    const filteredSubjects = subjects.filter(subject => {
+      if (currentMode === 'tutor') {
+        return !subject.quizOnly; // Hide quizOnly subjects in tutor mode
+      } else {
+        return !subject.tutorOnly; // Hide tutorOnly subjects in quiz mode
+      }
+    });
+    
+    console.log('Creating tabs for subjects:', filteredSubjects.map(s => s.name));
+    
+    filteredSubjects.forEach((subject, idx) => {
       const tab = document.createElement('button');
       tab.className = 'subject-tab';
       tab.textContent = subject.name;
@@ -780,6 +954,74 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
     const subject = appConfig.subjects.find(s => s.id === subjectId);
     if (subject) {
       populateSidebar(subject.testSets, true);
+    }
+  }
+
+  function toggleMode() {
+    // Toggle between quiz and tutor modes
+    currentMode = currentMode === 'quiz' ? 'tutor' : 'quiz';
+    
+    console.log('Switched to mode:', currentMode);
+    
+    // Update icon
+    const modeIcon = document.getElementById('mode-icon');
+    modeIcon.textContent = currentMode === 'quiz' ? '📝' : '👨‍🏫';
+    
+    // Update page title
+    const pageTitle = document.getElementById('page-title');
+    pageTitle.textContent = currentMode === 'quiz' ? 'Quiz Wizard' : 'Tutor Wizard';
+    
+    // Update timer tooltip
+    const timerTooltip = document.querySelector('#timer-select').parentElement;
+    if (currentMode === 'tutor') {
+      timerTooltip.setAttribute('data-tooltip', 'Timer for study session (time allotted for learning)');
+    } else {
+      timerTooltip.setAttribute('data-tooltip', 'Timer applies to each problem (not for the entire quiz)');
+    }
+    
+    // Save mode preference
+    setCookie('quizwiz_mode', currentMode, 365);
+    
+    // Clear flashcard display
+    const flashcardContainer = document.getElementById('flashcard-container');
+    flashcardContainer.innerHTML = '';
+    
+    // Recreate subject tabs to show/hide mode-specific subjects
+    if (appConfig) {
+      createSubjectTabs(appConfig.subjects);
+      
+      // Select first available subject in the new mode and load its content
+      const filteredSubjects = appConfig.subjects.filter(subject => {
+        if (currentMode === 'tutor') {
+          return !subject.quizOnly; // Hide quizOnly subjects in tutor mode
+        } else {
+          return !subject.tutorOnly; // Hide tutorOnly subjects in quiz mode
+        }
+      });
+      
+      console.log('Filtered subjects for', currentMode, 'mode:', filteredSubjects.map(s => s.name));
+      
+      if (filteredSubjects.length > 0) {
+        currentSubject = filteredSubjects[0].id;
+        
+        // Manually trigger the active state on the first tab
+        const firstTab = document.querySelector('.subject-tab');
+        if (firstTab) {
+          firstTab.classList.add('active');
+        }
+        
+        // Load the sidebar with the first subject's test sets
+        populateSidebar(filteredSubjects[0].testSets, true);
+      }
+    }
+  }
+
+  function getModePath(testSet) {
+    // Return the appropriate path based on current mode
+    if (currentMode === 'tutor') {
+      return `tutor/${testSet.tutorPath || testSet.quizPath || testSet.path}`;
+    } else {
+      return `tests/${testSet.quizPath || testSet.path}`;
     }
   }
 
@@ -820,19 +1062,26 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         quizContent.className = 'accordion-content';
         
         const encodedQuizName = encodeURIComponent(quiz.name);
+        const basePath = getModePath(testSet);
         
         // Check if answer key exists (Quiz 2 V3 doesn't have one)
         const hasAnswerKey = quiz.name !== 'Quiz 2 V3';
         const keyFileName = `${quiz.name} KEY.pdf`;
         const encodedKeyFileName = encodeURIComponent(keyFileName);
-        const answerKeyLink = hasAnswerKey 
-          ? `<a href="tests/${testSet.path}/${encodedQuizName}/${encodedKeyFileName}" target="_blank" class="pdf-link">🔑 Answer Key</a>`
-          : `<span class="pdf-link disabled">🔑 Answer Key (Not Available)</span>`;
         
-        quizContent.innerHTML = `
-          <a href="tests/${testSet.path}/${encodedQuizName}/${encodedQuizName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
-          ${answerKeyLink}
-        `;
+        // Only show PDFs in quiz mode
+        if (currentMode === 'quiz') {
+          const answerKeyLink = hasAnswerKey 
+            ? `<a href="${basePath}/${encodedQuizName}/${encodedKeyFileName}" target="_blank" class="pdf-link">🔑 Answer Key</a>`
+            : `<span class="pdf-link disabled">🔑 Answer Key (Not Available)</span>`;
+          
+          quizContent.innerHTML = `
+            <a href="${basePath}/${encodedQuizName}/${encodedQuizName}.pdf" target="_blank" class="pdf-link">📄 Quiz PDF</a>
+            ${answerKeyLink}
+          `;
+        } else {
+          quizContent.innerHTML = '';
+        }
         
         // Toggle quiz accordion and load flashcards
         quizHeader.addEventListener('click', (e) => {
@@ -856,9 +1105,9 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
             quizAccordion.classList.add('active');
             
             // Load flashcards
-            const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+            const path = `${basePath}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
             const quizSetId = `${testSet.id}/${quiz.id}`;
-            loadFlashcardsFrom(path, quizSetId).catch(err => {
+            loadFlashcardsFrom(path, quizSetId, testSet.isTutorialJson, quiz.isQuizJson).catch(err => {
               console.error(err);
               alert(`Unable to load ${quiz.name}: ${err.message}`);
             });
@@ -872,9 +1121,10 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         // Auto-load first quiz of first test set (but don't expand)
         if (autoLoad && idx === 0 && qIdx === 0) {
           quizAccordion.classList.add('active');
-          const path = `tests/${testSet.path}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
+          const basePath = getModePath(testSet);
+          const path = `${basePath}/${quiz.name}/flashcards.txt?t=${Date.now()}`;
           const quizSetId = `${testSet.id}/${quiz.id}`;
-          loadFlashcardsFrom(path, quizSetId).catch(err => console.error(err));
+          loadFlashcardsFrom(path, quizSetId, testSet.isTutorialJson, quiz.isQuizJson).catch(err => console.error(err));
         }
       });
       
@@ -909,12 +1159,52 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
       return;
     }
     
+    // Restore saved mode preference (default to quiz mode)
+    const savedMode = getCookie('quizwiz_mode');
+    if (savedMode === 'quiz' || savedMode === 'tutor') {
+      currentMode = savedMode;
+    } else {
+      currentMode = 'quiz'; // Default to quiz mode
+      setCookie('quizwiz_mode', 'quiz', 365); // Save default
+    }
+    
+    console.log('Current mode on init:', currentMode);
+    
+    // Update UI to match current mode
+    const modeIcon = document.getElementById('mode-icon');
+    modeIcon.textContent = currentMode === 'quiz' ? '📝' : '👨‍🏫';
+    
+    const pageTitle = document.getElementById('page-title');
+    pageTitle.textContent = currentMode === 'quiz' ? 'Quiz Wizard' : 'Tutor Wizard';
+    
+    // Update timer tooltip based on mode
+    const timerTooltip = document.querySelector('#timer-select').parentElement;
+    if (currentMode === 'tutor') {
+      timerTooltip.setAttribute('data-tooltip', 'Timer for study session (time allotted for learning)');
+    } else {
+      timerTooltip.setAttribute('data-tooltip', 'Timer applies to each problem (not for the entire quiz)');
+    }
+    
+    // Create subject tabs (will be filtered by mode)
     createSubjectTabs(config.subjects);
     
-    // Load first subject's test sets
-    const firstSubject = config.subjects[0];
-    currentSubject = firstSubject.id;
-    populateSidebar(firstSubject.testSets, true);
+    // Get filtered subjects based on current mode
+    const filteredSubjects = config.subjects.filter(subject => {
+      if (currentMode === 'tutor') {
+        return !subject.quizOnly; // Hide quizOnly subjects in tutor mode
+      } else {
+        return !subject.tutorOnly; // Hide tutorOnly subjects in quiz mode
+      }
+    });
+    
+    console.log('Available subjects on init:', filteredSubjects.map(s => s.name));
+    
+    // Load first available subject's test sets
+    if (filteredSubjects.length > 0) {
+      const firstSubject = filteredSubjects[0];
+      currentSubject = firstSubject.id;
+      populateSidebar(firstSubject.testSets, true);
+    }
     
     // Auto-close sidebar on mobile/tablet
     if (window.innerWidth <= 768) {

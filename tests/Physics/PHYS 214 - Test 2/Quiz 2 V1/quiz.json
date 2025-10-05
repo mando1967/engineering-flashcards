@@ -1,0 +1,126 @@
+{
+  "title": "PHYS 214 - Test 2, Quiz 2 V1",
+  "questions": [
+    {
+      "number": 1,
+      "points": 3,
+      "question": "When one says that a capacitor C has a charge Q that means that the actual charges on its plates are:",
+      "choices": [
+        "(a) Q, Q",
+        "(b) Q/2, -Q/2",
+        "(c) Q, -Q",
+        "(d) Q/2, Q/2",
+        "(e) Q, 0"
+      ],
+      "answer": "(c) Q, -Q",
+      "explanation": "A capacitor stores equal and opposite charges on its two plates. When we say a capacitor has charge Q, one plate has +Q and the other has -Q, maintaining overall charge neutrality while creating an electric field between the plates.",
+      "resources": [
+        {
+          "type": "Khan Academy - Capacitors",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance"
+        },
+        {
+          "type": "Video - Capacitor Basics",
+          "url": "https://www.youtube.com/watch?v=X4EUwTwZ110"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "points": 3,
+      "question": "If you increase the distance between the plates of a parallel plate capacitor connected to a battery, you will:",
+      "choices": [
+        "(a) increase the capacitance",
+        "(b) increase the potential difference",
+        "(c) not affect the potential difference",
+        "(d) decrease the potential difference",
+        "(e) make Prof. Maravin cry"
+      ],
+      "answer": "(c) not affect the potential difference",
+      "explanation": "When connected to a battery, the potential difference across the capacitor remains constant (equal to the battery voltage). However, increasing the distance decreases capacitance (C = ε₀A/d), which reduces the charge stored (Q = CV). The battery maintains constant voltage.",
+      "resources": [
+        {
+          "type": "Khan Academy - Capacitance",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance"
+        },
+        {
+          "type": "Video - Parallel Plate Capacitors",
+          "url": "https://www.youtube.com/watch?v=ZrMltpK6iAw"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "points": 3,
+      "question": "The voltmeter in the circuit given below reads 100 V. And all the capacitors are exactly the same and have 500 μF capacitance. The magnitude of the charge on each capacitor is:",
+      "choices": [
+        "(a) 0.2 C",
+        "(b) 0.5 C",
+        "(c) 20 C",
+        "(d) 50 C",
+        "(e) none of these"
+      ],
+      "answer": "(e) none of these",
+      "explanation": "For identical capacitors in series, the voltage divides equally. With 100V across the combination, each capacitor gets a fraction of this voltage. The charge Q = CV depends on the specific circuit configuration. Without seeing the exact circuit diagram, we need to analyze the series/parallel arrangement to determine the actual charge.",
+      "resources": [
+        {
+          "type": "Khan Academy - Capacitors in Series",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-in-series"
+        },
+        {
+          "type": "Video - Capacitor Circuits",
+          "url": "https://www.youtube.com/watch?v=ZrMltpK6iAw"
+        }
+      ],
+      "images": ["images/Quiz 2 V1-0.png"]
+    },
+    {
+      "number": 4,
+      "points": 3,
+      "question": "You connect two capacitors, C₁ and C₂, in parallel and apply a 100 V potential difference to the combination. If you replace the combination with an equivalent capacitor and apply the same 100 V potential difference, the charge on the equivalent capacitor will be the same as:",
+      "choices": [
+        "(a) the charge on C₁",
+        "(b) the sum of the charges on C₁ and C₂",
+        "(c) the difference of the charges on C₁ and C₂",
+        "(d) the product of the charges on C₁ and C₂",
+        "(e) none of the above"
+      ],
+      "answer": "(b) the sum of the charges on C₁ and C₂",
+      "explanation": "In parallel, capacitors share the same voltage but store different charges. The equivalent capacitance is C_eq = C₁ + C₂, so Q_eq = C_eq × V = (C₁ + C₂) × V = C₁V + C₂V = Q₁ + Q₂. Total charge is conserved.",
+      "resources": [
+        {
+          "type": "Khan Academy - Parallel Capacitors",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/parallel-capacitors-part-1"
+        },
+        {
+          "type": "Video - Capacitors in Parallel",
+          "url": "https://www.youtube.com/watch?v=ZrMltpK6iAw"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "points": 3,
+      "question": "When it is time to replace your car battery with the new one, you need to ensure that the ratings of the old and new car battery match. Usually the units of this rating is ampere-hours (Ah). This unit is a unit of:",
+      "choices": [
+        "(a) power",
+        "(b) energy",
+        "(c) current",
+        "(d) charge",
+        "(e) force"
+      ],
+      "answer": "(d) charge",
+      "explanation": "Ampere-hours (Ah) = current × time = charge. This rating tells you how much total charge the battery can deliver. For example, a 50 Ah battery can theoretically deliver 50 A for 1 hour, or 1 A for 50 hours. Since Q = I × t, Ah is a unit of charge (1 Ah = 3600 C).",
+      "resources": [
+        {
+          "type": "Article - Battery Ratings",
+          "url": "https://www.electronics-tutorials.ws/battery/battery_4.html"
+        },
+        {
+          "type": "Video - Understanding Battery Capacity",
+          "url": "https://www.youtube.com/watch?v=g-wN3SYfQqM"
+        }
+      ]
+    }
+  ]
+}

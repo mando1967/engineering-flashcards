@@ -1,0 +1,331 @@
+{
+  "title": "PHYS 214 - Test 2, Quiz 2 V2",
+  "questions": [
+    {
+      "number": 1,
+      "points": 3,
+      "question": "Consisting of one or more pieces of conductor, separated in space, and used for charge and energy storage applications, this device is",
+      "choices": [
+        "(a) a resistor",
+        "(b) a battery",
+        "(c) a switch",
+        "(d) a capacitor"
+      ],
+      "answer": "(d) a capacitor",
+      "explanation": "Capacitors store electrical energy in an electric field between two conductors (plates). They're used in power supplies, filters, and timing circuits.",
+      "resources": [
+        {
+          "type": "Khan Academy - Capacitors",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-capacitors/v/capacitors-and-capacitance"
+        },
+        {
+          "type": "Video - How Capacitors Work",
+          "url": "https://www.youtube.com/watch?v=X4EUwTwZ110"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "points": 3,
+      "question": "Its essential elements are two different metals, spatially separated and sometimes immersed in an acidic solution. This is",
+      "choices": [
+        "(a) a resistor",
+        "(b) a battery",
+        "(c) a switch",
+        "(d) a capacitor"
+      ],
+      "answer": "(b) a battery",
+      "explanation": "Batteries use chemical reactions between different metals (electrodes) and an electrolyte to produce electrical energy. The voltage depends on the electrode materials used.",
+      "resources": [
+        {
+          "type": "Video - How Batteries Work",
+          "url": "https://www.youtube.com/watch?v=9OVtk6G2TnQ"
+        },
+        {
+          "type": "Article - Battery Basics",
+          "url": "https://learn.sparkfun.com/tutorials/what-is-a-battery/all"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "points": 3,
+      "question": "To protect the circuit, how would you connect the fuse?",
+      "choices": [
+        "(a) in series with the circuit in question",
+        "(b) in parallel with the circuit in question",
+        "(c) fuse does not have to be connected to the circuit, just placing it in the vicinity is sufficient"
+      ],
+      "answer": "(a) in series with the circuit in question",
+      "explanation": "Fuses must be in series so all current flows through them. When current exceeds the rating, the fuse melts and breaks the circuit, preventing damage.",
+      "resources": [
+        {
+          "type": "Article - Circuit Protection",
+          "url": "https://www.blikai.com/blog/how-does-a-fuse-work-full-guide"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "points": 3,
+      "question": "If 1000 J of work is required to carry 25 C charge from one point to another, the potential difference between these two points is",
+      "choices": [
+        "(a) 25,000 V",
+        "(b) 40 V",
+        "(c) 25 mV",
+        "(d) depends on the path",
+        "(e) none of these"
+      ],
+      "answer": "(b) 40 V, since V = W/q = 1000 J / 25 C",
+      "explanation": "Voltage (potential difference) is work per unit charge: V = W/q. It's path-independent in electrostatics. 1 Volt = 1 Joule/Coulomb.",
+      "resources": [
+        {
+          "type": "Khan Academy - Electric Potential",
+          "url": "https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage/electric-potential-voltage/v/electric-potential-at-a-point-in-space"
+        },
+        {
+          "type": "Video - Voltage Explained",
+          "url": "https://www.youtube.com/watch?v=z8qfhFXjsrw"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "points": 3,
+      "question": "A 60W light bulb carries a current of 0.5 A. The total charge passing through it in one hour is",
+      "choices": [
+        "(a) 3600 C",
+        "(b) 2400 C",
+        "(c) 1800 C",
+        "(d) 900 C",
+        "(e) 120 C"
+      ],
+      "answer": "(c) 1800 C, since Q = I t = 0.5 A × 3600 s",
+      "explanation": "Current is charge flow rate: I = Q/t, so Q = I×t. Remember to convert time to seconds (1 hour = 3600 s). 1 Ampere = 1 Coulomb/second.",
+      "resources": [
+        {
+          "type": "Khan Academy - Electric Current",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-1"
+        },
+        {
+          "type": "Video - Current and Charge",
+          "url": "https://www.youtube.com/watch?v=8jB6hDUqN0Y"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "points": 3,
+      "question": "The figure below shows a junction. What is true of the currents?",
+      "choices": [
+        "(a) i1 = i0 + i2",
+        "(b) i2 = i0 + i1",
+        "(c) i0 = i1 − i2",
+        "(d) i1 = i0 − i2",
+        "(e) i0 = i2 − i1"
+      ],
+      "answer": "(d) i1 = i0 − i2 (KCL: i0 = i1 + i2 ⇒ i1 = i0 − i2)",
+      "explanation": "Kirchhoff's Current Law (KCL): The sum of currents entering a junction equals the sum leaving. Charge is conserved - what flows in must flow out.",
+      "resources": [
+        {
+          "type": "Khan Academy - Kirchhoff's Laws",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-with-resistors/v/ee-kirchhoffs-current-law"
+        },
+        {
+          "type": "Video - KCL Explained",
+          "url": "https://www.youtube.com/watch?v=9lZNB-8dHRk"
+        }
+      ],
+      "images": ["images/Quiz 2 V2-2.png"]
+    },
+    {
+      "number": 7,
+      "points": 3,
+      "question": "For a cylindrical resistor that obeys Ohm's Law the resistance does NOT depend on:",
+      "choices": [
+        "(a) the current",
+        "(b) the length",
+        "(c) the cross-sectional area",
+        "(d) the resistivity",
+        "(e) the electron drift velocity"
+      ],
+      "answer": "(a) the current (R = ρL/A is independent of current for ohmic conductors)",
+      "explanation": "Resistance R = ρL/A depends on material (ρ), geometry (L, A), and temperature - but NOT on current. Ohmic materials maintain constant R regardless of applied voltage/current.",
+      "resources": [
+        {
+          "type": "Khan Academy - Ohm's Law",
+          "url": "https://www.khanacademy.org/science/physics/circuits-topic/circuits-resistance/v/circuits-part-2"
+        },
+        {
+          "type": "Video - Resistance",
+          "url": "https://www.youtube.com/watch?v=VnnfDzGLY8g"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "points": 3,
+      "question": "Pulling the plates of an isolated charged capacitor apart:",
+      "choices": [
+        "(a) increases the capacitance",
+        "(b) increases the potential difference",
+        "(c) does not affect the potential difference",
+        "(d) decreases the capacitance",
+        "(e) does not affect the capacitance"
+      ],
+      "answer": "(b) increases the potential difference (Q fixed → V increases; C decreases)",
+      "explanation": "For isolated capacitor, charge Q is constant. C = ε₀A/d decreases as d increases. Since Q = CV, if C decreases and Q is fixed, V must increase.",
+      "resources": [
+        {
+          "type": "Article - Capacitor Physics",
+          "url": "https://www.electronics-tutorials.ws/capacitor/cap_1.html"
+        },
+        {
+          "type": "Video - Capacitor Behavior",
+          "url": "https://www.youtube.com/watch?v=ZrMltpK6iAw"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "points": 3,
+      "question": "\"The sum of the emf's potential differences around a closed loop equals zero,\" is a consequence of",
+      "choices": [
+        "(a) Newton's third law",
+        "(b) Ohm's law",
+        "(c) Newton's second law",
+        "(d) Maravin's law",
+        "(e) conservation of energy"
+      ],
+      "answer": "(e) conservation of energy"
+    },
+    {
+      "number": 10,
+      "points": 3,
+      "question": "An ideal battery has an emf of 12 V. If it is connected to a circuit and creates a current of 4.0 A, what is the power?",
+      "choices": [
+        "(a) 0.3 W",
+        "(b) 3.0 W",
+        "(c) 36 W",
+        "(d) 48 W",
+        "(e) cannot tell without knowing the resistance of the circuit"
+      ],
+      "answer": "(d) 48 W, since P = VI = 12 V × 4 A",
+      "images": ["images/Quiz 2 V2-3.png"]
+    },
+    {
+      "number": 11,
+      "points": 3,
+      "question": "Which statement is most correct? (Refer to the capacitor figure: three capacitors each C = 0.1 µF, battery V = 9 V)",
+      "choices": [
+        "(a) A, B, and C are in series",
+        "(b) A, B, and C are in parallel",
+        "(c) A is in parallel with the series combination of B and C",
+        "(d) A is in series with the parallel combination of B and C"
+      ],
+      "answer": "(c)",
+      "images": ["images/Quiz 2 V2-3.png"]
+    },
+    {
+      "number": 12,
+      "points": 3,
+      "question": "Which relationship is most correct concerning the charges stored on the capacitors? (Refer to the same figure)",
+      "choices": [
+        "(a) QA = QB > QC",
+        "(b) QA = QC > QB",
+        "(c) QB = QC > QA",
+        "(d) QA > QB = QC"
+      ],
+      "answer": "(c)",
+      "images": ["images/Quiz 2 V2-3.png"]
+    },
+    {
+      "number": 13,
+      "points": 3,
+      "question": "In the context of the loop and junctions rules for electrical circuits, a junction is",
+      "choices": [
+        "(a) where a wire is connected to a resistor",
+        "(b) where a wire is connected to a battery",
+        "(c) where a wire is bent",
+        "(d) where three or more wires are joined",
+        "(e) where only two wires are joined"
+      ],
+      "answer": "(d)"
+    },
+    {
+      "number": 14,
+      "points": 3,
+      "question": "A certain capacitor, in series with a 720 Ω resistor is being charged. At the end of 10 ms, its charge is half the final value. The capacitance is about",
+      "choices": [
+        "(a) 9.6 µF",
+        "(b) 14 µF",
+        "(c) 20 µF",
+        "(d) 7.2 F",
+        "(e) 10 F"
+      ],
+      "answer": "(c) 20 µF, since 0.5 = 1 − e^{−t/RC} ⇒ RC = t/ln 2 = 0.010/0.693 ≈ 0.0144 s ⇒ C ≈ 0.0144/720 ≈ 2.0×10^{-5} F"
+    },
+    {
+      "number": 15,
+      "points": 3,
+      "question": "The figure below shows four different ways that studio groups in previous years have wired up a voltmeter (square box with V) and an ammeter (circle with an A) to perform a simultaneous measurement of the current through and the voltage difference across circuit element X (diamond with an X). Assume \"ideal\" performance for the voltmeter and ammeter. Which is the only scheme that correctly measures the voltage across X and the current through X? (Refer to the meter wiring figure)",
+      "choices": [
+        "(a) one",
+        "(b) two",
+        "(c) three",
+        "(d) four"
+      ],
+      "answer": "(c)",
+      "images": ["images/Quiz 2 V2-4.png"]
+    },
+    {
+      "number": 16,
+      "points": 3,
+      "question": "Which scheme is most likely to blow a fuse in the ammeter? (Refer to the same figure)",
+      "choices": [
+        "(a) one",
+        "(b) two",
+        "(c) three",
+        "(d) four"
+      ],
+      "answer": "(d)",
+      "images": ["images/Quiz 2 V2-4.png"]
+    },
+    {
+      "number": 17,
+      "points": 14,
+      "question": "An alpha particle (two protons and two neutrons) moves into a stationary gold nucleus (79 protons and 118 neutrons). The alpha particle momentarily stops when its center is at radial distance r = 9.23·10^{-15} m from the nuclear center, then moves back along its incoming path. Assume the gold nucleus does not move.\n• (a) (2 points) What are charges of alpha particle and gold nucleus?\n• (b) (4 points) Find the electric potential of the nucleus at distance r (assume uniform charge). State assumptions.\n• (c) (4 points) What is the kinetic energy Ki of the alpha particle when it was initially far away?\n• (d) (4 points) Using (b), find |E_r| = |−∂V/∂r| at distance r. Compare to field of point-like charge.",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "seeKey": true,
+      "images": ["images/Quiz 2 V2-5.png"]
+    },
+    {
+      "number": 18,
+      "points": 14,
+      "question": "In the figure below, I1, I2, and I3 are the currents flowing through the resistors labeled R1, R2, and R3, respectively. To help the graders out, use the directions of the currents shown in the figure.\n• (a) (6 points) Deduce three independent equations for the three unknown currents. Use the symbolic notation for resistances and voltages.\n• (b) (5 points) Take V1 = 10V, V2 = 20V; R2 = 106 Ω, and R1 = R3 = R4 = 10 Ω. Calculate I1, I2, and I3. You can use equations above, or if you can see a simpler path to a very good estimate of the exact answer, use it, explaining whatever approximation you make in one sentence. (Hint: Wow! R2 is a very big resistance!).\n• (c) (3 points) What is the potential difference between points A and B: VB − VA?",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "seeKey": true,
+      "images": ["images/Quiz 2 V2-6.png"]
+    },
+    {
+      "number": 19,
+      "points": 13,
+      "question": "The left figure shows a circuit with switch positions (a) and (b); EMF is 50 V. The right figure indicates charge measured on the capacitor.\n• (a) (1 point) From the time dependence of charge, is the switch in (a) or (b)? Explain.\n• (b) (3 points) What is the RC time constant?\n• (c) (3 points) What is the capacitance?\n• (d) (3 points) What is the resistance?\n• (e) (3 points) How much current is flowing into the capacitor at t = 2 ms? (Hint: dQ/dt)",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "seeKey": true,
+      "images": ["images/Quiz 2 V2-7.png"]
+    },
+    {
+      "number": 20,
+      "points": 9,
+      "question": "A 60 V battery has internal resistance 10 Ω. It is connected to a load RL = 390 Ω.\n• (a) (2 points) Show that the battery supplies a current of 0.15 A.\n• (b) (3 points) What voltage would a very good voltmeter show across the battery terminals?\n• (c) (3 points) How long for the battery to absorb 1000 J of heat energy?\n• (d) (1 point) How much current if the load develops a short circuit?",
+      "choices": [],
+      "answer": "{SEE_KEY} Please refer to the Quiz Key PDF for the detailed solution.",
+      "seeKey": true,
+      "images": ["images/Quiz 2 V2-7.png"]
+    }
+  ]
+}

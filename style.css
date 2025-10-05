@@ -77,7 +77,7 @@ h1 {
 #sidebar {
   flex: 0 0 260px;
   max-height: 94vh;
-  overflow: hidden;
+  overflow: visible;
   background: #ffffff;
   border: 1px solid #e5e9f2;
   border-radius: 12px;
@@ -120,6 +120,11 @@ h1 {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: visible;
+  z-index: 1000;
 }
 
 /* Subject tabs */
@@ -128,6 +133,7 @@ h1 {
   gap: 4px;
   padding: 0;
   margin: 0;
+  flex: 1;
 }
 
 .subject-tab {
@@ -141,8 +147,8 @@ h1 {
   color: #003366;
   transition: all 0.2s ease;
   text-align: center;
-  width: 75%;
-  max-width: 180px;
+  flex: 1;
+  min-width: 0;
 }
 
 .subject-tab:hover {
@@ -153,6 +159,68 @@ h1 {
 .subject-tab.active {
   background: #004d8a;
   color: white;
+}
+
+/* Mode toggle button */
+.mode-toggle-btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.mode-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+.mode-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+#mode-icon {
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.mode-toggle-btn:hover #mode-icon {
+  transform: rotate(15deg);
+}
+
+/* Mode toggle tooltip positioning - to the right of button */
+.mode-toggle-btn.tooltip-trigger[data-tooltip]::after {
+  left: calc(100% + 12px);
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.mode-toggle-btn.tooltip-trigger[data-tooltip]::before {
+  left: calc(100% + 4px);
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: #667eea;
+  border-left-color: transparent;
+}
+
+.mode-toggle-btn.tooltip-trigger:hover[data-tooltip]::after {
+  transform: translateY(-50%) translateX(5px);
 }
 
 .sidebar-content {
