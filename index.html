@@ -35,6 +35,17 @@
       chtml: { matchFontHeight: true, scale: 1 }
     };
   </script>
+  <!-- Marked.js for Markdown parsing - load before MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Configure marked to not escape HTML and to preserve LaTeX
+    if (typeof marked !== 'undefined') {
+      marked.setOptions({
+        breaks: true,
+        gfm: true
+      });
+    }
+  </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
@@ -237,7 +248,7 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
           </div>
           <div class="answer" style="display: block;">
             <span class="answer-label">Explanation & Examples</span>
-            <div class="answer-text">${data.explanation}</div>
+            <div class="answer-text">${typeof marked !== 'undefined' && marked.parse && data.explanation ? marked.parse(data.explanation) : (data.explanation || '')}</div>
           </div>
         `;
         
@@ -260,15 +271,17 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         // Show user's selection in the answer and check if correct
         let userSelectionText = '';
         let isCorrect = false;
-        if (showingAnswer && userSelections[currentIndex] !== undefined && data.choices) {
+        if (showingAnswer && userSelections[currentIndex] !== undefined && data.choices && data.choices.length > 0) {
           const selectedIdx = userSelections[currentIndex];
           const selectedChoice = data.choices[selectedIdx];
           
           // Check if answer is correct by looking for the choice letter in the answer text
-          const choiceLetter = selectedChoice.match(/^\(([a-zA-Z])\)/);
-          if (choiceLetter && data.answer) {
-            const correctLetter = data.answer.match(/\(([a-zA-Z])\)/);
-            isCorrect = choiceLetter[1] === correctLetter?.[1];
+          if (selectedChoice) {
+            const choiceLetter = selectedChoice.match(/^\(([a-zA-Z])\)/);
+            if (choiceLetter && data.answer) {
+              const correctLetter = data.answer.match(/\(([a-zA-Z])\)/);
+              isCorrect = choiceLetter[1] === correctLetter?.[1];
+            }
           }
           
           const resultClass = isCorrect ? 'user-selection-correct' : 'user-selection-incorrect';
@@ -315,13 +328,14 @@ Your flashcard history will be reset.">🧙 Clear Progress</button>
         } else {
           // For tutorial cards (no answer, only explanation with examples), show the full content
           const contentToShow = data.answer ? data.answer : (data.explanation ? data.explanation : definition);
-          answerHtml = `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">${data.answer ? 'Answer' : 'Explanation & Examples'}</span>${userSelectionText}<div class="answer-text">${contentToShow}</div></div>`;
+          const parsedContent = (data.explanation && !data.answer && typeof marked !== 'undefined' && marked.parse && contentToShow) ? marked.parse(contentToShow) : (contentToShow || '');
+          answerHtml = `<div class="answer" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="answer-label">${data.answer ? 'Answer' : 'Explanation & Examples'}</span>${userSelectionText}<div class="answer-text">${parsedContent}</div></div>`;
         }
         
         // Only show explanation separately if there's also an answer (quiz mode)
         // For tutorials (no answer), explanation is already shown in the answer section
         const explanationHtml = (data.explanation && data.answer && !data.seeKey)
-          ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${data.explanation}</div></div>`
+          ? `<div class="explanation" style="display: ${showingAnswer ? 'block' : 'none'};"><span class="explanation-label">Explanation</span><div class="explanation-text">${typeof marked !== 'undefined' && marked.parse && data.explanation ? marked.parse(data.explanation) : (data.explanation || '')}</div></div>`
           : '';
         
         // Add resource links if available - always show when answer is revealed (even for seeKey problems)
